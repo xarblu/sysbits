@@ -274,6 +274,10 @@ function brc_build_env_setup() {
 		# cargo
 		export CARGO_TERM_QUIET="false"
 		export CARGO_TERM_VERBOSE="false"
+		# kbuild when using kernel-build.eclass
+		if [[ -n "${_KERNEL_BUILD_ECLASS}" ]]; then
+			export EXTRA_EMAKE="${EXTRA_EMAKE} V=0"
+		fi
 	fi
 }
 
