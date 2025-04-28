@@ -1,0 +1,7 @@
+# general fixes
+
+#[START] Debug info
+# don't keep debug info in case of collisions
+net-vpn/mullvad-vpn-bin no-splitdebug
+app-admin/bitwarden-desktop-bin no-splitdebug
+#[END] Debug info

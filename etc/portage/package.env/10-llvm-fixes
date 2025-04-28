@@ -1,0 +1,148 @@
+# Misc fixes when using the LLVM toolchain by default
+
+#[START] Compile issues (general clang)
+# ‘-fcf-protection’ is not compatible with this target
+sys-devel/gcc gcc
+# -flto-partitions even without lto
+sys-apps/apparmor gcc
+# is gcc compiled bin. fails without gcc
+sys-kernel/gentoo-kernel-bin gcc
+# sth in efi
+sys-apps/memtest86+ gcc
+sys-boot/gnu-efi gcc
+sys-apps/fwupd-efi gcc
+# haskell packages
+# use x86_64-pc-linux-gnu-(g)cc and don't respect CC var
+# can kinda be changed in /usr/lib64/ghc-9.2.8/settings
+dev-haskell/* gcc
+dev-lang/ghc gcc
+app-admin/haskell-updater gcc
+app-text/pandoc-cli gcc
+dev-util/shellcheck gcc
+# fortran packages (flang will be packaged starting with LLVM 21)
+sci-libs/lapack gcc
+dev-lang/R gcc
+# forces gcc internally anyways
+sys-libs/glibc gcc
+# runtime symbol lookup error: /usr/lib64/libopenmpt.so.0: undefined symbol: __muldc3
+# sth in compiler-rt
+media-libs/libopenmpt gcc
+#[END] Compile issues (general clang)
+
+#[START] Compile issues (latest clang)
+# 'lifetimebound' attribute cannot be applied to a parameter 
+# of a function that returns void; did you mean 'lifetime_capture_by(X)'
+# #define ABSL_ATTRIBUTE_LIFETIME_BOUND [[clang::lifetimebound]]
+# ~dev-cpp/abseil-cpp-20240722.0
+dev-qt/qtwebengine clang-19
+media-libs/tg_owt clang-19
+net-im/telegram-desktop clang-19
+# call to consteval function 'fmt::basic_format_string<char, const char *>::basic_format_string<FMT_COMPILE_STRING, 0>' is not a constant expression
+dev-util/android-tools clang-19
+# LLVM toolchains should stay (mostly) self-built to avoid issues
+#llvm-core/*:15 clang-15
+llvm-core/*:16 clang-16
+llvm-runtimes/*:16 clang-16
+llvm-core/*:17 clang-17
+llvm-runtimes/*:17 clang-17
+llvm-core/*:18 clang-18
+llvm-runtimes/*:18 clang-18
+llvm-core/*:19 clang-19
+llvm-runtimes/*:19 clang-19
+#[END] Compile issues (latest clang)
+
+#[START] Compile issues (libc++)
+# _Atomic cannot be applied to type 'std::shared_ptr
+gui-wm/gamescope libstdcpp
+# missing c++20 support
+app-misc/clipboard libstdcpp
+# sth gcxx
+dev-debug/systemtap libstdcpp
+# implicit instantiation of undefined template 'std::char_traits<unsigned char>'
+dev-libs/intel-compute-runtime libstdcpp
+#[END] Compile issues (libc++)
+
+#[START] Linker issues
+# mold does not support `-b binary`
+gui-libs/gtk no-mold
+# -b binary -> no mold; -m type missing -> no lld
+media-video/makemkv ld-bfd
+# failed to load plugin : /usr/bin/ld.mold: undefined symbol: onload
+llvm-core/lldb no-mold
+games-emulation/snes9x no-mold
+# segfaults mold or sth
+net-im/telegram-desktop no-mold
+# forces bfd
+app-emulation/wine-vanilla ld-bfd
+# ld.lld: error: version script assignment of * to symbol * failed: symbol not defined
+sys-libs/talloc ld-allow-undefined-version
+sys-libs/tevent ld-allow-undefined-version
+sys-libs/tdb ld-allow-undefined-version
+net-fs/samba ld-allow-undefined-version
+dev-java/openjdk:21 ld-allow-undefined-version
+#[END] Linker issues
+
+#[START] Compile issues (polly)
+# configure fails, no std::unique_ptr
+dev-build/cmake no-polly
+# link undefined symbols
+media-libs/openal no-polly
+# inlining fails when system doesn't support avx512
+media-libs/svt-av1 no-polly
+# Unknown command line argument
+# clang -fplugin acts weird on ASM files
+# should be fixed in 19 or not idk
+app-shells/fzf no-polly
+dev-lang/python no-polly
+dev-util/intel_clc no-polly
+dev-libs/openssl no-polly
+dev-util/maturin no-polly
+llvm-core/llvm no-polly
+llvm-runtimes/compiler-rt no-polly
+llvm-runtimes/compiler-rt-sanitizers no-polly
+dev-util/android-tools no-polly
+dev-python/numpy no-polly
+net-libs/gnutls no-polly
+dev-java/openjdk no-polly
+net-dns/dnsproxy no-polly
+net-libs/nodejs no-polly
+llvm-runtimes/openmp no-polly
+dev-libs/rocm-device-libs no-polly
+gui-wm/gamescope no-polly
+media-libs/mesa no-polly
+dev-libs/blake3 no-polly
+app-admin/goldwarden no-polly
+x11-terms/wezterm no-polly
+sys-fs/btrfs-progs no-polly
+dev-go/lichen no-polly
+app-containers/podman no-polly
+app-shells/starship no-polly
+sys-kernel/scx no-polly
+games-emulation/melonds no-polly
+#[END] Compile issues (polly)
+
+#[START] LTO Issues
+# ld.lld: error: inconsistent LTO Unit splitting
+media-gfx/darktable no-lto
+#[END] LTO Issues
+
+#[START] Strict warnings
+net-libs/webkit-gtk no-strict-warn
+dev-util/intel-graphics-compiler no-strict-warn
+#[END] Strict warnings
+
+#[START] misc
+# fallback toolchain - don't optimize a lot
+sys-devel/gcc no-optimize
+sys-devel/binutils no-optimize
+sys-libs/binutils-libs no-optimize
+# all around flaky build so keep it simple
+dev-util/intel-graphics-compiler no-optimize 
+# https://bugs.gentoo.org/953109
+dev-lang/rust:1.86.0 rust-bgo-953109
+# required so plasmashell works at all...
+llvm-runtimes/libcxx libcxx-typeinfo
+llvm-runtimes/libcxxabi libcxx-typeinfo
+# LDSHARED doesn't get set automatically it seems...
+dev-lang/pypy pypy-linker_so
+#[END] misc
