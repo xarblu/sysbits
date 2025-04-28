@@ -1,0 +1,3 @@
+# some packages refuse to compiler because
+# of broken version scripts
+EXTRA_LDFLAGS="${EXTRA_LDFLAGS} -Wl,--undefined-version"

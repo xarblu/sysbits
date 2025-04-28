@@ -1,0 +1,4 @@
+ENABLE_MOLD="false"
+ENABLE_ICF="false"
+LD="ld.bfd"
+EXTRA_LDFLAGS="-fuse-ld=bfd"

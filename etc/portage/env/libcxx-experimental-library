@@ -1,0 +1,2 @@
+# std::jthread is experimental in libc++ (18.1.X)
+EXTRA_CXXFLAGS="${EXTRA_CXXFLAGS} -fexperimental-library"

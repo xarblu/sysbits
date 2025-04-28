@@ -1,0 +1,2 @@
+EXTRA_CXXFLAGS="-stdlib=libstdc++"
+EXTRA_LDFLAGS="-stdlib=libstdc++"

@@ -1,0 +1,6 @@
+# Breaks Qt and potentially more if this isn't enforced
+# 2 also brings LLVM libc++ closer to GNU libstdc++
+# https://bugs.kde.org/show_bug.cgi?id=479679
+# https://github.com/llvm/llvm-project/issues/36746
+# https://bugs.gentoo.org/923292
+MYCMAKEARGS="-DLIBCXX_TYPEINFO_COMPARISON_IMPLEMENTATION=2"

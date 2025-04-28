@@ -1,0 +1,3 @@
+# don't keep debug info
+# e.g. electron binary apps
+FEATURES="-splitdebug"

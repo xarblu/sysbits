@@ -1,0 +1,7 @@
+# disable some strict warnings
+NOWARN="-Wno-implicit-function-declaration -Wno-missing-template-arg-list-after-template-kw"
+EXTRA_CFLAGS="${NOWARN}"
+EXTRA_CXXFLAGS="${NOWARN}"
+EXTRA_FCFLAGS="${NOWARN}"
+EXTRA_F77FLAGS="${NOWARN}"
+EXTRA_LDFLAGS="${NOWARN}"

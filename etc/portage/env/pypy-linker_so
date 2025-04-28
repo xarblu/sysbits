@@ -1,0 +1,6 @@
+# pypy shared library does some stupid shit
+# see lib-python/3/distutils/sysconfig_pypy.py
+# defaults to "gcc -pthread -shared" so just replace gcc with ${CC}
+# -L/usr/lib64 because the build passes -L/usr/lib (???)
+# so lld freaks out when trying to link 64 x 32 bit libs
+LDSHARED="${CC} -pthread -shared -L/usr/lib64"

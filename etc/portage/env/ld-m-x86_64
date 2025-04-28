@@ -1,0 +1,1 @@
+EXTRA_LDFLAGS="${EXTRA_LDFLAGS} -Wl,-m,elf_x86_64"
