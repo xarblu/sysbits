@@ -1,0 +1,11 @@
+# import bashrc-utils
+source /usr/share/sysbits/portage/bashrc-utils.sh
+
+# do some extra setup
+function pre_pkg_setup() {
+	# setup environment
+	brc_build_env_setup
+
+	# print flags
+	brc_build_info
+}
