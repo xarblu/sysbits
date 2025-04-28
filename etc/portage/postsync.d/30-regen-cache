@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# regenerate metadata on sync to keep it fresh
+# then update eix
+function main() {
+	local start
+	printf " \e[32;1m*\e[0m Regenerating repository cache...\n"
+	start="${EPOCHSECONDS}"
+	if emerge --ignore-default-opts --regen --jobs=$(nproc) | perl -e 'my $i = 0; while (<>) { if ($_ =~ /^Processing (\S+?\/\S+)$/) { $i++; print "\e[2K\e[1G[$i] $1" }}; print "\e[2K\e[1GProcessed $i packages\n"'; then
+		printf " \e[32;1m*\e[0m Took %s seconds\n" "$(( EPOCHSECONDS - start ))"
+	else
+		printf " \e[31;1m*\e[0m Failed\n"
+		exit 1
+	fi
+
+	printf " \e[32;1m*\e[0m Updating eix database (eix-update)...\n"
+	export PORTDIR_CACHE_METHOD="assign"
+	export OVERLAY_CACHE_METHOD="assign"
+	start="${EPOCHSECONDS}"
+	if eix-update; then
+		printf " \e[32;1m*\e[0m Took %s seconds\n" "$(( EPOCHSECONDS - start ))"
+	else
+		printf " \e[31;1m*\e[0m Failed\n"
+		exit 1
+	fi
+	exit 0
+}
+main
