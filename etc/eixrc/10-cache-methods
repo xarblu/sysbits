@@ -1,0 +1,4 @@
+# this assumes you have pre-generated metadata cache
+# either provided by the repo or via emerge --regen
+PORTDIR_CACHE_METHOD="assign"
+OVERLAY_CACHE_METHOD="assign"
