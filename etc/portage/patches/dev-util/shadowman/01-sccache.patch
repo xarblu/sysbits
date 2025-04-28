@@ -1,0 +1,53 @@
+diff --git a/Makefile b/Makefile
+index 8607cf0..f0bdfdc 100644
+--- a/Makefile
++++ b/Makefile
+@@ -6,7 +6,7 @@ eselectdir = $(datadir)/eselect/modules
+ moduledir = $(datadir)/shadowman
+ 
+ INSTALL_MODULES_COMPILER = clang gcc posix
+-INSTALL_MODULES_TOOL = ccache distcc icecc
++INSTALL_MODULES_TOOL = ccache distcc icecc sccache
+ 
+ all:
+ 	:
+diff --git a/compiler-shadow.eselect b/compiler-shadow.eselect
+index 931a94a..9dc4f52 100644
+--- a/compiler-shadow.eselect
++++ b/compiler-shadow.eselect
+@@ -114,7 +114,27 @@ do_update() {
+ 			# create new links
+ 			local exe
+ 			while read -r exe; do
+-				ln -v -s "${tool_exec}" "${exe}" || die
++				case ${t} in
++					sccache)
++						echo "'${exe}' -> '${tool_exec}'"
++						cat > "${exe}" <<EOF
++#!/usr/bin/env bash
++# strip own path and extraneous : seperators
++_ownpath="\$(dirname "\$(readlink -e "\${0}")")"
++PATH="\${PATH//\${_ownpath}/}"
++unset _ownpath
++PATH="\${PATH//::/:}"
++PATH="\${PATH#:}"
++PATH="\${PATH%:}"
++export PATH
++exec ${tool_exec} "\$(basename "\${0}")" "\${@}"
++EOF
++						chmod +x "${exe}" || die
++						;;
++					*)
++						ln -v -s "${tool_exec}" "${exe}" || die
++						;;
++				esac
+ 			done < <(compgen -c -X "!${p}" | sort -u)
+ 			# note: compgen can return a command twice if it is included
+ 			# in multiple directories in PATH
+diff --git a/modules/tools/sccache b/modules/tools/sccache
+new file mode 100644
+index 0000000..8a8c1bf
+--- /dev/null
++++ b/modules/tools/sccache
+@@ -0,0 +1 @@
++/usr/lib/sccache/bin

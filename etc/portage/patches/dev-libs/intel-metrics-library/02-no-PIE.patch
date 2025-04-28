@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 599d1e8..0f27ef1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -643,7 +643,6 @@ elseif (${PLATFORM} STREQUAL linux) # linux
+         "${CMAKE_BUILD_TYPE}" STREQUAL "releaseinternal")
+         add_definitions (-fvisibility=hidden)     # hide non-exported symbols
+         add_definitions (-fPIC)                   # generates position-independent code during the compilation phase
+-        add_definitions (-fPIE)                   # generates position-independent executables during the compilation phase
+         add_definitions (-pie)                    # produces position-independent executables during the linking phase
+     endif ()
+ else()

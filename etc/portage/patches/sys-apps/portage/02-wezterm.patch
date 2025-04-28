@@ -1,0 +1,13 @@
+diff --git a/lib/portage/output.py b/lib/portage/output.py
+index cdeeb18..e45606f 100644
+--- a/lib/portage/output.py
++++ b/lib/portage/output.py
+@@ -263,7 +263,7 @@ def nc_len(mystr):
+ 
+ 
+ _legal_terms_re = re.compile(
+-    r"^(xterm|xterm-color|Eterm|aterm|rxvt|screen|kterm|rxvt-unicode|gnome|interix|tmux|st-256color|alacritty|konsole|foot)"
++    r"^(xterm|xterm-color|Eterm|aterm|rxvt|screen|kterm|rxvt-unicode|gnome|interix|tmux|st-256color|alacritty|konsole|foot|wezterm)"
+ )
+ _disable_xtermTitle = None
+ _max_xtermTitle_len = 253

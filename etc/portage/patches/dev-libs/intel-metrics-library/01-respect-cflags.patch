@@ -1,0 +1,20 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 161a8f9..599d1e8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -621,7 +621,6 @@ elseif (${PLATFORM} STREQUAL linux) # linux
+         -Wformat-security             # warns about potentially insecure format string usages
+         -Wno-sequence-point           # disable undefined behavior warning
+         -Wno-comment                  # allow multi-line comments
+-        -Ofast                        # optimize code in the favor of speed 
+         -fstack-protector-strong      # enables stack protection for vulnerable functions that contain: An array of any size and type
+         -Wno-unused-but-set-parameter # disable parameter set but not used warning
+         )
+@@ -642,7 +641,6 @@ elseif (${PLATFORM} STREQUAL linux) # linux
+     if ("${CMAKE_BUILD_TYPE}" STREQUAL "release" OR
+         "${CMAKE_BUILD_TYPE}" STREQUAL "release-internal" OR
+         "${CMAKE_BUILD_TYPE}" STREQUAL "releaseinternal")
+-        add_definitions (-flto)                   # enables Link-Time Optimization (LTO)
+         add_definitions (-fvisibility=hidden)     # hide non-exported symbols
+         add_definitions (-fPIC)                   # generates position-independent code during the compilation phase
+         add_definitions (-fPIE)                   # generates position-independent executables during the compilation phase

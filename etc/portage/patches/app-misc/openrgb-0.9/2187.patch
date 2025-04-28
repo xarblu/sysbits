@@ -1,0 +1,25 @@
+From bbf72f6c929ef995048c7c4ed221588301b472d5 Mon Sep 17 00:00:00 2001
+From: Randy Palamar <randy@rnpnr.xyz>
+Date: Fri, 15 Dec 2023 07:03:03 -0700
+Subject: [PATCH] add missing sstream include for AutoStart-Linux
+
+This was causing the build to fail when compiling with clang.
+---
+ AutoStart/AutoStart-Linux.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/AutoStart/AutoStart-Linux.cpp b/AutoStart/AutoStart-Linux.cpp
+index f09f97e50b..bbe754dfa1 100644
+--- a/AutoStart/AutoStart-Linux.cpp
++++ b/AutoStart/AutoStart-Linux.cpp
+@@ -4,6 +4,7 @@
+ 
+ #include <fstream>
+ #include <iostream>
++#include <sstream>
+ #include <unistd.h>
+ #include <linux/limits.h>
+ 
+-- 
+GitLab
+
