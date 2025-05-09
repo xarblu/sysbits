@@ -39,6 +39,8 @@ media-libs/tg_owt clang-19
 net-im/telegram-desktop clang-19
 # call to consteval function 'fmt::basic_format_string<char, const char *>::basic_format_string<FMT_COMPILE_STRING, 0>' is not a constant expression
 dev-util/android-tools clang-19
+# not exactly a clang issue but we need LLVM matching lld
+dev-lang/rust:1.86.0 clang-19
 # LLVM toolchains should stay (mostly) self-built to avoid issues
 #llvm-core/*:15 clang-15
 llvm-core/*:16 clang-16
@@ -124,6 +126,8 @@ games-emulation/melonds no-polly
 #[START] LTO Issues
 # ld.lld: error: inconsistent LTO Unit splitting
 media-gfx/darktable no-lto
+# llvm-bitcode-strip doesn't like some objects
+dev-libs/botan no-lto
 #[END] LTO Issues
 
 #[START] Strict warnings
