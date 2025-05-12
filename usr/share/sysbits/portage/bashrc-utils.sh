@@ -80,6 +80,52 @@ function brc_append_flags() {
 	esac
 }
 
+# match CC and prepend its path in PATH
+# - useful if clang is requested via CC
+#   but build scripts use generic CHOST-cc
+# - fixes full LLVM toolchain to clang's version
+#   i.e. CC=clang-19 will auto-select ld.lld-19
+# - doesn't do anything if CC is not clang
+#   or a specific path
+function brc_prepend_llvm_path() {
+    # nop if non-clang
+    case "${CC}" in
+        *clang*) ;;
+        */*)
+            einfo "CC (${CC}) looks like a specific path - leaving PATH alone"
+            return
+            ;;
+        *)
+            einfo "CC (${CC}) not clang - leaving PATH alone"
+            return
+            ;;
+    esac
+
+    einfo "Prepending ${CC}s directory in PATH..."
+
+    # grab CCs PATH
+    local ccpath="$(dirname "$(type -p "${CC}")")"
+    if [[ -z "${ccpath}" ]]; then
+        ewarn "Could not resolve ${CC} - leaving PATH as is"
+    fi
+
+    # create new path
+    local -a oldpath
+    local dir newpath
+    IFS=':' read -ra oldpath <<<"${PATH}"
+    newpath+="${ccpath}"
+    for dir in "${oldpath[@]}"; do
+        if [[ "${dir}" == "${ccpath}" ]]; then
+            continue
+        fi
+        newpath+=":${dir}"
+    done
+
+    einfo "Old: ${PATH}"
+    einfo "New: ${newpath}"
+    export PATH="${newpath}"
+}
+
 # setup build environment
 # base *FLAGS are set in make.conf and expanded here
 # configuration options (true/false):
@@ -119,7 +165,11 @@ function brc_build_env_setup() {
 	# set rust linker to CC since the default-linker was changed to ${CHOST}-cc
 	# which links to gcc... https://bugs.gentoo.org/951740
     # handled by cargo.eclass in most cases but useful in case it isn't used
-	brc_append_flags rust "-C linker=${CC}"
+    brc_append_flags rust "-C linker=${CC}"
+
+    # prepend CC in PATH if we use clang so llvm-core/clang-toolchain-symlinks[native-symlinks]
+    # actually does something
+    brc_prepend_llvm_path
 
 	# toggle ld.mold
 	if "${ENABLE_MOLD:-false}"; then
