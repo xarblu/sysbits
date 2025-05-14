@@ -76,6 +76,8 @@ games-emulation/snes9x no-mold
 net-im/telegram-desktop no-mold
 # forces bfd
 app-emulation/wine-vanilla ld-bfd
+# sth sth undefined version with anything but bfd
+x11-libs/wxGTK ld-bfd
 # ld.lld: error: version script assignment of * to symbol * failed: symbol not defined
 sys-libs/talloc ld-allow-undefined-version
 sys-libs/tevent ld-allow-undefined-version
@@ -128,6 +130,8 @@ games-emulation/melonds no-polly
 media-gfx/darktable no-lto
 # llvm-bitcode-strip doesn't like some objects
 dev-libs/botan no-lto
+# sth sth undefined version with anything but bfd
+x11-libs/wxGTK no-lto
 #[END] LTO Issues
 
 #[START] Strict warnings
