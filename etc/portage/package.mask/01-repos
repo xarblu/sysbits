@@ -1,0 +1,13 @@
+# fully mask untrusted repos by default
+# trusted:
+#   gentoo
+#   guru
+#   xarblu-overlay
+#   steam-overlay
+#   kde
+#   qt
+
+*/*::CachyOS-kernels
+*/*::gentoo-zh
+*/*::src_prepare-overlay
+*/*::vapoursynth

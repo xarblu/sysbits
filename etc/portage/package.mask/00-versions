@@ -1,0 +1,5 @@
+# they changed to different version scheme...
+media-fonts/ibm-plex::gentoo
+
+# I don't like the mangohud from ::guru, has weird issues
+games-util/mangohud::guru
