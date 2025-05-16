@@ -1,0 +1,21 @@
+# since "X" often just means "GUI" we can't just disable it globally
+
+app-admin/keepassxc -X
+app-crypt/pinentry -X -qt5 -gtk
+app-text/ghostscript-gpl -X
+app-text/mupdf -X -opengl
+app-text/texlive -X
+app-text/texlive-core -X
+app-text/xournalpp -X
+dev-python/matplotlib -wxwidgets
+games-emulation/snes9x -xv
+kde-plasma/plasma-login-sessions -X
+kde-plasma/plasma-meta -X
+media-libs/libwebp -opengl
+media-libs/tg_owt -X
+media-libs/tiff -opengl
+media-video/mpv -X -opengl -xv
+net-im/telegram-desktop -X
+sys-process/psmisc -X
+www-client/firefox -X
+x11-misc/sddm -X

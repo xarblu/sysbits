@@ -1,0 +1,46 @@
+# USE flags applying to all packages
+# common across systems
+
+# TARGETS
+*/* LLVM_TARGETS: -* BPF
+# keep unset to select latest stable default
+#LLVM_SLOT
+
+# old targets should be kept once *all* PYTHON_SINGLE_TARGETs migrated to
+# the new targets to avoid annoying package.use shenanigans
+*/* PYTHON_TARGETS: -* python3_12 python3_13 python3_13t python3_14 python3_14t pypy3_11
+*/* PYTHON_SINGLE_TARGET: -* python3_13
+
+#*/* LUA_TARGETS:
+#*/* LUA_SINGLE_TARGET:
+
+*/* RUBY_TARGETS: -* ruby33 ruby34
+
+# USE_EXPANDS
+*/* ABI_X86: -* 64
+*/* CPU_FLAGS_X86: -*
+*/* VIDEO_CARDS: -* zink
+*/* L10N: -* en en-GB de
+*/* INPUT_DEVICES: -* evdev joystick libinput wacom
+
+# USE
+# Toolchain
+*/* clang llvm-libunwind libcxx pgo lto openmp -debug
+# Compression
+*/* zstd brotli
+# System
+*/* jemalloc dbus-broker
+# Kernel
+*/* modules-compress dist-kernel
+# Graphics
+*/* wayland screencast vulkan vaapi qt6 kf6compat trayicon sixel -gtk2 
+# Audio
+*/* jack pipewire pulseaudio -speech
+# Shell
+*/* zsh-completion bash-completion 
+# Media
+*/* webp jpegxl opus heif avif raw -vlc
+# Network
+*/* ipv6 nftables firewalld quic http3 -ppp -wext -modemmanager
+# other
+*/* flatpak -accessibility -grub

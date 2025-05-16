@@ -1,0 +1,19 @@
+# USE flags for toolchain packages
+
+# LLVM
+llvm-core/clang-common default-compiler-rt default-lld default-libcxx llvm-libunwind
+llvm-core/llvm binutils-plugin
+llvm-runtimes/libunwind static-libs
+llvm-core/clang-runtime sanitize
+llvm-core/clang-runtime:15.0.7 -sanitize
+
+# Rust
+virtual/rust rustfmt
+dev-lang/rust system-llvm system-bootstrap rustfmt rust-src clippy rust-analyzer
+
+# GNU
+sys-devel/gcc objc objc++ objc-gc -pgo -lto
+gnustep-base/gnustep-make native-exceptions
+
+# Other
+dev-util/ccache -static-c++

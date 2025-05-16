@@ -1,0 +1,110 @@
+# USE flags for everything else
+# common across systems
+
+app-admin/ananicy-cpp cachyos-rules
+app-admin/sudo offensive -sendmail
+app-arch/7zip rar uasm
+app-crypt/pinentry keyring
+app-emulation/qemu spice usbredir virgl
+app-emulation/wine-vanilla wow64
+app-misc/solaar appindicator
+app-misc/uwufetch gpu images
+app-office/libreoffice pdfimport
+app-text/doxygen -gui
+app-text/mupdf -X
+app-text/texlive cjk extra graphics science
+app-text/texlive-core cjk xetex
+dev-lang/pypy tk sqlite symlink
+dev-lang/python tk tail-call-interp
+dev-libs/boost context
+dev-libs/elfutils debuginfod
+dev-libs/libdbusmenu -gtk gtk3
+dev-libs/libunibreak -man
+dev-libs/weston fullscreen kiosk
+dev-python/pillow tk
+dev-python/pyside designer uitools
+dev-python/qtpy printsupport
+dev-qt/qtbase mysql
+dev-qt/qtpositioning geoclue
+dev-qt/qttools designer qdbus
+dev-qt/qtwebengine pdfium
+dev-util/intel-graphics-compiler vc
+dev-util/vulkan-tools cube
+games-emulation/mgba discord ffmpeg
+games-util/mangohud mangoapp
+gui-libs/greetd man
+gui-libs/wlroots tinywl
+gui-wm/gamescope libei
+kde-apps/kate-addons lspclient
+kde-apps/kde-apps-meta -education -games -multimedia -network
+kde-apps/kdecore-meta -webengine
+kde-apps/kio-extras mtp nfs samba taglib
+kde-apps/krdc -rdp
+kde-apps/thumbnailers video
+kde-frameworks/kfilemetadata ffmpeg
+kde-frameworks/kwidgetsaddons designer
+kde-misc/Burn-My-Windows doom energize-a energize-b fire glide hexagon incinerate pixelate pixel-wheel pixel-wipe portal tv tv-glitch wisps glitch
+kde-plasma/kwin xwayland
+kde-plasma/plasma-desktop webengine
+kde-plasma/plasma-firewall firewalld -ufw
+kde-plasma/plasma-meta -crypt oxygen-theme sdk
+mail-client/thunderbird hwaccel system-png -X openh264
+media-fonts/fonts-meta cjk emoji latin ms
+media-fonts/nerd-fonts ibmplexmono monaspace nerdfontssymbolsonly
+media-fonts/noto-emoji icons
+media-fonts/source-han-sans L10N: ja ko zh-CN zh-HK zh-TW
+media-fonts/twemoji icons
+media-gfx/blender hip
+media-gfx/imagemagick heif
+media-gfx/krita fftw qtmedia -xsimd
+media-libs/babl introspection
+media-libs/chromaprint tools
+media-libs/freetype brotli harfbuzz utils
+media-libs/gegl introspection
+media-libs/libavif dav1d
+media-libs/libbdplus aacs
+media-libs/libbluray aacs bdplus java utils
+media-libs/libheif x265
+media-libs/libpng apng
+media-libs/libvpx postproc
+media-libs/mesa zink osmesa
+media-libs/opencv features2d
+media-libs/phonon minimal
+media-libs/vigra openexr
+media-plugins/gst-plugins-meta http taglib
+media-sound/kid3 -mp3 -mp4
+media-sound/picard discid fingerprints
+media-sound/pulseaudio -*
+media-sound/strawberry soup
+media-video/ffmpeg bluray -cuda dav1d encode fdk jpeg2k libaom libass libdrm libv4l mp3 openal opengl openh264 opus -rav1e speex -ssh svt-av1 theora threads twolame v4l vmaf vorbis vpx webp x264 x265 -gnutls opencl jpegxl libplacebo openssl shaderc vulkan lame
+media-video/mediainfo -wxwidgets
+media-video/mpv archive bluray cli dvd -xv
+media-video/obs-studio fdk jack lua python v4l
+media-video/pipewire echo-cancel extra gstreamer jack-sdk lv2 pipewire-alsa v4l sound-server
+media-video/vlc dav1d -ffmpeg -gui vpx
+net-dns/dnsmasq script
+net-firewall/firewalld -gui
+net-im/telegram-desktop qt6-imageformats
+net-libs/gnutls pkcs11 tools
+net-libs/nodejs npm
+net-misc/aria2 metalink xmlrpc
+net-misc/curl CURL_QUIC: openssl
+net-misc/curl nghttp3
+net-misc/networkmanager -bluetooth
+net-misc/nextcloud-client dolphin
+net-misc/spice-gtk usbredir
+net-print/cups -X -usb
+net-print/gutenprint -gtk
+sci-libs/libqalculate gnuplot
+sys-apps/cpu-x opencl
+sys-apps/fwupd logitech uefi gnutls gusb nvme
+sys-apps/memtest86+ -* boot uefi64
+sys-apps/systemd elfutils tpm boot cryptsetup ukify
+sys-kernel/cachyos-settings zram
+sys-kernel/installkernel dracut module-rebuild systemd-boot uki ukify
+sys-kernel/kernelscripts eclean-kernel
+sys-kernel/linux-firmware compress-zstd deduplicate
+virtual/linux-sources firmware
+www-client/firefox hwaccel system-png -X openh264 wasm-sandbox
+x11-base/xorg-server xvfb
+x11-base/xwayland libei

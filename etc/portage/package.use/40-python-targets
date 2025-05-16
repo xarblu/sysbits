@@ -1,0 +1,11 @@
+# override default python targets
+
+# older PYTHON_SINGLE_TARGET
+# usediff python_single_target_python3_{12..13} PYTHON_SINGLE_TARGET
+
+=llvm-core/clang-15.0.7-r3 PYTHON_SINGLE_TARGET: -* python3_12
+=llvm-core/clang-17.0.6 PYTHON_SINGLE_TARGET: -* python3_12
+
+# newer PYTHON_SINGLE_TARGET
+# quse --repo --quiet --verbose --installed --exact python_single_target_python3_13 | perl -n -e 'print ">=$1 PYTHON_SINGLE_TARGET: -* python3_13\n" if /(.*\/.*)::\S*/'
+

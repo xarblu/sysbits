@@ -1,0 +1,15 @@
+# llvm slots different from the stable default
+# usually only to select unstable slots
+# quse --exact --installed --quiet llvm_slot_XX
+
+# held back by intel-graphics-compiler
+# but that's the only consumer so whatever
+dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 15
+
+# unstable slots
+dev-python/pyside LLVM_SLOT: -* 20
+dev-qt/qttools LLVM_SLOT: -* 20
+dev-util/mesa_clc LLVM_SLOT: -* 20
+media-libs/mesa LLVM_SLOT: -* 20
+sys-fs/bcachefs-tools LLVM_SLOT: -* 20
+sys-kernel/cachyos-kernel LLVM_SLOT: -* 20
