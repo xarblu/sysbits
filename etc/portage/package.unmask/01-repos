@@ -1,0 +1,16 @@
+# unmask specific packages from untrusted repos
+
+sys-kernel/cachyos-settings::CachyOS-kernels
+sys-process/uksmd::CachyOS-kernels
+
+app-misc/rmtrash::gentoo-zh
+sys-apps/pnpm::gentoo-zh
+sys-boot/ventoy-bin::gentoo-zh
+x11-misc/sddm::gentoo-zh
+
+app-portage/genlop::src_prepare-overlay
+dev-util/beekeeper-studio::src_prepare-overlay
+
+media-libs/vapoursynth::vapoursynth
+media-libs/zimg::vapoursynth
+media-plugins/vapoursynth-ffmpegsource::vapoursynth
