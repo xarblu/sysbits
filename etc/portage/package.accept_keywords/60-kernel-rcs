@@ -1,0 +1,3 @@
+# Kernel RCs
+virtual/dist-kernel::xarblu-overlay **
+sys-kernel/cachyos-kernel::xarblu-overlay **

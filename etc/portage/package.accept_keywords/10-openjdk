@@ -1,0 +1,12 @@
+virtual/jre:23 **
+virtual/jdk:23 **
+dev-java/openjdk:23 **
+dev-java/openjdk-bin:23 **
+virtual/jre:24 **
+virtual/jdk:24 **
+dev-java/openjdk:24 **
+dev-java/openjdk-bin:24 **
+virtual/jre:25 **
+virtual/jdk:25 **
+dev-java/openjdk:25 **
+dev-java/openjdk-bin:25 **
