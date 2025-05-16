@@ -1,0 +1,3 @@
+dev-lang/python 	-jit
+media-libs/mesa  	-zink
+www-client/firefox 	-system-libvpx -jpegxl
