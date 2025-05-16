@@ -1,0 +1,7 @@
+# KI
+dev-python/jupyter
+dev-python/numpy
+
+# EMS
+# required by Vivado
+sys-libs/ncurses-compat
