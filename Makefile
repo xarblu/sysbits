@@ -77,11 +77,11 @@ endif
 		etc/portage/postsync.d/*
 
 ifeq ($(DESKTOP),yes)
-	install -Dm755 -t $(DESTDIR)/etc/portage/profile/package.use.mask \
+	install -Dm644 -t $(DESTDIR)/etc/portage/profile/package.use.mask \
 		etc/portage/profile/package.use.mask/features
 endif
 ifeq ($(BETAS),yes)
-	install -Dm755 -t $(DESTDIR)/etc/portage/profile/package.use.mask \
+	install -Dm644 -t $(DESTDIR)/etc/portage/profile/package.use.mask \
 		etc/portage/profile/package.use.mask/llvm-slots
 endif
 
