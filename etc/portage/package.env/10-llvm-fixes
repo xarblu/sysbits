@@ -146,9 +146,6 @@ sys-devel/binutils no-optimize
 sys-libs/binutils-libs no-optimize
 # all around flaky build so keep it simple
 dev-util/intel-graphics-compiler no-optimize 
-# https://bugs.gentoo.org/953109
-dev-lang/rust:1.86.0 rust-bgo-953109
-dev-lang/rust:1.87.0 rust-bgo-953109
 # required so plasmashell works at all...
 llvm-runtimes/libcxx libcxx-typeinfo
 llvm-runtimes/libcxxabi libcxx-typeinfo
