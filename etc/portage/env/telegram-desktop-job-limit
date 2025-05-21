@@ -1,0 +1,2 @@
+# fails to compile with too many jobs
+MAX_MAKE_JOBS="8"
