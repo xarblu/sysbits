@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+# detect if we're running under topgrade
+function is_topgrade() {
+	local ppid comm
+	ppid="${PPID}"
+	while (( ppid > 1 )); do
+		read -r ppid comm <<<"$(ps -o ppid=,comm= $ppid)"
+		if [[ "${comm}" == topgrade ]]; then
+			return 0
+		fi
+	done
+	return 1
+}
+
 # regenerate metadata on sync to keep it fresh
 # then update eix
 function main() {
@@ -13,16 +26,21 @@ function main() {
 		exit 1
 	fi
 
-	printf " \e[32;1m*\e[0m Updating eix database (eix-update)...\n"
-	export PORTDIR_CACHE_METHOD="assign"
-	export OVERLAY_CACHE_METHOD="assign"
-	start="${EPOCHSECONDS}"
-	if eix-update; then
-		printf " \e[32;1m*\e[0m Took %s seconds\n" "$(( EPOCHSECONDS - start ))"
+	if is_topgrade; then
+		printf " \e[32;1m*\e[0m Skipping eix-update (topgrade)...\n"
 	else
-		printf " \e[31;1m*\e[0m Failed\n"
-		exit 1
+		printf " \e[32;1m*\e[0m Updating eix database (eix-update)...\n"
+		export PORTDIR_CACHE_METHOD="assign"
+		export OVERLAY_CACHE_METHOD="assign"
+		start="${EPOCHSECONDS}"
+		if eix-update; then
+			printf " \e[32;1m*\e[0m Took %s seconds\n" "$(( EPOCHSECONDS - start ))"
+		else
+			printf " \e[31;1m*\e[0m Failed\n"
+			exit 1
+		fi
 	fi
+
 	exit 0
 }
 main
