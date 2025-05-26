@@ -29,7 +29,6 @@ dev-qt/qtpositioning geoclue
 dev-qt/qttools designer qdbus
 dev-qt/qtwebengine pdfium
 dev-util/intel-graphics-compiler vc
-dev-util/vulkan-tools cube
 games-emulation/mgba discord ffmpeg
 games-util/mangohud mangoapp
 gui-libs/greetd man
