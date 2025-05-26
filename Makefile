@@ -7,6 +7,7 @@ CLANG ?= no
 DESKTOP ?= no
 DESKTOP_EXTRA ?= no
 LAPTOP_EXTRA ?= no
+SERVER ?= no
 
 install: $(PATCHES) $(REPOS_CONF)
 	# Profile / Environment
@@ -27,12 +28,20 @@ ifeq ($(BETAS),yes)
 		etc/portage/package.accept_keywords/50-kde-plasma-6.3.90 \
 		etc/portage/package.accept_keywords/60-kernel-rcs
 endif
+ifeq ($(SERVER),yes)
+	install -Dm644 -t $(DESTDIR)/etc/portage/package.accept_keywords \
+		etc/portage/package.accept_keywords/05-server
+endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.env \
 		etc/portage/package.env/15-general-fixes
 ifeq ($(CLANG),yes)
 	install -m644 -t $(DESTDIR)/etc/portage/package.env \
 		etc/portage/package.env/10-llvm-fixes
+endif
+ifeq ($(SERVER),yes)
+	install -m644 -t $(DESTDIR)/etc/portage/package.env \
+		etc/portage/package.env/05-server
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.mask \
@@ -70,6 +79,11 @@ ifeq ($(LAPTOP_EXTRA),yes)
 		etc/portage/package.use/01-global-laptop \
 		etc/portage/package.use/91-other-laptop
 endif
+ifeq ($(SERVER),yes)
+	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \
+		etc/portage/package.use/00-global-server \
+		etc/portage/package.use/90-other-server
+endif
 
 	$(MAKE) install-patches
 
@@ -86,7 +100,15 @@ ifeq ($(BETAS),yes)
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/repos.conf \
-		etc/portage/repos.conf/*
+		etc/portage/repos.conf/gentoo.conf
+ifeq ($(DESKTOP),yes)
+	install -Dm644 -t $(DESTDIR)/etc/portage/repos.conf \
+		etc/portage/repos.conf/desktop.conf
+endif
+ifeq ($(SERVER),yes)
+	install -Dm644 -t $(DESTDIR)/etc/portage/repos.conf \
+		etc/portage/repos.conf/server.conf
+endif
 		
 	install -Dm644 -t $(DESTDIR)/etc/portage/sets \
 		etc/portage/sets/*
@@ -96,6 +118,10 @@ endif
 
 ifeq ($(DESKTOP),yes)
 	install -Dm644 -T etc/portage/make.conf\#desktop \
+		$(DESTDIR)/etc/portage/make.conf
+endif
+ifeq ($(SERVER),yes)
+	install -Dm644 -T etc/portage/make.conf\#server \
 		$(DESTDIR)/etc/portage/make.conf
 endif
 

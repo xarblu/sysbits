@@ -1,0 +1,51 @@
+## Utils
+app-misc/topgrade ~amd64
+app-shells/starship ~amd64
+app-shells/zoxide ~amd64
+net-analyzer/speedtest++ ~amd64
+sys-fs/ncdu ~amd64
+
+## Nextcloud
+www-apps/nextcloud ~amd64
+www-apps/nextcloud-notify_push ~amd64
+
+# GPU
+dev-util/clinfo ~amd64
+media-libs/vpl-gpu-rt ~amd64
+x11-apps/igt-gpu-tools ~amd64
+
+## Cockpit
+app-admin/cockpit ~amd64
+app-admin/cockpit-machines ~amd64
+app-admin/cockpit-podman ~amd64
+app-admin/cockpit-sensors ~amd64
+app-crypt/sscg ~amd64
+app-metrics/pcp ~amd64
+
+## Network
+net-dns/inadyn ~amd64
+net-proxy/haproxy ~amd64
+
+# Podman
+app-containers/aardvark-dns ~amd64
+app-containers/netavark ~amd64
+app-containers/podman ~amd64
+
+# Kernel
+sys-fs/bcachefs-tools ~amd64
+sys-kernel/cachyos-kernel ~amd64
+sys-kernel/gentoo-kernel ~amd64
+sys-kernel/gentoo-kernel-bin ~amd64
+sys-kernel/linux-firmware ~amd64
+sys-kernel/linux-headers ~amd64
+virtual/dist-kernel ~amd64
+
+# other/unsorted
+dev-java/openjdk-bin ~amd64
+dev-lang/zig-bin ~amd64
+dev-python/python-linux-procfs ~amd64
+sys-apps/tuned ~amd64
+sys-auth/google-authenticator ~amd64
+app-metrics/prometheus-podman-exporter ~amd64
+app-portage/portcache ~amd64
+dev-lang/rust-bin ~amd64

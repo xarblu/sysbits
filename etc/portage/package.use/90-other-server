@@ -1,0 +1,48 @@
+app-admin/cockpit -doc firewalld networkmanager pcp tuned udisks
+app-admin/sudo offensive
+app-admin/vaultwarden postgres web
+app-containers/docker -cli
+app-eselect/eselect-php fpm
+app-misc/ca-certificates cacert
+app-misc/mime-types nginx
+app-portage/portage-bashrc-mv -ccache -title
+dev-java/openjdk gentoo-vm
+dev-java/openjdk-bin gentoo-vm
+dev-lang/php argon2 avif bcmath cjk curl exif fpm ftp gd gmp imap intl ldap pdo postgres sockets sodium -sqlite sysvipc truetype webp xmlreader xmlwriter zip
+dev-libs/elfutils debuginfod
+dev-libs/jemalloc stats
+llvm-core/clang default-lld
+media-gfx/imagemagick corefonts hdri heif jpeg jpeg2k jpegxl -openmp pango raw svg tiff truetype webp wmf xml zip
+media-libs/gd avif truetype webp
+media-libs/libheif x265
+media-libs/libva X
+media-libs/libvpl X dri drm tools
+media-libs/libvpx postproc
+media-libs/mesa -zink -opencl -X vulkan
+media-video/ffmpeg bluray libdrm libv4l fdk dav1d vpx libaom webp openh264 twolame x265 v4l vaapi openal opus speex vorbis libass threads mp3 x264 encode -cuda -ssh chromaprint fontconfig fribidi gmp gnutls jpeg2k jpegxl lcms libplacebo libxml2 opencl qsv shaderc svt-av1 theora truetype vulkan zimg zvbi
+media-video/jellyfin-ffmpeg opencl qsv vaapi
+net-analyzer/fping suid
+net-analyzer/zabbix agent frontend server
+net-dns/inadyn openssl
+net-dns/unbound redis threads
+net-firewall/iptables conntrack
+net-firewall/nftables xtables python json
+net-libs/libssh server
+net-misc/networkmanager -gtk-doc -modemmanager policykit
+net-proxy/haproxy prometheus-exporter -zlib
+sys-apps/fwupd nvme
+sys-apps/lm-sensors contrib sensord
+sys-apps/systemd gnuefi nat boot dns-over-tls kernel-install policykit ukify
+sys-apps/util-linux tty-helpers
+sys-apps/zram-generator -man
+sys-fs/udisks lvm
+sys-kernel/cachyos-kernel -cachyos -hardened server
+sys-kernel/installkernel dracut systemd-boot uki ukify
+sys-kernel/kernelscripts eclean-kernel
+sys-libs/libblockdev lvm
+sys-process/systemd-cron cron-boot minutely yearly
+www-apps/jellyfin-bin intro-skipper
+www-apps/nextcloud postgres -sqlite vhosts
+www-servers/nginx http3 vim-syntax
+x11-libs/cairo -X
+x11-libs/libxkbcommon X

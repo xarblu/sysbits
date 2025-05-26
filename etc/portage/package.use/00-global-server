@@ -1,0 +1,14 @@
+# Global USE Flags & USE_EXPANDS
+*/* VIDEO_CARDS: -* intel
+*/* L10N: -* en-GB de
+*/* LLVM_TARGETS: -* BPF
+*/* PHP_TARGETS: -* php8-2
+*/* PYTHON_TARGETS: -* python3_12 python3_13
+*/* PYTHON_SINGLE_TARGET: -* python3_13
+
+# held back
+=llvm-core/clang-15.0.7-r3 PYTHON_SINGLE_TARGET: -* python3_12
+=sys-power/nut-2.8.2-r2 PYTHON_SINGLE_TARGET: -* python3_12
+
+# global
+*/* dist-kernel apparmor vaapi systemd zsh-completion -X -opengl -gles2 -accessibility -gtk2 -speech -wifi -wext -ppp nftables ipv6 vulkan

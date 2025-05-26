@@ -1,0 +1,56 @@
+#                    __                          ____
+#   ____ ___  ____ _/ /_____   _________  ____  / __/
+#  / __ `__ \/ __ `/ //_/ _ \ / ___/ __ \/ __ \/ /_
+# / / / / / / /_/ / ,< /  __// /__/ /_/ / / / / __/
+#/_/ /_/ /_/\__,_/_/|_|\___(_)___/\____/_/ /_/_/
+### Main portage configuration file ###
+
+#Toolchain
+COMMON_FLAGS="-march=native -O2 -pipe"
+CFLAGS="${COMMON_FLAGS}"
+CXXFLAGS="${COMMON_FLAGS}"
+FCFLAGS="${COMMON_FLAGS}"
+FFLAGS="${COMMON_FLAGS}"
+MAKEOPTS="-j16"
+
+#Obtained from app-portage/cpuid2cpuflags utility
+CPU_FLAGS_X86="aes avx avx2 f16c fma3 mmx mmxext pclmul popcnt rdrand sha sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3"
+
+CCACHE_DIR="/var/cache/ccache"
+
+#Accepted Licenses & Keywords
+ACCEPT_LICENSE="* -@EULA"
+ACCEPT_KEYWORDS="amd64"
+
+#Portage Options
+EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --tree --unordered-display --binpkg-respect-use=y --with-bdeps=y"
+PORTAGE_SCHEDULING_POLICY="idle"
+FETCHCOMMAND="curl --fail --retry 3 --ftp-pasv --location \${URI} -o \${DISTDIR}/\${FILE}"
+RESUMECOMMAND="curl --fail --retry 3 --ftp-pasv --location --continue-at - \${URI} -o \${DISTDIR}/\${FILE}"
+#compression
+PORTAGE_COMPRESS="zstd"
+PORTAGE_COMPRESS_FLAGS="-T0 -9"
+BINPKG_COMPRESS="zstd"
+BINPKG_COMPRESS_FLAGS="-T0 -9"
+# Logging
+FEATURES="${FEATURES} split-log clean-logs compress-build-logs"
+PORTAGE_LOGDIR="/var/log/portage"
+#Other Portage Features
+FEATURES="${FEATURES} binpkg-multi-instance parallel-fetch parallel-install"
+#don't build binpkgs for these:
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --buildpkg-exclude 'acct-group/* acct-user/* virtual/* sys-kernel/*-sources */*-bin'"
+
+#Portage directories
+PORTDIR="/var/db/repos/gentoo"
+DISTDIR="/var/cache/distfiles"
+PKGDIR="/var/cache/binpkgs"
+# so users and members of the 'portage' group can access
+PORTAGE_WORKDIR_MODE="0775"
+
+# This sets the language of build output to English.
+# Please keep this setting intact when reporting bugs.
+LC_MESSAGES=C
+
+# grab secrets from .secrets to keep make.conf clean
+source "/etc/portage/.secrets"
+GENTOO_MIRRORS="https://${PORTCACHE_USER}:${PORTCACHE_PASSWD}@portcache.gaydragon.zone"
