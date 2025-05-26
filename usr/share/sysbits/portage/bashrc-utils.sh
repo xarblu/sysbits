@@ -158,13 +158,13 @@ function brc_build_env_setup() {
 	case "${CC##*/}" in
 		*clang*) LLVM_FAMILIES+=" c objc ";;
 		*gcc*) GNU_FAMILIES+=" c objc ";;
-		*) die "Unknown CC: ${CC}";;
+		*) ewarn "Unknown CC: ${CC}";;
 	esac
 	# CXX -> cxx, objcxx
 	case "${CXX##*/}" in
 		*clang++*) LLVM_FAMILIES+=" cxx objcxx ";;
 		*g++*) GNU_FAMILIES+=" cxx objcxx ";;
-		*) die "Unknown CXX: ${CXX}";;
+		*) ewarn "Unknown CXX: ${CXX}";;
 	esac
 	# for now fc and f77 will always be GNU
 	GNU_FAMILIES+=" fc f77 "
@@ -204,7 +204,7 @@ function brc_build_env_setup() {
 				brc_append_flags rust "-C linker-plugin-lto=/usr/${CHOST}/binutils-bin/lib/bfd-plugins/LLVMgold.so"
 				;;
 			*)
-				die "Unknown LD: ${LD}"
+				ewarn "Unknown LD: ${LD}"
 				;;
 		esac
 	fi
@@ -218,7 +218,7 @@ function brc_build_env_setup() {
 				;;
 			ld.bfd|ld.gold) ;;
 			*)
-				die "Unknown LD: ${LD}"
+				ewarn "Unknown LD: ${LD}"
 				;;
 		esac
 	fi
