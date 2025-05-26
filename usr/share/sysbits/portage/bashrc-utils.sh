@@ -144,6 +144,13 @@ function brc_prepend_llvm_path() {
 # BUILD_VERBOSE (default false):
 #   - enable verbose builds (default in vanilla portage)
 function brc_build_env_setup() {
+	# explicitly set defaults if not set
+	# these come from toolchain-funcs.eclass
+	: "${CC:=gcc}"
+	: "${CXX:=g++}"
+	: "${CPP:="${CC} -E"}"
+	: "${LD:=ld}"
+
 	# auto detect compiler families
 	LLVM_FAMILIES=""
 	GNU_FAMILIES=""
