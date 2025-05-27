@@ -104,6 +104,6 @@ sys-kernel/installkernel dracut module-rebuild systemd-boot uki ukify
 sys-kernel/kernelscripts eclean-kernel
 sys-kernel/linux-firmware compress-zstd deduplicate
 virtual/linux-sources firmware
-www-client/firefox hwaccel system-png -X openh264
+www-client/firefox hwaccel system-png -X openh264 system-pipewire wasm-sandbox
 x11-base/xorg-server xvfb
 x11-base/xwayland libei

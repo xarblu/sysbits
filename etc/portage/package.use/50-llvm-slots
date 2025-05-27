@@ -16,6 +16,3 @@ sys-apps/lact LLVM_SLOT: -* 20
 sys-fs/bcachefs-tools LLVM_SLOT: -* 20
 sys-kernel/cachyos-kernel LLVM_SLOT: -* 20
 www-client/firefox LLVM_SLOT: -* 20
-
-# currently 19 only
-www-client/firefox -wasm-sandbox
