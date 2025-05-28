@@ -47,7 +47,7 @@ kde-plasma/kwin xwayland
 kde-plasma/plasma-desktop webengine
 kde-plasma/plasma-firewall firewalld -ufw
 kde-plasma/plasma-meta -crypt oxygen-theme sdk
-mail-client/thunderbird hwaccel system-png -X openh264
+mail-client/thunderbird hwaccel system-png -X openh264 system-pipewire
 media-fonts/fonts-meta cjk emoji latin ms
 media-fonts/nerd-fonts ibmplexmono monaspace nerdfontssymbolsonly
 media-fonts/noto-emoji icons
