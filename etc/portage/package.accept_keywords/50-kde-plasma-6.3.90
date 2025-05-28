@@ -1,3 +1,0 @@
-# >=kde-plasma/kwin-6.3.90 wants 1.24.0 which isn't out yet
-=dev-libs/wayland-9999 **
-=dev-util/wayland-scanner-9999 **
