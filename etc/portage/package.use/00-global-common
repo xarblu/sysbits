@@ -14,7 +14,7 @@
 #*/* LUA_TARGETS:
 #*/* LUA_SINGLE_TARGET:
 
-*/* RUBY_TARGETS: -* ruby33 ruby34
+*/* RUBY_TARGETS: -* ruby34
 
 # USE_EXPANDS
 */* ABI_X86: -* 64
