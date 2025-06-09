@@ -25,8 +25,8 @@ ACCEPT_KEYWORDS="amd64"
 #Portage Options
 EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --tree --unordered-display --binpkg-respect-use=y --with-bdeps=y"
 PORTAGE_SCHEDULING_POLICY="idle"
-FETCHCOMMAND="curl --fail --retry 3 --ftp-pasv --location \${URI} -o \${DISTDIR}/\${FILE}"
-RESUMECOMMAND="curl --fail --retry 3 --ftp-pasv --location --continue-at - \${URI} -o \${DISTDIR}/\${FILE}"
+FETCHCOMMAND="curl --fail --retry 3 --location \${URI} -o \${DISTDIR}/\${FILE}"
+RESUMECOMMAND="curl --fail --retry 3 --location --continue-at - \${URI} -o \${DISTDIR}/\${FILE}"
 #compression
 PORTAGE_COMPRESS="zstd"
 PORTAGE_COMPRESS_FLAGS="-T0 -9"
