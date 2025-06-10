@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$fstype" != bcachefs ]; then
+if [ "${fstype}" != bcachefs ]; then
     return 0
 fi
 
@@ -15,4 +15,6 @@ if bcachefs unlock -c "${dev}" >/dev/null 2>&1; then
     done
 
     die "maximum number of tries exceeded for ${dev}"
+else
+    info "${dev} not encrypted"
 fi
