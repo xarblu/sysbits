@@ -19,8 +19,8 @@ cmdline() {
 install() {
     inst_multiple bcachefs mount.bcachefs fsck.bcachefs
 
-    inst_hook cmdline 90 "${moddir}/parse-cmdline.sh"
-    inst_hook pre-mount 90 "${moddir}/unlock.sh"
+    inst_hook cmdline 90 "${moddir}/parse-bcachefs.sh"
+    inst_hook pre-mount 90 "${moddir}/unlock-bcachefs.sh"
 }
 
 installkernel() {

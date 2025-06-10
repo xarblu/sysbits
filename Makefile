@@ -134,8 +134,8 @@ endif
 		usr/lib/dracut/modules.d/90bcachefs/module-setup.sh
 
 	install -Dm755 -t $(DESTDIR)/usr/lib/dracut/modules.d/90bcachefs \
-		usr/lib/dracut/modules.d/90bcachefs/parse-cmdline.sh \
-		usr/lib/dracut/modules.d/90bcachefs/unlock.sh
+		usr/lib/dracut/modules.d/90bcachefs/parse-bcachefs.sh \
+		usr/lib/dracut/modules.d/90bcachefs/unlock-bcachefs.sh
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system \
 		usr/lib/systemd/system/*
