@@ -11,7 +11,9 @@ depends() {
 }
 
 cmdline() {
-    return 0
+    # Hack for slow machines
+    # see https://github.com/dracutdevs/dracut/issues/658
+    printf " rd.driver.pre=bcachefs"
 }
 
 install() {
