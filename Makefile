@@ -130,12 +130,12 @@ endif
 	install -Dm644 -t $(DESTDIR)/etc/eixrc \
 		etc/eixrc/*
 
-	install -Dm644 -t $(DESTDIR)/usr/lib/dracut/90bcachefs \
-		usr/lib/dracut/90bcachefs/module-setup.sh
+	install -Dm644 -t $(DESTDIR)/usr/lib/dracut/modules.d/90bcachefs \
+		usr/lib/dracut/modules.d/90bcachefs/module-setup.sh
 
-	install -Dm755 -t $(DESTDIR)/usr/lib/dracut/90bcachefs \
-		usr/lib/dracut/90bcachefs/parse-cmdline.sh \
-		usr/lib/dracut/90bcachefs/unlock.sh
+	install -Dm755 -t $(DESTDIR)/usr/lib/dracut/modules.d/90bcachefs \
+		usr/lib/dracut/modules.d/90bcachefs/parse-cmdline.sh \
+		usr/lib/dracut/modules.d/90bcachefs/unlock.sh
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system \
 		usr/lib/systemd/system/*
