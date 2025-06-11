@@ -7,14 +7,10 @@ fi
 dev="${root#block:}"
 
 if bcachefs unlock -c "${dev}" >/dev/null 2>&1; then
-    info "Please unlock ${dev}:"
-    for _ in 1 2 3; do
-        bcachefs unlock -k "${dev}" && \
-          info "${dev} successfully unlocked" && \
-          return 0
+    info "Unlocking ${dev}:"
+    while true; do
+        bcachefs unlock "${dev}" && break
     done
-
-    die "maximum number of tries exceeded for ${dev}"
 else
     info "${dev} not encrypted"
 fi
