@@ -7,7 +7,7 @@ check() {
 }
 
 depends() {
-    return 0
+    echo crypt
 }
 
 cmdline() {
