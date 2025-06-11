@@ -10,7 +10,7 @@ command -v ask_for_password > /dev/null || . /lib/dracut-crypt-lib.sh
 
 if bcachefs unlock -c "${dev}" >/dev/null 2>&1; then
     ask_for_password \
-        --cmd "bcachefs unlock \"${dev}\" <<<\"\$(read -r p; echo \"\${p}\")\"" \
+        --cmd "read -rs p && echo \"\$p\" | bcachefs unlock \"${dev}\"" \
         --prompt "Password (${dev})" \
         --tty-echo-off
 else
