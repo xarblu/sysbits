@@ -7,7 +7,7 @@ check() {
 }
 
 depends() {
-    echo crypt systemd-ask-password
+    echo systemd-ask-password
 }
 
 cmdline() {
