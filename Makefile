@@ -10,9 +10,15 @@ LAPTOP_EXTRA ?= no
 SERVER ?= no
 
 install: $(PATCHES) $(REPOS_CONF)
+	# Kernel Config Specs
+ifeq ($(DESKTOP),yes)
+	install -Dm644 -t $(DESTDIR)/etc/kernel/config.d \
+		etc/kernel/config.d/05-base.config \
+		etc/kernel/config.d/10-intel-xe.config
+endif
+
 	# Profile / Environment
-	install -m755 -d $(DESTDIR)/etc/profile.d
-	install -m644 -t $(DESTDIR)/etc/profile.d \
+	install -Dm644 -t $(DESTDIR)/etc/profile.d \
 		etc/profile.d/*
 
 	# Portage and Friends
