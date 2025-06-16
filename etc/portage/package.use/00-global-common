@@ -31,7 +31,7 @@
 # System
 */* jemalloc dbus-broker
 # Kernel
-*/* modules-compress dist-kernel
+*/* dist-kernel -modules-compress
 # Graphics
 */* wayland screencast vulkan vaapi qt6 kf6compat trayicon sixel -gtk2 
 # Audio
