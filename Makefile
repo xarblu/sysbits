@@ -59,8 +59,7 @@ ifeq ($(BETAS),yes)
 	install -m644 -t $(DESTDIR)/etc/portage/package.unmask \
 		etc/portage/package.unmask/02-qt6 \
 		etc/portage/package.unmask/05-mesa \
-		etc/portage/package.unmask/06-kde-plasma-6.4 \
-		etc/portage/package.unmask/07-kde-frameworks-6.15
+		etc/portage/package.unmask/06-kde-plasma-6.4
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \
