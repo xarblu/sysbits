@@ -1,0 +1,13 @@
+diff --git a/src/plugins/overview/qml/main.qml b/src/plugins/overview/qml/main.qml
+index 2a86ced0b2..8a268489ad 100644
+--- a/src/plugins/overview/qml/main.qml
++++ b/src/plugins/overview/qml/main.qml
+@@ -343,7 +343,7 @@ FocusScope {
+ 
+     property int desktops: Math.max(bar.desktopCount, 2)
+     property int columns: Math.ceil(desktops / rows)
+-    property int rows: KWinComponents.Workspace.desktopGridHeight
++    property int rows: Math.floor(Math.sqrt(desktops))
+ 
+     // The desktop might shuffle around as soon as it's
+     // created since the rows/columns are updated after
