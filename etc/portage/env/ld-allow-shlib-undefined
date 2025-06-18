@@ -1,0 +1,1 @@
+EXTRA_LDFLAGS="-Wl,--allow-shlib-undefined"

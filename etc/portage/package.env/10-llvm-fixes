@@ -88,6 +88,8 @@ sys-libs/libfaketime ld-allow-undefined-version
 sys-libs/talloc ld-allow-undefined-version
 sys-libs/tdb ld-allow-undefined-version
 sys-libs/tevent ld-allow-undefined-version
+# ld.lld: error: undefined reference:
+sys-auth/libfprint ld-allow-shlib-undefined
 #[END] Linker issues
 
 #[START] Compile issues (polly)
