@@ -23,6 +23,11 @@ endif
 		etc/profile.d/*
 
 	# Portage and Friends
+ifeq ($(BINPKG_CLIENT_LLVM),yes)
+	install -Dm644 -t $(DESTDIR)/etc/portage/binrepos.conf \
+		etc/portage/binrepos.conf/binpkgs-llvm.conf
+endif
+
 	install -Dm644 -t $(DESTDIR)/etc/portage/env \
 		etc/portage/env/*
 
