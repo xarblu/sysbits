@@ -8,6 +8,7 @@ DESKTOP ?= no
 DESKTOP_EXTRA ?= no
 LAPTOP_EXTRA ?= no
 SERVER ?= no
+BINPKG_CLIENT_LLVM ?= no
 
 install: $(PATCHES) $(REPOS_CONF)
 	# Kernel Config Specs

@@ -25,8 +25,9 @@ ACCEPT_KEYWORDS="amd64"
 #Portage Options
 EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --tree --unordered-display --binpkg-respect-use=y --with-bdeps=y"
 PORTAGE_SCHEDULING_POLICY="idle"
-FETCHCOMMAND="curl --fail --retry 3 --location \${URI} -o \${DISTDIR}/\${FILE}"
-RESUMECOMMAND="curl --fail --retry 3 --location --continue-at - \${URI} -o \${DISTDIR}/\${FILE}"
+NETRC_FILE="/etc/portage/.netrc"
+FETCHCOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --fail --retry 3 --location \${URI} -o \${DISTDIR}/\${FILE}"
+RESUMECOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --fail --retry 3 --location --continue-at - \${URI} -o \${DISTDIR}/\${FILE}"
 #compression
 PORTAGE_COMPRESS="zstd"
 PORTAGE_COMPRESS_FLAGS="-T0 -9"
@@ -51,6 +52,5 @@ PORTAGE_WORKDIR_MODE="0775"
 # Please keep this setting intact when reporting bugs.
 LC_MESSAGES=C
 
-# grab secrets from .secrets to keep make.conf clean
-source "/etc/portage/.secrets"
-GENTOO_MIRRORS="https://${PORTCACHE_USER}:${PORTCACHE_PASSWD}@portcache.gaydragon.zone"
+# auth secrets are from /etc/portage/.netrc
+GENTOO_MIRRORS="https://portcache.gaydragon.zone"
