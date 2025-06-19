@@ -48,6 +48,7 @@ RESUMECOMMAND="curl --http3 --fail --retry 3 --location --continue-at - \${URI} 
 # compression
 PORTAGE_COMPRESS="zstd"
 PORTAGE_COMPRESS_FLAGS="-T0 -9"
+BINPKG_FORMAT="gpkg"
 BINPKG_COMPRESS="zstd"
 BINPKG_COMPRESS_FLAGS="-T0 -9"
 # Logging
