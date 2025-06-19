@@ -14,8 +14,7 @@ install: $(PATCHES) $(REPOS_CONF)
 	# Kernel Config Specs
 ifeq ($(DESKTOP),yes)
 	install -Dm644 -t $(DESTDIR)/etc/kernel/config.d \
-		etc/kernel/config.d/05-base.config \
-		etc/kernel/config.d/10-intel-xe.config
+		etc/kernel/config.d/05-base.config
 endif
 
 	# Profile / Environment
