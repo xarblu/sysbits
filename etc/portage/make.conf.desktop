@@ -42,7 +42,7 @@ ACCEPT_LICENSE="* -@EULA"
 ACCEPT_KEYWORDS="~amd64"
 
 # Portage Options
-EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --tree --unordered-display --binpkg-respect-use=y --with-bdeps=y"
+EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --tree --unordered-display --with-bdeps=y"
 PORTAGE_SCHEDULING_POLICY="idle"
 NETRC_FILE="/etc/portage/.netrc"
 FETCHCOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --fail --retry 3 --location \${URI} -o \${DISTDIR}/\${FILE}"
@@ -58,8 +58,6 @@ FEATURES="${FEATURES} split-log clean-logs compress-build-logs"
 PORTAGE_LOGDIR="/var/log/portage"
 # binpkgs
 FEATURES="${FEATURES} buildpkg -buildpkg-live binpkg-multi-instance"
-# don't build binpkgs for these:
-EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --buildpkg-exclude 'acct-group/* acct-user/* virtual/* sys-kernel/*-sources */*-bin'"
 # keep basic debug info
 # by default without -g*
 #   - still provides better stack trace

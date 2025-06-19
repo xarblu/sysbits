@@ -128,11 +128,16 @@ endif
 		etc/portage/bashrc
 
 ifeq ($(DESKTOP),yes)
-	install -Dm644 -T etc/portage/make.conf\#desktop \
+ifeq ($(BINPKG_CLIENT_LLVM),yes)
+	install -Dm644 -T etc/portage/make.conf.desktop.binpkgs \
+		$(DESTDIR)/etc/portage/make.conf
+else
+	install -Dm644 -T etc/portage/make.conf.desktop \
 		$(DESTDIR)/etc/portage/make.conf
 endif
+endif
 ifeq ($(SERVER),yes)
-	install -Dm644 -T etc/portage/make.conf\#server \
+	install -Dm644 -T etc/portage/make.conf.server \
 		$(DESTDIR)/etc/portage/make.conf
 endif
 

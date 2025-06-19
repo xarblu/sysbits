@@ -1,0 +1,88 @@
+#                    __                          ____
+#   ____ ___  ____ _/ /_____   _________  ____  / __/
+#  / __ `__ \/ __ `/ //_/ _ \ / ___/ __ \/ __ \/ /_
+# / / / / / / /_/ / ,< /  __// /__/ /_/ / / / / __/
+#/_/ /_/ /_/\__,_/_/|_|\___(_)___/\____/_/ /_/_/
+### Main portage configuration file ###
+
+# === bashrc flag manager ===
+# base *FLAGS to expand with bashrc flag manager
+TARGET_CPU="x86-64-v3"
+COMMON_FLAGS="-march=${TARGET_CPU} -O3 -pipe"
+CFLAGS="${COMMON_FLAGS}"
+CXXFLAGS="${COMMON_FLAGS}"
+OBJCFLAGS="${COMMON_FLAGS}"
+OBJCXXFLAGS="${COMMON_FLAGS}"
+FCFLAGS="${COMMON_FLAGS}"
+F77FLAGS="${COMMON_FLAGS}"
+RUSTFLAGS="-C target-cpu=${TARGET_CPU} -C opt-level=3 -C debuginfo=0 -C codegen-units=1"
+LDFLAGS="-Wl,-O3,--as-needed"
+
+# toggles for various things
+# need to be true/false
+ENABLE_LTO="true"
+ENABLE_POLLY="false"
+ENABLE_MOLD="false"
+ENABLE_ICF="true"
+ENABLE_SCCACHE="false"
+
+# Compiler caches
+#FEATURES="${FEATURES} ccache"
+#CCACHE_DIR="/var/cache/ccache"
+# enable sccache wrapper logic in bashrc
+# https://github.com/mozilla/sccache/blob/main/docs/Configuration.md
+SCCACHE_IDLE_TIMEOUT="10"
+SCCACHE_MAX_FRAME_LENGTH="104857600"
+SCCACHE_DIR="/var/cache/sccache"
+SCCACHE_CACHE_SIZE="75G"
+SCCACHE_DIRECT="true"
+
+# Accepted Licenses & Keywords
+ACCEPT_LICENSE="* -@EULA"
+ACCEPT_KEYWORDS="~amd64"
+
+# Portage Options
+EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --tree --unordered-display --with-bdeps=y"
+PORTAGE_SCHEDULING_POLICY="idle"
+NETRC_FILE="/etc/portage/.netrc"
+FETCHCOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --fail --retry 3 --location \${URI} -o \${DISTDIR}/\${FILE}"
+RESUMECOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --fail --retry 3 --location --continue-at - \${URI} -o \${DISTDIR}/\${FILE}"
+# compression
+PORTAGE_COMPRESS="zstd"
+PORTAGE_COMPRESS_FLAGS="-T0 -9"
+BINPKG_FORMAT="gpkg"
+BINPKG_COMPRESS="zstd"
+BINPKG_COMPRESS_FLAGS="-T0 -9"
+# Logging
+FEATURES="${FEATURES} split-log clean-logs compress-build-logs"
+PORTAGE_LOGDIR="/var/log/portage"
+# binpkgs
+FEATURES="${FEATURES} buildpkg -buildpkg-live binpkg-multi-instance"
+# client defaults
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --getbinpkg=y --usepkg=y --binpkg-respect-use=y"
+# keep basic debug info
+# by default without -g*
+#   - still provides better stack trace
+#   - if deduped and compressed takes little extra storage
+#   - if split doesn't affect binaries or build
+# nostrip - disable stripping of binaries
+# splitdebug - keep debug symbols seperate
+# dedupdebug - deduplicate debug symbols with sys-devel/dwz
+# compressdebug - compress debug symbols (patched to use zstd)
+FEATURES="${FEATURES} -nostrip splitdebug -dedupdebug compressdebug"
+# Other Portage Features
+FEATURES="${FEATURES} parallel-fetch parallel-install fail-clean fakeroot"
+
+# Portage directories
+PORTDIR="/var/db/repos/gentoo"
+DISTDIR="/var/cache/distfiles"
+PKGDIR="/var/cache/binpkgs"
+# so users and members of the 'portage' group can access
+PORTAGE_WORKDIR_MODE="0775"
+
+# This sets the language of build output to English.
+# Please keep this setting intact when reporting bugs.
+LC_MESSAGES="C"
+
+# auth secrets are from /etc/portage/.netrc
+GENTOO_MIRRORS="https://portcache.gaydragon.zone"
