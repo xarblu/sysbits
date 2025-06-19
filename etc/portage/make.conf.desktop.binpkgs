@@ -59,7 +59,7 @@ PORTAGE_LOGDIR="/var/log/portage"
 # binpkgs
 FEATURES="${FEATURES} buildpkg -buildpkg-live binpkg-multi-instance"
 # client defaults
-EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --getbinpkg=y --usepkg=y --binpkg-respect-use=y"
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --getbinpkg --usepkg --binpkg-respect-use --rebuilt-binaries"
 # keep basic debug info
 # by default without -g*
 #   - still provides better stack trace
