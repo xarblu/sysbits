@@ -7,14 +7,15 @@
 
 # === bashrc flag manager ===
 # base *FLAGS to expand with bashrc flag manager
-COMMON_FLAGS="-march=native -O3 -pipe"
+TARGET_CPU="x86-64-v3"
+COMMON_FLAGS="-march=${TARGET_CPU} -O3 -pipe"
 CFLAGS="${COMMON_FLAGS}"
 CXXFLAGS="${COMMON_FLAGS}"
 OBJCFLAGS="${COMMON_FLAGS}"
 OBJCXXFLAGS="${COMMON_FLAGS}"
 FCFLAGS="${COMMON_FLAGS}"
 F77FLAGS="${COMMON_FLAGS}"
-RUSTFLAGS="-C target-cpu=native -C opt-level=3 -C debuginfo=0 -C codegen-units=1"
+RUSTFLAGS="-C target-cpu=${TARGET_CPU} -C opt-level=3 -C debuginfo=0 -C codegen-units=1"
 LDFLAGS="-Wl,-O3,--as-needed"
 
 # toggles for various things
