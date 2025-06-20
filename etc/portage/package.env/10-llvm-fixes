@@ -41,16 +41,6 @@ net-im/telegram-desktop clang-19
 dev-util/android-tools clang-19
 # not exactly a clang issue but we need LLVM matching lld
 dev-lang/rust:1.86.0 clang-19
-# LLVM toolchains should stay (mostly) self-built to avoid issues
-#llvm-core/*:15 clang-15
-llvm-core/*:16 clang-16
-llvm-runtimes/*:16 clang-16
-llvm-core/*:17 clang-17
-llvm-runtimes/*:17 clang-17
-llvm-core/*:18 clang-18
-llvm-runtimes/*:18 clang-18
-llvm-core/*:19 clang-19
-llvm-runtimes/*:19 clang-19
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)
