@@ -1,0 +1,20 @@
+# base packages I want with KDE
+
+### Meta packages
+# Konsole, Dolphin etc
+kde-apps/kdecore-meta
+# Plasma desktop
+kde-plasma/plasma-meta
+
+### Apps
+kde-apps/ark
+kde-apps/gwenview
+kde-apps/kate
+kde-apps/kcolorchooser
+kde-apps/kwalletmanager
+kde-apps/okular
+
+### Other
+kde-misc/kdeconnect
+# currently ** keywords only
+kde-plasma/plasma-keyboard
