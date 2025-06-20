@@ -31,7 +31,8 @@ endif
 		etc/portage/env/*
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.accept_keywords \
-		etc/portage/package.accept_keywords/00-sysbits
+		etc/portage/package.accept_keywords/00-sysbits \
+		etc/portage/package.accept_keywords/90-misc
 ifeq ($(BETAS),yes)
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.accept_keywords \
 		etc/portage/package.accept_keywords/10-openjdk \
