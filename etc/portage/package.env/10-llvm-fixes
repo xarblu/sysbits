@@ -79,6 +79,7 @@ net-fs/samba ld-allow-undefined-version
 net-libs/gtk-vnc ld-allow-undefined-version
 sys-apps/keyutils ld-allow-undefined-version
 sys-libs/libfaketime ld-allow-undefined-version
+sys-libs/libxcrypt ld-allow-undefined-version
 sys-libs/talloc ld-allow-undefined-version
 sys-libs/tdb ld-allow-undefined-version
 sys-libs/tevent ld-allow-undefined-version
