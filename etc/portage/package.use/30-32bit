@@ -100,5 +100,5 @@ x11-libs/pixman ABI_X86: 32
 x11-libs/xcb-util-keysyms ABI_X86: 32
 
 # disable for some older versions
-<llvm-core/clang-19 ABI_X86: -32
-<llvm-core/llvm-19 ABI_X86: -32
+<llvm-core/clang-20 ABI_X86: -32
+<llvm-core/llvm-20 ABI_X86: -32
