@@ -141,6 +141,9 @@ ifeq ($(SERVER),yes)
 		$(DESTDIR)/etc/portage/make.conf
 endif
 
+	install -Dm644 -t $(DESTDIR)/etc/portage \
+		etc/portage/mirrors
+
 	install -Dm644 -t $(DESTDIR)/usr/share/sysbits/portage \
 		usr/share/sysbits/portage/bashrc-utils.sh
 
