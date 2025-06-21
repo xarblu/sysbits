@@ -73,6 +73,7 @@ dev-libs/jansson ld-bfd
 dev-java/openjdk:21 ld-allow-undefined-version
 llvm-core/llvm:15 ld-allow-undefined-version
 net-fs/samba ld-allow-undefined-version
+net-libs/gtk-vnc ld-allow-undefined-version
 sys-apps/keyutils ld-allow-undefined-version
 sys-libs/libfaketime ld-allow-undefined-version
 sys-libs/talloc ld-allow-undefined-version
