@@ -71,6 +71,7 @@ x11-libs/wxGTK ld-bfd
 dev-libs/jansson ld-bfd
 # ld.lld: error: version script assignment of * to symbol * failed: symbol not defined
 dev-java/openjdk:21 ld-allow-undefined-version
+dev-libs/opencl-clang:15 ld-allow-undefined-version
 llvm-core/llvm:15 ld-allow-undefined-version
 net-fs/samba ld-allow-undefined-version
 net-libs/gtk-vnc ld-allow-undefined-version
