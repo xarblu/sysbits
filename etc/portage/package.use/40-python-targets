@@ -4,17 +4,17 @@
 # usediff python_single_target_python3_{12..13} PYTHON_SINGLE_TARGET
 
 =llvm-core/clang-15.0.7-r3 PYTHON_SINGLE_TARGET: -* python3_12
-=llvm-core/clang-17.0.6 PYTHON_SINGLE_TARGET: -* python3_12
 
 # newer PYTHON_SINGLE_TARGET
 # quse --repo --quiet --verbose --installed --exact python_single_target_python3_14 | perl -n -e 'print ">=$1 PYTHON_SINGLE_TARGET: -* python3_14\n" if /(.*\/.*)::\S*/'
 
 >=app-eselect/eselect-repository-14-r1 PYTHON_SINGLE_TARGET: -* python3_14
 >=app-misc/ranger-1.9.4-r1 PYTHON_SINGLE_TARGET: -* python3_14
->=dev-util/gdbus-codegen-2.84.2 PYTHON_SINGLE_TARGET: -* python3_14
->=dev-util/glib-utils-2.84.2 PYTHON_SINGLE_TARGET: -* python3_14
->=llvm-core/clang-20.1.6 PYTHON_SINGLE_TARGET: -* python3_14
->=llvm-core/lldb-20.1.6 PYTHON_SINGLE_TARGET: -* python3_14
->=llvm-runtimes/openmp-20.1.6 PYTHON_SINGLE_TARGET: -* python3_14
+>=dev-util/gdbus-codegen-2.84.3 PYTHON_SINGLE_TARGET: -* python3_14
+>=dev-util/glib-utils-2.84.3 PYTHON_SINGLE_TARGET: -* python3_14
+>=dev-vcs/git-2.50.0 PYTHON_SINGLE_TARGET: -* python3_14
+>=llvm-core/clang-20.1.7 PYTHON_SINGLE_TARGET: -* python3_14
+>=llvm-core/lldb-20.1.7 PYTHON_SINGLE_TARGET: -* python3_14
+>=llvm-runtimes/openmp-20.1.7 PYTHON_SINGLE_TARGET: -* python3_14
 >=media-video/mpv-0.40.0-r2 PYTHON_SINGLE_TARGET: -* python3_14
->=media-video/obs-studio-31.0.3-r1 PYTHON_SINGLE_TARGET: -* python3_14
+>=media-video/obs-studio-31.0.3-r2 PYTHON_SINGLE_TARGET: -* python3_14
