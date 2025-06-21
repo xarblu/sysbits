@@ -1,6 +1,27 @@
-# Collection of random utilities
+# Common Desktop Packages
 
-# Portage
+### KDE Plasma + Default Apps
+## Meta packages
+kde-apps/kdecore-meta
+kde-plasma/plasma-meta
+
+## Apps
+kde-apps/ark
+kde-apps/gwenview
+kde-apps/kate
+kde-apps/kcolorchooser
+kde-apps/kwalletmanager
+kde-apps/okular
+kde-misc/kdeconnect
+# currently ** keywords only
+kde-plasma/plasma-keyboard
+
+## Themes
+x11-themes/catppuccin-btop
+x11-themes/catppuccin-cursors
+x11-themes/catppuccin-kde
+
+## Portage
 app-admin/eclean-kernel
 app-misc/resolve-march-native
 app-portage/cpuid2cpuflags
@@ -11,12 +32,12 @@ app-portage/portage-utils
 app-portage/smart-live-rebuild
 app-shells/gentoo-zsh-completions
 
-# Archivers
+## Archivers
 app-arch/7zip
 app-arch/unrar
 app-arch/zip
 
-# Filesystem/Disk
+## Filesystem/Disk
 app-misc/fclones
 sys-fs/bcachefs-tools
 sys-fs/btrfs-progs
@@ -25,7 +46,7 @@ sys-fs/f2fs-tools
 sys-fs/ncdu
 sys-fs/xfsprogs
 
-# Terminal/Shell
+## Terminal/Shell
 app-admin/sudo
 app-misc/fastfetch
 app-misc/ranger
@@ -38,7 +59,7 @@ sys-apps/eza
 sys-apps/fd
 sys-apps/ripgrep
 
-# Neovim
+## Neovim
 app-editors/neovim
 dev-libs/tree-sitter-meta
 dev-python/pynvim
@@ -46,7 +67,7 @@ dev-util/bash-language-server
 dev-util/shellcheck-bin
 dev-util/yaml-language-server
 
-# Fonts
+## Fonts
 media-fonts/fira-code
 media-fonts/fira-sans
 media-fonts/fonts-meta
@@ -55,14 +76,14 @@ media-fonts/monaspace
 media-fonts/nerd-fonts
 media-fonts/twemoji
 
-# MPV
+## MPV
 media-video/mpv
 mpv-plugin/mpv-mpris
 mpv-plugin/mpv_sponsorblock_minimal
 mpv-plugin/thumbfast
 mpv-plugin/uosc
 
-# Network
+## Network
 net-dns/bind-tools
 net-dns/dnsproxy
 net-firewall/firewalld
@@ -70,11 +91,11 @@ net-misc/curl
 net-misc/iperf
 net-misc/yt-dlp
 
-# Messager
+## Messager
 net-im/telegram-desktop
 net-im/vesktop-bin
 
-# System Info
+## System Info
 app-misc/wayland-utils
 media-video/libva-utils
 sys-apps/cpu-x
@@ -92,12 +113,7 @@ sys-process/nvtop
 x11-apps/mesa-progs
 x11-apps/xdpyinfo
 
-# Themes
-x11-themes/catppuccin-btop
-x11-themes/catppuccin-cursors
-x11-themes/catppuccin-kde
-
-# Other
+## Other
 app-admin/yadm
 app-misc/topgrade
 dev-python/pipx
