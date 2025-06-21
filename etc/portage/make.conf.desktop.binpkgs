@@ -83,6 +83,3 @@ PORTAGE_WORKDIR_MODE="0775"
 # This sets the language of build output to English.
 # Please keep this setting intact when reporting bugs.
 LC_MESSAGES="C"
-
-# auth secrets are from /etc/portage/.netrc
-GENTOO_MIRRORS="https://portcache.gaydragon.zone"
