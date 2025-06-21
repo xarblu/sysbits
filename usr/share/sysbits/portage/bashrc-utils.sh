@@ -286,9 +286,23 @@ function brc_build_env_setup() {
 
 	# setup PATH for sccache if requested
 	if "${ENABLE_SCCACHE:-false}"; then
-		local sccache_wraps="/usr/lib/sccache/bin"
-		export PATH="${sccache_wraps}:${PATH}"
-		export RUSTC_WRAPPER="sccache"
+        if command -v sccache >/dev/null; then
+            local sccache_wraps="/usr/lib/sccache/bin"
+            export PATH="${sccache_wraps}:${PATH}"
+            export RUSTC_WRAPPER="sccache"
+
+            # some defaults for sccache
+            # https://github.com/mozilla/sccache/blob/main/docs/Configuration.md
+            : "${SCCACHE_IDLE_TIMEOUT:="10"}"
+            : "${SCCACHE_MAX_FRAME_LENGTH:="104857600"}"
+            : "${SCCACHE_DIR:="/var/cache/sccache"}"
+            : "${SCCACHE_CACHE_SIZE:="75G"}"
+            : "${SCCACHE_DIRECT:="true"}"
+
+            export SCCACHE_IDLE_TIMEOUT SCCACHE_MAX_FRAME_LENGTH SCCACHE_DIR SCCACHE_CACHE_SIZE SCCACHE_DIRECT
+        else
+            ewarn "Could not find sccache binary in PATH"
+        fi
 	fi
 
 	# setup makeopts and optionally limit

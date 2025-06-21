@@ -29,13 +29,6 @@ ENABLE_SCCACHE="false"
 # Compiler caches
 #FEATURES="${FEATURES} ccache"
 #CCACHE_DIR="/var/cache/ccache"
-# enable sccache wrapper logic in bashrc
-# https://github.com/mozilla/sccache/blob/main/docs/Configuration.md
-SCCACHE_IDLE_TIMEOUT="10"
-SCCACHE_MAX_FRAME_LENGTH="104857600"
-SCCACHE_DIR="/var/cache/sccache"
-SCCACHE_CACHE_SIZE="75G"
-SCCACHE_DIRECT="true"
 
 # Accepted Licenses & Keywords
 ACCEPT_LICENSE="* -@EULA"
