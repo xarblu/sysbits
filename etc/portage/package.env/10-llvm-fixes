@@ -27,6 +27,8 @@ sys-libs/glibc gcc
 # runtime symbol lookup error: /usr/lib64/libopenmpt.so.0: undefined symbol: __muldc3
 # sth in compiler-rt
 media-libs/libopenmpt gcc
+# sth goes very wrong here with some make targets not existing when using clang
+net-analyzer/nmap gcc
 #[END] Compile issues (general clang)
 
 #[START] Compile issues (latest clang)
