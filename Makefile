@@ -24,6 +24,7 @@ endif
 	# Portage and Friends
 ifeq ($(BINPKG_CLIENT_LLVM),yes)
 	install -Dm644 -t $(DESTDIR)/etc/portage/binrepos.conf \
+		etc/portage/binrepos.conf/fetchcommand.conf \
 		etc/portage/binrepos.conf/binpkgs-llvm.conf
 endif
 
