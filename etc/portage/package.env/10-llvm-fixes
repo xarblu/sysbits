@@ -45,6 +45,7 @@ dev-util/android-tools clang-19
 
 #[START] Compile issues (libc++)
 # _Atomic cannot be applied to type 'std::shared_ptr
+# https://github.com/ValveSoftware/gamescope/issues/1509
 gui-wm/gamescope libstdcpp
 # missing c++20 support
 app-misc/clipboard libstdcpp
