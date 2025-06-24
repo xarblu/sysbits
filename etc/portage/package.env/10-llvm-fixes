@@ -63,8 +63,6 @@ games-emulation/snes9x no-mold
 net-im/telegram-desktop no-mold
 # forces bfd
 app-emulation/wine-vanilla ld-bfd
-# sth sth undefined version with anything but bfd
-x11-libs/wxGTK ld-bfd
 # ld.lld: error: version script assignment of * to symbol * failed: symbol not defined
 dev-java/openjdk:21 ld-allow-undefined-version
 dev-libs/opencl-clang:15 ld-allow-undefined-version
