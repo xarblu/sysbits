@@ -9,6 +9,7 @@ DESKTOP_EXTRA ?= no
 LAPTOP_EXTRA ?= no
 SERVER ?= no
 BINPKG_CLIENT_LLVM ?= no
+BINPKG_BUILD_HOST ?= no
 
 install: $(PATCHES) $(REPOS_CONF)
 	# Kernel Config Specs
@@ -54,6 +55,10 @@ endif
 ifeq ($(SERVER),yes)
 	install -m644 -t $(DESTDIR)/etc/portage/package.env \
 		etc/portage/package.env/05-server
+endif
+ifeq ($(BINPKG_BUILD_HOST),yes)
+	install -m644 -t $(DESTDIR)/etc/portage/package.env \
+		etc/portage/package.env/20-binpkg-builder
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.mask \
