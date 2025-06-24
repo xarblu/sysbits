@@ -45,8 +45,6 @@ net-im/telegram-desktop clang-19
 # _Atomic cannot be applied to type 'std::shared_ptr
 # https://github.com/ValveSoftware/gamescope/issues/1509
 gui-wm/gamescope libstdcpp
-# missing c++20 support
-app-misc/clipboard libstdcpp
 # sth gcxx
 dev-debug/systemtap libstdcpp
 # implicit instantiation of undefined template 'std::char_traits<unsigned char>'
