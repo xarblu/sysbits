@@ -1,0 +1,37 @@
+#Theming
+
+# STRING
+# This variable is only used for delayed substitution.
+# It is the background color. Use "none" for no change.
+BG0="none"
+BG1="none"
+BG2="none"
+BG3="none"
+
+# STRING
+# This is a list of regular expressions; if one of it matches TERM, then
+# COLORSCHEME1 is used instead of COLORSCHEME0. The intention is that the
+# specified terminals default to 256 colors.
+TERM_ALT1_ADD="alacritty"
+
+# STRING
+# The value "true" or "false" means that the first or second entry of the
+# COLORSCHEME* variables is used (meaning black or white background, resp.).
+# The value "auto" means a heuristic based on TERM_DARK and COLORFGBG_DARK.
+DARK="true"
+
+# STRING
+# This is one or two numbers. If TERM_ALT? does not match, this chooses the
+# corresponding number in color specifications (starting from 0).
+# If two numbers are specified, the choice depends on DARK.
+# The intention of this variable is to select the color scheme used for
+# 8/16 color terminals.
+COLORSCHEME0="0 2"
+
+# STRING
+# This is one or two numbers. If TERM_ALT1 matches, this chooses the
+# corresponding number in color specifications (starting from 0).
+# If two numbers are specified, the choice depends on DARK.
+# The intention of this variable is to select the color scheme used for
+# 256 color terminals.
+COLORSCHEME1="1 3"
