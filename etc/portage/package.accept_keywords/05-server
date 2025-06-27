@@ -51,3 +51,4 @@ dev-python/pipx ~amd64
 dev-python/python-linux-procfs ~amd64
 sys-apps/tuned ~amd64
 sys-auth/google-authenticator ~amd64
+x11-themes/catppuccin-btop ~amd64
