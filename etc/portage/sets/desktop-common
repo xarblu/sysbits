@@ -24,6 +24,12 @@ x11-themes/catppuccin-kde
 ## Terminal/Shell
 gui-apps/foot
 
+## Neovim Extras
+# (non-essential stuff like language servers)
+dev-util/bash-language-server
+dev-util/shellcheck-bin
+dev-util/yaml-language-server
+
 ## Fonts
 media-fonts/fira-code
 media-fonts/fira-sans

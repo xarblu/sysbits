@@ -42,9 +42,6 @@ sys-apps/ripgrep
 app-editors/neovim
 dev-libs/tree-sitter-meta
 dev-python/pynvim
-dev-util/bash-language-server
-dev-util/shellcheck-bin
-dev-util/yaml-language-server
 
 ## Network
 net-dns/bind-tools
