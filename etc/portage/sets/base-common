@@ -45,7 +45,6 @@ dev-python/pynvim
 
 ## Network
 net-dns/bind-tools
-net-dns/dnsproxy
 net-firewall/firewalld
 net-misc/curl
 net-misc/iperf

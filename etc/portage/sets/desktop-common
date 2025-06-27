@@ -53,6 +53,9 @@ net-misc/yt-dlp
 net-im/telegram-desktop
 net-im/vesktop-bin
 
+## Network
+net-dns/dnsproxy
+
 ## System Info
 app-misc/wayland-utils
 sys-apps/cpu-x
