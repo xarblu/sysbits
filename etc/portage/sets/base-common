@@ -68,4 +68,5 @@ app-admin/yadm
 app-misc/topgrade
 dev-python/pipx
 sys-apps/dbus-broker
+sys-kernel/cachyos-kernel
 sys-kernel/linux-firmware
