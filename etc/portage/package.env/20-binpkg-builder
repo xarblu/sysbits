@@ -1,6 +1,3 @@
 # binpkg build host might benefit from
 # e.g. sccache on some packages
 # that need multiple USE --buildpkgonly rebuilds
-
-# wants USE="wifi" rebuild for mobile devices
-www-client/firefox sccache
