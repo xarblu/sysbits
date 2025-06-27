@@ -65,4 +65,5 @@ x11-apps/xdpyinfo
 
 ## Other
 sci-calculators/qalculate-gtk
+sys-auth/rtkit
 www-client/firefox
