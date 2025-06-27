@@ -3,4 +3,4 @@
 
 net-misc/networkmanager iwd
 sys-kernel/cachyos-kernel -cachyos deckify
-x11-libs/libdrm radeon
+x11-libs/libdrm VIDEO_CARDS: radeon
