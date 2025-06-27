@@ -167,6 +167,12 @@ ifeq ($(DESKTOP),yes)
 		etc/sddm.conf.d/10-wayland.conf
 endif
 
+ifeq ($(STEAMDECK_EXTRA),yes)
+	install -Dm644 -t $(DESTDIR)/etc/pam.d \
+		etc/pam.d/kde \
+		etc/pam.d/sddm
+endif
+
 	install -Dm644 -t $(DESTDIR)/etc/systemd \
 		etc/systemd/zram-generator.conf
 
