@@ -1,0 +1,13 @@
+# USE flags applying to all packages
+# steamdeck specific
+
+# TARGETS
+
+# USE_EXPANDS
+# TODO
+#*/* CPU_FLAGS_X86: -* 
+*/* VIDEO_CARDS: amdgpu
+
+# USE
+# Network
+*/* wifi

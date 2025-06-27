@@ -7,6 +7,7 @@ CLANG ?= no
 DESKTOP ?= no
 DESKTOP_EXTRA ?= no
 LAPTOP_EXTRA ?= no
+STEAMDECK_EXTRA ?= no
 SERVER ?= no
 BINPKG_CLIENT_LLVM ?= no
 BINPKG_BUILD_HOST ?= no
@@ -95,6 +96,11 @@ ifeq ($(LAPTOP_EXTRA),yes)
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \
 		etc/portage/package.use/01-global-laptop \
 		etc/portage/package.use/91-other-laptop
+endif
+ifeq ($(STEAMDECK_EXTRA),yes)
+	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \
+		etc/portage/package.use/01-global-steamdeck \
+		etc/portage/package.use/91-other-steamdeck
 endif
 ifeq ($(SERVER),yes)
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \

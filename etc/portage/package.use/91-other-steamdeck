@@ -1,0 +1,5 @@
+# USE flags for everything else
+# steamdeck specific
+
+net-misc/networkmanager iwd
+sys-kernel/cachyos-kernel -cachyos deckify
