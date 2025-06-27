@@ -162,6 +162,11 @@ endif
 	install -Dm644 -t $(DESTDIR)/etc/eixrc \
 		etc/eixrc/*
 
+ifeq ($(DESKTOP),yes)
+	install -Dm644 -t $(DESTDIR)/etc/sddm.conf.d \
+		etc/sddm.conf.d/10-wayland.conf
+endif
+
 	install -Dm644 -t $(DESTDIR)/etc/systemd \
 		etc/systemd/zram-generator.conf
 
