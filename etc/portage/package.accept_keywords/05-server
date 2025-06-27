@@ -47,6 +47,7 @@ app-portage/portcache ~amd64
 dev-java/openjdk-bin ~amd64
 dev-lang/rust-bin ~amd64
 dev-lang/zig-bin ~amd64
+dev-python/pipx ~amd64
 dev-python/python-linux-procfs ~amd64
 sys-apps/tuned ~amd64
 sys-auth/google-authenticator ~amd64
