@@ -41,11 +41,12 @@ sys-kernel/linux-headers ~amd64
 virtual/dist-kernel ~amd64
 
 # other/unsorted
+app-metrics/prometheus-podman-exporter ~amd64
+app-misc/fclones ~amd64
+app-portage/portcache ~amd64
 dev-java/openjdk-bin ~amd64
+dev-lang/rust-bin ~amd64
 dev-lang/zig-bin ~amd64
 dev-python/python-linux-procfs ~amd64
 sys-apps/tuned ~amd64
 sys-auth/google-authenticator ~amd64
-app-metrics/prometheus-podman-exporter ~amd64
-app-portage/portcache ~amd64
-dev-lang/rust-bin ~amd64
