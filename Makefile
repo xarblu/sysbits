@@ -162,6 +162,9 @@ endif
 	install -Dm644 -t $(DESTDIR)/etc/eixrc \
 		etc/eixrc/*
 
+	install -Dm644 -t $(DESTDIR)/etc/systemd \
+		etc/systemd/zram-generator.conf
+
 	install -Dm644 -t $(DESTDIR)/usr/lib/dracut/modules.d/90bcachefs \
 		usr/lib/dracut/modules.d/90bcachefs/module-setup.sh
 
