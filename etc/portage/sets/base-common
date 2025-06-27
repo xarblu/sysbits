@@ -1,0 +1,74 @@
+# Common Base Packages
+# (ALL systems)
+
+## Portage
+app-admin/eclean-kernel
+app-misc/resolve-march-native
+app-portage/cpuid2cpuflags
+app-portage/eix
+app-portage/emlop
+app-portage/gentoolkit
+app-portage/portage-utils
+app-portage/smart-live-rebuild
+app-shells/gentoo-zsh-completions
+
+## Archivers
+app-arch/7zip
+app-arch/unrar
+app-arch/zip
+
+## Filesystem/Disk
+app-misc/fclones
+sys-fs/bcachefs-tools
+sys-fs/btrfs-progs
+sys-fs/dosfstools
+sys-fs/f2fs-tools
+sys-fs/ncdu
+sys-fs/xfsprogs
+
+## Terminal/Shell
+app-admin/sudo
+app-misc/fastfetch
+app-misc/ranger
+app-misc/tmux
+app-shells/starship
+app-shells/zoxide
+app-shells/zsh
+sys-apps/eza
+sys-apps/fd
+sys-apps/ripgrep
+
+## Neovim
+app-editors/neovim
+dev-libs/tree-sitter-meta
+dev-python/pynvim
+dev-util/bash-language-server
+dev-util/shellcheck-bin
+dev-util/yaml-language-server
+
+## Network
+net-dns/bind-tools
+net-dns/dnsproxy
+net-firewall/firewalld
+net-misc/curl
+net-misc/iperf
+
+## System Info
+media-video/libva-utils
+sys-apps/inxi
+sys-apps/pciutils
+sys-apps/usbutils
+sys-power/cpupower
+sys-process/bottom
+sys-process/btop
+sys-process/htop
+sys-process/iotop
+sys-process/lsof
+sys-process/nvtop
+x11-themes/catppuccin-btop
+
+## Other
+app-admin/yadm
+app-misc/topgrade
+dev-python/pipx
+sys-apps/dbus-broker
