@@ -184,6 +184,7 @@ function brc_build_env_setup() {
 		brc_append_flags ld "-fuse-ld=mold"
 		brc_append_flags rust "-C link-arg=-fuse-ld=mold"
 	fi
+    unset ENABLE_MOLD
 
 	# toggle lto flags
 	if "${ENABLE_LTO:-false}"; then
@@ -208,6 +209,7 @@ function brc_build_env_setup() {
 				;;
 		esac
 	fi
+    unset ENABLE_LTO
 
 	# toggle icf for supported linkers
 	if "${ENABLE_ICF:-false}"; then
@@ -222,6 +224,7 @@ function brc_build_env_setup() {
 				;;
 		esac
 	fi
+    unset ENABLE_ICF
 
 	# toggle polly flags
 	if "${ENABLE_POLLY:-false}"; then
@@ -238,6 +241,7 @@ function brc_build_env_setup() {
 		brc_append_flags llvm "-mllvm=-polly-postopts -mllvm=-polly-reschedule -mllvm=-polly-run-dce"
 		brc_append_flags llvm "-mllvm=-polly-run-inliner -mllvm=-polly-tiling"
 	fi
+    unset ENABLE_POLLY
 
 	# if EXTRA_*FLAGS are set append those
 	[[ -n "${EXTRA_CFLAGS}" ]] && brc_append_flags c "${EXTRA_CFLAGS}"
@@ -304,6 +308,7 @@ function brc_build_env_setup() {
             ewarn "Could not find sccache binary in PATH"
         fi
 	fi
+    unset ENABLE_SCCACHE
 
 	# setup makeopts and optionally limit
 	: "${MAKEOPTS:="-j$(nproc)"}"
@@ -333,6 +338,7 @@ function brc_build_env_setup() {
 		export CARGO_TERM_PROGRESS_WHEN="always"
 		export CARGO_TERM_PROGRESS_WIDTH="80"
 	fi
+    unset BUILD_EYECANDY
 
 	# build system verbosity
 	if ! "${BUILD_VERBOSE:-false}"; then
@@ -350,5 +356,6 @@ function brc_build_env_setup() {
 			export EXTRA_EMAKE="${EXTRA_EMAKE} V=0"
 		fi
 	fi
+    unset BUILD_VERBOSE
 }
 
