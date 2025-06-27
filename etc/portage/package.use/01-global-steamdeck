@@ -6,7 +6,7 @@
 # USE_EXPANDS
 # TODO
 #*/* CPU_FLAGS_X86: -* 
-*/* VIDEO_CARDS: amdgpu
+*/* VIDEO_CARDS: amdgpu radeonsi
 
 # USE
 # Network
