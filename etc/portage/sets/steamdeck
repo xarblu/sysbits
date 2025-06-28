@@ -2,3 +2,4 @@
 
 games-util/gamescope-session-steam
 media-sound/steamdeck-dsp-bin
+sys-kernel/steamdeck-firmware
