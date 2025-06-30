@@ -1,0 +1,6 @@
+# All the Intel GPU packages
+
+dev-libs/intel-compute-runtime
+media-libs/libva-intel-media-driver
+media-libs/mesa
+media-libs/vpl-gpu-rt
