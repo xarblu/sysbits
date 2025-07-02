@@ -24,7 +24,6 @@ ENABLE_LTO="true"
 ENABLE_POLLY="false"
 ENABLE_MOLD="false"
 ENABLE_ICF="true"
-ENABLE_MIMALLOC="true"
 ENABLE_SCCACHE="false"
 
 # Compiler caches
