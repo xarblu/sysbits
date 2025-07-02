@@ -134,7 +134,9 @@ function brc_prepend_llvm_path() {
 # ENABLE_LTO (default false):
 #   - enable link time optimization
 # ENABLE_ICF (default false):
-#   - enable idetical code folding (requires LLVM toolchain)
+#   - enable identical code folding (requires LLVM toolchain)
+# ENABLE_MIMALLOC (default false):
+#   - link libmimalloc.so by default
 # ENABLE_POLLY (default false):
 #   - enable LLVM polly
 # ENABLE_SCCACHE (default false):
@@ -225,6 +227,17 @@ function brc_build_env_setup() {
 		esac
 	fi
     unset ENABLE_ICF
+
+	# toggle icf for supported linkers
+	if "${ENABLE_MIMALLOC:-false}"; then
+        if has_version dev-libs/mimalloc; then
+            brc_append_flags ld "-lmimalloc"
+            brc_append_flags rust "-C link-arg=-lmimalloc"
+        else
+            ewarn "ENABLE_MIMALLOC is set but dev-libs/mimalloc isn't installed - ignoring"
+        fi
+	fi
+    unset ENABLE_MIMALLOC
 
 	# toggle polly flags
 	if "${ENABLE_POLLY:-false}"; then
