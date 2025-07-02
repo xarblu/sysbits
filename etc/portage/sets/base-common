@@ -63,10 +63,15 @@ sys-process/lsof
 sys-process/nvtop
 x11-themes/catppuccin-btop
 
+# Libraries
+dev-libs/mimalloc
+
+# Kernel
+sys-kernel/cachyos-kernel
+sys-kernel/linux-firmware
+
 ## Other
 app-admin/yadm
 app-misc/topgrade
 dev-python/pipx
 sys-apps/dbus-broker
-sys-kernel/cachyos-kernel
-sys-kernel/linux-firmware
