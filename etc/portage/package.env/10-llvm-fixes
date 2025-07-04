@@ -11,14 +11,6 @@ sys-kernel/gentoo-kernel-bin gcc
 sys-apps/fwupd-efi gcc
 sys-apps/memtest86+ gcc
 sys-boot/gnu-efi gcc
-# haskell packages
-# use x86_64-pc-linux-gnu-(g)cc and don't respect CC var
-# can kinda be changed in /usr/lib64/ghc-9.2.8/settings
-app-admin/haskell-updater gcc
-app-text/pandoc-cli gcc
-dev-haskell/* gcc
-dev-lang/ghc gcc
-dev-util/shellcheck gcc
 # fortran packages (flang will be packaged starting with LLVM 21)
 dev-lang/R gcc
 dev-python/scipy gcc
