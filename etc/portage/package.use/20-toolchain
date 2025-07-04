@@ -2,10 +2,11 @@
 
 # LLVM
 llvm-core/clang-common default-compiler-rt default-lld default-libcxx llvm-libunwind
-llvm-core/llvm binutils-plugin
-llvm-runtimes/libunwind static-libs
 llvm-core/clang-runtime sanitize
 llvm-core/clang-runtime:15.0.7 -sanitize
+llvm-core/clang-toolchain-symlinks native-symlinks gcc-symlinks
+llvm-core/llvm binutils-plugin
+llvm-runtimes/libunwind static-libs
 
 # Rust
 virtual/rust rustfmt
