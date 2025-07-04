@@ -99,6 +99,7 @@ sys-apps/cpu-x opencl
 sys-apps/fwupd logitech uefi gnutls gusb nvme
 sys-apps/memtest86+ -* boot uefi64
 sys-apps/systemd elfutils tpm boot cryptsetup ukify
+sys-kernel/cachyos-kernel cfi
 sys-kernel/cachyos-settings zram
 sys-kernel/installkernel dracut module-rebuild systemd-boot uki ukify
 sys-kernel/kernelscripts eclean-kernel
