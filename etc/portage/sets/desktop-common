@@ -27,7 +27,7 @@ gui-apps/foot
 ## Neovim Extras
 # (non-essential stuff like language servers)
 dev-util/bash-language-server
-dev-util/shellcheck-bin
+dev-util/shellcheck
 dev-util/yaml-language-server
 
 ## Fonts
@@ -64,6 +64,7 @@ x11-apps/mesa-progs
 x11-apps/xdpyinfo
 
 ## Other
+app-text/pandoc-cli
 sci-calculators/qalculate-gtk
 sys-auth/rtkit
 www-client/firefox
