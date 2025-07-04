@@ -21,6 +21,7 @@ dev-lang/ghc gcc
 dev-util/shellcheck gcc
 # fortran packages (flang will be packaged starting with LLVM 21)
 dev-lang/R gcc
+sci-libs/arpack gcc
 sci-libs/lapack gcc
 # forces gcc internally anyways
 sys-libs/glibc gcc
