@@ -173,6 +173,9 @@ ifeq ($(STEAMDECK_EXTRA),yes)
 		etc/pam.d/sddm
 endif
 
+	install -Dm644 -t $(DESTDIR)/etc/sudoers.d \
+		etc/sudoers.d/00-defaults
+
 	install -Dm644 -t $(DESTDIR)/etc/systemd \
 		etc/systemd/zram-generator.conf
 

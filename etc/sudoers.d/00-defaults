@@ -1,0 +1,10 @@
+### Extra sudo settings
+
+# Keep these ENV Variables
+Defaults env_keep += "EDITOR"
+# Let sudo insult me when I write the wrong password
+Defaults insults
+# Keep sudo across TTYs/terminals
+Defaults !tty_tickets
+# Give feedback when inputting passwords
+Defaults pwfeedback
