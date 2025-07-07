@@ -239,21 +239,18 @@ function brc_build_env_setup() {
 	fi
     unset ENABLE_MIMALLOC
 
-	# toggle polly flags
-	if "${ENABLE_POLLY:-false}"; then
-		# opt -load LLVMPolly.so --help-hidden
-		# load plugin and enable polly
-		brc_append_flags llvm "-fplugin=LLVMPolly.so -mllvm=-polly"
-		# OpenMP codegen
-		#brc_append_flags llvm "-mllvm=-polly-parallel -lomp -mllvm=-polly-omp-backend=LLVM -mllvm=-polly-scheduling=dynamic"
-		# Vector codegen
-		brc_append_flags llvm "-mllvm=-polly-vectorizer=stripmine"
-		# misc passes
-		brc_append_flags llvm "-mllvm=-polly-delinearize -mllvm=-polly-invariant-load-hoisting"
-		brc_append_flags llvm "-mllvm=-polly-loopfusion-greedy -mllvm=-polly-matmul-opt"
-		brc_append_flags llvm "-mllvm=-polly-postopts -mllvm=-polly-reschedule -mllvm=-polly-run-dce"
-		brc_append_flags llvm "-mllvm=-polly-run-inliner -mllvm=-polly-tiling"
-	fi
+    # toggle polly flags
+    if "${ENABLE_POLLY:-false}"; then
+        # plugin should be loaded via llvm-core/clang-runtime[polly]
+        # default flags from https://github.com/CachyOS/kernel-patches/blob/master/6.16/misc/0001-clang-polly.patch
+        brc_append_flags llvm "-mllvm -polly"
+        brc_append_flags llvm "-mllvm -polly-ast-use-context"
+        brc_append_flags llvm "-mllvm -polly-invariant-load-hoisting"
+        brc_append_flags llvm "-mllvm -polly-loopfusion-greedy"
+        brc_append_flags llvm "-mllvm -polly-run-inliner"
+        brc_append_flags llvm "-mllvm -polly-vectorizer=stripmine"
+        brc_append_flags llvm "-mllvm -polly-run-dce"
+    fi
     unset ENABLE_POLLY
 
 	# if EXTRA_*FLAGS are set append those

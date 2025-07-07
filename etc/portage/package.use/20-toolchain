@@ -2,7 +2,7 @@
 
 # LLVM
 llvm-core/clang-common default-compiler-rt default-lld default-libcxx llvm-libunwind
-llvm-core/clang-runtime sanitize
+llvm-core/clang-runtime polly sanitize
 llvm-core/clang-runtime:15.0.7 -sanitize
 llvm-core/clang-toolchain-symlinks native-symlinks gcc-symlinks
 llvm-core/lld-toolchain-symlinks native-symlinks
