@@ -179,6 +179,12 @@ endif
 	install -Dm644 -t $(DESTDIR)/etc/systemd \
 		etc/systemd/zram-generator.conf
 
+# if this doesn't cause issues make it unconditional
+ifeq ($(DESKTOP),yes)
+	install -Dm644 -t $(DESTDIR)/etc/udev/rules.d \
+		etc/udev/rules.d/60-ioschedulers.rules
+endif
+
 	install -Dm644 -t $(DESTDIR)/usr/lib/dracut/modules.d/90bcachefs \
 		usr/lib/dracut/modules.d/90bcachefs/module-setup.sh
 
