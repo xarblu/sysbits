@@ -7,10 +7,12 @@ sys-devel/gcc gcc
 sys-apps/apparmor gcc
 # is gcc compiled bin. fails without gcc
 sys-kernel/gentoo-kernel-bin gcc
-# sth in efi
+# ld.lld: error: -shared and -pie may not be used together
+# clang+ld.bfd doesn't seem to work either
 sys-apps/fwupd-efi gcc
+# forces gcc
+# "clang doesn't support indirect goto in function with no address-of-label expressions"
 sys-apps/memtest86+ gcc
-sys-boot/gnu-efi gcc
 # fortran packages (flang will be packaged starting with LLVM 21)
 dev-lang/R gcc
 dev-python/scipy gcc
