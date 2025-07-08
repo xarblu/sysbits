@@ -3,6 +3,11 @@
 #[START] Compile issues (general clang)
 # ‘-fcf-protection’ is not compatible with this target
 sys-devel/gcc gcc
+# gets stuck on "checking whether compiler driver understands Ada and is recent enough..."
+# and does a funny little thing where it keeps spawning processes
+# like a fork bomb when using clang via clang-toolchain-symlinks[gcc-symlinks]
+sys-devel/binutils gcc
+sys-libs/binutils-libs gcc
 # -flto-partitions even without lto
 sys-apps/apparmor gcc
 # is gcc compiled bin. fails without gcc
@@ -123,10 +128,6 @@ net-libs/webkit-gtk no-strict-warn
 #[END] Strict warnings
 
 #[START] misc
-# fallback toolchain - don't optimize a lot
-sys-devel/binutils no-optimize
-sys-devel/gcc no-optimize
-sys-libs/binutils-libs no-optimize
 # all around flaky build so keep it simple
 dev-util/intel-graphics-compiler no-optimize 
 # required so plasmashell works at all...
