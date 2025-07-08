@@ -31,8 +31,6 @@ net-analyzer/nmap gcc
 # #define ABSL_ATTRIBUTE_LIFETIME_BOUND [[clang::lifetimebound]]
 # ~dev-cpp/abseil-cpp-20240722.0
 dev-qt/qtwebengine clang-19
-media-libs/tg_owt clang-19
-net-im/telegram-desktop clang-19
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)
