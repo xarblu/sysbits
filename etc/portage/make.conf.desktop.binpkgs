@@ -25,7 +25,6 @@ ENABLE_POLLY="false"
 ENABLE_MOLD="false"
 ENABLE_ICF="true"
 ENABLE_SCCACHE="false"
-ENABLE_MIMALLOC="true"
 
 # Compiler caches
 #FEATURES="${FEATURES} ccache"
