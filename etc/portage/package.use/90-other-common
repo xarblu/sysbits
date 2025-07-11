@@ -75,7 +75,7 @@ media-sound/kid3 -mp3 -mp4
 media-sound/picard discid fingerprints
 media-sound/pulseaudio -*
 media-sound/strawberry soup
-media-video/ffmpeg bluray -cuda dav1d encode fdk jpeg2k libaom libass libdrm libv4l mp3 openal opengl openh264 opus -rav1e speex -ssh svt-av1 theora threads twolame v4l vmaf vorbis vpx webp x264 x265 -gnutls opencl jpegxl libplacebo openssl shaderc vulkan lame
+media-video/ffmpeg bluray -cuda dav1d encode fdk jpeg2k libaom libass libdrm libv4l mp3 openal opengl openh264 opus -rav1e speex -ssh svt-av1 theora threads twolame v4l vmaf vorbis vpx webp x264 x265 -gnutls opencl jpegxl libplacebo openssl shaderc vulkan lame zimg
 media-video/mediainfo -wxwidgets
 media-video/mpv archive bluray cli dvd -xv
 media-video/obs-studio fdk jack lua python v4l
