@@ -33,11 +33,6 @@ net-analyzer/nmap gcc
 #[END] Compile issues (general clang)
 
 #[START] Compile issues (latest clang)
-# 'lifetimebound' attribute cannot be applied to a parameter 
-# of a function that returns void; did you mean 'lifetime_capture_by(X)'
-# #define ABSL_ATTRIBUTE_LIFETIME_BOUND [[clang::lifetimebound]]
-# ~dev-cpp/abseil-cpp-20240722.0
-dev-qt/qtwebengine clang-19
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)
