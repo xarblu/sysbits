@@ -8,6 +8,8 @@ sys-devel/gcc gcc
 # like a fork bomb when using clang via clang-toolchain-symlinks[gcc-symlinks]
 sys-devel/binutils gcc
 sys-libs/binutils-libs gcc
+# forces gcc internally anyways
+sys-libs/glibc gcc
 # -flto-partitions even without lto
 sys-apps/apparmor gcc
 # is gcc compiled bin. fails without gcc
@@ -23,8 +25,6 @@ dev-lang/R gcc
 dev-python/scipy gcc
 sci-libs/arpack gcc
 sci-libs/lapack gcc
-# forces gcc internally anyways
-sys-libs/glibc gcc
 # runtime symbol lookup error: /usr/lib64/libopenmpt.so.0: undefined symbol: __muldc3
 # sth in compiler-rt
 media-libs/libopenmpt gcc
@@ -39,7 +39,7 @@ net-analyzer/nmap gcc
 # _Atomic cannot be applied to type 'std::shared_ptr
 # https://github.com/ValveSoftware/gamescope/issues/1509
 gui-wm/gamescope libstdcpp
-# sth gcxx
+# using namespace __gnu_cxx
 dev-debug/systemtap libstdcpp
 # implicit instantiation of undefined template 'std::char_traits<unsigned char>'
 dev-libs/intel-compute-runtime libstdcpp
@@ -62,15 +62,10 @@ dev-java/openjdk:21 ld-allow-undefined-version
 dev-libs/opencl-clang:15 ld-allow-undefined-version
 llvm-core/llvm:15 ld-allow-undefined-version
 net-fs/samba ld-allow-undefined-version
-net-libs/gtk-vnc ld-allow-undefined-version
-sys-apps/keyutils ld-allow-undefined-version
 sys-libs/libfaketime ld-allow-undefined-version
-sys-libs/libxcrypt ld-allow-undefined-version
 sys-libs/talloc ld-allow-undefined-version
 sys-libs/tdb ld-allow-undefined-version
 sys-libs/tevent ld-allow-undefined-version
-# ld.lld: error: undefined reference:
-sys-auth/libfprint ld-allow-shlib-undefined
 #[END] Linker issues
 
 #[START] Compile issues (polly)
@@ -123,13 +118,11 @@ net-libs/webkit-gtk no-strict-warn
 #[END] Strict warnings
 
 #[START] misc
-# all around flaky build so keep it simple
-dev-util/intel-graphics-compiler no-optimize 
 # required so plasmashell works at all...
 llvm-runtimes/libcxx libcxx-typeinfo
 llvm-runtimes/libcxxabi libcxx-typeinfo
 # LDSHARED doesn't get set automatically it seems...
 dev-lang/pypy pypy-linker_so
-# fails to compile with too many jobs
+# somewhat randomly fails to compile with too many jobs
 net-im/telegram-desktop telegram-desktop-job-limit
 #[END] misc
