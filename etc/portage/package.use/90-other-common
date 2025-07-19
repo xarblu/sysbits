@@ -49,6 +49,7 @@ kde-plasma/plasma-firewall firewalld -ufw
 kde-plasma/plasma-meta -crypt oxygen-theme sdk
 mail-client/thunderbird hwaccel system-png -X openh264 system-pipewire
 media-fonts/fonts-meta cjk emoji latin ms
+media-fonts/ibm-plex cjk variable
 media-fonts/nerd-fonts ibmplexmono monaspace nerdfontssymbolsonly
 media-fonts/noto-emoji icons
 media-fonts/source-han-sans L10N: ja ko zh-CN zh-HK zh-TW
