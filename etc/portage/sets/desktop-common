@@ -63,6 +63,12 @@ sys-apps/mission-center
 x11-apps/mesa-progs
 x11-apps/xdpyinfo
 
+## Games
+games-util/ProtonPlus
+games-util/gamemode
+games-util/mangohud
+games-util/steam-launcher
+
 ## Other
 app-text/pandoc-cli
 media-gfx/krita
