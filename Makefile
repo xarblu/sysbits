@@ -21,7 +21,15 @@ endif
 
 	# Profile / Environment
 	install -Dm644 -t $(DESTDIR)/etc/profile.d \
-		etc/profile.d/*
+		etc/profile.d/respect-xdg-dirs.sh
+ifeq ($(DESKTOP),yes)
+	install -Dm644 -t $(DESTDIR)/etc/profile.d \
+		etc/profile.d/desktop-misc.sh \
+		etc/profile.d/kde-xcursors.sh \
+		etc/profile.d/makemkv-libmmdb.sh \
+		etc/profile.d/plasma-preload.sh \
+		etc/profile.d/vulkan-video.sh
+endif
 
 	# Portage and Friends
 ifeq ($(BINPKG_CLIENT_LLVM),yes)
