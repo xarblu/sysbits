@@ -1,1 +1,2 @@
-sys-kernel/cachyos-kernel -llvm_slot_20
+# unmask LLVM_SLOT values (e.g. for RCs)
+*/* -llvm_slot_21

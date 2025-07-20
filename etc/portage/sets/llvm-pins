@@ -1,6 +1,18 @@
 # Pin some older LLVM toolchain versions
 # e.g. for package.env
 
+# LLVM 19
 llvm-core/clang:19
 llvm-core/lld:19
 llvm-core/llvm:19
+
+# LLVM 20
+llvm-core/clang:20
+llvm-core/lld:20
+llvm-core/llvm:20
+
+# LLVM Latest
+llvm-core/clang
+llvm-core/flang
+llvm-core/lld
+llvm-core/llvm
