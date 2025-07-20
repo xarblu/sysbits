@@ -7,12 +7,4 @@
 dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 15
 
 # unstable slots
-dev-python/pyside LLVM_SLOT: -* 20
-dev-qt/qttools LLVM_SLOT: -* 20
-dev-util/mesa_clc LLVM_SLOT: -* 20
-mail-client/thunderbird LLVM_SLOT: -* 20
-media-libs/mesa LLVM_SLOT: -* 20
-sys-apps/lact LLVM_SLOT: -* 20
-sys-fs/bcachefs-tools LLVM_SLOT: -* 20
-sys-kernel/cachyos-kernel LLVM_SLOT: -* 20
-www-client/firefox LLVM_SLOT: -* 20
+sys-kernel/cachyos-kernel LLVM_SLOT: -* 21
