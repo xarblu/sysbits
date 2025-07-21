@@ -40,6 +40,7 @@ kde-apps/kdeadmin-meta -cron
 kde-apps/kdecore-meta -webengine
 kde-apps/kio-extras mtp nfs samba taglib
 kde-apps/krdc -rdp
+kde-apps/ksystemlog kdesu
 kde-apps/thumbnailers video
 kde-frameworks/kfilemetadata ffmpeg
 kde-frameworks/kwidgetsaddons designer
