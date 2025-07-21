@@ -33,6 +33,8 @@ net-analyzer/nmap gcc
 #[END] Compile issues (general clang)
 
 #[START] Compile issues (latest clang)
+# fatal error: 'nokogiri_gumbo.h' file not found
+dev-ruby/nokogiri clang-20
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)
