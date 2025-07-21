@@ -27,7 +27,7 @@ function main() {
                 # clear line and print " * [i] c/p
                 print "\e[2K\e[1G \e[32;1m*\e[0m [$i] $1";
                 # explicit flush because we do not send a \n
-                select()->flush();
+                STDOUT->flush();
             }
         }
         print "\e[2K\e[1G \e[32;1m*\e[0m Processed $i packages\n";
