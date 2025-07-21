@@ -5,7 +5,7 @@ function is_topgrade() {
 	local ppid comm
 	ppid="${PPID}"
 	while (( ppid > 1 )); do
-		read -r ppid comm <<<"$(ps -o ppid=,comm= $ppid)"
+		read -r ppid comm <<<"$(ps -o ppid=,comm= "${ppid}")"
 		if [[ "${comm}" == topgrade ]]; then
 			return 0
 		fi
@@ -19,7 +19,20 @@ function main() {
 	local start
 	printf " \e[32;1m*\e[0m Regenerating repository cache...\n"
 	start="${EPOCHSECONDS}"
-	if emerge --ignore-default-opts --regen --jobs=$(nproc) | perl -e 'my $i = 0; while (<>) { if ($_ =~ /^Processing (\S+?\/\S+)$/) { $i++; print "\e[2K\e[1G[$i] $1" }}; print "\e[2K\e[1GProcessed $i packages\n"'; then
+	local inline_perl='
+		my $i = 0;
+		while (<>) {
+			if ($_ =~ /^Processing (\S+?\/\S+)$/) {
+				$i += 1;
+                # clear line and print " * [i] c/p
+				print "\e[2K\e[1G \e[32;1m*\e[0m [$i] $1";
+                # explicit flush because we do not send a \n
+				select()->flush();
+			}
+		}
+		print "\e[2K\e[1G \e[32;1m*\e[0m Processed $i packages\n";
+	'
+	if emerge --ignore-default-opts --regen --jobs="$(nproc)" | perl -e "${inline_perl}"; then
 		printf " \e[32;1m*\e[0m Took %s seconds\n" "$(( EPOCHSECONDS - start ))"
 	else
 		printf " \e[31;1m*\e[0m Failed\n"
