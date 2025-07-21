@@ -20,17 +20,17 @@ function main() {
 	printf " \e[32;1m*\e[0m Regenerating repository cache...\n"
 	start="${EPOCHSECONDS}"
 	local inline_perl='
-		my $i = 0;
-		while (<>) {
-			if ($_ =~ /^Processing (\S+?\/\S+)$/) {
-				$i += 1;
+        my $i = 0;
+        while (<>) {
+            if ($_ =~ /^Processing (\S+?\/\S+)$/) {
+                $i += 1;
                 # clear line and print " * [i] c/p
-				print "\e[2K\e[1G \e[32;1m*\e[0m [$i] $1";
+                print "\e[2K\e[1G \e[32;1m*\e[0m [$i] $1";
                 # explicit flush because we do not send a \n
-				select()->flush();
-			}
-		}
-		print "\e[2K\e[1G \e[32;1m*\e[0m Processed $i packages\n";
+                select()->flush();
+            }
+        }
+        print "\e[2K\e[1G \e[32;1m*\e[0m Processed $i packages\n";
 	'
 	if emerge --ignore-default-opts --regen --jobs="$(nproc)" | perl -e "${inline_perl}"; then
 		printf " \e[32;1m*\e[0m Took %s seconds\n" "$(( EPOCHSECONDS - start ))"
