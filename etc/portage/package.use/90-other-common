@@ -47,7 +47,7 @@ kde-plasma/kwin xwayland
 kde-plasma/plasma-desktop webengine
 kde-plasma/plasma-firewall firewalld -ufw
 kde-plasma/plasma-meta -crypt oxygen-theme sdk
-mail-client/thunderbird hwaccel system-png -X openh264 system-pipewire
+mail-client/thunderbird hwaccel system-png -X openh264 system-pipewire -wifi
 media-fonts/fonts-meta cjk emoji latin ms
 media-fonts/ibm-plex cjk variable
 media-fonts/nerd-fonts ibmplexmono monaspace nerdfontssymbolsonly
@@ -106,6 +106,6 @@ sys-kernel/installkernel dracut module-rebuild systemd-boot uki ukify
 sys-kernel/kernelscripts eclean-kernel
 sys-kernel/linux-firmware compress-zstd deduplicate
 virtual/linux-sources firmware
-www-client/firefox hwaccel system-png -X openh264 system-pipewire wasm-sandbox
+www-client/firefox hwaccel system-png -X openh264 system-pipewire wasm-sandbox -wifi
 x11-base/xorg-server xvfb
 x11-base/xwayland libei
