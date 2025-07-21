@@ -3,8 +3,7 @@
 
 ### KDE Plasma + Default Apps
 ## Meta packages
-kde-apps/kdeadmin-meta
-kde-apps/kdecore-meta
+kde-apps/kde-apps-meta
 kde-plasma/plasma-meta
 
 ## Apps
