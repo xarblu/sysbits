@@ -19,6 +19,11 @@ ifeq ($(DESKTOP),yes)
 		etc/kernel/config.d/05-base.config
 endif
 
+	# Locales
+	install -Dm644 -t $(DESTDIR)/etc \
+		etc/locale.conf \
+		etc/locale.gen
+
 	# Profile / Environment
 	install -Dm644 -t $(DESTDIR)/etc/profile.d \
 		etc/profile.d/respect-xdg-dirs.sh
