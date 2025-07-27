@@ -37,6 +37,7 @@ app-shells/zoxide
 app-shells/zsh
 sys-apps/eza
 sys-apps/fd
+sys-apps/mawk
 sys-apps/ripgrep
 
 ## Neovim
