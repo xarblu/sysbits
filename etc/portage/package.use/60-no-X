@@ -9,6 +9,7 @@ app-text/texlive-core -X
 app-text/xournalpp -X
 dev-python/matplotlib -wxwidgets
 games-emulation/snes9x -xv
+kde-misc/kde-rounded-corners -X
 kde-plasma/plasma-login-sessions -X
 kde-plasma/plasma-meta -X
 media-libs/libwebp -opengl
