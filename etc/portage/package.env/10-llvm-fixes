@@ -35,6 +35,8 @@ net-analyzer/nmap gcc
 #[START] Compile issues (latest clang)
 # fatal error: 'nokogiri_gumbo.h' file not found
 dev-ruby/nokogiri clang-20
+# stuck for some reason
+sys-process/htop clang-20
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)
@@ -63,6 +65,7 @@ app-emulation/wine-vanilla ld-bfd
 dev-java/openjdk:21 ld-allow-undefined-version
 dev-libs/opencl-clang:15 ld-allow-undefined-version
 llvm-core/llvm:15 ld-allow-undefined-version
+net-firewall/ipset ld-allow-undefined-version
 net-fs/samba ld-allow-undefined-version
 sys-libs/libfaketime ld-allow-undefined-version
 sys-libs/talloc ld-allow-undefined-version
