@@ -35,10 +35,6 @@ net-analyzer/nmap gcc
 #[START] Compile issues (latest clang)
 # fatal error: 'nokogiri_gumbo.h' file not found
 dev-ruby/nokogiri clang-20
-# clang gets stuck for some reason
-# (some sort of livelock ig)
-sys-process/htop clang-20
-x11-libs/gtk+ clang-20
 # stupid firefox bootstrap because it doesn't
 # compile on libcxx-21 yet
 # https://bugzilla.mozilla.org/1954004
