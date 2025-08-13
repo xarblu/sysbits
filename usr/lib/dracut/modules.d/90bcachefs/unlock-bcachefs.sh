@@ -7,7 +7,9 @@ command -v getarg > /dev/null || . /lib/dracut-lib.sh
 case "${fstype}" in
     bcachefs) ;;
     auto)
-        warn "unlock-bcachefs: rootfstype unset or auto. Will try to unlock anyways."
+        warn "unlock-bcachefs: rootfstype unset or auto."
+        warn "unlock-bcachefs: Will just throw the bcachefs tool at it and see what happens."
+        warn "unlock-bcachefs: Explicitly set rootfstype to suppress this warning and avoid unnecessary checks."
         ;;
     *) return 0 ;;
 esac
