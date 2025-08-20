@@ -50,7 +50,7 @@ BINPKG_COMPRESS_FLAGS="-T0 -9"
 FEATURES="${FEATURES} split-log clean-logs compress-build-logs"
 PORTAGE_LOGDIR="/var/log/portage"
 # binpkgs
-FEATURES="${FEATURES} buildpkg -buildpkg-live binpkg-multi-instance"
+FEATURES="${FEATURES} buildpkg binpkg-multi-instance"
 # client defaults
 EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --getbinpkg --binpkg-respect-use --rebuilt-binaries"
 # keep basic debug info
