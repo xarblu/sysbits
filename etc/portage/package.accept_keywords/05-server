@@ -42,6 +42,7 @@ virtual/dist-kernel ~amd64
 
 # other/unsorted
 app-metrics/prometheus-podman-exporter ~amd64
+app-misc/e6sync ~amd64
 app-misc/fclones ~amd64
 app-portage/portcache ~amd64
 dev-java/openjdk-bin ~amd64
