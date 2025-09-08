@@ -12,7 +12,7 @@ SERVER ?= no
 BINPKG_CLIENT_LLVM ?= no
 BINPKG_BUILD_HOST ?= no
 
-install: $(PATCHES) $(REPOS_CONF)
+install: $(PATCHES)
 	# Kernel Config Specs
 ifeq ($(DESKTOP),yes)
 	install -Dm644 -t $(DESTDIR)/etc/kernel/config.d \
@@ -175,7 +175,8 @@ endif
 		usr/share/sysbits/portage/bashrc-utils.sh
 
 	install -Dm644 -t $(DESTDIR)/etc/eixrc \
-		etc/eixrc/*
+		etc/eixrc/02-theming \
+		etc/eixrc/10-cache-methods
 
 ifeq ($(DESKTOP),yes)
 	install -Dm644 -t $(DESTDIR)/etc/sddm.conf.d \
@@ -190,6 +191,11 @@ endif
 
 	install -Dm644 -t $(DESTDIR)/etc/sudoers.d \
 		etc/sudoers.d/00-defaults
+
+	install -Dm644 -t $(DESTDIR)/etc/sysctl.d \
+		etc/sysctl.d/55-bbr.conf \
+		etc/sysctl.d/55-fq_pie.conf \
+		etc/sysctl.d/60-route_cache.conf
 
 	install -Dm644 -t $(DESTDIR)/etc/systemd \
 		etc/systemd/zram-generator.conf
