@@ -13,6 +13,10 @@ BINPKG_CLIENT_LLVM ?= no
 BINPKG_BUILD_HOST ?= no
 
 install: $(PATCHES)
+	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \
+		etc/dracut.conf.d/00-defaults.conf \
+		etc/dracut.conf.d/10-compress.conf
+
 	# Kernel Config Specs
 ifeq ($(DESKTOP),yes)
 	install -Dm644 -t $(DESTDIR)/etc/kernel/config.d \
