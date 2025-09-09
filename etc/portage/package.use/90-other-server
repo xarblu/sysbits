@@ -6,6 +6,7 @@ app-eselect/eselect-php fpm
 app-misc/ca-certificates cacert
 app-misc/mime-types nginx
 app-portage/portage-bashrc-mv -ccache -title
+dev-db/mongodb mongosh
 dev-java/openjdk gentoo-vm
 dev-java/openjdk-bin gentoo-vm
 dev-lang/php argon2 avif bcmath cjk curl exif fpm ftp gd gmp imap intl ldap pdo postgres sockets sodium -sqlite sysvipc truetype webp xmlreader xmlwriter zip
