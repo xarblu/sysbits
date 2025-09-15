@@ -30,6 +30,7 @@ net-proxy/haproxy ~amd64
 app-containers/aardvark-dns ~amd64
 app-containers/netavark ~amd64
 app-containers/podman ~amd64
+net-firewall/nftables ~amd64
 
 # Kernel
 sys-fs/bcachefs-tools ~amd64
