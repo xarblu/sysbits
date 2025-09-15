@@ -5,43 +5,50 @@
 #/_/ /_/ /_/\__,_/_/|_|\___(_)___/\____/_/ /_/_/
 ### Main portage configuration file ###
 
-#Toolchain
-COMMON_FLAGS="-march=native -O2 -pipe"
+# === bashrc flag manager ===
+# base *FLAGS to expand with bashrc flag manager
+TARGET_CPU="native"
+COMMON_FLAGS="-march=${TARGET_CPU} -O2 -pipe"
 CFLAGS="${COMMON_FLAGS}"
 CXXFLAGS="${COMMON_FLAGS}"
+OBJCFLAGS="${COMMON_FLAGS}"
+OBJCXXFLAGS="${COMMON_FLAGS}"
 FCFLAGS="${COMMON_FLAGS}"
-FFLAGS="${COMMON_FLAGS}"
-MAKEOPTS="-j16"
+F77FLAGS="${COMMON_FLAGS}"
+RUSTFLAGS="-C target-cpu=${TARGET_CPU} -C opt-level=2"
+LDFLAGS="-Wl,-O2,--as-needed"
 
 #Obtained from app-portage/cpuid2cpuflags utility
 CPU_FLAGS_X86="aes avx avx2 f16c fma3 mmx mmxext pclmul popcnt rdrand sha sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3"
 
+# Compiler caches
 CCACHE_DIR="/var/cache/ccache"
 
-#Accepted Licenses & Keywords
+# Accepted Licenses & Keywords
 ACCEPT_LICENSE="* -@EULA"
 ACCEPT_KEYWORDS="amd64"
 
-#Portage Options
-EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --tree --unordered-display --binpkg-respect-use=y --with-bdeps=y"
+# Portage Options
+EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --tree --unordered-display --with-bdeps=y"
 PORTAGE_SCHEDULING_POLICY="idle"
 NETRC_FILE="/etc/portage/.netrc"
 FETCHCOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --compressed --fail --retry 3 --location \${URI} -o \${DISTDIR}/\${FILE}"
 RESUMECOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --compressed --fail --retry 3 --location --continue-at - \${URI} -o \${DISTDIR}/\${FILE}"
-#compression
+# compression
 PORTAGE_COMPRESS="zstd"
 PORTAGE_COMPRESS_FLAGS="-T0 -9"
+BINPKG_FORMAT="gpkg"
 BINPKG_COMPRESS="zstd"
 BINPKG_COMPRESS_FLAGS="-T0 -9"
 # Logging
 FEATURES="${FEATURES} split-log clean-logs compress-build-logs"
 PORTAGE_LOGDIR="/var/log/portage"
-#Other Portage Features
-FEATURES="${FEATURES} binpkg-multi-instance parallel-fetch parallel-install"
-#don't build binpkgs for these:
-EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --buildpkg-exclude 'acct-group/* acct-user/* virtual/* sys-kernel/*-sources */*-bin'"
+# binpkgs
+FEATURES="${FEATURES} buildpkg binpkg-multi-instance"
+# Other Portage Features
+FEATURES="${FEATURES} parallel-fetch parallel-install fail-clean fakeroot"
 
-#Portage directories
+# Portage directories
 PORTDIR="/var/db/repos/gentoo"
 DISTDIR="/var/cache/distfiles"
 PKGDIR="/var/cache/binpkgs"
@@ -50,4 +57,4 @@ PORTAGE_WORKDIR_MODE="0775"
 
 # This sets the language of build output to English.
 # Please keep this setting intact when reporting bugs.
-LC_MESSAGES=C
+LC_MESSAGES="C"
