@@ -30,6 +30,7 @@ net-proxy/haproxy ~amd64
 app-containers/aardvark-dns ~amd64
 app-containers/netavark ~amd64
 app-containers/podman ~amd64
+app-metrics/prometheus-podman-exporter ~amd64
 net-firewall/nftables ~amd64
 
 # Kernel
@@ -42,7 +43,6 @@ sys-kernel/linux-headers ~amd64
 virtual/dist-kernel ~amd64
 
 # other/unsorted
-app-metrics/prometheus-podman-exporter ~amd64
 app-misc/e6sync ~amd64
 app-misc/fclones ~amd64
 app-portage/portcache ~amd64
