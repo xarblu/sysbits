@@ -12,6 +12,7 @@ app-portage/portage-utils
 app-portage/smart-live-rebuild
 app-shells/gentoo-zsh-completions
 dev-util/debugedit
+sys-apps/fakeroot
 sys-devel/dwz
 
 ## Archivers
