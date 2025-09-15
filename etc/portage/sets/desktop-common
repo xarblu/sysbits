@@ -26,6 +26,7 @@ gui-apps/foot
 
 ## Neovim Extras
 # (non-essential stuff like language servers)
+dev-lua/luarocks
 dev-python/mccabe
 dev-python/pyflakes
 dev-python/python-lsp-mypy
