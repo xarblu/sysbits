@@ -11,6 +11,7 @@ app-portage/gentoolkit
 app-portage/portage-utils
 app-portage/smart-live-rebuild
 app-shells/gentoo-zsh-completions
+dev-util/debugedit
 
 ## Archivers
 app-arch/7zip
