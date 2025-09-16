@@ -1,0 +1,6 @@
+# mainly for firefox + libc++
+# https://bugzilla.mozilla.org/1874059
+VISIBILITY_FLAGS="-fvisibility=hidden -fvisibility-inlines-hidden"
+EXTRA_CFLAGS="${EXTRA_CFLAGS} ${VISIBILITY_FLAGS}"
+EXTRA_CXXFLAGS="${EXTRA_CXXFLAGS} ${VISIBILITY_FLAGS}"
+EXTRA_LDFLAGS="${EXTRA_LDFLAGS} ${VISIBILITY_FLAGS}"

@@ -55,6 +55,8 @@ gui-wm/gamescope libstdcpp
 dev-debug/systemtap libstdcpp
 # implicit instantiation of undefined template 'std::char_traits<unsigned char>'
 dev-libs/intel-compute-runtime libstdcpp
+# https://bugzilla.mozilla.org/1874059
+www-client/firefox visibility-hidden
 #[END] Compile issues (libc++)
 
 #[START] Linker issues
