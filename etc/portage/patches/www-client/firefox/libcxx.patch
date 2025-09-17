@@ -15,7 +15,7 @@ index a59fc5dcf235e..b2192e4066786 100644
  @depends(target, build_environment)
  def visibility_flags(target, env):
      if target.os != "WINNT":
--        if target.kernel == "Darwin":
+-        if target.kernel in ("Darwin", "FreeBSD", "OpenBSD"):
 +        if True:
              return ("-fvisibility=hidden", "-fvisibility-inlines-hidden")
          return (
