@@ -1,5 +1,5 @@
 diff --git a/libffabi/src/ffabi.c b/libffabi/src/ffabi.c
-index 166468c..81a8e33 100644
+index 166468c..5491d35 100644
 --- a/libffabi/src/ffabi.c
 +++ b/libffabi/src/ffabi.c
 @@ -20,6 +20,7 @@
@@ -10,7 +10,17 @@ index 166468c..81a8e33 100644
  #include "mpegaudiodecheader.h"
  #include <libavutil/samplefmt.h>
  #include <libavutil/opt.h>
-@@ -374,7 +375,7 @@ FFM_AudioEncodeContext* __cdecl ffm_audio_encode_init(void* logctx,const char* n
+@@ -211,8 +212,7 @@ int __cdecl ffm_audio_decode_close(FFM_AudioDecodeContext* ctx)
+     av_packet_free(&ctx->pck);
+ 
+     if (ctx->avctx) {
+-        avcodec_close(ctx->avctx);
+-        av_free(ctx->avctx);
++        avcodec_free_context(&ctx->avctx);
+     }
+ 
+     av_free(ctx);
+@@ -374,7 +374,7 @@ FFM_AudioEncodeContext* __cdecl ffm_audio_encode_init(void* logctx,const char* n
  #endif
  
      ctx->avctx->profile = (info->profile != FFM_PROFILE_UNKNOWN) ?
@@ -19,7 +29,17 @@ index 166468c..81a8e33 100644
  
      if ((CodecFlags&FFM_CODEC_FLAG_GLOBAL_HEADER)!=0)
          ctx->avctx->flags |= AV_CODEC_FLAG_GLOBAL_HEADER;
-@@ -604,7 +605,7 @@ int __cdecl ffm_audio_get_codec_information(FFM_CodecInfo* info, const char* nam
+@@ -420,8 +420,7 @@ int __cdecl ffm_audio_encode_close(FFM_AudioEncodeContext* ctx)
+     av_freep(&ctx->frame_extended_data);
+ 
+     if (ctx->avctx) {
+-        avcodec_close(ctx->avctx);
+-        av_free(ctx->avctx);
++        avcodec_free_context(&ctx->avctx);
+     }
+ 
+     av_free(ctx);
+@@ -604,7 +603,7 @@ int __cdecl ffm_audio_get_codec_information(FFM_CodecInfo* info, const char* nam
      info->capabilities = codec->capabilities;
      if (codec->profiles) {
          for (i=0;i<32;i++) {
@@ -28,3 +48,13 @@ index 166468c..81a8e33 100644
                  break;
              info->profiles_names[i]=codec->profiles[i].name;
              info->profiles_values[i]=codec->profiles[i].profile;
+@@ -695,8 +694,7 @@ ret:
+     }
+ 
+     if (avctx) {
+-        avcodec_close(avctx);
+-        av_free(avctx);
++        avcodec_free_context(&avctx);
+     }
+     return err;
+ }
