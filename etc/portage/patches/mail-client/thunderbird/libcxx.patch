@@ -1,0 +1,22 @@
+Upstream commit: https://github.com/mozilla-firefox/firefox/commit/13cd9f68b5bc135fc1e234bfb2ae44a907886020
+
+Without -fvisibility=hidden, linking libxul fails with undefined hidden symbol
+references to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>
+
+Upstream currently does this with `target.kernel in ("Darwin", "FreeBSD", "OpenBSD")`
+Force it unconditionally because they seem to assume GCC's libstdc++ for Linux targets
+even when using LLVM's libc++
+
+diff --git a/build/moz.configure/toolchain.configure b/build/moz.configure/toolchain.configure
+index a59fc5dcf235e..b2192e4066786 100644
+--- a/build/moz.configure/toolchain.configure
++++ b/build/moz.configure/toolchain.configure
+@@ -2426,7 +2426,7 @@ set_define("_LIBCPP_HIDE_FROM_ABI", libcxx_override_visibility.hide_from_abi)
+ @depends(target, build_environment)
+ def visibility_flags(target, env):
+     if target.os != "WINNT":
+-        if target.kernel in ("Darwin", "FreeBSD", "OpenBSD"):
++        if True:
+             return ("-fvisibility=hidden", "-fvisibility-inlines-hidden")
+         return (
+             "-I%s/system_wrappers" % os.path.join(env.dist),
