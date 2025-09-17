@@ -1,15 +1,15 @@
 diff --git a/libffabi/src/ffabi.c b/libffabi/src/ffabi.c
-index 166468c..1adb349 100644
+index 166468c..81a8e33 100644
 --- a/libffabi/src/ffabi.c
 +++ b/libffabi/src/ffabi.c
-@@ -23,6 +23,7 @@
+@@ -20,6 +20,7 @@
+ */
+ #include <lgpl/ffabi.h>
+ #include <libavcodec/avcodec.h>
++#include <libavcodec/defs.h>
  #include "mpegaudiodecheader.h"
  #include <libavutil/samplefmt.h>
  #include <libavutil/opt.h>
-+#include <libavutil/defs.h>
- #include <string.h>
- #include "internal.h"
- 
 @@ -374,7 +375,7 @@ FFM_AudioEncodeContext* __cdecl ffm_audio_encode_init(void* logctx,const char* n
  #endif
  
