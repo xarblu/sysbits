@@ -14,8 +14,6 @@ kde-apps/kcolorchooser
 kde-apps/kwalletmanager
 kde-apps/okular
 kde-misc/kdeconnect
-# currently ** keywords only
-kde-plasma/plasma-keyboard
 
 ## Themes
 x11-themes/catppuccin-cursors
