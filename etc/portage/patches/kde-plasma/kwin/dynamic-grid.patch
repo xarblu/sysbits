@@ -1,7 +1,7 @@
-diff --git a/src/plugins/overview/qml/main.qml b/src/plugins/overview/qml/main.qml
-index 2a86ced0b2..2a48de97ac 100644
---- a/src/plugins/overview/qml/main.qml
-+++ b/src/plugins/overview/qml/main.qml
+diff --git a/src/plugins/overview/qml/Main.qml b/src/plugins/overview/qml/Main.qml
+index 584a362d5a..1b9b33ef74 100644
+--- a/src/plugins/overview/qml/Main.qml
++++ b/src/plugins/overview/qml/Main.qml
 @@ -343,7 +343,7 @@ FocusScope {
  
      property int desktops: Math.max(bar.desktopCount, 2)
