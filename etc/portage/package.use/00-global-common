@@ -1,22 +1,29 @@
 # USE flags applying to all packages
 # common across systems
 
-# TARGETS
+# USE_EXPANDS
+# LLVM
 */* LLVM_TARGETS: -* BPF
 # keep unset to select latest stable default
 #LLVM_SLOT
 
+# Python
 # old targets should be kept once *all* PYTHON_SINGLE_TARGETs migrated to
 # the new targets to avoid annoying package.use shenanigans
 */* PYTHON_TARGETS: -* python3_12 python3_13 python3_14
 */* PYTHON_SINGLE_TARGET: -* python3_13
 
+# Lua
 #*/* LUA_TARGETS:
 #*/* LUA_SINGLE_TARGET:
 
+# Ruby
 */* RUBY_TARGETS: -* ruby34
 
-# USE_EXPANDS
+# Perl
+*/* PERL_FEATURES: ithreads
+
+# misc
 */* ABI_X86: -* 64
 */* CPU_FLAGS_X86: -*
 */* VIDEO_CARDS: -* zink
