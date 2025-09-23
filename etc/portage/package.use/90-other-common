@@ -23,11 +23,11 @@ dev-libs/libdbusmenu -gtk gtk3
 dev-libs/libunibreak -man
 dev-libs/weston fullscreen kiosk
 dev-python/pillow tk
-dev-python/pyside designer uitools
+dev-python/pyside uitools
 dev-python/qtpy printsupport
 dev-qt/qtbase mysql
 dev-qt/qtpositioning geoclue
-dev-qt/qttools designer qdbus
+dev-qt/qttools qdbus
 dev-qt/qtwebengine pdfium
 dev-util/intel-graphics-compiler vc
 games-emulation/mgba discord ffmpeg
