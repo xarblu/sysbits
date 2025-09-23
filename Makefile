@@ -59,6 +59,7 @@ ifeq ($(BETAS),yes)
 		etc/portage/package.accept_keywords/20-llvm \
 		etc/portage/package.accept_keywords/30-bcachefs \
 		etc/portage/package.accept_keywords/40-ffmpeg \
+		etc/portage/package.accept_keywords/50-qt \
 		etc/portage/package.accept_keywords/60-kernel-rcs
 endif
 ifeq ($(SERVER),yes)
