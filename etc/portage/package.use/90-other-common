@@ -44,7 +44,7 @@ kde-apps/krdc -rdp
 kde-apps/ksystemlog kdesu
 kde-apps/thumbnailers video
 kde-frameworks/kfilemetadata ffmpeg
-kde-frameworks/kwidgetsaddons designer
+kde-frameworks/kwidgetsaddons -designer
 kde-misc/Burn-My-Windows doom energize-a energize-b fire glide hexagon incinerate pixelate pixel-wheel pixel-wipe portal tv tv-glitch wisps glitch
 kde-plasma/kwin xwayland
 kde-plasma/plasma-desktop webengine
