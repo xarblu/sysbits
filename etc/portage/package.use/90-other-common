@@ -24,6 +24,7 @@ dev-libs/libunibreak -man
 dev-libs/weston fullscreen kiosk
 dev-python/pillow tk
 dev-python/pyside uitools
+dev-python/python-lsp-server all-plugins
 dev-python/qtpy printsupport
 dev-qt/qtbase mysql
 dev-qt/qtpositioning geoclue
