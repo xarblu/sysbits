@@ -33,6 +33,7 @@ sys-fs/xfsprogs
 ## Terminal/Shell
 app-admin/sudo
 app-misc/fastfetch
+app-misc/jq
 app-misc/ranger
 app-misc/tmux
 app-shells/starship
