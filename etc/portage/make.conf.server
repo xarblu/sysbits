@@ -9,12 +9,6 @@
 # base *FLAGS to expand with bashrc flag manager
 TARGET_CPU="native"
 COMMON_FLAGS="-march=${TARGET_CPU} -O2 -pipe"
-CFLAGS="${COMMON_FLAGS}"
-CXXFLAGS="${COMMON_FLAGS}"
-OBJCFLAGS="${COMMON_FLAGS}"
-OBJCXXFLAGS="${COMMON_FLAGS}"
-FCFLAGS="${COMMON_FLAGS}"
-F77FLAGS="${COMMON_FLAGS}"
 RUSTFLAGS="-C target-cpu=${TARGET_CPU} -C opt-level=2"
 LDFLAGS="-Wl,-O2,--as-needed"
 
