@@ -14,6 +14,28 @@
 #        brc_build_info
 # }
 
+# helper to check is a config variable is truthy
+# default value can be provided, if not empty -> false
+function brc_truthy() {
+    if (( ${#} < 1 )) || (( ${#} > 2 )); then
+        die "Usage: ${FUNCNAME[0]} VARIABLE [default]"
+    fi
+
+    local variable="${1}"
+    local default="${2:-false}"
+
+    local value
+    # scary eval but brc_truthy should only be used internally
+    eval "value=\${${variable}:-${default}}"
+
+    case "${value,,}" in
+        1|true|yes|y) return 0 ;;
+        0|false|no|n) return 1 ;;
+        *) ewarn "Unknown value for ${variable}: ${value}" ;;
+    esac
+}
+
+
 # print the current build environment
 function brc_build_info() {
     einfo "=== Portage Info ==="
@@ -236,8 +258,8 @@ function brc_build_env_setup() {
     # actually does something
     brc_prepend_llvm_path
 
-    # DEBUG_MODE essentially overrides the entire environment
-    if [[ "${DEBUG_MODE:-false}" == true ]]; then
+    # BUILD_DEBUG essentially overrides the entire environment
+    if brc_truthy BUILD_DEBUG; then
         COMMON_FLAGS="-Og -ggdb3 -pipe"
     fi
 
