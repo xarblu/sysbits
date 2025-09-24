@@ -26,7 +26,7 @@ function brc_truthy() {
 
     local value
     # scary eval but brc_truthy should only be used internally
-    eval "value=\${${variable}:-${default}}"
+    eval "value=\"\${${variable}:-${default}}\""
 
     case "${value,,}" in
         1|true|yes|y) return 0 ;;
