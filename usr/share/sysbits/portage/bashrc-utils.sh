@@ -95,65 +95,58 @@ function brc_mangle_flags() {
         reset_arg="--reset"
     fi
 
+    local flagvar
     case "${family}" in
-        c)
-            [[ "${reset}" == true ]] && unset CFLAGS
-            CFLAGS="${CFLAGS} ${flags[*]}"
-            ;;
-        cxx)
-            [[ "${reset}" == true ]] && unset CXXFLAGS
-            CXXFLAGS="${CXXFLAGS} ${flags[*]}"
-            ;;
-        objc)
-            [[ "${reset}" == true ]] && unset OBJCFLAGS
-            OBJCFLAGS="${OBJCFLAGS} ${flags[*]}"
-            ;;
-        objcxx)
-            [[ "${reset}" == true ]] && unset OBJCXXFLAGS
-            OBJCXXFLAGS="${OBJCXXFLAGS} ${flags[*]}"
-            ;;
-        fc)
-            [[ "${reset}" == true ]] && unset FCFLAGS
-            FCFLAGS="${FCFLAGS} ${flags[*]}"
-            ;;
-        f77)
-            [[ "${reset}" == true ]] && unset F77FLAGS
-            F77FLAGS="${F77FLAGS} ${flags[*]}"
-            ;;
-        rust)
-            [[ "${reset}" == true ]] && unset RUSTFLAGS
-            RUSTFLAGS="${RUSTFLAGS} ${flags[*]}"
-            ;;
-        ld)
-            [[ "${reset}" == true ]] && unset LDFLAGS
-            LDFLAGS="${LDFLAGS} ${flags[*]}"
-            ;;
+        c) flagvar=CFLAGS ;;
+        cxx) flagvar=CXXFLAGS ;;
+        objc) flagvar=OBJCFLAGS ;;
+        objcxx) flagvar=OBJCXXFLAGS ;;
+        fc) flagvar=FCFLAGS ;;
+        f77) flagvar=F77FLAGS ;;
+        rust) flagvar=RUSTFLAGS ;;
+        ld) flagvar=LDFLAGS ;;
         c-common)
             "${FUNCNAME[0]}" ${reset_arg} c "${flags[@]}"
             "${FUNCNAME[0]}" ${reset_arg} cxx "${flags[@]}"
             "${FUNCNAME[0]}" ${reset_arg} objc "${flags[@]}"
             "${FUNCNAME[0]}" ${reset_arg} objcxx "${flags[@]}"
+            return
             ;;
         f-common)
             "${FUNCNAME[0]}" ${reset_arg} fc "${flags[@]}"
             "${FUNCNAME[0]}" ${reset_arg} f77 "${flags[@]}"
+            return
             ;;
         common)
             "${FUNCNAME[0]}" ${reset_arg} c-common "${flags[@]}"
             "${FUNCNAME[0]}" ${reset_arg} f-common "${flags[@]}"
+            return
             ;;
         llvm)
             for family in ${LLVM_FAMILIES}; do
                 "${FUNCNAME[0]}" ${reset_arg} "${family}" "${flags[@]}"
             done
+            return
             ;;
         gnu)
             for family in ${GNU_FAMILIES}; do
                 "${FUNCNAME[0]}" ${reset_arg} "${family}" "${flags[@]}"
             done
+            return
             ;;
         *) die "${FUNCNAME[0]}: invalid flag family: ${family}" ;;
     esac
+
+    if [[ -z "${flagvar}" ]]; then
+        die "flagvar is unset"
+    fi
+
+    if [[ "${reset}" == true ]]; then
+        eval "${flagvar}=\"${flags[*]}\""
+    else
+        eval "${flagvar}+=\" ${flags[*]}\""
+        eval "${flagvar}=\"\${${flagvar}# }\""
+    fi
 }
 
 # match CC and prepend its path in PATH
