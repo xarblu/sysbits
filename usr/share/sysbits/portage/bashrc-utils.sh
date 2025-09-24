@@ -254,6 +254,12 @@ function brc_build_env_setup() {
     # BUILD_DEBUG essentially overrides the entire environment
     if brc_truthy BUILD_DEBUG; then
         COMMON_FLAGS="-Og -ggdb3 -pipe"
+        # shellcheck disable=SC2034
+        ENABLE_LTO=false
+        # shellcheck disable=SC2034
+        ENABLE_ICF=false
+        # shellcheck disable=SC2034
+        ENABLE_POLLY=false
     fi
 
     # apply common flags
