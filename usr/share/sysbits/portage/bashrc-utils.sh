@@ -75,7 +75,7 @@ function brc_mangle_flags() {
 
     case "${family}" in
         c)
-            [[ "${reset}" != true ]] && unset CFLAGS
+            [[ "${reset}" == true ]] && unset CFLAGS
             CFLAGS="${CFLAGS} ${flags[*]}"
             ;;
         cxx)
