@@ -244,7 +244,9 @@ function brc_build_env_setup() {
     # apply common flags
     # XXX: --reset here to clear Gentoo's defaults
     # for e.g. CFLAGS
-    brc_mangle_flags --reset common "${COMMON_FLAGS}"
+    if [[ -n "${COMMON_FLAGS}" ]]; then
+        brc_mangle_flags --reset common "${COMMON_FLAGS}"
+    fi
 
     # toggle ld.mold
     if [[ "${ENABLE_MOLD:-false}" == true ]]; then
