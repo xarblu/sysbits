@@ -271,7 +271,7 @@ function brc_build_env_setup() {
     fi
 
     # toggle ld.mold
-    if [[ "${ENABLE_MOLD:-false}" == true ]]; then
+    if brc_truthy ENABLE_MOLD; then
         export LD="ld.mold"
         brc_mangle_flags ld "-fuse-ld=mold"
         brc_mangle_flags rust "-C link-arg=-fuse-ld=mold"
@@ -279,7 +279,7 @@ function brc_build_env_setup() {
     unset ENABLE_MOLD
 
     # toggle lto flags
-    if [[ "${ENABLE_LTO:-false}" == true ]]; then
+    if brc_truthy ENABLE_LTO; then
         brc_mangle_flags llvm "-flto=thin"
         brc_mangle_flags gnu "-flto=auto"
         brc_mangle_flags rust "-C embed-bitcode=yes -C lto=thin"
@@ -304,7 +304,7 @@ function brc_build_env_setup() {
     unset ENABLE_LTO
 
     # toggle icf for supported linkers
-    if [[ "${ENABLE_ICF:-false}" == true ]]; then
+    if brc_truthy ENABLE_ICF; then
         case "${LD##*/}" in
             ld.lld|ld.mold)
                 brc_mangle_flags ld "-Wl,--icf=safe"
@@ -329,7 +329,7 @@ function brc_build_env_setup() {
     unset ENABLE_MIMALLOC
 
     # toggle polly flags
-    if [[ "${ENABLE_POLLY:-false}" == true ]]; then
+    if brc_truthy ENABLE_POLLY; then
         # plugin should be loaded via llvm-core/clang-runtime[polly]
         # default flags from https://github.com/CachyOS/kernel-patches/blob/master/6.16/misc/0001-clang-polly.patch
         brc_mangle_flags llvm "-mllvm -polly"
@@ -391,7 +391,7 @@ function brc_build_env_setup() {
     export CFLAGS CXXFLAGS OBJCFLAGS OBJCXXFLAGS FCFLAGS F77FLAGS RUSTFLAGS LDFLAGS
 
     # setup PATH for sccache if requested
-    if [[ "${ENABLE_SCCACHE:-false}" == true ]]; then
+    if brc_truthy ENABLE_SCCACHE; then
         if command -v sccache >/dev/null; then
             local sccache_wraps="/usr/lib/sccache/bin"
             export PATH="${sccache_wraps}:${PATH}"
@@ -428,7 +428,7 @@ function brc_build_env_setup() {
     export MAKEOPTS
 
     # build system eyecandy (e.g. colours)
-    if [[ "${BUILD_EYECANDY:-true}" == true ]]; then
+    if brc_truthy BUILD_EYECANDY true; then
         # common make/ninja
         export CLICOLOR_FORCE="1"
         # cmake
@@ -443,7 +443,7 @@ function brc_build_env_setup() {
     unset BUILD_EYECANDY
 
     # build system verbosity
-    if [[ "${BUILD_VERBOSE:-false}" != true ]]; then
+    if ! brc_truthy BUILD_VERBOSE; then
         # cmake
         export CMAKE_VERBOSE="OFF"
         # ninja
