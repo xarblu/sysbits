@@ -45,6 +45,7 @@ function brc_build_info() {
     einfo "CC: $(${CC} --version | head -1)"
     einfo "CXX: $(${CXX} --version | head -1)"
     einfo "CPP: $(${CPP} --version | head -1)"
+    einfo "RUSTC: $(rustc --version | head -1)"
     einfo "LD: $(${LD} --version | head -1)"
     einfo "CFLAGS: ${CFLAGS}"
     einfo "CXXFLAGS: ${CXXFLAGS}"
