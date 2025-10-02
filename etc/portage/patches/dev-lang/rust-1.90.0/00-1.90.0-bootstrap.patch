@@ -1,8 +1,137 @@
+From 351e4bd1066a9d89b4d9f06c628ba0733c1850b5 Mon Sep 17 00:00:00 2001
+From: Boxy <rust@boxyuwu.dev>
+Date: Wed, 6 Aug 2025 13:31:17 +0100
+Subject: [PATCH] handle bootstrap cfgs
+
+---
+ src/bootstrap/src/core/build_steps/test.rs |  6 ++----
+ src/bootstrap/src/core/builder/cargo.rs    | 15 +++++---------
+ src/bootstrap/src/core/builder/mod.rs      |  2 +-
+ src/bootstrap/src/utils/helpers.rs         | 23 ++++------------------
+ 4 files changed, 12 insertions(+), 34 deletions(-)
+
+diff --git a/src/bootstrap/src/core/build_steps/test.rs b/src/bootstrap/src/core/build_steps/test.rs
+index 09d2657b666d4..acd4d461fa0ff 100644
+--- a/src/bootstrap/src/core/build_steps/test.rs
++++ b/src/bootstrap/src/core/build_steps/test.rs
+@@ -296,7 +296,6 @@ impl Step for Cargotest {
+             builder,
+             tested_compiler.host,
+             LldThreads::No,
+-            tested_compiler.stage,
+         );
+         cmd.delay_failure().run(builder);
+     }
+@@ -940,7 +939,7 @@ impl Step for RustdocTheme {
+             .env("CFG_RELEASE_CHANNEL", &builder.config.channel)
+             .env("RUSTDOC_REAL", builder.rustdoc_for_compiler(self.compiler))
+             .env("RUSTC_BOOTSTRAP", "1");
+-        cmd.args(linker_args(builder, self.compiler.host, LldThreads::No, self.compiler.stage));
++        cmd.args(linker_args(builder, self.compiler.host, LldThreads::No));
+ 
+         cmd.delay_failure().run(builder);
+     }
+@@ -1125,7 +1124,6 @@ impl Step for RustdocGUI {
+             builder,
+             self.compiler.host,
+             LldThreads::No,
+-            self.compiler.stage,
+         );
+ 
+         for path in &builder.paths {
+@@ -1951,7 +1949,7 @@ NOTE: if you're sure you want to do this, please open an issue as to why. In the
+         }
+ 
+         let mut hostflags = flags.clone();
+-        hostflags.extend(linker_flags(builder, compiler.host, LldThreads::No, compiler.stage));
++        hostflags.extend(linker_flags(builder, compiler.host, LldThreads::No));
+ 
+         let mut targetflags = flags;
+ 
+diff --git a/src/bootstrap/src/core/builder/cargo.rs b/src/bootstrap/src/core/builder/cargo.rs
+index 1d0c9da694f01..e10af2b55f9e1 100644
+--- a/src/bootstrap/src/core/builder/cargo.rs
++++ b/src/bootstrap/src/core/builder/cargo.rs
+@@ -115,7 +115,7 @@ impl Cargo {
+             // No need to configure the target linker for these command types.
+             Kind::Clean | Kind::Check | Kind::Format | Kind::Setup => {}
+             _ => {
+-                cargo.configure_linker(builder, mode);
++                cargo.configure_linker(builder);
+             }
+         }
+ 
+@@ -209,7 +209,7 @@ impl Cargo {
+ 
+     // FIXME(onur-ozkan): Add coverage to make sure modifications to this function
+     // doesn't cause cache invalidations (e.g., #130108).
+-    fn configure_linker(&mut self, builder: &Builder<'_>, mode: Mode) -> &mut Cargo {
++    fn configure_linker(&mut self, builder: &Builder<'_>) -> &mut Cargo {
+         let target = self.target;
+         let compiler = self.compiler;
+ 
+@@ -264,12 +264,7 @@ impl Cargo {
+             }
+         }
+ 
+-        // We use the snapshot compiler when building host code (build scripts/proc macros) of
+-        // `Mode::Std` tools, so we need to determine the current stage here to pass the proper
+-        // linker args (e.g. -C vs -Z).
+-        // This should stay synchronized with the [cargo] function.
+-        let host_stage = if mode == Mode::Std { 0 } else { compiler.stage };
+-        for arg in linker_args(builder, compiler.host, LldThreads::Yes, host_stage) {
++        for arg in linker_args(builder, compiler.host, LldThreads::Yes) {
+             self.hostflags.arg(&arg);
+         }
+ 
+@@ -279,10 +274,10 @@ impl Cargo {
+         }
+         // We want to set -Clinker using Cargo, therefore we only call `linker_flags` and not
+         // `linker_args` here.
+-        for flag in linker_flags(builder, target, LldThreads::Yes, compiler.stage) {
++        for flag in linker_flags(builder, target, LldThreads::Yes) {
+             self.rustflags.arg(&flag);
+         }
+-        for arg in linker_args(builder, target, LldThreads::Yes, compiler.stage) {
++        for arg in linker_args(builder, target, LldThreads::Yes) {
+             self.rustdocflags.arg(&arg);
+         }
+ 
+diff --git a/src/bootstrap/src/core/builder/mod.rs b/src/bootstrap/src/core/builder/mod.rs
+index f84565fccfddb..e15941938f197 100644
+--- a/src/bootstrap/src/core/builder/mod.rs
++++ b/src/bootstrap/src/core/builder/mod.rs
+@@ -1623,7 +1623,7 @@ You have to build a stage1 compiler for `{}` first, and then use it to build a s
+             cmd.arg("-Dwarnings");
+         }
+         cmd.arg("-Znormalize-docs");
+-        cmd.args(linker_args(self, compiler.host, LldThreads::Yes, compiler.stage));
++        cmd.args(linker_args(self, compiler.host, LldThreads::Yes));
+         cmd
+     }
+ 
 diff --git a/src/bootstrap/src/utils/helpers.rs b/src/bootstrap/src/utils/helpers.rs
-index eb00ed566c2..48cd9676b28 100644
+index eb00ed566c2dd..451482717b6c1 100644
 --- a/src/bootstrap/src/utils/helpers.rs
 +++ b/src/bootstrap/src/utils/helpers.rs
-@@ -427,23 +427,11 @@ pub fn linker_flags(
+@@ -404,9 +404,8 @@ pub fn linker_args(
+     builder: &Builder<'_>,
+     target: TargetSelection,
+     lld_threads: LldThreads,
+-    stage: u32,
+ ) -> Vec<String> {
+-    let mut args = linker_flags(builder, target, lld_threads, stage);
++    let mut args = linker_flags(builder, target, lld_threads);
+ 
+     if let Some(linker) = builder.linker(target) {
+         args.push(format!("-Clinker={}", linker.display()));
+@@ -421,29 +420,16 @@ pub fn linker_flags(
+     builder: &Builder<'_>,
+     target: TargetSelection,
+     lld_threads: LldThreads,
+-    stage: u32,
+ ) -> Vec<String> {
+     let mut args = vec![];
      if !builder.is_lld_direct_linker(target) && builder.config.lld_mode.is_used() {
          match builder.config.lld_mode {
              LldMode::External => {
@@ -28,3 +157,14 @@ index eb00ed566c2..48cd9676b28 100644
                  args.push("-Clink-self-contained=+linker".to_string());
                  args.push("-Zunstable-options".to_string());
              }
+@@ -465,9 +451,8 @@ pub fn add_rustdoc_cargo_linker_args(
+     builder: &Builder<'_>,
+     target: TargetSelection,
+     lld_threads: LldThreads,
+-    stage: u32,
+ ) {
+-    let args = linker_args(builder, target, lld_threads, stage);
++    let args = linker_args(builder, target, lld_threads);
+     let mut flags = cmd
+         .get_envs()
+         .find_map(|(k, v)| if k == OsStr::new("RUSTDOCFLAGS") { v } else { None })
