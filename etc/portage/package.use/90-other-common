@@ -58,6 +58,7 @@ media-fonts/noto-emoji icons
 media-fonts/source-han-sans L10N: ja ko zh-CN zh-HK zh-TW
 media-fonts/twemoji icons
 media-gfx/blender hip
+media-gfx/darktable opencl
 media-gfx/imagemagick heif
 media-gfx/krita fftw qtmedia -xsimd
 media-libs/babl introspection
