@@ -9,5 +9,13 @@
 # held back
 =llvm-core/clang-15.0.7-r3 PYTHON_SINGLE_TARGET: -* python3_12
 
-# global
-*/* dist-kernel vaapi systemd zsh-completion -X -opengl -gles2 -accessibility -gtk2 -speech -wifi -wext -ppp nftables ipv6 vulkan
+# Kernel
+*/* dist-kernel modules-compress
+# Network
+*/* -wifi -wext -ppp nftables ipv6
+# Graphics
+*/* vaapi vulkan -X -opengl -gles2 -gtk2
+# Shell
+*/* zsh-completion bash-completion
+# other
+*/* systemd -accessibility -speech
