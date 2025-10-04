@@ -113,3 +113,4 @@ virtual/linux-sources firmware
 www-client/firefox hwaccel system-png -X openh264 system-pipewire wasm-sandbox -wifi
 x11-base/xorg-server xvfb
 x11-base/xwayland libei
+x11-libs/libdrm VIDEO_CARDS: amdgpu
