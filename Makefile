@@ -18,10 +18,12 @@ install: $(PATCHES)
 		etc/dracut.conf.d/10-compress.conf
 
 	# Kernel Config Specs
-ifeq ($(DESKTOP),yes)
 	install -Dm644 -t $(DESTDIR)/etc/kernel/config.d \
-		etc/kernel/config.d/05-base.config
-endif
+		etc/kernel/config.d/00-systemd.config \
+		etc/kernel/config.d/03-zram.config \
+		etc/kernel/config.d/04-no-vm.config \
+		etc/kernel/config.d/06-compress.config \
+		etc/kernel/config.d/07-uki.config
 
 	# Locales
 	install -Dm644 -t $(DESTDIR)/etc \
