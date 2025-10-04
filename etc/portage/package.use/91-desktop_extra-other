@@ -1,4 +1,2 @@
 # USE flags for everything else
 # sepecific to desktop pc
-
-x11-libs/libdrm VIDEO_CARDS: amdgpu
