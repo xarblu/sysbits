@@ -72,6 +72,7 @@ app-emulation/wine-vanilla ld-bfd
 # ld.lld: error: version script assignment of * to symbol * failed: symbol not defined
 dev-java/openjdk:21 ld-allow-undefined-version
 dev-libs/opencl-clang:15 ld-allow-undefined-version
+dev-libs/opencl-clang:16 ld-allow-undefined-version
 llvm-core/llvm:15 ld-allow-undefined-version
 net-firewall/ipset ld-allow-undefined-version
 net-fs/samba ld-allow-undefined-version
