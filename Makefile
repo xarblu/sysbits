@@ -98,33 +98,33 @@ endif
 		etc/portage/package.use/10-alternatives
 ifeq ($(DESKTOP),yes)
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \
-		etc/portage/package.use/00-global-common \
-		etc/portage/package.use/20-toolchain \
-		etc/portage/package.use/30-32bit \
-		etc/portage/package.use/40-python-targets \
-		etc/portage/package.use/50-llvm-slots \
-		etc/portage/package.use/60-no-X \
-		etc/portage/package.use/90-other-common
+		etc/portage/package.use/00-desktop-global \
+		etc/portage/package.use/20-desktop-toolchain \
+		etc/portage/package.use/30-desktop-32bit \
+		etc/portage/package.use/40-desktop-python-targets \
+		etc/portage/package.use/50-desktop-llvm-slots \
+		etc/portage/package.use/60-desktop-no-X \
+		etc/portage/package.use/90-desktop-other
 endif
 ifeq ($(DESKTOP_EXTRA),yes)
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \
-		etc/portage/package.use/01-global-desktop \
-		etc/portage/package.use/91-other-desktop
+		etc/portage/package.use/01-desktop_extra-global \
+		etc/portage/package.use/91-desktop_extra-other
 endif
 ifeq ($(LAPTOP_EXTRA),yes)
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \
-		etc/portage/package.use/01-global-laptop \
-		etc/portage/package.use/91-other-laptop
+		etc/portage/package.use/01-laptop_extra-global \
+		etc/portage/package.use/91-laptop_extra-other
 endif
 ifeq ($(STEAMDECK_EXTRA),yes)
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \
-		etc/portage/package.use/01-global-steamdeck \
-		etc/portage/package.use/91-other-steamdeck
+		etc/portage/package.use/01-steamdeck_extra-global \
+		etc/portage/package.use/91-steamdeck_extra-other
 endif
 ifeq ($(SERVER),yes)
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \
-		etc/portage/package.use/00-global-server \
-		etc/portage/package.use/90-other-server
+		etc/portage/package.use/00-server-global \
+		etc/portage/package.use/90-server-other
 endif
 
 	$(MAKE) install-patches
