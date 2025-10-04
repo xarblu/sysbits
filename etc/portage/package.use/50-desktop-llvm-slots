@@ -4,7 +4,7 @@
 
 # held back by intel-graphics-compiler
 # but that's the only consumer so whatever
-dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 15
+dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 16
 
 # unstable slots
 dev-qt/qttools LLVM_SLOT: -* 21
