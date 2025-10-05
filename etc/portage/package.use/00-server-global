@@ -12,7 +12,7 @@
 # Kernel
 */* dist-kernel modules-compress
 # Network
-*/* -wifi -wext -ppp nftables ipv6
+*/* -wifi -wext -ppp nftables ipv6 nftables firewalld quic http3 -modemmanager
 # Graphics
 */* vaapi vulkan -X -opengl -gles2 -gtk2
 # Shell
