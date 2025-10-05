@@ -69,14 +69,11 @@ ifeq ($(SERVER),yes)
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.env \
+		etc/portage/package.env/05-build-options \
 		etc/portage/package.env/15-general-fixes
 ifeq ($(CLANG),yes)
 	install -m644 -t $(DESTDIR)/etc/portage/package.env \
 		etc/portage/package.env/10-llvm-fixes
-endif
-ifeq ($(SERVER),yes)
-	install -m644 -t $(DESTDIR)/etc/portage/package.env \
-		etc/portage/package.env/05-server
 endif
 ifeq ($(BINPKG_BUILD_HOST),yes)
 	install -m644 -t $(DESTDIR)/etc/portage/package.env \

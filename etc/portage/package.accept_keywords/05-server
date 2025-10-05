@@ -25,6 +25,8 @@ app-metrics/pcp ~amd64
 ## Network
 net-dns/inadyn ~amd64
 net-proxy/haproxy ~amd64
+# can be stabelized again after 3.5.1+ for haproxy quic
+dev-libs/openssl ~amd64
 
 # Podman
 app-containers/aardvark-dns ~amd64
