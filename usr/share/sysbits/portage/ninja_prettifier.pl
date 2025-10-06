@@ -26,7 +26,7 @@ sub prettify {
     }
 
     # C/CXX link
-    if ($rule =~ m/^(?:(?:c|cxx)_LINKER|(?:C|CXX)_(?:EXECUTABLE|(?:STATIC|SHARED)_LIBRARY)_LINKER.*)$/) {
+    if ($rule =~ m/^(?:(?:c|cxx)_LINKER|(?:C|CXX)_\S+_LINKER.*)$/) {
         # bold green
         $fmt = "1;32";
     }
