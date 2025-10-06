@@ -11,3 +11,8 @@ function pre_pkg_setup() {
         brc_build_info
     fi
 }
+
+function post_src_configure() {
+    # prettify ninja output
+    brc_prettify_ninja
+}
