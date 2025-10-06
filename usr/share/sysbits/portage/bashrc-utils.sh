@@ -471,21 +471,25 @@ function brc_prettify_ninja {
     fi
 
     if [[ "${EBUILD_PHASE}" != configure ]]; then
-        eerror "${FUNCNAME[0]} called in ${EBUILD_PHASE}!"
-        die "Only supported in configure (post_src_configure)"
+        ewarn "${FUNCNAME[0]} called in ${EBUILD_PHASE}!"
+        ewarn "Only supported in configure (post_src_configure)"
+        return 1
     fi
 
     local prettifier="/usr/share/sysbits/portage/ninja_prettifier.pl"
     if [[ ! -f "${prettifier}" ]]; then
-        die "Could not find prettifier at ${prettifier}"
+        ewarn "Could not find prettifier at ${prettifier}"
+        return 1
     fi
 
-    if command -v perl &>/dev/null; then
+    if ! command -v perl &>/dev/null; then
         ewarn "${FUNCNAME[0]} requires perl from dev-lang/perl"
+        return 1
     fi
 
-    if command -v sponge &>/dev/null; then
+    if ! command -v sponge &>/dev/null; then
         ewarn "${FUNCNAME[0]} requires sponge from sys-apps/moreutils"
+        return 1
     fi
 
     local build_ninja
