@@ -19,7 +19,15 @@ while (my $line = <>) {
     # prettify matching rules
     if ($rule) {
         # ANSI fmt e.g. 1;32 for bold green
-        my $fmt="1;32";
+        my $fmt = "32";
+
+        if ($rule =~ m/^(?:c_COMPILER|cxx_COMPILER)$/) {
+            $fmt = "32";
+        }
+
+        if ($rule =~ m/^(?:c_LINKER|cxx_LINKER$/) {
+            $fmt = "1;32";
+        }
 
         if ($line =~ m/^(\s+description\s*=\s*)(\S+(?:\s+\S+)*)$/) {
             $line = "$1\e[${fmt}m$2\e[0m\n";
