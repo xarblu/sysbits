@@ -435,15 +435,12 @@ function brc_build_env_setup() {
         export CMAKE_MAKEFILE_GENERATOR="${CMAKE_MAKEFILE_GENERATOR:-ninja}"
         export CMAKE_WARN_UNUSED_CLI="OFF"
         export CMAKE_COLOR_DIAGNOSTICS="ON"
-        local compiler_wrapper="${BASH_SOURCE[0]%/*}/compiler-wrapper.sh"
-        if [[ -f "${compiler_wrapper}" ]]; then
-            export CMAKE_C_COMPILER_LAUNCHER="${compiler_wrapper}"
-            export CMAKE_CXX_COMPILER_LAUNCHER="${compiler_wrapper}"
-        fi
         # cargo
         export CARGO_TERM_COLOR="always"
         export CARGO_TERM_PROGRESS_WHEN="always"
         export CARGO_TERM_PROGRESS_WIDTH="${COLUMNS:-80}"
+        # brc_prettify_ninja
+        export BRC_PRETTIFY_NINJA="true"
     fi
     unset BUILD_EYECANDY
 
@@ -466,3 +463,29 @@ function brc_build_env_setup() {
     unset BUILD_VERBOSE
 }
 
+# prettify ninja build output
+# to be called in post_src_configure
+function brc_prettify_ninja {
+    if [[ "${EBUILD_PHASE}" != post_src_configure ]]; then
+        eerror "${FUNCNAME[0]} called in ${EBUILD_PHASE}!"
+        die "Only supported in post_src_configure"
+    fi
+
+    local prettifier="/usr/share/sysbits/portage/ninja_prettifier.pl"
+    if [[ ! -f "${prettifier}" ]]; then
+        die "Could not find prettifier at ${prettifier}"
+    fi
+
+    if command -v perl &>/dev/null; then
+        ewarn "${FUNCNAME[0]} requires perl from dev-lang/perl"
+    fi
+
+    if command -v sponge &>/dev/null; then
+        ewarn "${FUNCNAME[0]} requires sponge from sys-apps/moreutils"
+    fi
+
+    local build_ninja
+    while IFS=$'\0' read -r -d $'\0' build_ninja; do
+        ( "${prettifier}" < "${build_ninja}" || die ) | sponge "${build_ninja}"
+    done < <(find . -name 'build.ninja' -type f -print0)
+}
