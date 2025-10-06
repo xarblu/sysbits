@@ -466,9 +466,9 @@ function brc_build_env_setup() {
 # prettify ninja build output
 # to be called in post_src_configure
 function brc_prettify_ninja {
-    if [[ "${EBUILD_PHASE}" != post_src_configure ]]; then
+    if [[ "${EBUILD_PHASE}" != configure ]]; then
         eerror "${FUNCNAME[0]} called in ${EBUILD_PHASE}!"
-        die "Only supported in post_src_configure"
+        die "Only supported in configure (post_src_configure)"
     fi
 
     local prettifier="/usr/share/sysbits/portage/ninja_prettifier.pl"
