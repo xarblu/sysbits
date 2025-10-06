@@ -491,6 +491,6 @@ function brc_prettify_ninja {
     local build_ninja
     while IFS=$'\0' read -r -d $'\0' build_ninja; do
         einfo "Prettifying ${build_ninja}"
-        ( "${prettifier}" < "${build_ninja}" || die ) | sponge "${build_ninja}"
+        ( perl "${prettifier}" < "${build_ninja}" || die ) | sponge "${build_ninja}"
     done < <(find . -name 'build.ninja' -type f -print0)
 }
