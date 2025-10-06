@@ -10,7 +10,8 @@ sub prettify {
     my $value = $_[2];
 
     # ANSI fmt e.g. 1;32 for bold green
-    my $fmt = "32";
+    # clear by default
+    my $fmt = "0";
 
     # C/CXX depend
     if ($rule =~ m/^(?:(?:C|CXX)_(?:SCAN|DYNDEP).*)$/) {
@@ -28,6 +29,12 @@ sub prettify {
     if ($rule =~ m/^(?:(?:c|cxx)_LINKER|(?:C|CXX)_(?:EXECUTABLE|(?:STATIC|SHARED)_LIBRARY)_LINKER.*)$/) {
         # bold green
         $fmt = "1;32";
+    }
+
+    # "generate" commands (we'll match all CUSTOM_COMMAND)
+    if ($rule =~ m/^CUSTOM_COMMAND$/) {
+        # bold blue
+        $fmt = "1;34";
     }
 
     return "${key}\e[${fmt}m${value}\e[0m\n";
