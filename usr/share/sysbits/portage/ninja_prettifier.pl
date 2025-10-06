@@ -25,7 +25,7 @@ while (my $line = <>) {
             $fmt = "32";
         }
 
-        if ($rule =~ m/^(?:c_LINKER|cxx_LINKER$/) {
+        if ($rule =~ m/^(?:c_LINKER|cxx_LINKER)$/) {
             $fmt = "1;32";
         }
 
