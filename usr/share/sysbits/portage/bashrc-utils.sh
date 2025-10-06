@@ -466,7 +466,7 @@ function brc_build_env_setup() {
 # prettify ninja build output
 # to be called in post_src_configure
 function brc_prettify_ninja {
-    if ! truthy BRC_PRETTIFY_NINJA; then
+    if ! brc_truthy BRC_PRETTIFY_NINJA; then
         return 0
     fi
 
@@ -490,6 +490,7 @@ function brc_prettify_ninja {
 
     local build_ninja
     while IFS=$'\0' read -r -d $'\0' build_ninja; do
+        einfo "Prettifying ${build_ninja}"
         ( "${prettifier}" < "${build_ninja}" || die ) | sponge "${build_ninja}"
     done < <(find . -name 'build.ninja' -type f -print0)
 }

@@ -174,9 +174,6 @@ endif
 	install -Dm644 -t $(DESTDIR)/etc/portage \
 		etc/portage/mirrors
 
-	install -Dm644 -t $(DESTDIR)/usr/share/sysbits/portage \
-		usr/share/sysbits/portage/bashrc-utils.sh
-
 	install -Dm644 -t $(DESTDIR)/etc/eixrc \
 		etc/eixrc/02-theming \
 		etc/eixrc/10-cache-methods
@@ -218,6 +215,10 @@ endif
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system \
 		usr/lib/systemd/system/*
+
+	install -Dm644 -t $(DESTDIR)/usr/share/sysbits/portage \
+		usr/share/sysbits/portage/bashrc-utils.sh \
+		usr/share/sysbits/portage/ninja_prettifier.pl
 
 # extra targets for "recursive" installs
 PATCHES := $(patsubst %.patch,$(DESTDIR)/%.patch,$(wildcard etc/portage/patches/*/*/*.patch))
