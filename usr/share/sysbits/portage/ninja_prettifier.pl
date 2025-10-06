@@ -2,6 +2,37 @@
 
 use v5.35;
 
+# loosely based on cmake
+# https://github.com/Kitware/CMake/blob/f2afbff2c48a0479cc129c8eb2cc40e9181f0c51/Source/cmLocalUnixMakefileGenerator3.cxx#L1232
+sub prettify {
+    my $rule = $_[0];
+    my $key = $_[1];
+    my $value = $_[2];
+
+    # ANSI fmt e.g. 1;32 for bold green
+    my $fmt = "32";
+
+    # C/CXX depend
+    if ($rule =~ m/^(?:(?:C|CXX)_(?:SCAN|DYNDEP).*)$/) {
+        # bold magenta
+        $fmt = "1;35";
+    }
+
+    # C/CXX objects
+    if ($rule =~ m/^(?:(?:c|cxx)_COMPILER|(?:C|CXX)_COMPILER.*)$/) {
+        # green
+        $fmt = "32";
+    }
+
+    # C/CXX link
+    if ($rule =~ m/^(?:(?:c|cxx)_LINKER|(?:C|CXX)_(?:EXECUTABLE|(?:STATIC|SHARED)_LIBRARY)_LINKER.*)$/) {
+        # bold green
+        $fmt = "1;32";
+    }
+
+    return "${key}\e[${fmt}m${value}\e[0m\n";
+}
+
 my $out = "";
 my $rule = "";
 
@@ -16,21 +47,10 @@ while (my $line = <>) {
         $rule = "";
     }
 
-    # prettify matching rules
+    # prettify rules
     if ($rule) {
-        # ANSI fmt e.g. 1;32 for bold green
-        my $fmt = "32";
-
-        if ($rule =~ m/^(?:c_COMPILER|cxx_COMPILER)$/) {
-            $fmt = "32";
-        }
-
-        if ($rule =~ m/^(?:c_LINKER|cxx_LINKER)$/) {
-            $fmt = "1;32";
-        }
-
         if ($line =~ m/^(\s+description\s*=\s*)(\S+(?:\s+\S+)*)$/) {
-            $line = "$1\e[${fmt}m$2\e[0m\n";
+            $line = prettify($rule, $1, $2);
         }
     }
 
