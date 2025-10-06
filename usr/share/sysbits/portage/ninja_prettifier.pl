@@ -31,8 +31,8 @@ sub prettify {
         $fmt = "1;32";
     }
 
-    # "generate" commands (we'll match all CUSTOM_COMMAND)
-    if ($rule =~ m/^CUSTOM_COMMAND$/) {
+    # "generate" commands
+    if ($rule =~ m/^(?:CUSTOM_COMMAND(?:|_DEP)|REGENERATE_BUILD)$/) {
         # bold blue
         $fmt = "1;34";
     }
