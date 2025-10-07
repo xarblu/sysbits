@@ -37,6 +37,12 @@ sub prettify_description {
         $fmt = "1;34";
     }
 
+    # symlinks
+    if ($rule =~ m/^(?:CMAKE_SYMLINK_LIBRARY)$/) {
+        # cyan
+        $fmt = "36";
+    }
+
     if ($fmt) {
         return "${key}\e[${fmt}m${value}\e[0m\n";
     } else {
