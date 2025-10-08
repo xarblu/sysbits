@@ -76,7 +76,7 @@ for my $arg (@ARGV) {
 my $out = "";
 my $rule = "";
 
-while (my $line = <>) {
+while (my $line = <STDIN>) {
     # entered a "rule" block
     if ($line =~ m/^rule\s+(\S+)$/) {
         $rule = $1;
