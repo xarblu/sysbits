@@ -63,6 +63,16 @@ sub keep_rule_hack {
     return $key . 'printf " \b" && ' . $value . "\n";
 }
 
+# arg parser
+my $mangle_newlines = 1;
+for my $arg (@ARGV) {
+    if ($arg eq "--mangle-newlines") {
+        $mangle_newlines = 1;
+    } elsif ($arg eq "--no-mangle-newlines") {
+        $mangle_newlines = 0;
+    }
+}
+
 my $out = "";
 my $rule = "";
 
@@ -83,8 +93,10 @@ while (my $line = <>) {
             $line = prettify_description($rule, $1, $2);
         }
 
-        if ($line =~ m/^(\s+command\s*=\s*)(\S+(?:\s+\S+)*)$/) {
-            $line = keep_rule_hack($rule, $1, $2);
+        if ($mangle_newlines) {
+            if ($line =~ m/^(\s+command\s*=\s*)(\S+(?:\s+\S+)*)$/) {
+                $line = keep_rule_hack($rule, $1, $2);
+            }
         }
     }
 
