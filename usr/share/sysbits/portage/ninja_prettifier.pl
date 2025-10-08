@@ -13,19 +13,19 @@ sub prettify_description {
     # clear by default
     my $fmt = "";
 
-    # C/CXX depend
+    # depend
     if ($rule =~ m/^(?:(?:C|CXX)_(?:SCAN|DYNDEP).*)$/) {
         # bold magenta
         $fmt = "1;35";
     }
 
-    # C/CXX objects
-    if ($rule =~ m/^(?:(?:c|cxx)_COMPILER|(?:C|CXX)_COMPILER.*)$/) {
+    # compile
+    if ($rule =~ m/^(?:(?:c|cxx)_COMPILER|(?:C|CXX|ASM)_COMPILER.*)$/) {
         # green
         $fmt = "32";
     }
 
-    # C/CXX link
+    # link
     if ($rule =~ m/^(?:(?:c|cxx)_LINKER|(?:C|CXX)_\S+_LINKER.*)$/) {
         # bold green
         $fmt = "1;32";
