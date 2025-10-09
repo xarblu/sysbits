@@ -26,7 +26,7 @@ sub prettify_description {
     }
 
     # link
-    if ($rule =~ m/^(?:[a-zA-Z]+(?:|_[a-zA-Z]+)_LINKER.*)$/) {
+    if ($rule =~ m/^(?:[a-zA-Z]+(?:|_\S+)_LINKER.*)$/) {
         # bold green
         $fmt = "1;32";
     }
