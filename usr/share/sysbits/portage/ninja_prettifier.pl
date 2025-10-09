@@ -20,7 +20,7 @@ sub prettify_description {
     }
 
     # compile
-    if ($rule =~ m/^(?:(?:c|cxx)_COMPILER|(?:C|CXX|ASM)_COMPILER.*)$/) {
+    if ($rule =~ m/^(?:(?:c|cxx|vala)_COMPILER|(?:C|CXX|ASM)_COMPILER.*)$/) {
         # green
         $fmt = "32";
     }
