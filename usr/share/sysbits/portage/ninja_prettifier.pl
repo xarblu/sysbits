@@ -14,25 +14,25 @@ sub prettify_description {
     my $fmt = "";
 
     # depend
-    if ($rule =~ m/^(?:(?:C|CXX)_(?:SCAN|DYNDEP).*)$/) {
+    if ($rule =~ m/^(?:[a-zA-Z]+_(?:SCAN|DYNDEP).*)$/) {
         # bold magenta
         $fmt = "1;35";
     }
 
     # compile
-    if ($rule =~ m/^(?:(?:c|cxx|vala)_COMPILER|(?:C|CXX|ASM)_COMPILER.*)$/) {
+    if ($rule =~ m/^(?:[a-zA-Z]+_COMPILER.*)$/) {
         # green
         $fmt = "32";
     }
 
     # link
-    if ($rule =~ m/^(?:(?:c|cxx)_LINKER|(?:C|CXX)_\S+_LINKER.*)$/) {
+    if ($rule =~ m/^(?:[a-zA-Z]+(?:|_[a-zA-Z]+)_LINKER.*)$/) {
         # bold green
         $fmt = "1;32";
     }
 
     # "generate" commands
-    if ($rule =~ m/^(?:CUSTOM_COMMAND(?:|_DEP)|REGENERATE_BUILD)$/) {
+    if ($rule =~ m/^(?:CUSTOM_COMMAND(?:|_DEP)|REGENERATE_BUILD|SHSYM)$/) {
         # bold blue
         $fmt = "1;34";
     }
