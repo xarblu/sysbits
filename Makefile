@@ -30,6 +30,12 @@ install: $(PATCHES)
 		etc/locale.conf \
 		etc/locale.gen
 
+	# Pipewire
+ifeq ($(DESKTOP_EXTRA),yes)
+	install -Dm644 -t $(DESTDIR)/etc/pipewire/pipewire.conf.d \
+		etc/pipewire/pipewire.conf.d/00-desktop_extra-rates.conf
+endif
+
 	# Profile / Environment
 	install -Dm644 -t $(DESTDIR)/etc/profile.d \
 		etc/profile.d/respect-xdg-dirs.sh
