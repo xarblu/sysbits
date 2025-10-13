@@ -7,3 +7,7 @@ games-util/mangohud::guru
 # I want my version which includes cachyos-kernel
 # as an alternative
 virtual/dist-kernel::gentoo
+
+# just in case ::gentoo catches up to my own version
+# (usually it lags behind quite a bit)
+sys-fs/bcachefs-tools::gentoo
