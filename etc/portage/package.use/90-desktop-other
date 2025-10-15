@@ -5,7 +5,7 @@ app-admin/ananicy-cpp cachyos-rules
 app-admin/sudo offensive -sendmail
 app-arch/7zip rar uasm
 app-crypt/pinentry keyring
-app-emulation/qemu spice usbredir virgl
+app-emulation/qemu spice usbredir virgl virtfs
 app-emulation/wine-vanilla wow64
 app-misc/solaar appindicator
 app-misc/uwufetch gpu images
