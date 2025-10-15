@@ -1,0 +1,5 @@
+# dependencies for ktest
+app-emulation/qemu
+net-dialup/minicom
+net-misc/socat
+net-misc/vde
