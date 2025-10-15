@@ -11,3 +11,7 @@ virtual/dist-kernel::gentoo
 # just in case ::gentoo catches up to my own version
 # (usually it lags behind quite a bit)
 sys-fs/bcachefs-tools::gentoo
+
+# just temporarily until bcachefs is back
+>=virtual/dist-kernel-6.17.9999
+>=sys-kernel/cachyos-kernel-6.17.9999
