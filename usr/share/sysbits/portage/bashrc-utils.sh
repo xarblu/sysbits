@@ -459,6 +459,8 @@ function brc_build_env_setup() {
         if [[ -n "${_KERNEL_BUILD_ECLASS}" ]]; then
             export EXTRA_EMAKE="${EXTRA_EMAKE} V=0"
         fi
+        # waf (e.g. samba)
+        export WAF_VERBOSE="OFF"
     fi
     unset BUILD_VERBOSE
 }
