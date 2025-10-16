@@ -1,3 +1,0 @@
-# portcache mirror, considered local to allow
-# fetching RESTRICT="mirror"
-local https://portcache.gaydragon.zone
