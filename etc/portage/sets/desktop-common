@@ -72,6 +72,7 @@ games-util/mangohud
 games-util/steam-launcher
 
 ## Other
+app-admin/ananicy-cpp
 app-text/pandoc-cli
 media-gfx/krita
 sci-calculators/qalculate-gtk
