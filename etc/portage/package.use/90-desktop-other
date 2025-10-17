@@ -1,7 +1,7 @@
 # USE flags for everything else
 # common across systems
 
-app-admin/ananicy-cpp cachyos-rules
+app-admin/ananicy-cpp cachyos-rules bpf
 app-admin/sudo offensive -sendmail
 app-arch/7zip rar uasm
 app-crypt/pinentry keyring
