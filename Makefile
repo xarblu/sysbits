@@ -165,10 +165,10 @@ endif
 
 ifeq ($(DESKTOP),yes)
 ifeq ($(BINPKG_CLIENT_LLVM),yes)
-	install -Dm644 -T etc/portage/make.conf.desktop.binpkgs \
+	install -Dm644 -T etc/portage/make.conf.desktop.binclient \
 		$(DESTDIR)/etc/portage/make.conf
 else
-	install -Dm644 -T etc/portage/make.conf.desktop \
+	install -Dm644 -T etc/portage/make.conf.desktop.binhost \
 		$(DESTDIR)/etc/portage/make.conf
 endif
 endif
