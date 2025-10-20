@@ -14,6 +14,7 @@ dev-libs/elfutils debuginfod
 dev-libs/jemalloc stats
 llvm-core/clang default-lld
 media-gfx/imagemagick corefonts hdri heif jpeg jpeg2k jpegxl -openmp pango raw svg tiff truetype webp wmf xml zip
+media-libs/freetype harfbuzz
 media-libs/gd avif truetype webp
 media-libs/libheif x265
 media-libs/libva X
