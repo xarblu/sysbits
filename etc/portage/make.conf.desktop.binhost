@@ -46,7 +46,6 @@ PORTAGE_LOGDIR="/var/log/portage"
 # binpkgs
 FEATURES="${FEATURES} buildpkg binpkg-multi-instance"
 # host defaults
-EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --changed-deps=y --changed-slot=y"
 PORTAGE_BINHOST_TTL="300"
 # keep basic debug info
 # by default without -g*
