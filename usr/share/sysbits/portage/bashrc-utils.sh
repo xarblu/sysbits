@@ -213,7 +213,7 @@ function brc_prepend_llvm_path() {
 #   - enable LLVM polly
 # ENABLE_SCCACHE (default false):
 #   - enable sccache for C/C++/Rust
-# BUILD_EYECANDY (default true):
+# BUILD_PRETTY (default true):
 #   - enable eyecandy for the build progress like colour, progress bars etc
 # BUILD_VERBOSE (default false):
 #   - enable verbose builds (default in vanilla portage)
@@ -428,7 +428,7 @@ function brc_build_env_setup() {
     export MAKEOPTS
 
     # build system eyecandy (e.g. colours)
-    if brc_truthy BUILD_EYECANDY true; then
+    if brc_truthy BUILD_PRETTY true; then
         # common make/ninja
         export CLICOLOR_FORCE="1"
         # cmake
@@ -442,7 +442,7 @@ function brc_build_env_setup() {
         # brc_prettify_ninja
         export BRC_PRETTIFY_NINJA="true"
     fi
-    unset BUILD_EYECANDY
+    unset BUILD_PRETTY
 
     # build system verbosity
     if ! brc_truthy BUILD_VERBOSE; then
