@@ -60,7 +60,7 @@ sub keep_rule_hack {
     my $key = $_[1];
     my $value = $_[2];
 
-    return $key . 'printf " \b" && ' . $value . "\n";
+    return $key . 'printf \' \b\'; ' . $value . "\n";
 }
 
 # arg parser
