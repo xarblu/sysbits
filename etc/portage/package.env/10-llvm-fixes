@@ -24,6 +24,7 @@ sys-apps/memtest86+ gcc
 dev-lang/R gcc
 dev-python/scipy gcc
 sci-libs/arpack gcc
+sci-libs/blas-lapack-aux-wrapper gcc
 sci-libs/flexiblas gcc
 sci-libs/lapack gcc
 # runtime symbol lookup error: /usr/lib64/libopenmpt.so.0: undefined symbol: __muldc3
