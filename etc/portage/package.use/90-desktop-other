@@ -99,6 +99,7 @@ net-misc/nextcloud-client dolphin
 net-misc/spice-gtk usbredir
 net-print/cups -X -usb
 net-print/gutenprint -gtk
+sci-libs/lapack lapacke
 sci-libs/libqalculate gnuplot
 sys-apps/cpu-x opencl
 sys-apps/fwupd logitech uefi gnutls gusb nvme
