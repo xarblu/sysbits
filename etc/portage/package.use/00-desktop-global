@@ -50,4 +50,4 @@
 # Network
 */* ipv6 nftables firewalld quic http3 -ppp -wext -modemmanager
 # other
-*/* flatpak -accessibility -grub
+*/* flatpak -accessibility -grub appindicator
