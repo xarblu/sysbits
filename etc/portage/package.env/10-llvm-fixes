@@ -39,14 +39,6 @@ net-analyzer/nmap gcc
 dev-ruby/nokogiri clang-20
 # something static or whatever
 dev-qt/qtwebengine clang-20
-# stupid firefox bootstrap because it doesn't
-# compile on libcxx-21 yet
-# https://bugzilla.mozilla.org/1954004
-#dev-build/cmake clang-20
-#llvm-runtimes/libcxx clang-20
-#llvm-runtimes/libcxxabi clang-20
-#mail-client/thunderbird clang-20
-#www-client/firefox clang-20
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)
