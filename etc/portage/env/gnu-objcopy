@@ -1,0 +1,1 @@
+OBJCOPY="$(binutils-config --get-bin-path)/objcopy"

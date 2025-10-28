@@ -16,7 +16,7 @@ sys-apps/apparmor gcc
 sys-kernel/gentoo-kernel-bin gcc
 # ld.lld: error: -shared and -pie may not be used together
 # clang+ld.bfd doesn't seem to work either
-sys-apps/fwupd-efi gcc
+sys-apps/fwupd-efi gnu-objcopy
 # forces gcc
 # "clang doesn't support indirect goto in function with no address-of-label expressions"
 sys-apps/memtest86+ gcc
