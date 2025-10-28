@@ -343,7 +343,7 @@ function brc_build_env_setup() {
     unset ENABLE_POLLY
 
     # if OVERRIDE_*FLAGS are set always apply those
-    [[ -n "${OVERRIDE_COMMON_FLAGS}" ]] && brc_mangle_flags --reset common "${OVERRIDE_CFLAGS}"
+    [[ -n "${OVERRIDE_COMMON_FLAGS}" ]] && brc_mangle_flags --reset common "${OVERRIDE_COMMON_FLAGS}"
     [[ -n "${OVERRIDE_CFLAGS}" ]] && brc_mangle_flags --reset c "${OVERRIDE_CFLAGS}"
     [[ -n "${OVERRIDE_CXXFLAGS}" ]] && brc_mangle_flags --reset cxx "${OVERRIDE_CXXFLAGS}"
     [[ -n "${OVERRIDE_OBJCFLAGS}" ]] && brc_mangle_flags --reset objc "${OVERRIDE_OBJCFLAGS}"
