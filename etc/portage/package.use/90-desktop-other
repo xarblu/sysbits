@@ -18,7 +18,7 @@ app-text/texlive-core cjk xetex
 dev-lang/pypy tk sqlite symlink
 dev-lang/python tk tail-call-interp
 dev-libs/boost context
-dev-libs/elfutils debuginfod
+dev-libs/elfutils -debuginfod
 dev-libs/libdbusmenu -gtk gtk3
 dev-libs/libunibreak -man
 dev-libs/weston fullscreen kiosk
