@@ -117,7 +117,9 @@ x11-terms/wezterm no-polly
 # ld.lld: error: inconsistent LTO Unit splitting
 media-gfx/darktable no-lto
 # seems to fail during linking for some reason but USE=lto works
-~dev-lang/rust-1.90.0 no-lto
+# https://bugs.gentoo.org/964380
+# https://github.com/rust-lang/rust/issues/147902
+dev-lang/rust no-lto
 #[END] LTO Issues
 
 #[START] Strict warnings
