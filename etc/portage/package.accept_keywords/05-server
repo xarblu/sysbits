@@ -3,7 +3,6 @@ app-misc/topgrade ~amd64
 app-shells/starship ~amd64
 app-shells/zoxide ~amd64
 net-analyzer/speedtest++ ~amd64
-sys-fs/ncdu ~amd64
 
 ## Nextcloud
 www-apps/nextcloud ~amd64
@@ -50,7 +49,6 @@ app-misc/fclones ~amd64
 app-portage/portcache ~amd64
 dev-db/mongodb ~amd64
 dev-java/openjdk-bin ~amd64
-dev-lang/zig-bin ~amd64
 dev-python/pipx ~amd64
 dev-python/python-linux-procfs ~amd64
 dev-python/userpath ~amd64
