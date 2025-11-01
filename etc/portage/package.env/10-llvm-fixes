@@ -6,6 +6,7 @@ sys-devel/gcc gcc
 # gets stuck on "checking whether compiler driver understands Ada and is recent enough..."
 # and does a funny little thing where it keeps spawning processes
 # like a fork bomb when using clang via clang-toolchain-symlinks[gcc-symlinks]
+dev-debug/gdb gcc
 sys-devel/binutils gcc
 sys-libs/binutils-libs gcc
 # forces gcc internally anyways
