@@ -48,6 +48,9 @@ ifeq ($(DESKTOP),yes)
 		etc/profile.d/vulkan-video.sh
 endif
 
+	install -Dm644 -t $(DESTDIR)/etc/polkit-1/rules.d \
+		etc/polkit-1/rules.d/10-admin.rules
+
 	# Portage and Friends
 ifeq ($(BINPKG_CLIENT_LLVM),yes)
 	install -Dm644 -t $(DESTDIR)/etc/portage/binrepos.conf \
