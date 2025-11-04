@@ -111,6 +111,9 @@ sys-kernel/cachyos-settings zram
 sys-kernel/installkernel dracut module-rebuild systemd-boot uki ukify
 sys-kernel/kernelscripts eclean-kernel
 sys-kernel/linux-firmware compress-zstd deduplicate
+sys-libs/minizip-ng compat
+sys-libs/zlib -minizip
+sys-libs/zlib-ng compat
 virtual/linux-sources firmware
 www-client/firefox hwaccel system-png -X openh264 system-pipewire wasm-sandbox -wifi
 x11-base/xorg-server xvfb

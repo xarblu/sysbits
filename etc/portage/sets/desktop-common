@@ -73,7 +73,9 @@ games-util/steam-launcher
 
 ## Other
 app-admin/ananicy-cpp
-app-text/pandoc-cli
+# waiting for ::haskell to clean
+# up zlib deps
+#app-text/pandoc-cli
 media-gfx/krita
 sci-calculators/qalculate-gtk
 sys-auth/rtkit
