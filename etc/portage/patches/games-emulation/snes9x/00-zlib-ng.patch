@@ -1,0 +1,94 @@
+commit e123b2ce4a43da2c5293f81a21d8cf24aac14f9b
+Author: Xarblu <xarblu@protonmail.com>
+Date:   Wed Nov 5 10:36:12 2025 +0100
+
+    fix build with zlib-ng
+    
+    minizip-ng dynamically includes
+    zlib-ng.h or zlib.h depending on
+    what was included prior
+    
+    snes9x.h includes includes zlib.h
+    which needs to happen first or the
+    minizip include tries to include zlib-ng.h
+    resulting in an error because you can't
+    include both in a single translation unit
+
+diff --git a/conffile.h b/conffile.h
+index d92128cb..ec3dc7cd 100644
+--- a/conffile.h
++++ b/conffile.h
+@@ -12,6 +12,7 @@
+ #include <vector>
+ #include <string>
+ 
++#include "snes9x.h"
+ #ifdef UNZIP_SUPPORT
+ #  ifdef SYSTEM_ZIP
+ #    include <minizip/unzip.h>
+@@ -19,7 +20,6 @@
+ #    include "unzip/unzip.h"
+ #  endif
+ #endif
+-#include "snes9x.h"
+ 
+ #ifndef MAX
+ #  define MAX(a,b)  ((a) > (b)? (a) : (b))
+diff --git a/loadzip.cpp b/loadzip.cpp
+index 7082bb0e..552b9fab 100644
+--- a/loadzip.cpp
++++ b/loadzip.cpp
+@@ -8,12 +8,12 @@
+ 
+ #include <assert.h>
+ #include <ctype.h>
++#include "snes9x.h"
+ #ifdef SYSTEM_ZIP
+ #include <minizip/unzip.h>
+ #else
+ #include "unzip/unzip.h"
+ #endif
+-#include "snes9x.h"
+ #include "memmap.h"
+ 
+ 
+diff --git a/memmap.cpp b/memmap.cpp
+index 1c483c6f..3fba43da 100644
+--- a/memmap.cpp
++++ b/memmap.cpp
+@@ -10,6 +10,7 @@
+ #include <numeric>
+ #include <assert.h>
+ 
++#include "snes9x.h"
+ #ifdef UNZIP_SUPPORT
+ #  ifdef SYSTEM_ZIP
+ #    include <minizip/unzip.h>
+@@ -25,7 +26,6 @@
+ #include <ctype.h>
+ #include <sys/stat.h>
+ 
+-#include "snes9x.h"
+ #include "memmap.h"
+ #include "apu/apu.h"
+ #include "fxemu.h"
+diff --git a/stream.cpp b/stream.cpp
+index d6e1c1cb..173f5fd9 100644
+--- a/stream.cpp
++++ b/stream.cpp
+@@ -7,6 +7,7 @@
+ // Abstract the details of reading from zip files versus FILE *'s.
+ 
+ #include <string>
++#include "snes9x.h"
+ #ifdef UNZIP_SUPPORT
+ #  ifdef SYSTEM_ZIP
+ #    include <minizip/unzip.h>
+@@ -14,7 +15,6 @@
+ #    include "unzip.h"
+ #  endif
+ #endif
+-#include "snes9x.h"
+ #include "stream.h"
+ 
+ 
