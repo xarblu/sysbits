@@ -71,6 +71,11 @@ games-util/gamemode
 games-util/mangohud
 games-util/steam-launcher
 
+## zlib
+# mostly to make sure -ng is preferred
+sys-libs/minizip-ng
+sys-libs/zlib-ng
+
 ## Other
 app-admin/ananicy-cpp
 # waiting for ::haskell to clean
