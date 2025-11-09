@@ -16,9 +16,6 @@ sys-libs/glibc gcc
 sys-apps/apparmor gcc
 # is gcc compiled bin. fails without gcc
 sys-kernel/gentoo-kernel-bin gcc
-# ld.lld: error: -shared and -pie may not be used together
-# clang+ld.bfd doesn't seem to work either
-sys-apps/fwupd-efi gcc
 # forces gcc
 # "clang doesn't support indirect goto in function with no address-of-label expressions"
 sys-apps/memtest86+ gcc
@@ -137,4 +134,7 @@ llvm-runtimes/libcxxabi libcxx-typeinfo
 dev-lang/pypy pypy-linker_so
 # somewhat randomly fails to compile with too many jobs
 net-im/telegram-desktop telegram-desktop-job-limit
+# expects GNU objcopy in PATH
+# /usr/lib/llvm/21/bin/objcopy: error: invalid output format: 'efi-app-x86_64'
+sys-apps/fwupd-efi no-prepend-llvm-path
 #[END] misc
