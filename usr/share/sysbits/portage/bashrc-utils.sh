@@ -35,6 +35,25 @@ function brc_truthy() {
     esac
 }
 
+# helper to check if a dep is installed
+# $1 is the cmd to check
+# $2 is an optional package name to print in warning
+function brc_check_dep() {
+    local cmd="${1}"
+    local pkg="${2:-}"
+
+    if ! command -v "${cmd}" &>/dev/null; then
+        if [[ -n "${pkg}" ]]; then
+            ewarn "${FUNCNAME[1]} requires perl from ${pkg}"
+        else
+            ewarn "${FUNCNAME[1]} requires perl"
+        fi
+        return 1
+    fi
+
+    return 0
+}
+
 
 # print the current build environment
 function brc_build_info() {
@@ -490,15 +509,8 @@ function brc_prettify_ninja {
         return 1
     fi
 
-    if ! command -v perl &>/dev/null; then
-        ewarn "${FUNCNAME[0]} requires perl from dev-lang/perl"
-        return 1
-    fi
-
-    if ! command -v sponge &>/dev/null; then
-        ewarn "${FUNCNAME[0]} requires sponge from sys-apps/moreutils"
-        return 1
-    fi
+    brc_check_dep perl dev-lang/perl || return 1
+    brc_check_dep sponge sys-apps/moreutils || return 1
 
     local -a args
     # multibuild redirects output so ninja assumes the terminal is "dumb"
