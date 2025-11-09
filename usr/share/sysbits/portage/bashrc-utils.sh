@@ -201,6 +201,8 @@ function brc_prepend_llvm_path() {
 # setup build environment
 # base *FLAGS are set in make.conf and expanded here
 # configuration options (true/false):
+# PREPEND_LLVM_PATH (default true):
+#   - prepend PATH of the current clang binary (only if CC is clang(-*))
 # ENABLE_MOLD (default false):
 #   - use mold linker for linking
 # ENABLE_LTO (default false):
@@ -250,7 +252,10 @@ function brc_build_env_setup() {
 
     # prepend CC in PATH if we use clang so llvm-core/clang-toolchain-symlinks[native-symlinks]
     # actually does something
-    brc_prepend_llvm_path
+    if brc_truthy PREPEND_LLVM_PATH true; then
+        brc_prepend_llvm_path
+    fi
+    unset PREPEND_LLVM_PATH;
 
     # BUILD_DEBUG essentially overrides the entire environment
     if brc_truthy BUILD_DEBUG; then
@@ -262,6 +267,7 @@ function brc_build_env_setup() {
         # shellcheck disable=SC2034
         ENABLE_POLLY=false
     fi
+    unset BUILD_DEBUG
 
     # apply common flags
     # XXX: --reset here to clear Gentoo's defaults
