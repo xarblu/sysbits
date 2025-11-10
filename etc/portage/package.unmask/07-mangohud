@@ -1,0 +1,3 @@
+# specifically unmask all version (incl RCs)
+# from my overlay
+games-util/mangohud::xarblu-overlay
