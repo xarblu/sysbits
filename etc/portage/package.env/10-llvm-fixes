@@ -67,6 +67,7 @@ dev-libs/opencl-clang:16 ld-allow-undefined-version
 llvm-core/llvm:15 ld-allow-undefined-version
 net-firewall/ipset ld-allow-undefined-version
 net-fs/samba ld-allow-undefined-version
+net-libs/libtirpc ld-allow-undefined-version
 sys-libs/libfaketime ld-allow-undefined-version
 sys-libs/talloc ld-allow-undefined-version
 sys-libs/tdb ld-allow-undefined-version
