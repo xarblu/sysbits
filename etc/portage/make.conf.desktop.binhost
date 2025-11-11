@@ -34,17 +34,16 @@ PORTAGE_SCHEDULING_POLICY="idle"
 NETRC_FILE="/etc/portage/.netrc"
 FETCHCOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --compressed --fail --retry 3 --location \${URI} -o \${DISTDIR}/\${FILE}"
 RESUMECOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --compressed --fail --retry 3 --location --continue-at - \${URI} -o \${DISTDIR}/\${FILE}"
-# compression
-PORTAGE_COMPRESS="zstd"
-PORTAGE_COMPRESS_FLAGS="-T0 -9"
-BINPKG_FORMAT="gpkg"
-BINPKG_COMPRESS="zstd"
-BINPKG_COMPRESS_FLAGS="-T0 -9"
+# doc compression
+PORTAGE_COMPRESS=""
 # Logging
 FEATURES="${FEATURES} split-log clean-logs compress-build-logs"
 PORTAGE_LOGDIR="/var/log/portage"
 # binpkgs
 FEATURES="${FEATURES} buildpkg binpkg-multi-instance"
+BINPKG_FORMAT="gpkg"
+BINPKG_COMPRESS="zstd"
+BINPKG_COMPRESS_FLAGS="-T0 -9"
 # host defaults
 PORTAGE_BINHOST_TTL="300"
 # keep basic debug info
