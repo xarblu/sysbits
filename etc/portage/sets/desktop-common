@@ -76,6 +76,9 @@ games-util/steam-launcher
 sys-libs/minizip-ng
 sys-libs/zlib-ng
 
+## power profiles provider
+sys-apps/tuned
+
 ## Other
 app-admin/ananicy-cpp
 # waiting for ::haskell to clean
