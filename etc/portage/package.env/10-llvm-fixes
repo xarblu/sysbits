@@ -31,13 +31,13 @@ sci-libs/lapack gcc
 media-libs/libopenmpt gcc
 # sth goes very wrong here with some make targets not existing when using clang
 net-analyzer/nmap gcc
-# bpfinterp.cxx:1088:18: error: case value is not a constant expression
-dev-debug/systemtap gcc
 #[END] Compile issues (general clang)
 
 #[START] Compile issues (latest clang)
 # fatal error: 'nokogiri_gumbo.h' file not found
 dev-ruby/nokogiri clang-20
+# bpfinterp.cxx:1088:18: error: case value is not a constant expression
+dev-debug/systemtap clang-20
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)
@@ -46,6 +46,8 @@ dev-ruby/nokogiri clang-20
 gui-wm/gamescope libstdcpp
 # implicit instantiation of undefined template 'std::char_traits<unsigned char>'
 dev-libs/intel-compute-runtime libstdcpp
+# using namespace __gnu_cxx
+dev-debug/systemtap clang-20 libstdcpp
 #[END] Compile issues (libc++)
 
 #[START] Linker issues
