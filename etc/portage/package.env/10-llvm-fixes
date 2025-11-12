@@ -31,6 +31,8 @@ sci-libs/lapack gcc
 media-libs/libopenmpt gcc
 # sth goes very wrong here with some make targets not existing when using clang
 net-analyzer/nmap gcc
+# bpfinterp.cxx:1088:18: error: case value is not a constant expression
+dev-debug/systemtap gcc
 #[END] Compile issues (general clang)
 
 #[START] Compile issues (latest clang)
@@ -42,8 +44,6 @@ dev-ruby/nokogiri clang-20
 # _Atomic cannot be applied to type 'std::shared_ptr
 # https://github.com/ValveSoftware/gamescope/issues/1509
 gui-wm/gamescope libstdcpp
-# using namespace __gnu_cxx
-dev-debug/systemtap libstdcpp
 # implicit instantiation of undefined template 'std::char_traits<unsigned char>'
 dev-libs/intel-compute-runtime libstdcpp
 #[END] Compile issues (libc++)
