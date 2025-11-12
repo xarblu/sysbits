@@ -11,3 +11,4 @@ dev-qt/qttools LLVM_SLOT: -* 21
 sys-apps/lact LLVM_SLOT: -* 21
 sys-fs/bcachefs-tools LLVM_SLOT: -* 21
 sys-kernel/cachyos-kernel LLVM_SLOT: -* 21
+www-client/firefox LLVM_SLOT: -* 21
