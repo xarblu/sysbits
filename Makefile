@@ -225,6 +225,7 @@ endif
 
 	install -Dm644 -t $(DESTDIR)/usr/share/sysbits/portage \
 		usr/share/sysbits/portage/bashrc-utils.sh \
+		usr/share/sysbits/portage/gentoo_mirrors.list \
 		usr/share/sysbits/portage/ninja_prettifier.pl
 
 # extra targets for "recursive" installs

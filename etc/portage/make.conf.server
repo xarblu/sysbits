@@ -25,9 +25,6 @@ ACCEPT_KEYWORDS="amd64"
 # Portage Options
 EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --tree --unordered-display --with-bdeps=y"
 PORTAGE_SCHEDULING_POLICY="idle"
-NETRC_FILE="/etc/portage/.netrc"
-FETCHCOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --compressed --fail --retry 3 --location \${URI} -o \${DISTDIR}/\${FILE}"
-RESUMECOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --compressed --fail --retry 3 --location --continue-at - \${URI} -o \${DISTDIR}/\${FILE}"
 # doc compression
 PORTAGE_COMPRESS=""
 # Logging
@@ -51,3 +48,9 @@ PORTAGE_WORKDIR_MODE="0775"
 # This sets the language of build output to English.
 # Please keep this setting intact when reporting bugs.
 LC_MESSAGES="C"
+
+# Gentoo mirrors and fetchcommand
+source /usr/share/sysbits/portage/
+# assume we're on a 50Mbps connection minimum (in bytes/s)
+FETCHCOMMANDWRAPPER_EXTRA="--link-speed 7500000"
+source /usr/share/fetchcommandwrapper/make.conf

@@ -4,9 +4,9 @@ DEST="${BASH_SOURCE[0]%/*}/gentoo_mirrors.list"
 
 function do_mirrorselect() {
     mirrorselect \
+        --blocksize 10 \
         --servers 50 \
         --http \
-        --deep \
         --output
 }
 

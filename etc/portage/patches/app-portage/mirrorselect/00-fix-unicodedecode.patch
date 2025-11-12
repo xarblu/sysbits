@@ -1,0 +1,18 @@
+diff --git a/mirrorselect/main.py b/mirrorselect/main.py
+index 8180143..042280d 100755
+--- a/mirrorselect/main.py
++++ b/mirrorselect/main.py
+@@ -104,7 +104,12 @@ class MirrorSelect:
+ 
+         for i in range(0, len(hosts)):
+             if isinstance(hosts[i], bytes):
+-                hosts[i] = hosts[i].decode("utf-8")
++                try:
++                    hosts[i] = hosts[i].decode("utf-8")
++                except UnicodeDecodeError:
++                    hosts[i] = None
++
++        hosts = [host for host in hosts if host is not None]
+ 
+         if var == "sync-uri" and out:
+             mirror_string = "{} = {}".format(var, " ".join(hosts))
