@@ -3,3 +3,52 @@
 
 # Last Update: 2025-11-12
 
+
+GENTOO_MIRRORS="http://ftp.romnet.org/gentoo/ \
+    http://mirror.freedif.org/gentoo \
+    http://[2a0d:f302:136:5e6d::1]/gentoo/ \
+    http://110.172.148.86/gentoo/ \
+    http://110.172.148.126/gentoo/ \
+    http://gentoo.mirrors.ovh.net/gentoo-distfiles/ \
+    http://gentoo-mirror.alexxy.name/ \
+    http://38.244.184.165/pub/gentoo/ \
+    http://triton.mx.ext.planetunix.net/pub/gentoo/ \
+    http://mirrors.ptisp.pt/gentoo/ \
+    http://nereid.fr.ext.planetunix.net/pub/gentoo/ \
+    http://178.17.160.48/gentoo \
+    https://172.67.165.93/ \
+    http://hippocamp.cn.ext.planetunix.net/pub/gentoo/ \
+    http://ftp.free.fr/mirrors/ftp.gentoo.org/ \
+    https://gentoo.kurdy.org/ \
+    http://139.84.238.192/pub/gentoo/ \
+    http://mirror.mephi.ru/gentoo-distfiles/ \
+    http://mirror.hostiko.network/gentoo \
+    http://elara.ca.ext.planetunix.net/pub/gentoo/ \
+    http://tethys.il.ext.planetunix.net/pub/gentoo/ \
+    https://[2606:4700:3036::6815:5b1f]/ \
+    http://138.68.134.171/pub/gentoo/cB8>V \
+    http://ftp.twaren.net/Linux/Gentoo/ \
+    https://104.21.91.31/ \
+    http://159.65.150.37/pub/gentoo/ \
+    http://172.83.105.10/gentoo/ \
+    http://callisto.gb.ext.planetunix.net/pub/gentoo/ \
+    http://prospero.qa.ext.planetunix.net/pub/gentoo/ \
+    http://147.102.222.211/pub/linux/gentoo/ \
+    http://139.180.182.164/pub/gentoo/ \
+    http://mirrors.mit.edu/gentoo-distfiles/ \
+    http://138.197.131.245/pub/gentoo/ \
+    http://rhea.kz.ext.planetunix.net/pub/gentoo/ \
+    http://gentoo.aditsu.net:8000/ \
+    http://mirror.leaseweb.com/gentoo/ \
+    http://ariel.in.ext.planetunix.net/pub/gentoo/ \
+    http://mirror.reenigne.net/gentoo/ \
+    http://mirror.aarnet.edu.au/pub/gentoo/ \
+    http://ftp-stud.hs-esslingen.de/pub/Mirrors/gentoo/ \
+    http://35.220.221.101/pub/gentoo/ \
+    http://167.71.50.90/pub/gentoo/ \
+    http://setebos.za.ext.planetunix.net/pub/gentoo/ \
+    http://38.244.206.187/pub/gentoo/ \
+    http://oberon.de.ext.planetunix.net/pub/gentoo/ \
+    http://216.238.102.47/pub/gentoo/ \
+    http://umbriel.br.ext.planetunix.net/pub/gentoo/ \
+    http://194.8.197.22/gentoo/"
