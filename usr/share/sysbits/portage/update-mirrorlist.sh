@@ -4,9 +4,10 @@ DEST="${BASH_SOURCE[0]%/*}/gentoo_mirrors.list"
 
 function do_mirrorselect() {
     mirrorselect \
+        --country Germany \
         --blocksize 10 \
-        --servers 50 \
-        --http \
+        --servers 10 \
+        --ftp \
         --output
 }
 
@@ -15,7 +16,6 @@ function do_header() {
     printf '# Run %s to update\n' "${BASH_SOURCE[0]##*/}"
     printf '\n'
     printf '# Last Update: %(%Y-%m-%d)T\n'
-    printf '\n'
 }
 
 function main() {
