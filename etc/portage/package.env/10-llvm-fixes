@@ -125,6 +125,7 @@ dev-lang/rust no-lto
 #[END] LTO Issues
 
 #[START] Strict warnings
+app-laptop/framework-laptop-kmod no-strict-warn
 dev-util/intel-graphics-compiler no-strict-warn
 net-libs/webkit-gtk no-strict-warn
 #[END] Strict warnings
