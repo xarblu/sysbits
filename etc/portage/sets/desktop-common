@@ -14,7 +14,10 @@ kde-apps/kcolorchooser
 kde-apps/kwalletmanager
 kde-apps/okular
 kde-misc/kdeconnect
+media-gfx/krita
 net-irc/konversation
+sci-calculators/qalculate-gtk
+www-client/firefox
 
 ## Themes
 x11-themes/catppuccin-cursors
@@ -32,6 +35,9 @@ dev-util/bash-language-server
 dev-util/shellcheck
 dev-util/tree-sitter-cli
 dev-util/yaml-language-server
+
+## Dev
+dev-util/perf
 
 ## Fonts
 media-fonts/fira-code
@@ -85,7 +91,4 @@ app-admin/ananicy-cpp
 # waiting for ::haskell to clean
 # up zlib deps
 #app-text/pandoc-cli
-media-gfx/krita
-sci-calculators/qalculate-gtk
 sys-auth/rtkit
-www-client/firefox
