@@ -1,3 +1,4 @@
-# Kernel RCs
-virtual/dist-kernel::xarblu-overlay **
+# Kernel RCs and deps
+sys-fs/bcachefs-tools::xarblu-overlay **
 sys-kernel/cachyos-kernel::xarblu-overlay **
+virtual/dist-kernel::xarblu-overlay **
