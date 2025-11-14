@@ -14,6 +14,7 @@ kde-apps/kcolorchooser
 kde-apps/kwalletmanager
 kde-apps/okular
 kde-misc/kdeconnect
+net-irc/konversation
 
 ## Themes
 x11-themes/catppuccin-cursors
