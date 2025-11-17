@@ -5,7 +5,6 @@
 
 GENTOO_MIRRORS="ftp://ftp-stud.hs-esslingen.de/pub/Mirrors/gentoo/ \
     ftp://194.8.197.22/gentoo/ \
-    ftp://ftp.fau.de/gentoo \
     ftp://137.226.34.46/gentoo/ \
     ftp://ftp.halifax.rwth-aachen.de/gentoo/ \
     ftp://131.188.12.211/gentoo \
