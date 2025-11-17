@@ -68,7 +68,7 @@ PORTAGE_WORKDIR_MODE="0775"
 LC_MESSAGES="C"
 
 # Gentoo mirrors and fetchcommand
+NETRC_FILE="/etc/portage/.netrc"
+FETCHCOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --compressed --fail --retry 3 --location \${URI} -o \${DISTDIR}/\${FILE}"
+RESUMECOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --compressed --fail --retry 3 --location --continue-at - \${URI} -o \${DISTDIR}/\${FILE}"
 source /usr/share/sysbits/portage/gentoo_mirrors.list
-# assume we're on a 50Mbps connection minimum (in bytes/s)
-FETCHCOMMANDWRAPPER_OPTIONS="--link-speed 7500000"
-source /usr/share/fetchcommandwrapper/make.conf
