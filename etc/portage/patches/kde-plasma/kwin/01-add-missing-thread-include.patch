@@ -1,0 +1,12 @@
+diff --git a/src/backends/drm/drm_backend.cpp b/src/backends/drm/drm_backend.cpp
+index f7189f50b2..a5229b64da 100644
+--- a/src/backends/drm/drm_backend.cpp
++++ b/src/backends/drm/drm_backend.cpp
+@@ -37,6 +37,7 @@
+ #include <algorithm>
+ #include <cerrno>
+ #include <ranges>
++#include <thread>
+ #include <sys/stat.h>
+ #include <unistd.h>
+ // drm
