@@ -1,3 +1,0 @@
-# build HAProxy with QUIC support
-# requires openssl 3.5.1+ (or USE_QUIC_OPENSSL_COMPAT=1)
-EXTRA_EMAKE="USE_QUIC=1"
