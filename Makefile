@@ -25,6 +25,11 @@ install: $(PATCHES)
 		etc/kernel/config.d/06-compress.config \
 		etc/kernel/config.d/07-uki.config
 
+ifeq ($(SERVER),yes)
+	install -Dm644 -t $(DESTDIR)/etc/kernel/config.d \
+		etc/kernel/config.d/20-server.config
+endif
+
 	# Locales
 	install -Dm644 -t $(DESTDIR)/etc \
 		etc/locale.conf \
