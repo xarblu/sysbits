@@ -87,6 +87,7 @@ media-video/mpv archive bluray cli dvd -xv
 media-video/obs-studio fdk jack lua python v4l
 media-video/pipewire echo-cancel extra gstreamer jack-sdk lv2 pipewire-alsa v4l sound-server
 media-video/vlc dav1d -ffmpeg -gui vpx
+net-analyzer/wireshark wifi
 net-dns/dnsmasq script
 net-firewall/firewalld -gui
 net-im/telegram-desktop qt6-imageformats
@@ -115,7 +116,7 @@ sys-libs/minizip-ng compat
 sys-libs/zlib -minizip
 sys-libs/zlib-ng compat
 virtual/linux-sources firmware
-www-client/firefox hwaccel system-png -X openh264 system-pipewire wasm-sandbox -wifi
+www-client/firefox hwaccel system-png -X openh264 system-pipewire wasm-sandbox wifi
 x11-base/xorg-server xvfb
 x11-base/xwayland libei
 x11-libs/libdrm VIDEO_CARDS: amdgpu
