@@ -48,6 +48,6 @@
 # Media
 */* webp jpegxl opus heif avif raw -vlc
 # Network
-*/* ipv6 nftables firewalld quic http3 -ppp -wext -modemmanager
+*/* ipv6 nftables firewalld quic http2 http3 -ppp -wext -modemmanager
 # other
 */* flatpak -accessibility -grub appindicator
