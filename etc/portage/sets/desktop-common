@@ -86,6 +86,10 @@ sys-libs/zlib-ng
 ## power profiles provider
 sys-apps/tuned
 
+## Bluetooth
+net-wireless/bluez
+net-wireless/bluez-tools
+
 ## Other
 app-admin/ananicy-cpp
 # waiting for ::haskell to clean
