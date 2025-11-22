@@ -8,6 +8,7 @@ dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 16
 
 # unstable slots
 dev-qt/qttools LLVM_SLOT: -* 21
+dev-util/mesa_clc LLVM_SLOT: -* 21
 media-libs/mesa LLVM_SLOT: -* 21
 sys-apps/lact LLVM_SLOT: -* 21
 sys-fs/bcachefs-tools LLVM_SLOT: -* 21
