@@ -58,6 +58,7 @@ mpv-plugin/uosc
 ## Network
 net-misc/yt-dlp
 net-p2p/syncthing
+net-p2p/syncthingtray
 
 ## Messenger
 net-im/telegram-desktop

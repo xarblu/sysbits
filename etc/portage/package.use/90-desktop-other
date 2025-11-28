@@ -99,6 +99,7 @@ net-misc/curl nghttp3
 net-misc/networkmanager -bluetooth
 net-misc/nextcloud-client dolphin
 net-misc/spice-gtk usbredir
+net-p2p/syncthingtray kio plasmoid
 net-print/cups -X -usb
 net-print/gutenprint -gtk
 sci-libs/lapack lapacke deprecated
