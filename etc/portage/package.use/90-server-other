@@ -45,6 +45,7 @@ sys-libs/libblockdev lvm
 sys-process/systemd-cron cron-boot minutely yearly
 www-apps/jellyfin-bin intro-skipper
 www-apps/nextcloud postgres -sqlite vhosts
-www-servers/nginx http3 vim-syntax
+www-servers/nginx NGINX_MODULES_HTTP: realip
+www-servers/nginx vim-syntax
 x11-libs/cairo -X
 x11-libs/libxkbcommon X
