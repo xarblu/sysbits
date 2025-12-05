@@ -47,7 +47,7 @@ gui-wm/gamescope libstdcpp
 # implicit instantiation of undefined template 'std::char_traits<unsigned char>'
 dev-libs/intel-compute-runtime libstdcpp
 # using namespace __gnu_cxx
-dev-debug/systemtap clang-20 libstdcpp
+dev-debug/systemtap libstdcpp
 #[END] Compile issues (libc++)
 
 #[START] Linker issues
