@@ -11,6 +11,3 @@ virtual/dist-kernel::gentoo
 # just in case ::gentoo catches up to my own version
 # (usually it lags behind quite a bit)
 sys-fs/bcachefs-tools::gentoo
-
-# they messed up the zlib dep
-=dev-util/sccache-0.12.0
