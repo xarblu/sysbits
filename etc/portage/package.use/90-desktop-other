@@ -13,8 +13,8 @@ app-office/libreoffice pdfimport
 app-shells/bash plugins
 app-text/doxygen -gui
 app-text/mupdf -X
-app-text/texlive cjk extra graphics science
-app-text/texlive-core cjk xetex
+app-text/texlive extra graphics science
+app-text/texlive-core xetex
 dev-lang/pypy tk sqlite symlink
 dev-lang/python tk tail-call-interp
 dev-libs/boost context
@@ -52,8 +52,8 @@ kde-plasma/plasma-firewall firewalld -ufw
 kde-plasma/plasma-meta -crypt oxygen-theme sdk
 kde-plasma/powerdevil brightness-control
 mail-client/thunderbird hwaccel system-png -X openh264 system-pipewire -wifi
-media-fonts/fonts-meta cjk emoji latin ms
-media-fonts/ibm-plex cjk variable
+media-fonts/fonts-meta emoji latin ms
+media-fonts/ibm-plex variable
 media-fonts/nerd-fonts ibmplexmono monaspace nerdfontssymbolsonly
 media-fonts/noto-emoji icons
 media-fonts/source-han-sans L10N: ja ko zh-CN zh-HK zh-TW
