@@ -50,6 +50,7 @@ kde-plasma/kwin xwayland
 kde-plasma/plasma-desktop webengine
 kde-plasma/plasma-firewall firewalld -ufw
 kde-plasma/plasma-meta -crypt oxygen-theme sdk
+kde-plasma/plasma-workspace telemetry
 kde-plasma/powerdevil brightness-control
 mail-client/thunderbird hwaccel system-png -X openh264 system-pipewire -wifi
 media-fonts/fonts-meta emoji latin ms
