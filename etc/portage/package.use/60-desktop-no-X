@@ -30,5 +30,4 @@ net-print/cups -X
 net-print/gutenprint -gtk
 sys-process/psmisc -X
 www-client/firefox -X
-www-client/firefox -X
 x11-misc/sddm -X
