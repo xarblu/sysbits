@@ -23,6 +23,7 @@ mail-client/thunderbird -X
 media-libs/libwebp -opengl
 media-libs/tg_owt -X
 media-libs/tiff -opengl
+media-sound/strawberry -X
 media-video/mpv -X -opengl -xv
 net-im/telegram-desktop -X
 net-print/cups -X
