@@ -20,6 +20,7 @@ dev-libs/boost context
 dev-libs/elfutils -debuginfod
 dev-libs/libdbusmenu gtk3
 dev-libs/libunibreak -man
+dev-libs/libutf8proc -cjk
 dev-libs/weston fullscreen kiosk
 dev-python/pillow tk
 dev-python/pyside uitools
