@@ -12,14 +12,13 @@ app-misc/uwufetch gpu images
 app-office/libreoffice pdfimport
 app-shells/bash plugins
 app-text/doxygen -gui
-app-text/mupdf -X
 app-text/texlive extra graphics science
 app-text/texlive-core xetex
 dev-lang/pypy tk sqlite symlink
 dev-lang/python tk tail-call-interp
 dev-libs/boost context
 dev-libs/elfutils -debuginfod
-dev-libs/libdbusmenu -gtk gtk3
+dev-libs/libdbusmenu gtk3
 dev-libs/libunibreak -man
 dev-libs/weston fullscreen kiosk
 dev-python/pillow tk
@@ -52,7 +51,7 @@ kde-plasma/plasma-firewall firewalld -ufw
 kde-plasma/plasma-meta -crypt oxygen-theme sdk
 kde-plasma/plasma-workspace telemetry
 kde-plasma/powerdevil brightness-control
-mail-client/thunderbird hwaccel system-png -X openh264 system-pipewire -wifi
+mail-client/thunderbird hwaccel system-png openh264 system-pipewire -wifi
 media-fonts/fonts-meta emoji latin ms
 media-fonts/ibm-plex variable
 media-fonts/nerd-fonts ibmplexmono monaspace nerdfontssymbolsonly
@@ -101,8 +100,7 @@ net-misc/networkmanager -bluetooth
 net-misc/nextcloud-client dolphin
 net-misc/spice-gtk usbredir
 net-p2p/syncthingtray kio plasmoid
-net-print/cups -X -usb
-net-print/gutenprint -gtk
+net-print/cups -usb
 sci-libs/lapack lapacke deprecated
 sci-libs/libqalculate gnuplot
 sys-apps/cpu-x opencl
@@ -118,7 +116,7 @@ sys-libs/minizip-ng compat
 sys-libs/zlib -minizip
 sys-libs/zlib-ng compat
 virtual/linux-sources firmware
-www-client/firefox hwaccel system-png -X openh264 system-pipewire wasm-sandbox wifi
+www-client/firefox hwaccel system-png openh264 system-pipewire wasm-sandbox wifi
 x11-base/xorg-server xvfb
 x11-base/xwayland libei
 x11-libs/libdrm VIDEO_CARDS: amdgpu

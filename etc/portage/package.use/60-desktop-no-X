@@ -1,22 +1,33 @@
-# since "X" often just means "GUI" we can't just disable it globally
+# Disable X11 support where possible i.e. for apps that provide Wayland
+# or don't really need a UI.
+#
+# Since USE=X often just means "GUI" we can't just disable it globally.
+# This also includes apps pulling in GTK2 via USE=gtk and other similar cases.
 
 app-admin/keepassxc -X
 app-crypt/pinentry -X -qt5 -gtk
 app-text/ghostscript-gpl -X
+app-text/mupdf -X
 app-text/mupdf -X -opengl
 app-text/texlive -X
 app-text/texlive-core -X
 app-text/xournalpp -X
+dev-libs/libdbusmenu -gtk
 dev-python/matplotlib -wxwidgets
+dev-util/perf -gtk
 games-emulation/snes9x -xv
 kde-misc/kde-rounded-corners -X
 kde-plasma/plasma-login-sessions -X
 kde-plasma/plasma-meta -X
+mail-client/thunderbird -X
 media-libs/libwebp -opengl
 media-libs/tg_owt -X
 media-libs/tiff -opengl
 media-video/mpv -X -opengl -xv
 net-im/telegram-desktop -X
+net-print/cups -X
+net-print/gutenprint -gtk
 sys-process/psmisc -X
+www-client/firefox -X
 www-client/firefox -X
 x11-misc/sddm -X
