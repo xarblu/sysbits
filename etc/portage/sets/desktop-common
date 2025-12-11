@@ -14,8 +14,7 @@ kde-apps/kcolorchooser
 kde-apps/kwalletmanager
 kde-apps/okular
 kde-misc/kdeconnect
-# waiting for ffmpeg 8 support in v146
-#mail-client/thunderbird
+mail-client/thunderbird
 media-gfx/krita
 net-irc/konversation
 sci-calculators/qalculate-gtk
