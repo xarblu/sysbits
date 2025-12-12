@@ -1,0 +1,12 @@
+diff --git a/libs/global/kis_signal_auto_connection.h b/libs/global/kis_signal_auto_connection.h
+index ed06e3fab7..30ef2916c2 100644
+--- a/libs/global/kis_signal_auto_connection.h
++++ b/libs/global/kis_signal_auto_connection.h
+@@ -8,6 +8,7 @@
+ #define __KIS_SIGNAL_AUTO_CONNECTOR_H
+ 
+ #include <QObject>
++#include <QSharedPointer>
+ #include <QVector>
+ 
+ /**
