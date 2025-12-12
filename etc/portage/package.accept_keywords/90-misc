@@ -1,2 +1,5 @@
 # maintained by me, for testing use main
 kde-misc/kwin-effects-better-blur-dx **
+
+# krita 6 to remove another Qt5 revdep
+=media-gfx/krita-6* **
