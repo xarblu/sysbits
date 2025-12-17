@@ -34,8 +34,6 @@ net-analyzer/nmap gcc
 #[END] Compile issues (general clang)
 
 #[START] Compile issues (latest clang)
-# fatal error: 'nokogiri_gumbo.h' file not found
-dev-ruby/nokogiri clang-20
 # bpfinterp.cxx:1088:18: error: case value is not a constant expression
 dev-debug/systemtap clang-20
 #[END] Compile issues (latest clang)
