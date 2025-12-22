@@ -19,3 +19,4 @@ dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 16
 >=sys-fs/bcachefs-tools-1.33_pre20251123193413 LLVM_SLOT: -* 21
 >=sys-kernel/cachyos-kernel-6.18_rc7 LLVM_SLOT: -* 21
 >=www-client/firefox-145.0.1 LLVM_SLOT: -* 21
+dev-python/pyside LLVM_SLOT: -* 21
