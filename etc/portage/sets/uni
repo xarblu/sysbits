@@ -1,8 +1,1 @@
-# KI
-dev-python/jupyter
-dev-python/numpy
-dev-python/scikit-learn
-
-# EMS
-# required by Vivado
-sys-libs/ncurses-compat
+# stuff required for my uni courses
