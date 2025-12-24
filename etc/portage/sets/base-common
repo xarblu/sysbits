@@ -53,7 +53,7 @@ dev-libs/tree-sitter-meta
 dev-python/pynvim
 
 ## Network
-net-dns/bind-tools
+net-dns/bind
 net-firewall/firewalld
 net-misc/curl
 net-misc/iperf
