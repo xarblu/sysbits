@@ -28,6 +28,7 @@ media-video/mpv -X -opengl -xv
 net-im/telegram-desktop -X
 net-print/cups -X
 net-print/gutenprint -gtk
+sci-visualization/gnuplot -wxwidgets -X
 sys-process/psmisc -X
 www-client/firefox -X
 x11-misc/sddm -X
