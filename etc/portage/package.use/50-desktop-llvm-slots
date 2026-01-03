@@ -1,22 +1,9 @@
 # llvm slots different from the stable default
 # usually only to select unstable slots
-# quse --exact --installed --quiet --verbose llvm_slot_21 | perl -pe 's/^(.*)$/>=\1 LLVM_SLOT: -* 21/'
+# quse --exact --installed --quiet --verbose llvm_slot_22 | perl -pe 's/^(.*)$/>=\1 LLVM_SLOT: -* 22/'
 
 # held back by intel-graphics-compiler
 # but that's the only consumer so whatever
 dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 16
 
 # unstable slots
->=dev-lang/rust-1.91.0 LLVM_SLOT: -* 21
->=dev-qt/qttools-6.10.1-r1 LLVM_SLOT: -* 21
->=dev-util/mesa_clc-25.3.0 LLVM_SLOT: -* 21
->=dev-util/perf-6.17 LLVM_SLOT: -* 21
->=dev-util/spirv-llvm-translator-21.1.2 LLVM_SLOT: -* 21
->=llvm-core/libclc-21.1.6 LLVM_SLOT: -* 21
->=mail-client/thunderbird-145.0 LLVM_SLOT: -* 21
->=media-libs/mesa-25.3.0 LLVM_SLOT: -* 21
->=sys-apps/lact-0.8.3 LLVM_SLOT: -* 21
->=sys-fs/bcachefs-tools-1.33_pre20251123193413 LLVM_SLOT: -* 21
->=sys-kernel/cachyos-kernel-6.18_rc7 LLVM_SLOT: -* 21
->=www-client/firefox-145.0.1 LLVM_SLOT: -* 21
-dev-python/pyside LLVM_SLOT: -* 21
