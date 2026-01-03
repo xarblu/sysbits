@@ -18,7 +18,7 @@
 #*/* LUA_SINGLE_TARGET:
 
 # Ruby
-*/* RUBY_TARGETS: -* ruby34
+*/* RUBY_TARGETS: -* ruby34 ruby40
 
 # Perl
 */* PERL_FEATURES: ithreads
