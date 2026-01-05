@@ -35,13 +35,13 @@ app-metrics/prometheus-podman-exporter ~amd64
 net-firewall/nftables ~amd64
 
 # Kernel
-sys-fs/bcachefs-tools ~amd64
-sys-kernel/cachyos-kernel ~amd64
+sys-fs/bcachefs-tools **
+sys-kernel/cachyos-kernel **
 sys-kernel/gentoo-kernel ~amd64
 sys-kernel/gentoo-kernel-bin ~amd64
 sys-kernel/linux-firmware ~amd64
 sys-kernel/linux-headers ~amd64
-virtual/dist-kernel ~amd64
+virtual/dist-kernel **
 
 # other/unsorted
 app-misc/e6sync ~amd64
