@@ -23,6 +23,7 @@ app-arch/zip
 
 ## Filesystem/Disk
 app-misc/fclones
+sys-apps/dool
 sys-fs/bcachefs-tools
 sys-fs/btrfs-progs
 sys-fs/dosfstools
