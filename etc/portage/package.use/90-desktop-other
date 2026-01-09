@@ -33,6 +33,7 @@ dev-qt/qtwebengine pdfium
 dev-util/intel-graphics-compiler vc
 games-emulation/mgba discord ffmpeg
 games-util/mangohud mangoapp
+gui-apps/sddm-gentoo-config kwin
 gui-libs/greetd man
 gui-libs/wlroots tinywl
 gui-wm/gamescope libei
