@@ -190,11 +190,6 @@ endif
 		etc/eixrc/02-theming \
 		etc/eixrc/10-cache-methods
 
-ifeq ($(DESKTOP),yes)
-	install -Dm644 -t $(DESTDIR)/etc/sddm.conf.d \
-		etc/sddm.conf.d/10-wayland.conf
-endif
-
 ifeq ($(STEAMDECK_EXTRA),yes)
 	install -Dm644 -t $(DESTDIR)/etc/pam.d \
 		etc/pam.d/kde \
