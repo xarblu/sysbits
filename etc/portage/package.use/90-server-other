@@ -38,7 +38,7 @@ sys-apps/systemd gnuefi nat boot dns-over-tls kernel-install policykit ukify
 sys-apps/util-linux tty-helpers
 sys-apps/zram-generator -man
 sys-fs/udisks lvm
-sys-kernel/cachyos-kernel cachyos -hardened -server bcachefs
+sys-kernel/cachyos-kernel -cachyos -hardened server bcachefs
 sys-kernel/installkernel dracut systemd-boot uki ukify
 sys-kernel/kernelscripts eclean-kernel
 sys-libs/libblockdev lvm
