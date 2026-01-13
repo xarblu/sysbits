@@ -34,7 +34,7 @@
 # Toolchain
 */* clang llvm-libunwind libcxx pgo lto openmp -debug
 # Compression
-*/* zstd brotli
+*/* brotli lzma zstd
 # System
 */* jemalloc dbus-broker
 # Kernel
