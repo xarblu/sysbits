@@ -1,3 +1,4 @@
-dev-lang/python 	-jit
-media-libs/mesa  	-zink
-www-client/firefox 	-system-libvpx -jpegxl
+dev-lang/python -jit
+media-libs/mesa -zink
+sys-libs/glibc -clang
+www-client/firefox -system-libvpx -jpegxl
