@@ -3,3 +3,6 @@ kde-misc/kwin-effects-better-blur-dx **
 
 # krita 6 to remove another Qt5 revdep
 =media-gfx/krita-6* **
+
+# I think this should be masked instead of keyworded
+~kde-plasma/plasma-login-manager-6.5.90 **
