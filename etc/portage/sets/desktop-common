@@ -5,6 +5,8 @@
 ## Meta packages
 kde-apps/kde-apps-meta
 kde-plasma/plasma-meta
+# while not part of plasma-meta
+kde-plasma/plasma-login-manager
 
 ## Apps
 kde-apps/ark
