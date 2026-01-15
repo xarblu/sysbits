@@ -1,3 +1,4 @@
 # Extra laptop packages
 #app-laptop/framework-laptop-kmod
 app-laptop/framework_tool
+sys-auth/fprintd
