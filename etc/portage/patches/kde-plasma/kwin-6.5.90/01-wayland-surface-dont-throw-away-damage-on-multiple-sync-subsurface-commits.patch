@@ -1,0 +1,167 @@
+From 7fc7987aa5b8534413e7a7216c474c2cbc702086 Mon Sep 17 00:00:00 2001
+From: Xaver Hugl <xaver.hugl@kde.org>
+Date: Thu, 15 Jan 2026 18:52:04 +0100
+Subject: [PATCH] wayland/surface: don't throw away damage on multiple sync
+ subsurface commits
+
+Commits are always additive, even for sync subsurfaces. When the client commits
+damage on a subsurface and then commits on it again, before committing the
+parent surface, that damage must still be applied.
+
+BUG: 514599
+
+
+(cherry picked from commit d64f50b48bbc46f58d0178bd59cbd95318bd609f)
+
+Co-authored-by: Xaver Hugl <xaver.hugl@kde.org>
+---
+ autotests/integration/CMakeLists.txt      |  5 +-
+ autotests/integration/test_subsurface.cpp | 95 +++++++++++++++++++++++
+ src/wayland/surface.cpp                   |  6 +-
+ 3 files changed, 102 insertions(+), 4 deletions(-)
+ create mode 100644 autotests/integration/test_subsurface.cpp
+
+diff --git a/autotests/integration/CMakeLists.txt b/autotests/integration/CMakeLists.txt
+index d58aa9822dc..fc304ed22c0 100644
+--- a/autotests/integration/CMakeLists.txt
++++ b/autotests/integration/CMakeLists.txt
+@@ -168,6 +168,7 @@ target_compile_definitions(testDrmLegacy PRIVATE FORCE_DRM_LEGACY=1)
+ integrationTest(NAME testSelection SRCS selection_test.cpp)
+ integrationTest(NAME testToplevelDrag SRCS topleveldrag_test.cpp)
+ integrationTest(NAME testA11yKeyboardMonitor SRCS a11ykeyboardmonitor_test.cpp)
++integrationTest(NAME testSubsurface SRCS test_subsurface.cpp)
+ 
+ if(KWIN_BUILD_X11)
+     integrationTest(NAME testDontCrashEmptyDeco SRCS dont_crash_empty_deco.cpp LIBS KDecoration3::KDecoration)
+@@ -187,8 +188,8 @@ qt_add_dbus_interfaces(DBUS_SRCS ${CMAKE_BINARY_DIR}/src/org.kde.kwin.VirtualKey
+ integrationTest(NAME testVirtualKeyboardDBus SRCS test_virtualkeyboard_dbus.cpp ${DBUS_SRCS})
+ 
+ if (KWIN_BUILD_GLOBALSHORTCUTS)
+-integrationTest(NAME testGlobalShortcuts SRCS globalshortcuts_test.cpp LIBS XCB::ICCCM KF6::GlobalAccel KF6::I18n XKB::XKB)
+-integrationTest(NAME testKWinBindings SRCS kwinbindings_test.cpp LIBS KF6::I18n)
++    integrationTest(NAME testGlobalShortcuts SRCS globalshortcuts_test.cpp LIBS XCB::ICCCM KF6::GlobalAccel KF6::I18n XKB::XKB)
++    integrationTest(NAME testKWinBindings SRCS kwinbindings_test.cpp LIBS KF6::I18n)
+ endif()
+ if (TARGET K::KPipeWire)
+     integrationTest(NAME testScreencasting SRCS screencasting_test.cpp LIBS K::KPipeWire)
+diff --git a/autotests/integration/test_subsurface.cpp b/autotests/integration/test_subsurface.cpp
+new file mode 100644
+index 00000000000..424a643b3f8
+--- /dev/null
++++ b/autotests/integration/test_subsurface.cpp
+@@ -0,0 +1,95 @@
++
++/*
++    SPDX-FileCopyrightText: 2026 Xaver Hugl <xaver.hugl@kde.org>
++
++    SPDX-License-Identifier: GPL-2.0-or-later
++*/
++
++#include "core/region.h"
++#include "kwin_wayland_test.h"
++#include "wayland/subcompositor.h"
++#include "wayland/surface.h"
++#include "wayland_server.h"
++
++#include <KWayland/Client/subsurface.h>
++
++namespace KWin
++{
++
++static const QString s_socketName = QStringLiteral("wayland_test_subsurface-0");
++
++class SubsurfaceTest : public QObject
++{
++    Q_OBJECT
++
++private Q_SLOTS:
++    void initTestCase();
++    void init();
++    void cleanup();
++
++    void doubleCommitDamage();
++};
++
++void SubsurfaceTest::initTestCase()
++{
++    qRegisterMetaType<Window *>();
++
++    QVERIFY(waylandServer()->init(s_socketName));
++    kwinApp()->start();
++    Test::setOutputConfig({
++        Rect(0, 0, 1280, 1024),
++    });
++}
++
++void SubsurfaceTest::init()
++{
++    QVERIFY(Test::setupWaylandConnection());
++}
++
++void SubsurfaceTest::cleanup()
++{
++    Test::destroyWaylandConnection();
++}
++
++void SubsurfaceTest::doubleCommitDamage()
++{
++    // This test verifies that committing a synchronized subsurface twice
++    // before committing the parent doesn't throw away damage requests
++    Test::XdgToplevelWindow window;
++    QVERIFY(window.show());
++
++    std::unique_ptr<KWayland::Client::Surface> surface = Test::createSurface();
++    const auto subsurface = Test::createSubSurface(surface.get(), window.m_surface.get());
++    Test::render(surface.get(), QSize(10, 10), Qt::red);
++    QVERIFY(window.presentWait());
++
++    SurfaceInterface *kwinSurface = window.m_window->surface()->above().front()->surface();
++    QVERIFY(kwinSurface);
++
++    QSignalSpy damaged(kwinSurface, &SurfaceInterface::damaged);
++
++    // damage from a first commit must not be overwritten by a second commit
++    surface->damageBuffer(QRect(0, 0, 10, 10));
++    surface->commit(KWayland::Client::Surface::CommitFlag::None);
++    // commit it again, before committing the parent
++    surface->commit(KWayland::Client::Surface::CommitFlag::None);
++    // commit the parent
++    QVERIFY(window.presentWait());
++    QCOMPARE(damaged.count(), 1);
++    QCOMPARE(damaged.first().last().value<Region>(), Region(0, 0, 10, 10));
++
++    // damage from each commit should be added together
++    damaged.clear();
++    surface->damageBuffer(QRect(0, 0, 5, 5));
++    surface->commit(KWayland::Client::Surface::CommitFlag::None);
++    surface->damageBuffer(QRect(5, 5, 5, 5));
++    surface->commit(KWayland::Client::Surface::CommitFlag::None);
++    QVERIFY(window.presentWait());
++    QCOMPARE(damaged.count(), 1);
++    QCOMPARE(damaged.first().last().value<Region>(), Region(0, 0, 5, 5) | Rect(5, 5, 5, 5));
++}
++
++}
++
++WAYLANDTEST_MAIN(KWin::SubsurfaceTest)
++#include "test_subsurface.moc"
+diff --git a/src/wayland/surface.cpp b/src/wayland/surface.cpp
+index 0baaeae9ee0..119af7e53d8 100644
+--- a/src/wayland/surface.cpp
++++ b/src/wayland/surface.cpp
+@@ -631,8 +631,10 @@ void SurfaceState::mergeInto(SurfaceState *target)
+     wl_list_insert_list(&target->frameCallbacks, &frameCallbacks);
+     wl_list_init(&frameCallbacks);
+ 
+-    target->damage = std::move(damage);
+-    target->bufferDamage = std::move(bufferDamage);
++    target->damage |= damage;
++    damage = Region();
++    target->bufferDamage |= bufferDamage;
++    bufferDamage = Region();
+     target->viewport.sourceGeometry = viewport.sourceGeometry;
+     target->viewport.destinationSize = viewport.destinationSize;
+     target->subsurface = subsurface;
+-- 
+GitLab
+
