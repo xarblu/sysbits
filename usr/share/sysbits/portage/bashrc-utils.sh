@@ -444,14 +444,27 @@ function brc_build_env_setup() {
     fi
     unset ENABLE_SCCACHE
 
-    # setup makeopts and optionally limit
+    # setup make job counts
     : "${MAKEOPTS:="-j$(nproc)"}"
+
+    local make_jobs="${MAKEOPTS}"
+    make_jobs="${make_jobs##*-j}"
+    make_jobs="${make_jobs##*--jobs}"
+    make_jobs="${make_jobs%% *}"
+    make_jobs="${make_jobs// /}"
+
+    # only set steve jobs if no other portage job is running
+    if [[ "${MAKEFLAGS}" == *'--jobserver-auth=fifo:/dev/steve'* ]]; then
+        if ! find "${PORTAGE_TMPDIR}/portage" -name '*.portage_lockfile' | grep -v "${CATEGORY}/.${PVR}" >/dev/null; then
+            if (( make_jobs != $(stevie --get-job) )); then
+                einfo "Resetting steve jobs to ${make_jobs}"
+                stevie --set-jobs "${make_jobs}"
+            fi
+        fi
+    fi
+
+    # optionally limit
     if [[ -n "${MAX_MAKE_JOBS}" ]]; then
-        local make_jobs="${MAKEOPTS}"
-        make_jobs="${make_jobs##*-j}"
-        make_jobs="${make_jobs##*--jobs}"
-        make_jobs="${make_jobs%% *}"
-        make_jobs="${make_jobs// /}"
         MAX_MAKE_JOBS="${MAX_MAKE_JOBS// /}"
         if (( make_jobs > MAX_MAKE_JOBS )); then
             MAKEOPTS="${MAKEOPTS//"-j${make_jobs}"/"-j${MAX_MAKE_JOBS}"}"
@@ -460,6 +473,7 @@ function brc_build_env_setup() {
         if [[ "${MAKEFLAGS}" == *'--jobserver-auth=fifo:/dev/steve'* ]]; then
             make_jobs="$(stevie --get-jobs)"
             if (( make_jobs > MAX_MAKE_JOBS )); then
+                einfo "Limiting steve jobs to ${make_jobs} (requested by ${CATEGORY}/${PVR} via MAX_MAKE_JOBS)"
                 stevie --set-jobs "${MAX_MAKE_JOBS}"
             fi
         fi
@@ -506,7 +520,7 @@ function brc_build_env_setup() {
 
 # prettify ninja build output
 # to be called in post_src_configure
-function brc_prettify_ninja {
+function brc_prettify_ninja() {
     if ! brc_truthy BRC_PRETTIFY_NINJA; then
         return 0
     fi
