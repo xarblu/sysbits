@@ -82,6 +82,7 @@ function brc_build_info() {
     einfo "=== Build Tools Info ==="
     einfo "MAKEOPTS: ${MAKEOPTS}"
     einfo "MAKEFLAGS: ${MAKEFLAGS}"
+    brc_cond_steve_info
 }
 
 # mangle *FLAGS
