@@ -455,7 +455,7 @@ function brc_build_env_setup() {
 
     # only set steve jobs if no other portage job is running
     if [[ "${MAKEFLAGS}" == *'--jobserver-auth=fifo:/dev/steve'* ]]; then
-        if ! find "${PORTAGE_TMPDIR}/portage" -name '*.portage_lockfile' | grep -v "${CATEGORY}/.${PVR}" >/dev/null; then
+        if ! find "${PORTAGE_TMPDIR:-/var/tmp}/portage" -mindepth 2 -maxdepth 2 -name '*.portage_lockfile' | grep -v -F "${CATEGORY}/.${P}"; then
             if (( make_jobs != "$(stevie --get-jobs)" )); then
                 einfo "Resetting steve jobs to ${make_jobs}"
                 stevie --set-jobs "${make_jobs}"
@@ -473,7 +473,7 @@ function brc_build_env_setup() {
         if [[ "${MAKEFLAGS}" == *'--jobserver-auth=fifo:/dev/steve'* ]]; then
             make_jobs="$(stevie --get-jobs)"
             if (( make_jobs > MAX_MAKE_JOBS )); then
-                einfo "Limiting steve jobs to ${MAX_MAKE_JOBS} (requested by ${CATEGORY}/${PVR} via MAX_MAKE_JOBS)"
+                einfo "Limiting steve jobs to ${MAX_MAKE_JOBS} (requested via MAX_MAKE_JOBS)"
                 stevie --set-jobs "${MAX_MAKE_JOBS}"
             fi
         fi
