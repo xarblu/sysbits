@@ -54,6 +54,11 @@ function brc_check_dep() {
     return 0
 }
 
+function brc_cond_steve_info() {
+    if [[ "${MAKEFLAGS}" == *'--jobserver-auth=fifo:/dev/steve'* ]]; then
+        einfo "Jobserver: $(steve --version) with $(stevie --get-jobs) jobs"
+    fi
+}
 
 # print the current build environment
 function brc_build_info() {
@@ -449,6 +454,13 @@ function brc_build_env_setup() {
         MAX_MAKE_JOBS="${MAX_MAKE_JOBS// /}"
         if (( make_jobs > MAX_MAKE_JOBS )); then
             MAKEOPTS="${MAKEOPTS//"-j${make_jobs}"/"-j${MAX_MAKE_JOBS}"}"
+        fi
+
+        if [[ "${MAKEFLAGS}" == *'--jobserver-auth=fifo:/dev/steve'* ]]; then
+            make_jobs="$(stevie --get-jobs)"
+            if (( make_jobs > MAX_MAKE_JOBS )); then
+                stevie --set-jobs "${MAX_MAKE_JOBS}"
+            fi
         fi
     fi
     export MAKEOPTS
