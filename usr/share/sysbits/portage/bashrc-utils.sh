@@ -456,7 +456,7 @@ function brc_build_env_setup() {
     # only set steve jobs if no other portage job is running
     if [[ "${MAKEFLAGS}" == *'--jobserver-auth=fifo:/dev/steve'* ]]; then
         if ! find "${PORTAGE_TMPDIR}/portage" -name '*.portage_lockfile' | grep -v "${CATEGORY}/.${PVR}" >/dev/null; then
-            if (( make_jobs != $(stevie --get-job) )); then
+            if (( make_jobs != "$(stevie --get-jobs)" )); then
                 einfo "Resetting steve jobs to ${make_jobs}"
                 stevie --set-jobs "${make_jobs}"
             fi
