@@ -56,6 +56,10 @@ FEATURES="${FEATURES} -nostrip splitdebug -dedupdebug compressdebug"
 # Other Portage Features
 FEATURES="${FEATURES} parallel-fetch parallel-install fail-clean fakeroot"
 
+# Jobserver
+MAKEFLAGS="--jobserver-auth=fifo:/dev/steve"
+FEATURES="${FEATURES} jobserver-token"
+
 # Portage directories
 PORTDIR="/var/db/repos/gentoo"
 DISTDIR="/var/cache/distfiles"
