@@ -473,7 +473,7 @@ function brc_build_env_setup() {
         if [[ "${MAKEFLAGS}" == *'--jobserver-auth=fifo:/dev/steve'* ]]; then
             make_jobs="$(stevie --get-jobs)"
             if (( make_jobs > MAX_MAKE_JOBS )); then
-                einfo "Limiting steve jobs to ${make_jobs} (requested by ${CATEGORY}/${PVR} via MAX_MAKE_JOBS)"
+                einfo "Limiting steve jobs to ${MAX_MAKE_JOBS} (requested by ${CATEGORY}/${PVR} via MAX_MAKE_JOBS)"
                 stevie --set-jobs "${MAX_MAKE_JOBS}"
             fi
         fi
