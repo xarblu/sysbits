@@ -1,8 +1,7 @@
 # Keywords for LLVM
-=llvm-core/*-*_rc* **
-=llvm-runtimes/*-*_rc* **
-# symlink packages
-~llvm-core/clang-toolchain-symlinks-21 **
-~llvm-core/lld-toolchain-symlinks-21 **
-~llvm-core/llvm-toolchain-symlinks-21 **
-~llvm-core/llvmgold-21 **
+# main packages
+=llvm-core/*-22.1.0_rc* **
+=llvm-runtimes/*-22.1.0_rc* **
+# symlink/config packages
+~llvm-core/*-22 **
+~llvm-runtimes/*-22 **

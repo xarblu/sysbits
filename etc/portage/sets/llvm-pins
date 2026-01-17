@@ -11,6 +11,11 @@ llvm-core/clang:20
 llvm-core/lld:20
 llvm-core/llvm:20
 
+# LLVM 21
+llvm-core/clang:21
+llvm-core/lld:21
+llvm-core/llvm:21
+
 # LLVM Latest
 llvm-core/clang
 llvm-core/flang
