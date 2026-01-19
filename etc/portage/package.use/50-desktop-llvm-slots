@@ -7,3 +7,4 @@
 dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 16
 
 # unstable slots
+sys-kernel/cachyos-kernel LLVM_SLOT: -* 22
