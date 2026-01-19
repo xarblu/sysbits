@@ -268,8 +268,18 @@ function brc_build_env_setup() {
         *g++*) GNU_FAMILIES+=" cxx objcxx ";;
         *) ewarn "Unknown CXX: ${CXX}";;
     esac
-    # for now fc and f77 will always be GNU
-    GNU_FAMILIES+=" fc f77 "
+
+    # setup fortran compiler
+    if [[ -z "${FC}" ]] \
+        && [[ "${CC##*/}" == *clang* ]] \
+        && type -P flang-compat-wrapper >/dev/null \
+        && type -P flang >/dev/null; then
+        export FC=flang-compat-wrapper F77=flang-compat-wrapper
+        LLVM_FAMILIES+=" fc f77 "
+    else
+        # assume gfortran is used (toolchain-funcs.eclass default)
+        GNU_FAMILIES+=" fc f77 "
+    fi
 
     # set rust linker to CC since the default-linker was changed to ${CHOST}-cc
     # which links to gcc... https://bugs.gentoo.org/951740
