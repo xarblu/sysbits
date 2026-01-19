@@ -284,7 +284,7 @@ function brc_build_env_setup() {
         *) ewarn "Unknown CXX: ${CXX}";;
     esac
     # FC -> fc, f77
-    case "${CXX##*/}" in
+    case "${FC##*/}" in
         *flang*) LLVM_FAMILIES+=" fc f77 ";;
         *gfortran*) GNU_FAMILIES+=" fc f77 ";;
         *) ewarn "Unknown FC: ${FC}";;
