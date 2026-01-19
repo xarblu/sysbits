@@ -70,6 +70,8 @@ function brc_build_info() {
     einfo "CXX: $(${CXX} --version | head -1)"
     einfo "CPP: $(${CPP} --version | head -1)"
     einfo "RUSTC: $(rustc --version | head -1)"
+    einfo "FC: $(${FC} --version | head -1)"
+    einfo "F77: $(${F77} --version | head -1)"
     einfo "LD: $(${LD} --version | head -1)"
     einfo "CFLAGS: ${CFLAGS}"
     einfo "CXXFLAGS: ${CXXFLAGS}"
@@ -253,6 +255,19 @@ function brc_build_env_setup() {
     : "${CPP:="${CC} -E"}"
     : "${LD:=ld}"
 
+    # setup fortran compiler to match CC unless set already
+    if [[ -z "${FC}" ]] \
+        && [[ "${CC##*/}" == *clang* ]] \
+        && type -P flang-compat-wrapper >/dev/null \
+        && type -P flang >/dev/null; then
+        FC=flang-compat-wrapper
+        F77=flang-compat-wrapper
+    else
+        # assume gfortran is used (toolchain-funcs.eclass default)
+        : "${FC:=gfortran}"
+        : "${F77:=gfortran}"
+    fi
+
     # auto detect compiler families
     LLVM_FAMILIES=""
     GNU_FAMILIES=""
@@ -268,18 +283,12 @@ function brc_build_env_setup() {
         *g++*) GNU_FAMILIES+=" cxx objcxx ";;
         *) ewarn "Unknown CXX: ${CXX}";;
     esac
-
-    # setup fortran compiler
-    if [[ -z "${FC}" ]] \
-        && [[ "${CC##*/}" == *clang* ]] \
-        && type -P flang-compat-wrapper >/dev/null \
-        && type -P flang >/dev/null; then
-        export FC=flang-compat-wrapper F77=flang-compat-wrapper
-        LLVM_FAMILIES+=" fc f77 "
-    else
-        # assume gfortran is used (toolchain-funcs.eclass default)
-        GNU_FAMILIES+=" fc f77 "
-    fi
+    # FC -> fc, f77
+    case "${CXX##*/}" in
+        *flang*) LLVM_FAMILIES+=" fc f77 ";;
+        *gfortran*) GNU_FAMILIES+=" fc f77 ";;
+        *) ewarn "Unknown FC: ${FC}";;
+    esac
 
     # set rust linker to CC since the default-linker was changed to ${CHOST}-cc
     # which links to gcc... https://bugs.gentoo.org/951740
