@@ -213,6 +213,9 @@ ifeq ($(DESKTOP),yes)
 		etc/udev/rules.d/60-ioschedulers.rules
 endif
 
+	install -Dm755 -t $(DESTDIR)/usr/bin \
+		usr/bin/flang-compat-wrapper
+
 	install -Dm644 -t $(DESTDIR)/usr/lib/dracut/modules.d/90bcachefs \
 		usr/lib/dracut/modules.d/90bcachefs/module-setup.sh
 

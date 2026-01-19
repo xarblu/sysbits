@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# simple flang wrapper to filter
+# unsupported flags
+
+ARGV=()
+
+for arg; do
+    case "${arg}" in
+        -pipe) ;;
+        *) ARGV+=("${arg}") ;;
+    esac
+done
+
+exec flang "${ARGV[@]}"
