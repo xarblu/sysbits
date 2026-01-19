@@ -8,6 +8,11 @@ ARGV=()
 for arg; do
     case "${arg}" in
         -pipe) ;;
+        --version)
+            exec flang --version | \
+                sed -E -e "1s|(.*)|\1 (via ${BASH_SOURCE[0]##*/})|"
+            exit "${?}"
+            ;;
         *) ARGV+=("${arg}") ;;
     esac
 done
