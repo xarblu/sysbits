@@ -1,20 +1,5 @@
-From 12fe6f38fa3addb4e9e49873a075b86435e8b301 Mon Sep 17 00:00:00 2001
-From: Martchus <martchus@gmx.net>
-Date: Fri, 16 Jan 2026 22:57:37 +0100
-Subject: [PATCH] Fix build of Plasmoid against libplasma from beta 6.5.90
-
-Change f56f5eb4aea5f0604636ee5afa791d7672290612 broke the ABI and API of
-`Theme::color()`.
-
-This code is just using the default value for the incompatible parameter so
-it is possible to allow compilation before and after this change by simply
-removing the argument.
----
- plasmoid/lib/syncthingapplet.cpp | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
 diff --git a/plasmoid/lib/syncthingapplet.cpp b/plasmoid/lib/syncthingapplet.cpp
-index 595cf937..b38d2f79 100644
+index 6f2e6693..05da97b9 100644
 --- a/plasmoid/lib/syncthingapplet.cpp
 +++ b/plasmoid/lib/syncthingapplet.cpp
 @@ -225,7 +225,7 @@ void SyncthingApplet::initEngine(QObject *object)
@@ -23,10 +8,10 @@ index 595cf937..b38d2f79 100644
      }
 -    const auto color = m_theme.color(Plasma::Theme::TextColor, Plasma::Theme::NormalColorGroup);
 +    const auto color = m_theme.color(Plasma::Theme::TextColor);
-     m_imageProvider
-         = new QtForkAwesome::QuickImageProvider(QtForkAwesome::Renderer::global(), color); // using global renderer for system icons override
+     m_imageProvider = new QtForkAwesome::QuickImageProvider(m_iconManager.forkAwesomeRenderer(), color);
      connect(engine, &QObject::destroyed, this, &SyncthingApplet::handleImageProviderDestroyed); // engine has ownership over image provider
-@@ -721,7 +721,7 @@ void SyncthingApplet::handleThemeChanged()
+     engine->addImageProvider(QStringLiteral("fa"), m_imageProvider);
+@@ -720,7 +720,7 @@ void SyncthingApplet::handleThemeChanged()
          m_iconManager.setPalette(palette);
          setBrightColors(isPaletteDark(palette));
          if (m_imageProvider) {
