@@ -98,7 +98,5 @@ net-wireless/bluez-tools
 
 ## Other
 app-admin/ananicy-cpp
-# waiting for ::haskell to clean
-# up zlib deps
-#app-text/pandoc-cli
+app-text/pandoc-cli
 sys-auth/rtkit
