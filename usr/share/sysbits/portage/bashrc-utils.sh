@@ -241,6 +241,8 @@ function brc_prepend_llvm_path() {
 #   - LD_PRELOAD libmimalloc.so
 # ENABLE_POLLY (default false):
 #   - enable LLVM polly
+# ENABLE_BUILD_ID (default true):
+#   - enable build id notes
 # ENABLE_SCCACHE (default false):
 #   - enable sccache for C/C++/Rust
 # BUILD_PRETTY (default true):
@@ -392,6 +394,11 @@ function brc_build_env_setup() {
         brc_mangle_flags llvm "-mllvm -polly-run-dce"
     fi
     unset ENABLE_POLLY
+
+    # toggle build id
+    if brc_truthy ENABLE_BUILD_ID true; then
+        brc_mangle_flags ld "-Wl,--build-id"
+    fi
 
     # if OVERRIDE_*FLAGS are set always apply those
     [[ -n "${OVERRIDE_COMMON_FLAGS}" ]] && brc_mangle_flags --reset common "${OVERRIDE_COMMON_FLAGS}"
