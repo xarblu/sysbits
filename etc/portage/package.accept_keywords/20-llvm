@@ -60,3 +60,6 @@
 ~llvm-runtimes/offload-22 **
 ~llvm-runtimes/openmp-22.1.0_rc1 **
 ~llvm-runtimes/openmp-22 **
+
+# Other related packages not part of LLVM
+dev-util/spirv-llvm-translator:22 **
