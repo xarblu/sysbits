@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# environment config
+: "${SUDO:=sudo}"
+
+# arg parser
+for arg; do
+    case "${arg}" in
+        --)
+            # following args are for emerge
+            shift
+            break
+            ;;
+        --*)
+            # invalid flag
+            echo "Unknown flag: ${arg}"
+            exit 1
+            ;;
+        *)
+            # positional args
+            if [[ -z "${AGE:-}" ]]; then
+                if ! [[ "${arg}" =~ [0-9]+ ]]; then
+                    echo "Not a valid integer: ${arg}"
+                    exit 1
+                fi
+                AGE="${arg}"
+                shift
+                continue
+            fi
+            echo "Unknown positional arg: ${arg}"
+            exit 1
+            ;;
+    esac
+done
+
+if [[ -z "${AGE:-}" ]]; then
+    echo "Usage: ${BASH_SOURCE[0]##*/} <age in days> [-- {emerge args}]"
+    exit 1
+fi
+
+PKGS=( $(find /var/db/pkg/ -type d -mtime "+${AGE}" | perl -n -e 'print "=$1\n" if /^\/var\/db\/pkg\/([^\/]+\/[^\/]+)$/') )
+
+if [[ -z "${PKGS[*]}" ]]; then
+    echo "No packages older than ${AGE} days found"
+    exit 0
+fi
+
+"${SUDO}" emerge "${@}" --oneshot --getbinpkg=n --usepkg=n "${PKGS[@]}"

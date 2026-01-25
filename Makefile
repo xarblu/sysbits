@@ -215,7 +215,8 @@ ifeq ($(DESKTOP),yes)
 endif
 
 	install -Dm755 -t $(DESTDIR)/usr/bin \
-		usr/bin/flang-compat-wrapper
+		usr/bin/flang-compat-wrapper \
+		usr/bin/oldrebuild
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/dracut/modules.d/90bcachefs \
 		usr/lib/dracut/modules.d/90bcachefs/module-setup.sh
