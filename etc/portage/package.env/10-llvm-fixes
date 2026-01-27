@@ -113,6 +113,9 @@ media-gfx/darktable no-lto
 # https://bugs.gentoo.org/964380
 # https://github.com/rust-lang/rust/issues/147902
 dev-lang/rust no-lto
+# *crazy* RAM hungry with LTO, to a degree that crashes ld.lld
+# but only since 22.1.0_rc1
+llvm-core/flang no-lto
 #[END] LTO Issues
 
 #[START] Strict warnings
