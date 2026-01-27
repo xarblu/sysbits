@@ -1,5 +1,14 @@
 # disable some strict warnings
-NOWARN="-Wno-implicit-function-declaration -Wno-missing-template-arg-list-after-template-kw"
+# mostly in old C code
+NOWARN="${NOWARN} -Wno-implicit-function-declaration"
+
+# became an error in clang-20 (I think)
+NOWARN="${NOWARN} -Wno-missing-template-arg-list-after-template-kw"
+
+# e.g. assigning to 'char *' from 'const char *' discards qualifiers
+NOWARN="${NOWARN} -Wno-incompatible-pointer-types-discards-qualifiers"
+
+# apply
 EXTRA_CFLAGS="${NOWARN}"
 EXTRA_CXXFLAGS="${NOWARN}"
 EXTRA_FCFLAGS="${NOWARN}"
