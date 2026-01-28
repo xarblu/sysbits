@@ -64,7 +64,37 @@ ifeq ($(BINPKG_CLIENT_LLVM),yes)
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/env \
-		etc/portage/env/*
+		etc/portage/env/clang-15 \
+		etc/portage/env/clang-16 \
+		etc/portage/env/clang-17 \
+		etc/portage/env/clang-18 \
+		etc/portage/env/clang-19 \
+		etc/portage/env/clang-20 \
+		etc/portage/env/clang-21 \
+		etc/portage/env/gcc \
+		etc/portage/env/gnu-objcopy \
+		etc/portage/env/ld-allow-shlib-undefined \
+		etc/portage/env/ld-allow-undefined-version \
+		etc/portage/env/ld-bfd \
+		etc/portage/env/ld-m-x86_64 \
+		etc/portage/env/libcxx-experimental-library \
+		etc/portage/env/libcxx-typeinfo \
+		etc/portage/env/libstdcpp \
+		etc/portage/env/no-ccache \
+		etc/portage/env/no-lto \
+		etc/portage/env/no-mold \
+		etc/portage/env/no-optimize \
+		etc/portage/env/no-polly \
+		etc/portage/env/no-prepend-llvm-path \
+		etc/portage/env/no-splitdebug \
+		etc/portage/env/no-strict-warn \
+		etc/portage/env/pypy-linker_so \
+		etc/portage/env/rust-bgo-953109 \
+		etc/portage/env/sccache \
+		etc/portage/env/telegram-desktop-job-limit
+
+	install -Dm644 -t $(DESTDIR)/etc/portage/env/net-im \
+		etc/portage/env/net-im/telegram-desktop
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.accept_keywords \
 		etc/portage/package.accept_keywords/00-sysbits \
