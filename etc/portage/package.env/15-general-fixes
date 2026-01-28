@@ -1,5 +1,8 @@
 # general fixes
 
+# lib_base codegen can fail the build with too much concurrency
+net-im/telegram-desktop telegram-desktop-early-lib_base
+
 #[START] Debug info
 # don't keep debug info in case of collisions
 net-vpn/mullvad-vpn-bin no-splitdebug
