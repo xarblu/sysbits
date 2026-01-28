@@ -134,6 +134,8 @@ llvm-runtimes/libcxx libcxx-typeinfo
 llvm-runtimes/libcxxabi libcxx-typeinfo
 # LDSHARED doesn't get set automatically it seems...
 dev-lang/pypy pypy-linker_so
+# somewhat randomly fails to compile with too many jobs
+net-im/telegram-desktop telegram-desktop-job-limit
 # expects GNU objcopy in PATH
 # /usr/lib/llvm/21/bin/objcopy: error: invalid output format: 'efi-app-x86_64'
 sys-apps/fwupd-efi no-prepend-llvm-path

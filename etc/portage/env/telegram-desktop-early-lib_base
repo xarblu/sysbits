@@ -1,3 +1,0 @@
-pre_src_compile() {
-    cmake_build lib_base
-}
