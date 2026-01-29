@@ -1,0 +1,36 @@
+diff --git a/third_party/rust/glslopt/glsl-optimizer/include/c11/threads_posix.h.orig b/third_party/rust/glslopt/glsl-optimizer/include/c11/threads_posix.h
+index 45cb607..fe69997 100644
+--- a/third_party/rust/glslopt/glsl-optimizer/include/c11/threads_posix.h.orig
++++ b/third_party/rust/glslopt/glsl-optimizer/include/c11/threads_posix.h
+@@ -51,7 +51,6 @@ Configuration macro:
+ #include <pthread.h>
+ 
+ /*---------------------------- macros ----------------------------*/
+-#define ONCE_FLAG_INIT PTHREAD_ONCE_INIT
+ #ifdef INIT_ONCE_STATIC_INIT
+ #define TSS_DTOR_ITERATIONS PTHREAD_DESTRUCTOR_ITERATIONS
+ #else
+@@ -66,7 +65,6 @@ typedef pthread_cond_t  cnd_t;
+ typedef pthread_t       thrd_t;
+ typedef pthread_key_t   tss_t;
+ typedef pthread_mutex_t mtx_t;
+-typedef pthread_once_t  once_flag;
+ 
+ 
+ /*
+@@ -88,15 +86,6 @@ impl_thrd_routine(void *p)
+ }
+ 
+ 
+-/*--------------- 7.25.2 Initialization functions ---------------*/
+-// 7.25.2.1
+-static inline void
+-call_once(once_flag *flag, void (*func)(void))
+-{
+-    pthread_once(flag, func);
+-}
+-
+-
+ /*------------- 7.25.3 Condition variable functions -------------*/
+ // 7.25.3.1
+ static inline int
