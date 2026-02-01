@@ -5,4 +5,4 @@ kde-misc/kwin-effects-better-blur-dx **
 =media-gfx/krita-6* **
 
 # I think this should be masked instead of keyworded
-~kde-plasma/plasma-login-manager-6.5.90 **
+~kde-plasma/plasma-login-manager-6.5.91 **
