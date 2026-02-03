@@ -79,7 +79,7 @@ x11-apps/xdpyinfo
 
 ## Games
 games-util/ProtonPlus
-#games-util/ProtonUp-Qt
+games-util/ProtonUp-Qt
 games-util/gamemode
 games-util/mangohud
 games-util/steam-launcher
