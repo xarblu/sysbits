@@ -128,6 +128,7 @@ llvm-core/flang no-lto
 #[START] Strict warnings
 app-laptop/framework-laptop-kmod no-strict-warn
 dev-util/intel-graphics-compiler no-strict-warn
+dev-util/mesa_clc no-strict-warn
 net-libs/webkit-gtk no-strict-warn
 sys-apps/flatpak no-strict-warn
 #[END] Strict warnings

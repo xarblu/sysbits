@@ -6,6 +6,7 @@ NOWARN="${NOWARN} -Wno-implicit-function-declaration"
 NOWARN="${NOWARN} -Wno-missing-template-arg-list-after-template-kw"
 
 # e.g. assigning to 'char *' from 'const char *' discards qualifiers
+# fairly common since glibc-2.43
 NOWARN="${NOWARN} -Wno-incompatible-pointer-types-discards-qualifiers"
 
 # apply
