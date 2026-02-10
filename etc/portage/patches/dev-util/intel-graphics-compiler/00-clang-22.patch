@@ -1,0 +1,30 @@
+From 01086304361cd1e07c7d668a6f642763833940a6 Mon Sep 17 00:00:00 2001
+From: "Zwolak, Karol Marcin" <karol.marcin.zwolak@intel.com>
+Date: Fri, 6 Feb 2026 19:06:06 +0000
+Subject: [PATCH]  Fix compiler error on clang 23
+
+Fixes this error:
+```
+ error: cannot build range expression with array function parameter 'ff' since parameter with array type 'const Fragment[N]' is treated as pointer type 'const Fragment *'
+  107 |     for (const Fragment &fr : ff) {
+      |                               ^~
+MInst.hpp:103:52: note: declared here
+  103 |   template <int N> uint64_t getBits(const Fragment ff[N]) const {
+```
+---
+ visa/iga/IGALibrary/Backend/Native/MInst.hpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/visa/iga/IGALibrary/Backend/Native/MInst.hpp b/visa/iga/IGALibrary/Backend/Native/MInst.hpp
+index 8a6a28ad7725..40f68de52712 100644
+--- a/visa/iga/IGALibrary/Backend/Native/MInst.hpp
++++ b/visa/iga/IGALibrary/Backend/Native/MInst.hpp
+@@ -91,7 +91,7 @@ struct MInst {
+   // gets a fragmented field from an array of fields
+   // the fields are ordered low bit to high bit
+   // we stop when we find a field with length 0
+-  template <int N> uint64_t getBits(const Fragment ff[N]) const {
++  template <int N> uint64_t getBits(const Fragment (&ff)[N]) const {
+     uint64_t bits = 0;
+ 
+     int off = 0;
