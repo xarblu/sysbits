@@ -49,6 +49,8 @@ dev-debug/systemtap libstdcpp
 #[END] Compile issues (libc++)
 
 #[START] Linker issues
+# un-force ld.bfd
+sys-fs/lvm2 ignore_tc-ld-force-bfd
 # mold does not support `-b binary`
 gui-libs/gtk no-mold
 # -b binary -> no mold; -m type missing -> no lld

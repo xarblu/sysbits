@@ -245,6 +245,8 @@ function brc_prepend_llvm_path() {
 #   - enable build id notes
 # ENABLE_SCCACHE (default false):
 #   - enable sccache for C/C++/Rust
+# IGNORE_tc-ld-force-bfd (default false):
+#   - make tc-ld-force-bfd a no-op
 # BUILD_PRETTY (default true):
 #   - enable eyecandy for the build progress like colour, progress bars etc
 # BUILD_VERBOSE (default false):
@@ -469,6 +471,14 @@ function brc_build_env_setup() {
         fi
     fi
     unset ENABLE_SCCACHE
+
+    # turn some eclass commands into no-ops
+    if brc_truthy IGNORE_tc-ld-force-bfd; then
+        # shellcheck disable=SC2317
+        function tc-ld-force-bfd() {
+            einfo 'tc-ld-force-bfd call ignored'
+        }
+    fi
 
     # setup make job counts
     : "${MAKEOPTS:="-j$(nproc)"}"
