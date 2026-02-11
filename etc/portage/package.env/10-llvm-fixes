@@ -36,6 +36,9 @@ dev-qt/qtwebengine clang-21
 sys-apps/lact clang-21
 # needs to match LLVM_SLOT
 dev-python/pyside clang-21
+# always_inline function '_mm512_add_ps' requires target feature 'avx512f'
+dev-cpp/highway clang-21
+media-libs/libjxl clang-21
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)
