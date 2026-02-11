@@ -73,6 +73,7 @@ endif
 		etc/portage/env/clang-21 \
 		etc/portage/env/gcc \
 		etc/portage/env/gnu-objcopy \
+		etc/portage/env/ignore_tc-ld-force-bfd \
 		etc/portage/env/ld-allow-shlib-undefined \
 		etc/portage/env/ld-allow-undefined-version \
 		etc/portage/env/ld-bfd \
