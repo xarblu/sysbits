@@ -90,6 +90,7 @@ media-video/obs-studio fdk jack lua python v4l
 media-video/pipewire echo-cancel extra gstreamer jack-sdk lv2 pipewire-alsa v4l sound-server
 media-video/vlc dav1d -ffmpeg -gui vpx
 net-analyzer/wireshark wifi
+net-dns/avahi mdnsresponder-compat
 net-dns/dnsmasq script
 net-firewall/firewalld -gui
 net-im/telegram-desktop qt6-imageformats
