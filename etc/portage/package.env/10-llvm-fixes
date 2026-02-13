@@ -133,6 +133,7 @@ llvm-core/flang no-lto
 #[END] LTO Issues
 
 #[START] Strict warnings
+app-containers/lxc no-strict-warn
 app-laptop/framework-laptop-kmod no-strict-warn
 dev-util/intel-graphics-compiler no-strict-warn
 dev-util/mesa_clc no-strict-warn
