@@ -10,7 +10,7 @@
 # Python
 # old targets should be kept once *all* PYTHON_SINGLE_TARGETs migrated to
 # the new targets to avoid annoying package.use shenanigans
-*/* PYTHON_TARGETS: -* python3_12 python3_13 python3_14
+*/* PYTHON_TARGETS: -* python3_13 python3_14
 */* PYTHON_SINGLE_TARGET: -* python3_13
 
 # Lua
