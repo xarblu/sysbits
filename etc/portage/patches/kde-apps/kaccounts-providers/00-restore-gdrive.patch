@@ -1,0 +1,11 @@
+reverted:
+--- b/providers/google.provider.in
++++ a/providers/google.provider.in
+@@ -26,6 +26,7 @@
+               'https://www.googleapis.com/auth/calendar',
+               'https://www.googleapis.com/auth/tasks',
+               'https://www.google.com/m8/feeds/',
++              'https://www.googleapis.com/auth/drive',
+               'https://www.googleapis.com/auth/youtube.upload'
+           ]</setting>
+           <setting name="AllowedSchemes" type="as">['https']</setting>
