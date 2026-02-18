@@ -257,7 +257,13 @@ endif
 		usr/lib/dracut/modules.d/90bcachefs/unlock-bcachefs.sh
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system \
-		usr/lib/systemd/system/*
+		usr/lib/systemd/system/bcachefs-scrub@.service \
+		usr/lib/systemd/system/bcachefs-scrub@.timer \
+		usr/lib/systemd/system/btrfs-scrub@.service \
+		usr/lib/systemd/system/btrfs-scrub@.timer
+
+	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/user \
+		usr/lib/systemd/user/google-drive-ocamlfuse@.service
 
 	install -Dm644 -t $(DESTDIR)/usr/share/sysbits/portage \
 		usr/share/sysbits/portage/bashrc-utils.sh \

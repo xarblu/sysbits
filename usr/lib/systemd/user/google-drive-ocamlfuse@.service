@@ -1,0 +1,10 @@
+[Unit]
+Description=Google Drive mount for %f
+ConditionPathIsDirectory=%f
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/google-drive-ocamlfuse -f %f
+
+[Install]
+WantedBy=default.target
