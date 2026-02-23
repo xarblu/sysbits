@@ -81,6 +81,9 @@ dev-libs/mimalloc
 sys-kernel/cachyos-kernel
 sys-kernel/linux-firmware
 
+# power profiles provider
+sys-apps/tuned
+
 ## Other
 app-admin/yadm
 app-misc/topgrade
