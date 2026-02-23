@@ -96,6 +96,7 @@ net-dns/dnsmasq script
 net-firewall/firewalld -gui
 net-im/telegram-desktop qt6-imageformats
 net-libs/gnutls pkcs11 tools
+net-libs/ngtcp2 gnutls
 net-libs/nodejs npm
 net-misc/aria2 metalink xmlrpc
 net-misc/curl CURL_QUIC: openssl
