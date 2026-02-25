@@ -32,11 +32,11 @@ dev-debug/systemtap clang-20
 # use of undeclared identifier '__builtin_ia32_vcvtph2ps256'
 # also needs <=libcxx-21
 dev-qt/qtwebengine clang-21
-# link-time version mismatch (mostly for Rust)
-sys-apps/lact clang-21
 # needs to match LLVM_SLOT
 dev-lang/rust clang-21
 dev-python/pyside clang-21
+media-libs/mesa clang-21
+sys-apps/lact clang-21
 # always_inline function '_mm512_add_ps' requires target feature 'avx512f'
 dev-cpp/highway clang-21
 dev-db/mariadb clang-21
