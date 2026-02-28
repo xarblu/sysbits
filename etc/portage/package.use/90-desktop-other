@@ -32,6 +32,7 @@ dev-qt/qtpositioning geoclue
 dev-qt/qttools qdbus
 dev-qt/qtwebengine pdfium
 dev-util/intel-graphics-compiler vc
+etc/portage/package.use/90-desktop-other llvm
 games-emulation/mgba discord ffmpeg
 games-util/mangohud mangoapp
 gui-apps/sddm-gentoo-config kwin
