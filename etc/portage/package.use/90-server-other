@@ -10,6 +10,7 @@ dev-db/mongodb mongosh
 dev-java/openjdk gentoo-vm
 dev-java/openjdk-bin gentoo-vm
 dev-lang/php argon2 avif bcmath cjk curl exif fpm ftp gd gmp imap intl ldap pdo postgres sockets sodium -sqlite sysvipc truetype webp xmlreader xmlwriter zip
+dev-lang/rust-bin rust-src
 dev-libs/elfutils debuginfod
 dev-libs/jemalloc stats
 llvm-core/clang default-lld
