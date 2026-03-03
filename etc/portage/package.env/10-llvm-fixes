@@ -10,7 +10,8 @@ dev-debug/gdb gcc
 dev-util/mingw64-toolchain gcc
 sys-devel/binutils gcc
 sys-libs/binutils-libs gcc
-# forces gcc internally anyways
+# clang is very much experimental
+# and doesn't support multilib yet
 sys-libs/glibc gcc
 # -flto-partitions even without lto
 sys-apps/apparmor gcc
