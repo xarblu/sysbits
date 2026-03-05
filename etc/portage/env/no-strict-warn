@@ -9,6 +9,10 @@ NOWARN="${NOWARN} -Wno-missing-template-arg-list-after-template-kw"
 # fairly common since glibc-2.43
 NOWARN="${NOWARN} -Wno-incompatible-pointer-types-discards-qualifiers"
 
+# seems to be rare and when it occurs it's on packages
+# I don't really care about
+NOWARN="${NOWARN} -Wno-incompatible-pointer-types"
+
 # apply
 EXTRA_CFLAGS="${NOWARN}"
 EXTRA_CXXFLAGS="${NOWARN}"
