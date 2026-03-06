@@ -138,6 +138,7 @@ dev-tcltk/blt no-strict-warn
 dev-util/intel-graphics-compiler no-strict-warn
 dev-util/mesa_clc no-strict-warn
 media-libs/mesa no-strict-warn
+media-libs/virglrenderer no-strict-warn
 media-video/pipewire no-strict-warn
 net-libs/webkit-gtk no-strict-warn
 sys-apps/flatpak no-strict-warn
