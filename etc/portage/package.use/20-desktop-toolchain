@@ -16,7 +16,9 @@ dev-lang/rust system-llvm system-bootstrap rustfmt rust-src clippy rust-analyzer
 
 # GNU
 sys-devel/gcc objc objc++ objc-gc -pgo -lto
-gnustep-base/gnustep-make native-exceptions
+gnustep-base/gnustep-base libdispatch
+gnustep-base/gnustep-make native-exceptions libobjc2
+gnustep-base/libobjc2 libdispatch
 
 # Other
 dev-util/ccache -static-c++
