@@ -10,7 +10,6 @@ dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 16
 >=dev-util/bpftool-7.6.0 LLVM_SLOT: -* 22
 >=dev-util/spirv-llvm-translator-22.0.0_pre20260112 LLVM_SLOT: -* 22
 >=dev-util/tree-sitter-cli-0.26.6 LLVM_SLOT: -* 22
->=sys-kernel/cachyos-kernel-7.0_rc3 LLVM_SLOT: -* 22
 
 # waiting for rust
-sys-kernel/cachyos-kernel LLVM_SLOT: -* 21
+#>=sys-kernel/cachyos-kernel-7.0_rc3 LLVM_SLOT: -* 22
