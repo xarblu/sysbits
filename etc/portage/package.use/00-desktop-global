@@ -36,7 +36,7 @@
 # Compression
 */* brotli lzma zstd
 # System
-*/* jemalloc dbus-broker
+*/* dbus-broker
 # Kernel
 */* dist-kernel modules-compress
 # Graphics
