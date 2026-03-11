@@ -9,6 +9,8 @@
 # held back
 =llvm-core/clang-15.0.7-r3 PYTHON_SINGLE_TARGET: -* python3_12
 
+# Toolchain
+*/* -debug -debuginfod
 # Kernel
 */* dist-kernel modules-compress
 # Network

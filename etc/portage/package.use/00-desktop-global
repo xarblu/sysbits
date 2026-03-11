@@ -32,7 +32,7 @@
 
 # USE
 # Toolchain
-*/* clang llvm-libunwind libcxx pgo lto openmp -debug
+*/* clang llvm-libunwind libcxx pgo lto openmp -debug -debuginfod
 # Compression
 */* brotli lzma zstd
 # System

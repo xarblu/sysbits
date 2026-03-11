@@ -60,7 +60,6 @@ net-libs/libasyncns ABI_X86: 32
 net-libs/libpsl ABI_X86: 32
 net-libs/nghttp2 ABI_X86: 32
 net-libs/nghttp3 ABI_X86: 32
-net-misc/curl ABI_X86: 32
 sys-apps/dbus ABI_X86: 32
 sys-apps/sandbox ABI_X86: 32
 sys-apps/systemd ABI_X86: 32
