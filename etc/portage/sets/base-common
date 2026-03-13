@@ -55,6 +55,8 @@ dev-libs/tree-sitter-meta
 dev-python/pynvim
 
 ## Network
+dev-vcs/git
+dev-vcs/git-lfs
 net-dns/bind
 net-firewall/firewalld
 net-misc/curl
