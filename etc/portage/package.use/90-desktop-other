@@ -15,6 +15,7 @@ app-shells/bash plugins
 app-text/doxygen -gui
 app-text/texlive extra graphics science
 app-text/texlive-core xetex
+dev-db/mongodb mongosh
 dev-lang/pypy tk sqlite symlink
 dev-lang/python tk tail-call-interp
 dev-libs/boost context
