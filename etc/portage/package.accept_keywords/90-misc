@@ -2,4 +2,4 @@
 kde-misc/kwin-effects-better-blur-dx **
 
 # keyword RC
-=sys-apps/systemd-260_rc* **
+#=sys-apps/systemd-260_rc* **
