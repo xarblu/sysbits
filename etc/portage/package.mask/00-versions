@@ -16,4 +16,4 @@ sys-fs/bcachefs-tools::gentoo
 net-im/vesktop-bin::guru
 
 # incompatible with dev-ml/gapi-ocaml-0.4.7
-=dev-ml/cryptokit/cryptokit-1.21.1
+=dev-ml/cryptokit-1.21.1
