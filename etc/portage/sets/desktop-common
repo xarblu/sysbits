@@ -95,6 +95,9 @@ sys-libs/zlib-ng
 net-wireless/bluez
 net-wireless/bluez-tools
 
+# Media
+media-video/ffmpeg
+
 ## Other
 app-admin/ananicy-cpp
 app-text/pandoc-cli
