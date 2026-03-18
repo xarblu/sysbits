@@ -113,7 +113,7 @@ sci-libs/libqalculate gnuplot
 sys-apps/cpu-x opencl
 sys-apps/fwupd logitech uefi gnutls gusb nvme
 sys-apps/memtest86+ -* boot uefi64
-sys-apps/systemd elfutils tpm boot cryptsetup ukify importd curl http qrcode bpf xkb
+sys-apps/systemd elfutils tpm boot cryptsetup ukify importd curl http qrcode xkb
 sys-kernel/cachyos-kernel bcachefs cfi rust
 sys-kernel/cachyos-settings zram
 sys-kernel/installkernel dracut module-rebuild systemd-boot uki ukify
