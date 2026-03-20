@@ -90,5 +90,4 @@ sys-apps/tuned
 app-admin/yadm
 app-misc/topgrade
 dev-lang/perl
-dev-python/pipx
 sys-apps/dbus-broker
