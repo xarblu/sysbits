@@ -1,0 +1,2 @@
+# force older autoconf
+WANT_AUTOCONF=2.72

@@ -92,7 +92,8 @@ endif
 		etc/portage/env/pypy-linker_so \
 		etc/portage/env/rust-bgo-953109 \
 		etc/portage/env/sccache \
-		etc/portage/env/telegram-desktop-job-limit
+		etc/portage/env/telegram-desktop-job-limit \
+		etc/portage/env/autoconf-2_72
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/env/net-im \
 		etc/portage/env/net-im/telegram-desktop

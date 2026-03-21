@@ -156,4 +156,6 @@ dev-lang/pypy pypy-linker_so
 # expects GNU objcopy in PATH
 # /usr/lib/llvm/21/bin/objcopy: error: invalid output format: 'efi-app-x86_64'
 sys-apps/fwupd-efi no-prepend-llvm-path
+# currently failing dev-build/autoconf-2.73
+net-misc/rsync autoconf-2_72
 #[END] misc
