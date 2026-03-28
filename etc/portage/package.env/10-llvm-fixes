@@ -25,6 +25,8 @@ sys-apps/memtest86+ gcc
 media-libs/libopenmpt gcc
 # sth goes very wrong here with some make targets not existing when using clang
 net-analyzer/nmap gcc
+# fortran part currently fails with flang
+sci-libs/openblas gcc
 #[END] Compile issues (general clang)
 
 #[START] Compile issues (latest clang)
@@ -140,6 +142,7 @@ dev-tcltk/blt no-strict-warn
 dev-util/intel-graphics-compiler no-strict-warn
 dev-util/mesa_clc no-strict-warn
 gnustep-base/gnustep-base no-strict-warn
+media-gfx/imagemagick no-strict-warn
 media-libs/mesa no-strict-warn
 media-libs/virglrenderer no-strict-warn
 media-video/pipewire no-strict-warn
