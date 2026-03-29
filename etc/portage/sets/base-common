@@ -82,6 +82,8 @@ dev-libs/mimalloc
 # Kernel
 sys-kernel/cachyos-kernel
 sys-kernel/linux-firmware
+sys-kernel/scx
+sys-kernel/scx-loader
 
 # power profiles provider
 sys-apps/tuned
