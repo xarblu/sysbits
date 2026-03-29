@@ -53,6 +53,9 @@ ifeq ($(DESKTOP),yes)
 		etc/profile.d/vulkan-video.sh
 endif
 
+	install -Dm644 -t $(DESTDIR)/etc/scx_loader \
+		etc/scx_loader/config.toml
+
 	install -Dm644 -t $(DESTDIR)/etc/polkit-1/rules.d \
 		etc/polkit-1/rules.d/10-admin.rules
 
