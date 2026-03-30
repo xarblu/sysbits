@@ -85,6 +85,7 @@ endif
 		etc/portage/env/libcxx-typeinfo \
 		etc/portage/env/libstdcpp \
 		etc/portage/env/no-ccache \
+		etc/portage/env/no-icf \
 		etc/portage/env/no-lto \
 		etc/portage/env/no-mold \
 		etc/portage/env/no-optimize \
