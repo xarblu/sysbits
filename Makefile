@@ -71,7 +71,6 @@ endif
 		etc/portage/env/clang-16 \
 		etc/portage/env/clang-17 \
 		etc/portage/env/clang-18 \
-		etc/portage/env/clang-19 \
 		etc/portage/env/clang-20 \
 		etc/portage/env/clang-21 \
 		etc/portage/env/gcc \
