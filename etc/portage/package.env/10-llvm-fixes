@@ -27,11 +27,13 @@ media-libs/libopenmpt gcc
 net-analyzer/nmap gcc
 # fortran part currently fails with flang
 sci-libs/openblas gcc
+# clang-21+: bpfinterp.cxx:1088:18: error: case value is not a constant expression
+# libc++: using namespace __gnu_cxx
+# easier to just build with gcc
+dev-debug/systemtap gcc
 #[END] Compile issues (general clang)
 
 #[START] Compile issues (latest clang)
-# bpfinterp.cxx:1088:18: error: case value is not a constant expression
-dev-debug/systemtap clang-20
 # needs to match LLVM_SLOT
 dev-lang/rust clang-21
 dev-python/pyside clang-21
@@ -50,8 +52,6 @@ media-libs/libjxl clang-21
 gui-wm/gamescope libstdcpp
 # implicit instantiation of undefined template 'std::char_traits<unsigned char>'
 dev-libs/intel-compute-runtime libstdcpp
-# using namespace __gnu_cxx
-dev-debug/systemtap libstdcpp
 #[END] Compile issues (libc++)
 
 #[START] Linker issues
