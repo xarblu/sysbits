@@ -3,3 +3,6 @@ kde-misc/kwin-effects-better-blur-dx **
 
 # keyword RC
 #=sys-apps/systemd-260_rc* **
+
+# required by KDE Gear 26.04
+~dev-libs/ktextaddons-2.0.1 **
