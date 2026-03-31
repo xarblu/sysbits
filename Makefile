@@ -67,10 +67,6 @@ ifeq ($(BINPKG_CLIENT_LLVM),yes)
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/env \
-		etc/portage/env/clang-15 \
-		etc/portage/env/clang-16 \
-		etc/portage/env/clang-17 \
-		etc/portage/env/clang-18 \
 		etc/portage/env/clang-20 \
 		etc/portage/env/clang-21 \
 		etc/portage/env/gcc \
