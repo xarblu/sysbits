@@ -239,12 +239,6 @@ endif
 	install -Dm644 -t $(DESTDIR)/etc/systemd \
 		etc/systemd/zram-generator.conf
 
-# if this doesn't cause issues make it unconditional
-ifeq ($(DESKTOP),yes)
-	install -Dm644 -t $(DESTDIR)/etc/udev/rules.d \
-		etc/udev/rules.d/60-ioschedulers.rules
-endif
-
 	install -Dm755 -t $(DESTDIR)/usr/bin \
 		usr/bin/flang-compat-wrapper \
 		usr/bin/oldrebuild
@@ -264,6 +258,10 @@ endif
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/user \
 		usr/lib/systemd/user/google-drive-ocamlfuse@.service
+
+	# must have higher priority than 60-ioschedulers.rules from cachyos-settings
+	install -Dm644 -t $(DESTDIR)/usr/lib/udev/rules.d \
+		usr/lib/udev/rules.d/61-ioschedulers-adios.rules
 
 	install -Dm644 -t $(DESTDIR)/usr/share/sysbits/portage \
 		usr/share/sysbits/portage/bashrc-utils.sh \
