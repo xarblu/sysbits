@@ -102,3 +102,4 @@ media-video/ffmpeg
 app-admin/ananicy-cpp
 app-text/pandoc-cli
 sys-auth/rtkit
+sys-kernel/cachyos-settings
