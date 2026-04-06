@@ -7,4 +7,4 @@ RequiresMountsFor=%f
 Nice=19
 IOSchedulingClass=idle
 KillSignal=SIGINT
-ExecStart=/usr/bin/bcachefs data scrub %f
+ExecStart=/usr/bin/bcachefs scrub %f
