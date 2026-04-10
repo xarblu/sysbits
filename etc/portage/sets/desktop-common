@@ -101,5 +101,6 @@ media-video/ffmpeg
 ## Other
 app-admin/ananicy-cpp
 app-text/pandoc-cli
+sys-apps/flatpak
 sys-auth/rtkit
 sys-kernel/cachyos-settings
