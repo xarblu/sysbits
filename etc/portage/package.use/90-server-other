@@ -30,6 +30,7 @@ net-dns/unbound redis threads
 net-firewall/iptables conntrack
 net-firewall/nftables xtables python json
 net-libs/libssh server
+net-libs/ngtcp2 gnutls
 net-misc/networkmanager -gtk-doc -modemmanager policykit
 net-proxy/haproxy prometheus-exporter -zlib
 sys-apps/fwupd nvme
