@@ -7,9 +7,10 @@
 dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 16
 
 # unstable slots
->=dev-util/bpftool-7.6.0 LLVM_SLOT: -* 22
->=dev-util/spirv-llvm-translator-22.0.0_pre20260112 LLVM_SLOT: -* 22
->=dev-util/tree-sitter-cli-0.26.6 LLVM_SLOT: -* 22
+>=dev-util/bpftool-7.7.0-r1 LLVM_SLOT: -* 22
+>=dev-util/mesa_clc-26.0.4 LLVM_SLOT: -* 22
+>=dev-util/spirv-llvm-translator-22.1.1 LLVM_SLOT: -* 22
+>=media-libs/mesa-26.0.4 LLVM_SLOT: -* 22
 
 # waiting for rust
 #>=sys-kernel/cachyos-kernel-7.0_rc3 LLVM_SLOT: -* 22
