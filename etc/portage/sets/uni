@@ -1,1 +1,5 @@
+# general
+net-misc/studip
+
 # stuff required for my uni courses
+dev-python/jupyter
