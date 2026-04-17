@@ -3,3 +3,6 @@ kde-misc/kwin-effects-better-blur-dx **
 
 # required by KDE Gear 26.04
 ~dev-libs/ktextaddons-2.0.1 **
+
+# curl RCs
+=net-misc/curl-*_rc* **
