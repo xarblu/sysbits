@@ -106,7 +106,8 @@ ifeq ($(BETAS),yes)
 		etc/portage/package.accept_keywords/30-glibc \
 		etc/portage/package.accept_keywords/40-ffmpeg \
 		etc/portage/package.accept_keywords/50-qt \
-		etc/portage/package.accept_keywords/60-kernel-rcs
+		etc/portage/package.accept_keywords/60-kernel-rcs \
+		etc/portage/package.accept_keywords/90-misc-betas
 endif
 ifeq ($(SERVER),yes)
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.accept_keywords \
