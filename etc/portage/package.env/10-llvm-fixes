@@ -35,15 +35,8 @@ dev-debug/systemtap gcc
 
 #[START] Compile issues (latest clang)
 # needs to match LLVM_SLOT
-dev-lang/rust clang-21
-dev-python/pyside clang-21
-dev-util/tree-sitter-cli clang-21
 sys-apps/lact clang-21
 sys-kernel/scx clang-21
-# always_inline function '_mm512_add_ps' requires target feature 'avx512f'
-dev-cpp/highway clang-21
-dev-db/mariadb clang-21
-media-libs/libjxl clang-21
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)
