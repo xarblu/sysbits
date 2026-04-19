@@ -11,6 +11,7 @@ dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 16
 >=dev-util/mesa_clc-26.0.4 LLVM_SLOT: -* 22
 >=dev-util/spirv-llvm-translator-22.1.1 LLVM_SLOT: -* 22
 >=media-libs/mesa-26.0.4 LLVM_SLOT: -* 22
+>=sys-fs/bcachefs-tools-1.36.0 LLVM_SLOT: -* 22
 
 # waiting for rust
 #>=sys-kernel/cachyos-kernel-7.0_rc3 LLVM_SLOT: -* 22
