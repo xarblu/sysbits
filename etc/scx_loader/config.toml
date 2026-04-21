@@ -6,7 +6,7 @@ default_mode = "Auto"
 
 # This "structure" allows configuring flags for each scheduler mode of particular scx scheduler
 [scheds.'scx_lavd']
-auto_mode = ["--autopower"]
+#auto_mode = ["--autopower"]
 #gaming_mode = []
 #lowlatency_mode = []
 #powersave_mode = []
