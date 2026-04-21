@@ -1,0 +1,4 @@
+# autoconf 2.73 started passing -std={c23,c++23} by default
+# this reverts it back to 17 (and enabled gnu extensions)
+EXTRA_CFLAGS="${EXTRA_CFLAGS} -std=gnu17"
+EXTRA_CXXFLAGS="${EXTRA_CXXFLAGS} -std=gnu++17"

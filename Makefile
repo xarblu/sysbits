@@ -91,7 +91,8 @@ endif
 		etc/portage/env/rust-bgo-953109 \
 		etc/portage/env/sccache \
 		etc/portage/env/telegram-desktop-job-limit \
-		etc/portage/env/autoconf-2_72
+		etc/portage/env/autoconf-2_72 \
+		etc/portage/env/autoconf-2_73-std-17
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/env/net-im \
 		etc/portage/env/net-im/telegram-desktop
