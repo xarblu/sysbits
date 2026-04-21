@@ -59,7 +59,7 @@ games-emulation/snes9x no-mold
 llvm-core/lldb no-mold
 # segfaults mold or sth
 net-im/telegram-desktop no-mold
-# forces bfd
+# forces bfd (the mingw version)
 app-emulation/wine-vanilla ld-bfd
 # ld.lld: error: version script assignment of * to symbol * failed: symbol not defined
 dev-java/openjdk:21 ld-allow-undefined-version
