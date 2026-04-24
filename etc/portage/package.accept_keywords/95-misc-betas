@@ -6,8 +6,3 @@ kde-misc/kwin-effects-better-blur-dx **
 
 # curl RCs
 =net-misc/curl-*_rc* **
-
-# for compatibility with clang 22+
-# should be reverted with the next release
-# (>1.3.0)
-=dev-cpp/highway-9999 **
