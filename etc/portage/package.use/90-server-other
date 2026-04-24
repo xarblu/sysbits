@@ -38,6 +38,7 @@ sys-apps/lm-sensors contrib sensord
 sys-apps/systemd gnuefi nat boot dns-over-tls kernel-install policykit ukify
 sys-apps/util-linux tty-helpers
 sys-apps/zram-generator -man
+sys-fs/bcachefs-tools -dist-kernel -initramfs -modules -modules-compress -strip -modules-sign
 sys-fs/udisks lvm
 sys-kernel/cachyos-kernel -cachyos -hardened server bcachefs rust scx -lto
 sys-kernel/installkernel dracut systemd-boot uki ukify
