@@ -114,6 +114,7 @@ sys-apps/cpu-x opencl
 sys-apps/fwupd logitech uefi gnutls gusb nvme
 sys-apps/memtest86+ -* boot uefi64
 sys-apps/systemd elfutils tpm boot cryptsetup ukify curl http qrcode xkb
+sci-libs/openblas -openmp pthread
 sys-fs/bcachefs-tools -dist-kernel -initramfs -modules -modules-compress -strip -modules-sign
 sys-kernel/cachyos-kernel bcachefs rust scx -lto -cfi
 sys-kernel/cachyos-settings zram

@@ -25,8 +25,6 @@ sys-apps/memtest86+ gcc
 media-libs/libopenmpt gcc
 # sth goes very wrong here with some make targets not existing when using clang
 net-analyzer/nmap gcc
-# fortran part currently fails with flang
-sci-libs/openblas gcc
 # clang-21+: bpfinterp.cxx:1088:18: error: case value is not a constant expression
 # libc++: using namespace __gnu_cxx
 # easier to just build with gcc
