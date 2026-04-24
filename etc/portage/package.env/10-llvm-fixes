@@ -46,8 +46,6 @@ dev-libs/intel-compute-runtime libstdcpp
 #[END] Compile issues (libc++)
 
 #[START] Linker issues
-# un-force ld.bfd
-sys-fs/lvm2 ignore_tc-ld-force-bfd
 # mold does not support `-b binary`
 gui-libs/gtk no-mold
 # -b binary -> no mold; -m type missing -> no lld
@@ -61,16 +59,9 @@ net-im/telegram-desktop no-mold
 app-emulation/wine-vanilla ld-bfd
 # ld.lld: error: version script assignment of * to symbol * failed: symbol not defined
 dev-java/openjdk:21 ld-allow-undefined-version
-dev-libs/opencl-clang:15 ld-allow-undefined-version
 dev-libs/opencl-clang:16 ld-allow-undefined-version
-llvm-core/llvm:15 ld-allow-undefined-version
 net-firewall/ipset ld-allow-undefined-version
-net-fs/samba ld-allow-undefined-version
-net-libs/libtirpc ld-allow-undefined-version
 sys-libs/libfaketime ld-allow-undefined-version
-sys-libs/talloc ld-allow-undefined-version
-sys-libs/tdb ld-allow-undefined-version
-sys-libs/tevent ld-allow-undefined-version
 #[END] Linker issues
 
 #[START] Compile issues (polly)
