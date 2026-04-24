@@ -70,6 +70,7 @@ net-im/vesktop-bin
 
 ## Network
 net-dns/dnsproxy
+net-vpn/networkmanager-openvpn
 
 ## System Info
 app-misc/wayland-utils
