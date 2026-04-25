@@ -1,0 +1,62 @@
+From b967468299bd28bffcfaad04cc4ee0485a80616e Mon Sep 17 00:00:00 2001
+From: Oliver Beard <olib141@outlook.com>
+Date: Thu, 23 Apr 2026 20:34:38 +0100
+Subject: [PATCH] greeter: Avoid leaking connections for window destruction
+
+When a screen is removed we delete the window, because the connect was scoped
+to the greeter this connect lingered with the captured 'window' pointer dangling.
+
+We also dropped the geometry connection as this is done implicitly
+via layer-shell anyway.
+
+BUG: 519302
+
+
+(cherry picked from commit d4da6b79377756796081a19c1f628263b6e3a442)
+
+Co-authored-by: David Edmundson <kde@davidedmundson.co.uk>
+---
+ src/frontend/greeter/main.cpp           | 5 +----
+ src/frontend/wallpaper/wallpaperapp.cpp | 4 ----
+ 2 files changed, 1 insertion(+), 8 deletions(-)
+
+diff --git a/src/frontend/greeter/main.cpp b/src/frontend/greeter/main.cpp
+index d859db04..2137b61d 100644
+--- a/src/frontend/greeter/main.cpp
++++ b/src/frontend/greeter/main.cpp
+@@ -52,16 +52,13 @@ private:
+         window->setScreen(screen);
+         window->setColor(s_testMode ? Qt::darkGray : Qt::transparent);
+ 
+-        connect(qApp, &QGuiApplication::screenRemoved, this, [window](QScreen *screenRemoved) {
++        connect(qApp, &QGuiApplication::screenRemoved, window, [window](QScreen *screenRemoved) {
+             if (screenRemoved == window->screen()) {
+                 delete window;
+             }
+         });
+ 
+         window->setGeometry(screen->geometry());
+-        connect(screen, &QScreen::geometryChanged, this, [window]() {
+-            window->setGeometry(window->screen()->geometry());
+-        });
+ 
+         if (KWindowSystem::isPlatformWayland()) {
+             if (auto layerShellWindow = LayerShellQt::Window::get(window)) {
+diff --git a/src/frontend/wallpaper/wallpaperapp.cpp b/src/frontend/wallpaper/wallpaperapp.cpp
+index 89d10c63..6ea79853 100644
+--- a/src/frontend/wallpaper/wallpaperapp.cpp
++++ b/src/frontend/wallpaper/wallpaperapp.cpp
+@@ -60,10 +60,6 @@ void WallpaperApp::adoptScreen(QScreen *screen)
+     window->setVisible(true);
+     m_windows << window;
+ 
+-    connect(screen, &QScreen::geometryChanged, this, [window](const QRect &geometry) {
+-        window->setGeometry(geometry);
+-    });
+-
+     connect(screen, &QObject::destroyed, window, [this, window]() {
+         m_windows.removeAll(window);
+         window->deleteLater();
+-- 
+GitLab
+
