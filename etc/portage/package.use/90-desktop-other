@@ -28,7 +28,7 @@ dev-python/pillow tk
 dev-python/pyside uitools
 dev-python/python-lsp-server all-plugins
 dev-python/qtpy printsupport
-dev-qt/qtbase mysql
+dev-qt/qtbase mysql journald
 dev-qt/qtpositioning geoclue
 dev-qt/qttools qdbus
 dev-qt/qtwebengine pdfium
