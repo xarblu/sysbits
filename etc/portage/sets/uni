@@ -3,3 +3,6 @@ net-misc/studip
 
 # stuff required for my uni courses
 dev-python/jupyter
+dev-python/matplotlib
+dev-python/numpy
+dev-python/scipy
