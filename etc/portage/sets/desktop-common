@@ -75,6 +75,7 @@ net-vpn/networkmanager-openvpn
 ## System Info
 app-misc/wayland-utils
 sys-apps/cpu-x
+sys-apps/lact
 sys-apps/mission-center
 x11-apps/mesa-progs
 x11-apps/xdpyinfo
