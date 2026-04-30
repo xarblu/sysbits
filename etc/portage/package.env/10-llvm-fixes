@@ -33,7 +33,6 @@ dev-debug/systemtap gcc
 
 #[START] Compile issues (latest clang)
 # needs to match LLVM_SLOT
-sys-apps/lact clang-21
 sys-kernel/scx clang-21
 #[END] Compile issues (latest clang)
 

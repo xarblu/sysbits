@@ -15,3 +15,4 @@ dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 16
 >=sys-fs/bcachefs-tools-1.36.0 LLVM_SLOT: -* 22
 >=sys-kernel/cachyos-kernel-7.0.0_p2 LLVM_SLOT: -* 22
 >=www-client/firefox-150.0.1 LLVM_SLOT: -* 22
+sys-apps/lact LLVM_SLOT: -* 22
