@@ -86,13 +86,11 @@ sys-kernel/linux-firmware
 sys-kernel/scx
 sys-kernel/scx-loader
 
-# power profiles provider
-sys-apps/tuned
-
 # System tools/services
 sys-apps/dbus-broker
 sys-apps/fwupd
 sys-apps/kmscon
+sys-apps/tuned
 
 ## Other
 app-admin/yadm
