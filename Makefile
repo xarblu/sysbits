@@ -30,6 +30,9 @@ ifeq ($(SERVER),yes)
 		etc/kernel/config.d/20-server.config
 endif
 
+	install -Dm644 -t $(DESTDIR)/etc/kmscon \
+		etc/kmscon/kmscon.conf
+
 	# Locales
 	install -Dm644 -t $(DESTDIR)/etc \
 		etc/locale.conf \
