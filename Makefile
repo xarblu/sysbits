@@ -239,6 +239,9 @@ endif
 		etc/sysctl.d/55-fq_pie.conf \
 		etc/sysctl.d/60-route_cache.conf
 
+	install -Dm644 -t $(DESTDIR)/etc/systemd/system/plasmalogin.service.d \
+		etc/systemd/system/plasmalogin.service.d/10-kmscon.conf
+
 	install -Dm644 -t $(DESTDIR)/etc/systemd \
 		etc/systemd/zram-generator.conf
 
