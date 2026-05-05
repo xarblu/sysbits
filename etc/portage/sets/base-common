@@ -89,7 +89,6 @@ sys-kernel/scx-loader
 # System tools/services
 sys-apps/dbus-broker
 sys-apps/fwupd
-sys-apps/kmscon
 sys-apps/tuned
 
 ## Other

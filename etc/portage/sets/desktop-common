@@ -102,9 +102,12 @@ net-wireless/bluez-tools
 # Media
 media-video/ffmpeg
 
-## Other
+# System tools/services
 app-admin/ananicy-cpp
-app-text/pandoc-cli
 sys-apps/flatpak
+sys-apps/kmscon
 sys-auth/rtkit
 sys-kernel/cachyos-settings
+
+## Other
+app-text/pandoc-cli
