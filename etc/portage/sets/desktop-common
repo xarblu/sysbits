@@ -43,6 +43,7 @@ dev-util/yaml-language-server
 
 ## Dev
 dev-util/perf
+dev-util/trace-cmd
 
 ## Fonts
 media-fonts/fira-code
