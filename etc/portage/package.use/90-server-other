@@ -34,6 +34,7 @@ net-libs/ngtcp2 gnutls
 net-misc/networkmanager -gtk-doc -modemmanager policykit
 net-proxy/haproxy prometheus-exporter -zlib
 sys-apps/fwupd nvme
+sys-apps/kmscon drm gles2
 sys-apps/lm-sensors contrib sensord
 sys-apps/systemd gnuefi nat boot dns-over-tls kernel-install policykit ukify
 sys-apps/util-linux tty-helpers
