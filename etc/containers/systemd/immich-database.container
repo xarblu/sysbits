@@ -1,0 +1,29 @@
+[Unit]
+Description=Immich PostgreSQL
+RequiresMountsFor=/var/lib/immich
+
+[Container]
+Image=ghcr.io/immich-app/postgres:18-vectorchord0.5.3
+Label='wud.tag.include=^\\d+-vectorchord\\d+\\.\\d+\\.\\d+$$'
+Label='wud.watch=true'
+
+Label='glance.name=Database'
+Label='glance.hide=false'
+Label='glance.parent=immich'
+
+Pod=immich.pod
+
+EnvironmentFile=/var/lib/immich/immich.env
+
+# volumes
+# In 18+ this moved from /var/lib/postgresql/data -> /var/lib/postgresql/MAJOR/docker
+# https://github.com/docker-library/postgres/pull/1259
+# recommendation is to just mount /var/lib/postgresql
+# look at PGDATA env var for the actual dir used
+Volume=/var/lib/immich/database:/var/lib/postgresql:idmap
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

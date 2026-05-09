@@ -1,0 +1,38 @@
+[Unit]
+Description=Immich Machine Learning
+RequiresMountsFor=/var/lib/immich
+
+[Container]
+Image=ghcr.io/immich-app/immich-machine-learning:v2.7.5-openvino
+Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+-openvino$$'
+Label='wud.link.template=https://github.com/immich-app/immich/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Machine Learning'
+Label='glance.hide=false'
+Label='glance.parent=immich'
+
+Pod=immich.pod
+
+# there seems to a rare issue where long sessions
+# (multiple hours of jobs) run into a sort of memory leak
+# and just lock up until the OOM killer kills the container
+# this at least confines the issue
+Memory=32g
+
+EnvironmentFile=/var/lib/immich/immich.env
+
+Volume=/var/lib/immich/model-cache:/cache:idmap
+# required for openvino
+Volume=/dev/bus/usb:/dev/bus/usb
+
+AddDevice=/dev/dri:/dev/dri
+PodmanArgs=--device-cgroup-rule='c 189:* rmw'
+
+HealthCmd=python3 healthcheck.py
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

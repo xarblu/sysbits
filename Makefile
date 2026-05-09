@@ -41,7 +41,13 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/grafana-prometheus.container \
 		etc/containers/systemd/grafana.network \
 		etc/containers/systemd/grafana.pod \
-		etc/containers/systemd/home-assistant.container
+		etc/containers/systemd/home-assistant.container \
+		etc/containers/systemd/immich-database.container \
+		etc/containers/systemd/immich-machine-learning.container \
+		etc/containers/systemd/immich-server.container \
+		etc/containers/systemd/immich-valkey.container \
+		etc/containers/systemd/immich.network \
+		etc/containers/systemd/immich.pod
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \

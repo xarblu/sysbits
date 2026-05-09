@@ -1,0 +1,20 @@
+[Unit]
+Description=Immich Pod
+
+[Pod]
+Network=immich.network
+
+UserNS=auto
+
+# Immich HTTP
+PublishPort=127.0.0.1:9008:2283
+
+# normally just on the DB but implicitly shared
+# IPC in pods disallows setting it there
+ShmSize=128m
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

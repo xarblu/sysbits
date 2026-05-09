@@ -1,0 +1,41 @@
+[Unit]
+Description=Immich Server
+After=immich-valkey.service immich-database.service immich-machine-learning.service
+Requires=immich-valkey.service immich-database.service
+Wants=immich-machine-learning.service
+RequiresMountsFor=/var/lib/immich
+
+[Container]
+Image=ghcr.io/immich-app/immich-server:v2.7.5
+Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/immich-app/immich/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Immich'
+Label='glance.icon=/assets/services/immich.svg'
+Label='glance.url=https://immich.gaydragon.zone/'
+Label='glance.description=High performance self-hosted photo and video management solution'
+Label='glance.hide=false'
+Label='glance.id=immich'
+
+Pod=immich.pod
+
+EnvironmentFile=/var/lib/immich/immich.env
+
+Volume=/var/lib/immich/server-data:/data:idmap
+Volume=/var/lib/immich/external-libraries:/external-libraries:idmap
+Volume=/etc/localtime:/etc/localtime:ro
+
+# custom CSP, keep updated with:
+# https://github.com/immich-app/immich/blob/main/server/helmet.json
+Volume=/var/lib/immich/helmet.json:/usr/src/app/server/helmet.json:ro
+
+AddDevice=/dev/dri:/dev/dri
+
+HealthCmd=bash ./server/bin/immich-healthcheck
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
