@@ -1,0 +1,37 @@
+[Unit]
+Description=Tube Archivist Server
+After=tubearchivist-redis.service tubearchivist-elasticsearch.service
+Requires=tubearchivist-redis.service tubearchivist-elasticsearch.service
+RequiresMountsFor=/var/lib/tubearchivist
+
+[Container]
+# go unstable if yt-dlp can't beat new yt challenges
+#Image=docker.io/bbilly1/tubearchivist:unstable
+Image=docker.io/bbilly1/tubearchivist:v0.5.10
+
+Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/tubearchivist/tubearchivist/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Tube Archivist'
+Label='glance.icon=/assets/services/tube-archivist.png'
+Label='glance.url=https://tubearchivist.gaydragon.zone/'
+Label='glance.description=YouTube media server'
+Label='glance.hide=false'
+Label='glance.id=tubearchivist'
+
+Pod=tubearchivist.pod
+
+EnvironmentFile=/var/lib/tubearchivist/tubearchivist-app.env
+
+Volume=/var/lib/tubearchivist/app-media:/youtube:idmap
+Volume=/var/lib/tubearchivist/app-cache:/cache:idmap
+Volume=/etc/localtime:/etc/localtime:ro
+
+HealthCmd=curl -f http://localhost:8000/api/health/
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

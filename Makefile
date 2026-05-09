@@ -71,7 +71,12 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/speedtest-tracker.pod \
 		etc/containers/systemd/syncthing-server.container \
 		etc/containers/systemd/syncthing.network \
-		etc/containers/systemd/syncthing.pod
+		etc/containers/systemd/syncthing.pod \
+		etc/containers/systemd/tubearchivist-app.container \
+		etc/containers/systemd/tubearchivist-elasticsearch.container \
+		etc/containers/systemd/tubearchivist-redis.container \
+		etc/containers/systemd/tubearchivist.network \
+		etc/containers/systemd/tubearchivist.pod
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \

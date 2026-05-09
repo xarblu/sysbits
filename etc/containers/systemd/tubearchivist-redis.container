@@ -1,0 +1,26 @@
+[Unit]
+Description=Tube Archivist Redis
+After=tubearchivist-elasticsearch.service
+RequiresMountsFor=/var/lib/tubearchivist
+
+[Container]
+Image=docker.io/library/redis:8.6.2-alpine3.23
+
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-alpine\\d+.\\d+$$'
+Label='wud.watch=true'
+
+Label='glance.name=Redis'
+Label='glance.hide=false'
+Label='glance.parent=tubearchivist'
+
+Pod=tubearchivist.pod
+
+Volume=/var/lib/tubearchivist/redis-data:/data:idmap
+
+HealthCmd=redis-cli ping | grep PONG
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

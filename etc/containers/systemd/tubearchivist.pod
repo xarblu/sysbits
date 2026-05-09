@@ -1,0 +1,15 @@
+[Unit]
+Description=Tube Archivist Pod
+
+[Pod]
+UserNS=auto
+
+Network=tubearchivist.network
+
+PublishPort=127.0.0.1:9022:8000
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

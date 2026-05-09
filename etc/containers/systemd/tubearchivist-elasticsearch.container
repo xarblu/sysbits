@@ -1,0 +1,28 @@
+[Unit]
+Description=Tube Archivist Elasticsearch
+RequiresMountsFor=/var/lib/tubearchivist
+
+[Container]
+Image=docker.io/bbilly1/tubearchivist-es:8.19.0
+
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.watch=true'
+
+Label='glance.name=Elasticsearch'
+Label='glance.hide=false'
+Label='glance.parent=tubearchivist'
+
+Pod=tubearchivist.pod
+
+EnvironmentFile=/var/lib/tubearchivist/tubearchivist-elasticsearch.env
+
+Volume=/var/lib/tubearchivist/elasticsearch-data:/usr/share/elasticsearch/data:idmap
+
+# scary
+Ulimit=memlock=-1:-1
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
