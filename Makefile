@@ -82,7 +82,11 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/unifi.network \
 		etc/containers/systemd/unifi.pod \
 		etc/containers/systemd/vaultwarden.container \
-		etc/containers/systemd/vaultwarden.network
+		etc/containers/systemd/vaultwarden.network \
+		etc/containers/systemd/whatsupdocker-app.container \
+		etc/containers/systemd/whatsupdocker-podman-socket-proxy.container \
+		etc/containers/systemd/whatsupdocker.network \
+		etc/containers/systemd/whatsupdocker.pod
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \

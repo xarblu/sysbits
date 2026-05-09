@@ -1,0 +1,34 @@
+[Unit]
+Description=Whats Up Docker
+After=whatsupdocker-podman-socket-proxy.service
+Requires=whatsupdocker-podman-socket-proxy.service
+RequiresMountsFor=/var/lib/wud
+
+[Container]
+Image=ghcr.io/getwud/wud:8.2.2
+
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/getwud/wud/releases/tag/$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=What\'s Up Docker'
+Label='glance.icon=/assets/services/whats-up-docker.svg'
+Label='glance.url=https://whatsupdocker.gaydragon.zone/'
+Label='glance.description=Container Update Monitor'
+Label='glance.hide=false'
+Label='glance.id=whatsupdocker'
+
+Pod=whatsupdocker.pod
+
+EnvironmentFile=/var/lib/wud/wud.env
+
+Volume=/etc/localtime:/etc/localtime:ro
+
+HealthCmd=curl -f http://[::1]:3000/health
+
+[Service]
+# on-failure is not enough - this thing keeps dying with exit code 0
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=Whats Up Docker Pod
+
+[Pod]
+UserNS=auto
+
+Network=whatsupdocker.network
+PublishPort=127.0.0.1:9002:3000/tcp
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
