@@ -15,7 +15,7 @@ Label='glance.parent=glance'
 
 Pod=glance.pod
 
-Volume=/var/run/podman/podman.sock:/var/run/docker.sock:ro
+Volume=/var/run/podman/podman.sock:/var/run/docker.sock:ro,idmap
 
 Environment=CONTAINERS=1
 Environment=SERVICES=1
