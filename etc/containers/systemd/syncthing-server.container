@@ -1,0 +1,33 @@
+[Unit]
+Description=Syncthing Server
+RequiresMountsFor=/var/lib/syncthing
+
+[Container]
+Image=ghcr.io/syncthing/syncthing:2.0.16
+
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/syncthing/syncthing/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Syncthing'
+Label='glance.icon=/assets/services/syncthing.svg'
+Label='glance.url=https://syncthing.gaydragon.zone/'
+Label='glance.description=Open Source Continuous File Synchronization'
+Label='glance.hide=false'
+Label='glance.id=syncthing'
+
+Pod=syncthing.pod
+
+EnvironmentFile=/var/lib/syncthing/syncthing-server.env
+
+Volume=/var/lib/syncthing/server-config:/var/syncthing/config:idmap
+Volume=/var/lib/syncthing/server-syncs:/var/syncthing/syncs:idmap
+Volume=/etc/localtime:/etc/localtime:ro
+
+Exec=serve
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

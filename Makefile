@@ -68,7 +68,10 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/speedtest-tracker-app.container \
 		etc/containers/systemd/speedtest-tracker-apprise.container \
 		etc/containers/systemd/speedtest-tracker.network \
-		etc/containers/systemd/speedtest-tracker.pod
+		etc/containers/systemd/speedtest-tracker.pod \
+		etc/containers/systemd/syncthing-server.container \
+		etc/containers/systemd/syncthing.network \
+		etc/containers/systemd/syncthing.pod
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \

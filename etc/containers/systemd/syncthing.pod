@@ -1,0 +1,33 @@
+[Unit]
+Description=Syncthing Pod
+
+[Pod]
+UserNS=auto
+
+# TODO:
+# for now use host networking
+# because port mapping breaks local discovery
+# in the server -> client direction (server is behind NAT
+# so from its POV clients are WAN)
+Network=host
+
+#Network=syncthing.network
+
+# Web UI
+#PublishPort=127.0.0.1:9018:8384/tcp
+
+# Local Announce
+#PublishPort=[::]:21027:21027/udp
+#PublishPort=0.0.0.0:21027:21027/udp
+
+# Sync Protocol
+#PublishPort=[::]:22000:22000/tcp
+#PublishPort=0.0.0.0:22000:22000/tcp
+#PublishPort=[::]:22000:22000/udp
+#PublishPort=0.0.0.0:22000:22000/udp
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
