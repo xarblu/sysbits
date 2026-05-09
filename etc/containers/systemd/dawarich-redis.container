@@ -4,6 +4,7 @@ RequiresMountsFor=/var/lib/dawarich
 
 [Container]
 Image=docker.io/library/redis:7.4-alpine
+
 Label='wud.tag.include=^\\d+-\\d+-alpine$$'
 Label='wud.link.template=https://hub.docker.com/r/library/redis'
 Label='wud.watch=true'
