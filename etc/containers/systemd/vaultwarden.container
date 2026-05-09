@@ -1,5 +1,6 @@
 [Unit]
 Description=Vaultwarden Server
+RequiresMountsFor=/var/lib/vaultwarden
 
 [Container]
 Image=docker.io/vaultwarden/server:1.36.0-alpine
