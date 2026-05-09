@@ -1,6 +1,5 @@
 [Unit]
 Description=Dawarich Pod
-After=nss-lookup.target
 
 [Pod]
 UserNS=auto:uidmapping=9011:174547,gidmapping=9011:174547
