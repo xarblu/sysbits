@@ -1,0 +1,55 @@
+[Unit]
+Description=Docker Mailserver
+RequiresMountsFor=/var/lib/mailserver
+
+[Container]
+Image=docker.io/mailserver/docker-mailserver:15.1.0
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/docker-mailserver/docker-mailserver/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Docker Mailserver'
+Label='glance.icon=/assets/services/docker-mailserver.svg'
+Label='glance.description=Production-ready fullstack but simple mail server'
+Label='glance.hide=false'
+Label='glance.id=docker-mailserver'
+
+# TODO: UserNS
+
+Network=mailserver.network
+
+EnvironmentFile=/var/lib/mailserver/mailserver.env
+
+# SMTP  (explicit TLS => STARTTLS, Authentication is DISABLED => use port 465/587 instead)
+PublishPort=25:25
+# IMAP4 (explicit TLS => STARTTLS)
+PublishPort=143:143
+# ESMTP (implicit TLS)
+PublishPort=465:465
+# ESMTP (explicit TLS => STARTTLS)
+PublishPort=587:587
+# IMAP4 (implicit TLS)
+PublishPort=993:993
+# RSPAMD Web UI
+PublishPort=11334:11334
+
+Volume=/var/lib/mailserver/dms/mail-data/:/var/mail/
+Volume=/var/lib/mailserver/dms/mail-state/:/var/mail-state/
+Volume=/var/lib/mailserver/dms/mail-logs/:/var/log/mail/
+Volume=/var/lib/mailserver/dms/config/:/tmp/docker-mailserver/
+Volume=/var/lib/mailserver/etc/rspamd/local.d/worker-controller.inc:/etc/rspamd/local.d/worker-controller.inc
+Volume=/var/lib/mailserver/etc/dovecot/10-custom.conf:/etc/dovecot/conf.d/10-custom.conf
+Volume=/var/lib/mailserver/certs/:/certs
+Volume=/etc/localtime:/etc/localtime:ro
+Volume=/etc/letsencrypt:/etc/letsencrypt:ro
+
+# for fail2ban
+AddCapability=NET_ADMIN
+
+HealthCmd=ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
