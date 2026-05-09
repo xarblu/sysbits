@@ -1,0 +1,33 @@
+[Unit]
+Description=Home Assistant
+RequiresMountsFor=/var/lib/home-assistant
+
+[Container]
+Image=ghcr.io/home-assistant/home-assistant:2026.4.4
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/home-assistant/core/releases/tag/$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Home Assistant'
+Label='glance.icon=/assets/services/home-assistant.svg'
+Label='glance.url=https://home-assistant.gaydragon.zone/'
+Label='glance.description=Open source home automation'
+Label='glance.hide=false'
+Label='glance.id=home-assistant'
+
+# Home Assistant needs a lot of privileges
+# e.g. to sniff packages and find devices
+# so we can't use UserNS and need host networking
+Network=host
+AddCapability=CAP_NET_RAW
+AddCapability=CAP_NET_ADMIN
+
+Volume=/var/lib/home-assistant/config:/config
+Volume=/etc/localtime:/etc/localtime:ro
+Volume=/run/dbus:/run/dbus:ro
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

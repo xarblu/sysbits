@@ -40,7 +40,8 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/grafana-app.container \
 		etc/containers/systemd/grafana-prometheus.container \
 		etc/containers/systemd/grafana.network \
-		etc/containers/systemd/grafana.pod
+		etc/containers/systemd/grafana.pod \
+		etc/containers/systemd/home-assistant.container
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \
