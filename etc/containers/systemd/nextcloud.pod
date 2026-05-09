@@ -2,9 +2,11 @@
 Description=Nextcloud Pod
 
 [Pod]
+UserNS=auto
+
 Network=nextcloud.network
 
-UserNS=auto
+PublishPort=127.0.0.1:9003:80/tcp
 
 [Service]
 Restart=on-failure
