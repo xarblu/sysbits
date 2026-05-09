@@ -51,7 +51,9 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/jellyfin.container \
 		etc/containers/systemd/jellyfin.network \
 		etc/containers/systemd/mailserver.container \
-		etc/containers/systemd/mailserver.network
+		etc/containers/systemd/mailserver.network \
+		etc/containers/systemd/maptile-cache.container \
+		etc/containers/systemd/maptile-cache.network
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \
