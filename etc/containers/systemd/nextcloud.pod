@@ -1,0 +1,13 @@
+[Unit]
+Description=Nextcloud Pod
+
+[Pod]
+Network=nextcloud.network
+
+UserNS=auto
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

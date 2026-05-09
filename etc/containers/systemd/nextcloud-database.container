@@ -1,0 +1,25 @@
+[Unit]
+Description=Nextcloud PostgreSQL
+RequiresMountsFor=/var/lib/nextcloud-container
+
+[Container]
+Image=docker.io/library/postgres:18.3
+
+Label='wud.tag.include=^18\\.\\d+$$'
+Label='wud.watch=true'
+
+Label='glance.name=Database'
+Label='glance.hide=false'
+Label='glance.parent=nextcloud'
+
+Pod=nextcloud.pod
+
+EnvironmentFile=/var/lib/nextcloud-container/database.env
+
+Volume=/var/lib/nextcloud-container/database:/var/lib/postgresql:idmap
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

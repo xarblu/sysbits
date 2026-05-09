@@ -86,7 +86,9 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/whatsupdocker-app.container \
 		etc/containers/systemd/whatsupdocker-podman-socket-proxy.container \
 		etc/containers/systemd/whatsupdocker.network \
-		etc/containers/systemd/whatsupdocker.pod
+		etc/containers/systemd/whatsupdocker.pod \
+		etc/containers/systemd/nextcloud-database.container \
+		etc/containers/systemd/nextcloud.pod
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \
