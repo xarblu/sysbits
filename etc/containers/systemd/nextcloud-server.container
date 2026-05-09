@@ -23,6 +23,8 @@ Pod=nextcloud.pod
 EnvironmentFile=/var/lib/nextcloud-container/server.env
 
 Volume=/var/lib/nextcloud-container/server-data:/var/www/html:idmap
+# legacy path from prior Gentoo install
+Volume=/var/lib/nextcloud-container/server-userdata:/var/lib/nextcloud/data:idmap
 Volume=/etc/localtime:/etc/localtime:ro
 
 [Service]
