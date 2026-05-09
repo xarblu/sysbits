@@ -23,7 +23,9 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/authentik-server.container \
 		etc/containers/systemd/authentik-worker.container \
 		etc/containers/systemd/authentik.network \
-		etc/containers/systemd/authentik.pod
+		etc/containers/systemd/authentik.pod \
+		etc/containers/systemd/crafty.container \
+		etc/containers/systemd/crafty.network
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \

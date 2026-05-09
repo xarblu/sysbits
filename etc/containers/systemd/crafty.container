@@ -1,0 +1,44 @@
+[Unit]
+Description=Minecraft Server Manager
+RequiresMountsFor=/var/lib/crafty
+
+[Container]
+Image=docker.io/arcadiatechnology/crafty-4:4.10.4
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://gitlab.com/crafty-controller/crafty-4/-/releases/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Crafty Controller'
+Label='glance.icon=/assets/services/crafty-controller.svg'
+Label='glance.url=https://crafty.gaydragon.zone/'
+Label='glance.description=Minecraft Server Manager'
+Label='glance.hide=false'
+Label='glance.id=crafty'
+
+UserNS=auto
+
+Network=crafty.network
+# HTTPS
+PublishPort=127.0.0.1:9011:8443
+# DYNMAP
+#PublishPort=8123:8123
+# BEDROCK
+PublishPort=19132:19132/udp
+# JAVA
+PublishPort=25565:25565
+
+Volume=/var/lib/crafty/backups:/crafty/backups:idmap
+Volume=/var/lib/crafty/logs:/crafty/logs:idmap
+Volume=/var/lib/crafty/servers:/crafty/servers:idmap
+Volume=/var/lib/crafty/config:/crafty/app/config:idmap
+Volume=/var/lib/crafty/import:/crafty/import:idmap
+
+Environment=TZ=Etc/UTC
+
+#HealthCmd=curl http://127.0.0.1:3001/api/server-info/ping | grep -F '{"res":"pong"}'
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
