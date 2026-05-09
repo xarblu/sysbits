@@ -80,7 +80,9 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/unifi-app.container \
 		etc/containers/systemd/unifi-database.container \
 		etc/containers/systemd/unifi.network \
-		etc/containers/systemd/unifi.pod
+		etc/containers/systemd/unifi.pod \
+		etc/containers/systemd/vaultwarden.container \
+		etc/containers/systemd/vaultwarden.network
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \

@@ -1,0 +1,35 @@
+[Unit]
+Description=Vaultwarden Server
+
+[Container]
+Image=docker.io/vaultwarden/server:1.36.0-alpine
+
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-alpine$$'
+Label='wud.link.template=https://github.com/dani-garcia/vaultwarden/releases/tag/$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Vaultwarden'
+Label='glance.icon=/assets/services/vaultwarden.svg'
+Label='glance.url=https://vaultwarden.gaydragon.zone/'
+Label='glance.description=Password Manager'
+Label='glance.hide=false'
+Label='glance.id=vaultwarden'
+
+UserNS=auto
+
+Network=vaultwarden.network
+PublishPort=127.0.0.1:3080:80
+AddCapability=CAP_NET_BIND_SERVICE
+
+EnvironmentFile=/var/lib/vaultwarden/vaultwarden.env
+
+Volume=/var/lib/vaultwarden/data:/data:idmap
+Volume=/etc/localtime:/etc/localtime:ro
+
+HealthCmd=./healthcheck.sh
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
