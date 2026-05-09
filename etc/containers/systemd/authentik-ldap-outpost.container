@@ -1,0 +1,25 @@
+[Unit]
+Description=Authentik LDAP Outpost
+After=authentik-server.service
+Requires=authentik-server.service
+RequiresMountsFor=/var/lib/authentik
+
+[Container]
+Image=ghcr.io/goauthentik/ldap:2026.2.2
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/goauthentik/authentik/releases/tag/version%%2F$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=LDAP Outpost'
+Label='glance.hide=false'
+Label='glance.parent=authentik'
+
+Pod=authentik.pod
+
+EnvironmentFile=/var/lib/authentik/ldap-outpost.env
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

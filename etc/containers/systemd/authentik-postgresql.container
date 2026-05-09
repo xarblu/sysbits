@@ -1,0 +1,28 @@
+[Unit]
+Description=Authentik PostgreSQL
+RequiresMountsFor=/var/lib/authentik
+
+[Container]
+Image=docker.io/library/postgres:17.9-alpine3.23
+Label='wud.tag.include=^17\\.\\d+-alpine\\d+\\.\\d+$$'
+Label='wud.watch=true'
+
+Label='glance.name=PostgreSQL'
+Label='glance.hide=false'
+Label='glance.parent=authentik'
+
+Pod=authentik.pod
+
+EnvironmentFile=/var/lib/authentik/authentik.env
+EnvironmentFile=/var/lib/authentik/authentik-postgresql.env
+
+Volume=/var/lib/authentik/database:/var/lib/postgresql/data:idmap
+
+HealthCmd=pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}
+Notify=healthy
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

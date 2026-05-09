@@ -1,0 +1,20 @@
+[Unit]
+Description=Authentik Pod
+
+[Pod]
+UserNS=auto
+
+Network=authentik.network
+
+# Authentik HTTP
+PublishPort=127.0.0.1:9016:9000
+
+# LDAP Outpost
+PublishPort=389:3389
+PublishPort=636:6636
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

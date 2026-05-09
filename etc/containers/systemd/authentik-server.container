@@ -1,0 +1,34 @@
+[Unit]
+Description=Authentik Server
+After=authentik-postgresql.service
+Requires=authentik-postgresql.service
+RequiresMountsFor=/var/lib/authentik
+
+[Container]
+Image=ghcr.io/goauthentik/server:2026.2.2
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/goauthentik/authentik/releases/tag/version%%2F$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Authentik'
+Label='glance.icon=/assets/services/authentik.svg'
+Label='glance.url=https://authentik.gaydragon.zone/'
+Label='glance.description=SSO and Identity Provider'
+Label='glance.hide=false'
+Label='glance.id=authentik'
+
+Pod=authentik.pod
+
+EnvironmentFile=/var/lib/authentik/authentik.env
+EnvironmentFile=/var/lib/authentik/authentik-server+worker.env
+
+Volume=/var/lib/authentik/data:/data:idmap
+Volume=/var/lib/authentik/custom-templates:/templates:idmap
+
+Exec=server
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
