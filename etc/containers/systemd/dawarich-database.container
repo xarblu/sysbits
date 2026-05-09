@@ -1,0 +1,29 @@
+[Unit]
+Description=Dawarich Database
+RequiresMountsFor=/var/lib/dawarich
+
+[Container]
+Image=docker.io/postgis/postgis:17-3.5
+Label='wud.tag.include=^\\d+-\\d+.\\d+$$'
+Label='wud.link.template=https://hub.docker.com/r/postgis/postgis'
+Label='wud.watch=true'
+
+Label='glance.name=Postgres'
+Label='glance.hide=false'
+Label='glance.parent=dawarich'
+
+Pod=dawarich.pod
+
+EnvironmentFile=/var/lib/dawarich/dawarich-postgres.env
+
+Volume=/var/lib/dawarich/database:/var/lib/postgresql/data:idmap
+Volume=/var/lib/dawarich/shared:/var/shared:idmap
+
+HealthCmd=pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}
+Notify=healthy
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

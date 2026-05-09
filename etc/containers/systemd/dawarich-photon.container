@@ -1,0 +1,25 @@
+[Unit]
+Description=Dawarich Photon
+RequiresMountsFor=/var/lib/dawarich
+
+[Container]
+Image=docker.io/rtuszik/photon-docker:2.2.0
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/rtuszik/photon-docker/releases/tag/$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Photon'
+Label='glance.hide=false'
+Label='glance.parent=dawarich'
+
+Pod=dawarich.pod
+
+EnvironmentFile=/var/lib/dawarich/dawarich-photon.env
+
+Volume=/var/lib/dawarich/photon:/photon/data:idmap
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

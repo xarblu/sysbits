@@ -1,0 +1,19 @@
+[Unit]
+Description=Dawarich Pod
+After=nss-lookup.target
+
+[Pod]
+UserNS=auto:uidmapping=9011:174547,gidmapping=9011:174547
+Network=dawarich.network
+
+# UI+API
+PublishPort=127.0.0.1:9023:3000/tcp
+
+# for postgres
+ShmSize=1g
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -25,7 +25,14 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/authentik.network \
 		etc/containers/systemd/authentik.pod \
 		etc/containers/systemd/crafty.container \
-		etc/containers/systemd/crafty.network
+		etc/containers/systemd/crafty.network \
+		etc/containers/systemd/dawarich-app.container \
+		etc/containers/systemd/dawarich-database.container \
+		etc/containers/systemd/dawarich-photon.container \
+		etc/containers/systemd/dawarich-redis.container \
+		etc/containers/systemd/dawarich-sidekiq.container \
+		etc/containers/systemd/dawarich.network \
+		etc/containers/systemd/dawarich.pod
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \

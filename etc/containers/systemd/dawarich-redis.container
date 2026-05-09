@@ -1,0 +1,30 @@
+[Unit]
+Description=Dawarich Redis
+RequiresMountsFor=/var/lib/dawarich
+
+[Container]
+Image=docker.io/library/redis:7.4-alpine
+Label='wud.tag.include=^\\d+-\\d+-alpine$$'
+Label='wud.link.template=https://hub.docker.com/r/library/redis'
+Label='wud.watch=true'
+
+Label='glance.name=Redis'
+Label='glance.hide=false'
+Label='glance.parent=dawarich'
+
+Pod=dawarich.pod
+
+EnvironmentFile=/var/lib/dawarich/dawarich-postgres.env
+
+Volume=/var/lib/dawarich/shared:/data:idmap
+
+Exec=redis-server --save 900 1 --save 300 10 --appendonly no
+
+HealthCmd=redis-cli --raw incr ping
+Notify=healthy
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

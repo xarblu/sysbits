@@ -1,0 +1,39 @@
+[Unit]
+Description=Dawarich App
+After=dawarich-database.service dawarich-redis.service
+Requires=dawarich-database.service dawarich-redis.service
+RequiresMountsFor=/var/lib/dawarich
+
+[Container]
+Image=docker.io/freikin/dawarich:1.7.5
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/Freika/dawarich/releases/tag/$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Dawarich'
+Label='glance.icon=/assets/services/dawarich.svg'
+Label='glance.url=https://dawarich.gaydragon.zone/'
+Label='glance.description=Your favorite self-hostable alternative to Google Timeline'
+Label='glance.hide=false'
+Label='glance.id=dawarich'
+
+Pod=dawarich.pod
+
+EnvironmentFile=/var/lib/dawarich/dawarich.env
+
+Volume=/var/lib/dawarich/app/public:/var/app/public:idmap
+Volume=/var/lib/dawarich/app/watched:/var/app/tmp/imports/watched:idmap
+Volume=/var/lib/dawarich/app/storage:/var/app/storage:idmap
+Volume=/var/lib/dawarich/database:/dawarich_db_data:idmap
+
+Entrypoint=web-entrypoint.sh
+Exec=bin/rails server -p 3000 -b ::
+
+HealthCmd=wget -qO - http://127.0.0.1:3000/api/v1/health | grep -q '"status"\s*:\s*"ok"'
+Notify=healthy
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
