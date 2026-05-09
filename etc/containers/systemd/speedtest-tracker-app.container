@@ -1,0 +1,38 @@
+[Unit]
+Description=Speedtest Tracker App
+RequiresMountsFor=/var/lib/speedtest-tracker
+
+[Container]
+Image=ghcr.io/linuxserver/speedtest-tracker:v1.14.0-ls148
+Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+-ls\\d+$$'
+Label='wud.link.template=https://github.com/alexjustesen/speedtest-tracker/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Speedtest Tracker'
+Label='glance.icon=/assets/services/speedtest-tracker.png'
+Label='glance.url=https://speedtest-tracker.gaydragon.zone/'
+Label='glance.description=Speedtest Trends'
+Label='glance.hide=false'
+Label='glance.id=speedtest-tracker'
+
+Pod=speedtest-tracker.pod
+
+# for ICMP ping
+AddCapability=NET_RAW
+
+# linuxserver.io images do init with root
+# processes then use PUID/PGUID
+Environment=PUID=1000
+Environment=PGID=1000
+
+EnvironmentFile=/var/lib/speedtest-tracker/speedtest-tracker.env
+
+Volume=/var/lib/speedtest-tracker/data:/config:idmap
+
+HealthCmd=curl -fSs $APP_URL/api/healthcheck | jq -re 'if (.message == "Speedtest Tracker is running!") then .message else null end'
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

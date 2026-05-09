@@ -1,0 +1,15 @@
+[Unit]
+Description=Speedtest Tracker Pod
+
+[Pod]
+UserNS=auto
+
+Network=speedtest-tracker.network
+
+PublishPort=127.0.0.1:9001:80/tcp
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

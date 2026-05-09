@@ -1,0 +1,27 @@
+[Unit]
+Description=Speedtest Tracker Apprise
+RequiresMountsFor=/var/lib/speedtest-tracker
+
+[Container]
+Image=ghcr.io/caronc/apprise:v1.4.1
+Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/caronc/apprise-api/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Apprise'
+Label='glance.hide=false'
+Label='glance.parent=speedtest-tracker'
+
+Pod=speedtest-tracker.pod
+
+EnvironmentFile=/var/lib/speedtest-tracker/apprise.env
+
+Volume=/var/lib/speedtest-tracker/apprise-attach:/attach:idmap
+Volume=/var/lib/speedtest-tracker/apprise-config:/config:idmap
+Volume=/var/lib/speedtest-tracker/apprise-plugin:/plugin:idmap
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

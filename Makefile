@@ -64,7 +64,11 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/scrutiny-influxdb.container \
 		etc/containers/systemd/scrutiny-web.container \
 		etc/containers/systemd/scrutiny.network \
-		etc/containers/systemd/scrutiny.pod
+		etc/containers/systemd/scrutiny.pod \
+		etc/containers/systemd/speedtest-tracker-app.container \
+		etc/containers/systemd/speedtest-tracker-apprise.container \
+		etc/containers/systemd/speedtest-tracker.network \
+		etc/containers/systemd/speedtest-tracker.pod
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \
