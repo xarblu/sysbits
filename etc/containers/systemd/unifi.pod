@@ -1,0 +1,40 @@
+[Unit]
+Description=UniFi Pod
+
+[Pod]
+UserNS=auto
+
+Network=unifi.network
+
+# Admin Web UI
+PublishPort=127.0.0.1:8443:8443
+
+# Unifi STUN port
+PublishPort=3478:3478/udp
+
+# Required for AP discovery
+PublishPort=10001:10001/udp
+
+# Required for device communication
+PublishPort=8080:8080
+
+# Required for Make controller discoverable on L2 network option
+#PublishPort=1900:1900/udp
+
+# Unifi guest portal HTTPS redirect port
+#PublishPort=8843:8843
+
+# Unifi guest portal HTTP redirect port
+#PublishPort=8880:8880
+
+# For mobile throughput test
+PublishPort=6789:6789
+
+# Remote syslog port
+#PublishPort=5514:5514/udp
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

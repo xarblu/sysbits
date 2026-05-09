@@ -76,7 +76,11 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/tubearchivist-elasticsearch.container \
 		etc/containers/systemd/tubearchivist-redis.container \
 		etc/containers/systemd/tubearchivist.network \
-		etc/containers/systemd/tubearchivist.pod
+		etc/containers/systemd/tubearchivist.pod \
+		etc/containers/systemd/unifi-app.container \
+		etc/containers/systemd/unifi-database.container \
+		etc/containers/systemd/unifi.network \
+		etc/containers/systemd/unifi.pod
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \

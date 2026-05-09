@@ -1,0 +1,34 @@
+[Unit]
+Description=UniFi Network MongoDB
+RequiresMountsFor=/var/lib/unifi-container
+
+[Container]
+Image=docker.io/library/mongo:8.2.7
+
+Label='wud.tag.include=^8\\.\\d+\\.\\d+$$'
+#Label='wud.link.template='
+Label='wud.watch=true'
+
+Label='glance.name=Database'
+Label='glance.hide=false'
+Label='glance.parent=unifi'
+
+Pod=unifi.pod
+
+EnvironmentFile=/var/lib/unifi-container/unifi-database.env
+
+# mongo's tcmalloc usually wants this for performance
+# but seems to be fucked on kernel 6.19+
+Environment=GLIBC_TUNABLES=glibc.pthread.rseq=1
+
+Volume=/var/lib/unifi-container/database-data:/data/db:idmap
+Volume=/var/lib/unifi-container/database-config:/data/configdb:idmap
+Volume=/var/lib/unifi-container/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh:ro
+
+Exec=--wiredTigerCacheSizeGB 0.25
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

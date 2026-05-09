@@ -1,0 +1,31 @@
+[Unit]
+Description=UniFi Network Application
+After=unifi-database.service
+Requires=unifi-database.service
+RequiresMountsFor=/var/lib/unifi-container
+
+[Container]
+Image=quay.io/linuxserver.io/unifi-network-application:10.3.58-ls128
+
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-ls\\d+$$'
+Label='wud.link.template=https://community.ui.com/releases/r/network/$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=UniFi'
+Label='glance.icon=/assets/services/unifi.svg'
+Label='glance.url=https://unifi.gaydragon.zone/'
+Label='glance.description=UniFi Network Application'
+Label='glance.hide=false'
+Label='glance.id=unifi'
+
+Pod=unifi.pod
+
+EnvironmentFile=/var/lib/unifi-container/unifi-app.env
+
+Volume=/var/lib/unifi-container/app-data:/config:idmap
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
