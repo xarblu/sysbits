@@ -1,0 +1,39 @@
+[Unit]
+Description=Jellyfin Media Server
+RequiresMountsFor=/var/lib/jellyfin /var/media /var/lib/tubearchivist
+
+[Container]
+Image=docker.io/jellyfin/jellyfin:10.11.8
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+(-rc\\d+)?$$'
+Label='wud.link.template=https://github.com/jellyfin/jellyfin/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Jellyfin'
+Label='glance.icon=/assets/services/jellyfin.svg'
+Label='glance.url=https://jellyfin.gaydragon.zone/'
+Label='glance.description=The Free Software Media System'
+Label='glance.hide=false'
+Label='glance.id=jellyfin'
+
+UserNS=auto
+
+Network=jellyfin.network
+
+# HTTP
+PublishPort=127.0.0.1:8096:8096/tcp
+
+Environment=JELLYFIN_PublishedServerUrl=https://jellyfin.gaydragon.zone
+
+Volume=/var/lib/jellyfin/config:/config:idmap
+Volume=/var/lib/jellyfin/cache:/cache:idmap
+Volume=/var/media:/media:ro
+Volume=/var/lib/tubearchivist/app-media:/tubearchivist:ro
+
+AddDevice=/dev/dri/:/dev/dri/
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

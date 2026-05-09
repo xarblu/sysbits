@@ -47,7 +47,9 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/immich-server.container \
 		etc/containers/systemd/immich-valkey.container \
 		etc/containers/systemd/immich.network \
-		etc/containers/systemd/immich.pod
+		etc/containers/systemd/immich.pod \
+		etc/containers/systemd/jellyfin.container \
+		etc/containers/systemd/jellyfin.network
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \
