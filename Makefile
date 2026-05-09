@@ -88,6 +88,7 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/whatsupdocker.network \
 		etc/containers/systemd/whatsupdocker.pod \
 		etc/containers/systemd/nextcloud-database.container \
+		etc/containers/systemd/nextcloud.network \
 		etc/containers/systemd/nextcloud.pod
 endif
 
