@@ -1,0 +1,36 @@
+[Unit]
+Description=Navidrome Music Server
+RequiresMountsFor=/var/lib/navidrome /var/media
+
+[Container]
+Image=ghcr.io/navidrome/navidrome:0.61.2
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/navidrome/navidrome/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Navidrome'
+Label='glance.icon=/assets/services/navidrome.svg'
+Label='glance.url=https://navidrome.gaydragon.zone/'
+Label='glance.description=Navidrome Music Server'
+Label='glance.hide=false'
+Label='glance.id=navidrome'
+
+Network=navidrome.network
+
+UserNS=auto
+
+User=1000
+Group=1000
+
+# HTTP
+PublishPort=127.0.0.1:9021:4533/tcp
+
+Volume=/var/lib/navidrome/data:/data:idmap
+Volume=/var/media/music:/music:ro
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

@@ -53,7 +53,9 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/mailserver.container \
 		etc/containers/systemd/mailserver.network \
 		etc/containers/systemd/maptile-cache.container \
-		etc/containers/systemd/maptile-cache.network
+		etc/containers/systemd/maptile-cache.network \
+		etc/containers/systemd/navidrome.container \
+		etc/containers/systemd/navidrome.network
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \
