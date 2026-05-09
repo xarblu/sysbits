@@ -1,0 +1,32 @@
+[Unit]
+Description=PeaNUT
+After=nut.target
+RequiresMountsFor=/var/lib/peanut
+
+[Container]
+Image=docker.io/brandawg93/peanut:5.22.0
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/Brandawg93/PeaNUT/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=PeaNUT'
+Label='glance.icon=/assets/services/peanut.svg'
+Label='glance.url=https://peanut.gaydragon.zone/'
+Label='glance.description=Tiny Dashboard for Network UPS Tools'
+Label='glance.hide=false'
+Label='glance.id=peanut'
+
+UserNS=auto
+
+Network=peanut.network
+PublishPort=127.0.0.1:9009:8080
+
+Volume=/var/lib/peanut/config:/config:idmap
+
+HealthCmd=["node", "--eval", "'try {await (await fetch(\"http://127.0.0.1:8080/api/v1/version\")).json(); process.exit(0);} catch (_) {process.exit(1);}'"]
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

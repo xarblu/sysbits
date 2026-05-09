@@ -57,7 +57,9 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/navidrome.container \
 		etc/containers/systemd/navidrome.network \
 		etc/containers/systemd/ntfy.container \
-		etc/containers/systemd/ntfy.network
+		etc/containers/systemd/ntfy.network \
+		etc/containers/systemd/peanut.container \
+		etc/containers/systemd/peanut.network
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \
