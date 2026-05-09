@@ -1,0 +1,39 @@
+[Unit]
+Description=NTFY notification server
+RequiresMountsFor=/var/lib/ntfy
+
+[Container]
+Image=docker.io/binwiederhier/ntfy:v2.22.0
+Label='wud.tag.include=^v\\d+.\\d+.\\d+$$'
+Label='wud.link.template=https://github.com/binwiederhier/ntfy/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=NTFY'
+Label='glance.icon=/assets/services/ntfy.svg'
+Label='glance.url=https://ntfy.gaydragon.zone/'
+Label='glance.description=Notification Provider'
+Label='glance.hide=false'
+Label='glance.id=ntfy'
+
+Network=ntfy.network
+AddCapability=CAP_NET_BIND_SERVICE
+
+UserNS=auto
+
+# HTTP
+PublishPort=127.0.0.1:9007:80/tcp
+
+Volume=/var/lib/ntfy/config:/etc/ntfy:idmap
+Volume=/var/lib/ntfy/data:/var/lib/ntfy:idmap
+Volume=/var/lib/ntfy/cache:/var/cache/ntfy:idmap
+
+Exec=serve
+
+HealthCmd=wget -q --tries=1 http://localhost:80/v1/health -O - | grep -Eo '"healthy"\s*:\s*true' || exit 1
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
