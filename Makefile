@@ -32,7 +32,11 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/dawarich-redis.container \
 		etc/containers/systemd/dawarich-sidekiq.container \
 		etc/containers/systemd/dawarich.network \
-		etc/containers/systemd/dawarich.pod
+		etc/containers/systemd/dawarich.pod \
+		etc/containers/systemd/glance-app.container \
+		etc/containers/systemd/glance-podman-socket-proxy.container \
+		etc/containers/systemd/glance.network \
+		etc/containers/systemd/glance.pod
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \

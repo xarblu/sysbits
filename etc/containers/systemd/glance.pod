@@ -1,0 +1,16 @@
+[Unit]
+Description=Glance Pod
+
+[Pod]
+UserNS=auto
+
+Network=glance.network
+
+# HTTP
+PublishPort=127.0.0.1:9015:8080/tcp
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

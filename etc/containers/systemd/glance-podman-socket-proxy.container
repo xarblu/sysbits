@@ -1,0 +1,29 @@
+[Unit]
+Description=Podman Socket Proxy for Glance
+After=podman.socket
+Requires=podman.socket
+
+[Container]
+Image=ghcr.io/tecnativa/docker-socket-proxy:0.3.0
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/Tecnativa/docker-socket-proxy/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Podman Socket Proxy'
+Label='glance.hide=false'
+Label='glance.parent=glance'
+
+Pod=glance.pod
+
+Volume=/var/run/podman/podman.sock:/var/run/docker.sock:ro
+
+Environment=CONTAINERS=1
+Environment=SERVICES=1
+Environment=TASKS=1
+Environment=POST=0
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
