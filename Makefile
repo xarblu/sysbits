@@ -59,7 +59,12 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/ntfy.container \
 		etc/containers/systemd/ntfy.network \
 		etc/containers/systemd/peanut.container \
-		etc/containers/systemd/peanut.network
+		etc/containers/systemd/peanut.network \
+		etc/containers/systemd/scrutiny-collector.container \
+		etc/containers/systemd/scrutiny-influxdb.container \
+		etc/containers/systemd/scrutiny-web.container \
+		etc/containers/systemd/scrutiny.network \
+		etc/containers/systemd/scrutiny.pod
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \

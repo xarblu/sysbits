@@ -1,0 +1,16 @@
+[Unit]
+Description=Scrutiny Pod
+
+[Pod]
+UserNS=auto
+
+Network=scrutiny.network
+
+# Web HTTP
+PublishPort=127.0.0.1:9000:8080
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

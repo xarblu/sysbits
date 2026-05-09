@@ -1,0 +1,27 @@
+[Unit]
+Description=Scrutiny InfluxDB
+RequiresMountsFor=/var/lib/scrutiny
+
+[Container]
+Image=docker.io/influxdb:2.8.0-alpine
+Label='wud.tag.include=^2\\.\\d+\\.\\d+-alpine$$'
+Label='wud.watch=true'
+
+Label='glance.name=Database'
+Label='glance.hide=false'
+Label='glance.parent=scrutiny'
+
+Pod=scrutiny.pod
+
+# influxdb user
+User=1000
+
+Volume=/var/lib/scrutiny/influxdb:/var/lib/influxdb2:idmap
+
+HealthCmd=curl -f http://[::1]:8086/health
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

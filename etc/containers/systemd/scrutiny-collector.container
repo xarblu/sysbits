@@ -1,0 +1,51 @@
+[Unit]
+Description=Scrutiny Collector
+After=scrutiny-web.service
+Wants=scrutiny-web.service
+
+[Container]
+Image=ghcr.io/analogj/scrutiny:v0.9.2-collector
+Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+-collector$$'
+Label='wud.link.template=https://github.com/AnalogJ/scrutiny/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Collector'
+Label='glance.hide=false'
+Label='glance.parent=scrutiny'
+
+# can't be in pod because pod we need
+# to be rootful for smartctl
+Network=scrutiny.network
+
+# needed for smartctl
+AddCapability=CAP_SYS_RAWIO
+AddCapability=CAP_SYS_ADMIN
+
+Volume=/run/udev:/run/udev:ro
+
+# devices to monitor
+AddDevice=-/dev/sda
+AddDevice=-/dev/sdb
+AddDevice=-/dev/sdc
+AddDevice=-/dev/sdd
+AddDevice=-/dev/sde
+AddDevice=-/dev/sdf
+AddDevice=-/dev/sdg
+AddDevice=-/dev/sdh
+AddDevice=-/dev/sdi
+AddDevice=-/dev/sdj
+AddDevice=-/dev/sdk
+AddDevice=-/dev/sdl
+AddDevice=-/dev/nvme0
+AddDevice=-/dev/nvme1
+AddDevice=-/dev/nvme2
+
+Environment=COLLECTOR_API_ENDPOINT=http://systemd-scrutiny:8080
+Environment=COLLECTOR_HOST_ID=scrutiny-collector
+Environment=COLLECTOR_RUN_STARTUP=true
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
