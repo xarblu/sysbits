@@ -13,6 +13,19 @@ BINPKG_CLIENT_LLVM ?= no
 BINPKG_BUILD_HOST ?= no
 
 install: $(PATCHES)
+ifeq ($(SERVER),yes)
+	install -Dm644 -t $(DESTDIR)/etc/containers \
+		etc/containers/containers.conf
+
+	install -Dm644 -t $(DESTDIR)/etc/containers/systemd \
+		etc/containers/systemd/authentik-ldap-outpost.container \
+		etc/containers/systemd/authentik-postgresql.container \
+		etc/containers/systemd/authentik-server.container \
+		etc/containers/systemd/authentik-worker.container \
+		etc/containers/systemd/authentik.network \
+		etc/containers/systemd/authentik.pod
+endif
+
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \
 		etc/dracut.conf.d/00-defaults.conf \
 		etc/dracut.conf.d/10-compress.conf
