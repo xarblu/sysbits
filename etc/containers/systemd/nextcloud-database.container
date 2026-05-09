@@ -18,6 +18,9 @@ EnvironmentFile=/var/lib/nextcloud-container/database.env
 
 Volume=/var/lib/nextcloud-container/database:/var/lib/postgresql:idmap
 
+HealthCmd=pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}
+Notify=healthy
+
 [Service]
 Restart=on-failure
 

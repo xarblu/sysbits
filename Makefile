@@ -56,6 +56,11 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/maptile-cache.network \
 		etc/containers/systemd/navidrome.container \
 		etc/containers/systemd/navidrome.network \
+		etc/containers/systemd/nextcloud-database.container \
+		etc/containers/systemd/nextcloud-server.container \
+		etc/containers/systemd/nextcloud-valkey.container \
+		etc/containers/systemd/nextcloud.network \
+		etc/containers/systemd/nextcloud.pod \
 		etc/containers/systemd/ntfy.container \
 		etc/containers/systemd/ntfy.network \
 		etc/containers/systemd/peanut.container \
@@ -86,10 +91,7 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/whatsupdocker-app.container \
 		etc/containers/systemd/whatsupdocker-podman-socket-proxy.container \
 		etc/containers/systemd/whatsupdocker.network \
-		etc/containers/systemd/whatsupdocker.pod \
-		etc/containers/systemd/nextcloud-database.container \
-		etc/containers/systemd/nextcloud.network \
-		etc/containers/systemd/nextcloud.pod
+		etc/containers/systemd/whatsupdocker.pod
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \

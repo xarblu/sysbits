@@ -1,0 +1,32 @@
+[Unit]
+Description=Nextcloud Server
+After=nextcloud-valkey.service nextcloud-database.service
+Requires=nextcloud-valkey.service nextcloud-database.service
+RequiresMountsFor=/var/lib/nextcloud-container
+
+[Container]
+Image=docker.io/library/nextcloud:33.0.3-apache
+
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-apache$$'
+Label='wud.link.template=https://nextcloud.com/changelog/#$${major}-$${minor}-$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Nextcloud'
+Label='glance.icon=/assets/services/nextcloud.svg'
+Label='glance.url=https://nextcloud.gaydragon.zone/'
+Label='glance.description=Personal cloud'
+Label='glance.hide=false'
+Label='glance.id=nextcloud'
+
+Pod=nextcloud.pod
+
+EnvironmentFile=/var/lib/nextcloud-container/server.env
+
+Volume=/var/lib/nextcloud-container/server-data:/var/www/html:idmap
+Volume=/etc/localtime:/etc/localtime:ro
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
