@@ -1,5 +1,6 @@
 [Unit]
 Description=Maptile Cache
+RequiresMountsFor=/var/lib/maptile-cache
 
 [Container]
 Image=docker.io/library/nginx:1.30.0
