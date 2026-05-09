@@ -1,0 +1,18 @@
+[Unit]
+Description=Grafana Stack Pod
+
+[Pod]
+# extra ids from end of /etc/sub{u,g}id range
+# prometheus has uid 65534 for some reason
+UserNS=auto:uidmapping=65534:231000,gidmapping=65534:231000
+
+Network=grafana.network
+
+# Grafana HTTP
+PublishPort=127.0.0.1:9013:3000/tcp
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

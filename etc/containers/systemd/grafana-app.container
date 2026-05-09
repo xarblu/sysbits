@@ -1,0 +1,28 @@
+[Unit]
+Description=Grafana Main App
+RequiresMountsFor=/var/lib/grafana
+
+[Container]
+Image=docker.io/grafana/grafana-oss:13.0.1
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/grafana/grafana/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Grafana'
+Label='glance.icon=/assets/services/grafana.svg'
+Label='glance.url=https://grafana.gaydragon.zone/'
+Label='glance.description=Open source analytics & monitoring solution for every database'
+Label='glance.hide=false'
+Label='glance.id=grafana'
+
+Pod=grafana.pod
+
+EnvironmentFile=/var/lib/grafana/grafana-app.env
+
+Volume=/var/lib/grafana/data:/var/lib/grafana:idmap
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

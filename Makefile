@@ -36,7 +36,11 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/glance-app.container \
 		etc/containers/systemd/glance-podman-socket-proxy.container \
 		etc/containers/systemd/glance.network \
-		etc/containers/systemd/glance.pod
+		etc/containers/systemd/glance.pod \
+		etc/containers/systemd/grafana-app.container \
+		etc/containers/systemd/grafana-prometheus.container \
+		etc/containers/systemd/grafana.network \
+		etc/containers/systemd/grafana.pod
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \
