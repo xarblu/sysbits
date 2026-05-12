@@ -56,4 +56,5 @@ sys-apps/dool ~amd64
 sys-apps/kmscon ~amd64
 sys-apps/tuned ~amd64
 sys-auth/google-authenticator ~amd64
+sys-fs/nasty-top ~amd64
 x11-themes/catppuccin-btop ~amd64
