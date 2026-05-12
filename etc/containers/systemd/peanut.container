@@ -21,6 +21,10 @@ UserNS=auto
 Network=peanut.network
 PublishPort=127.0.0.1:9009:8080
 
+# workaround bug in 6.0.0 not persisting these
+Environment=SETTINGS_FILE=/config/settings.yml
+Environment=AUTH_FILE_PATH=/config/auth.yaml
+
 Volume=/var/lib/peanut/config:/config:idmap
 
 HealthCmd=["node", "--eval", "'try {await (await fetch(\"http://127.0.0.1:8080/api/v1/version\")).json(); process.exit(0);} catch (_) {process.exit(1);}'"]
