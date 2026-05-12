@@ -3,7 +3,7 @@ Description=Syncthing Server
 RequiresMountsFor=/var/lib/syncthing
 
 [Container]
-Image=ghcr.io/syncthing/syncthing:2.0.16
+Image=ghcr.io/syncthing/syncthing:2.1.0
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/syncthing/syncthing/releases/tag/v$${major}.$${minor}.$${patch}'
