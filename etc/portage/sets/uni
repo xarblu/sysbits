@@ -5,4 +5,5 @@ net-misc/studip
 dev-python/jupyter
 dev-python/matplotlib
 dev-python/numpy
+dev-python/scikit-image
 dev-python/scipy
