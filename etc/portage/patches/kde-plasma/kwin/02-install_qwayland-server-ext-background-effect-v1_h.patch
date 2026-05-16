@@ -1,0 +1,25 @@
+From 673c81958a98d8da742f71df6ffc3777a892c03b Mon Sep 17 00:00:00 2001
+From: Jonas Rakebrandt <xarblu@protonmail.com>
+Date: Sat, 16 May 2026 02:24:08 +0200
+Subject: [PATCH] wayland: install qwayland-server-ext-background-effect-v1.h
+
+Signed-off-by: Jonas Rakebrandt <xarblu@protonmail.com>
+---
+ src/wayland/CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/wayland/CMakeLists.txt b/src/wayland/CMakeLists.txt
+index c2c720387a..7eefb225b2 100644
+--- a/src/wayland/CMakeLists.txt
++++ b/src/wayland/CMakeLists.txt
+@@ -263,6 +263,7 @@ install(FILES
+     ${CMAKE_CURRENT_BINARY_DIR}/qwayland-server-color-management-v1.h
+     ${CMAKE_CURRENT_BINARY_DIR}/qwayland-server-color-representation-v1.h
+     ${CMAKE_CURRENT_BINARY_DIR}/qwayland-server-content-type-v1.h
++    ${CMAKE_CURRENT_BINARY_DIR}/qwayland-server-ext-background-effect-v1.h
+     ${CMAKE_CURRENT_BINARY_DIR}/qwayland-server-fifo-v1.h
+     ${CMAKE_CURRENT_BINARY_DIR}/qwayland-server-kde-external-brightness-v1.h
+     ${CMAKE_CURRENT_BINARY_DIR}/qwayland-server-linux-drm-syncobj-v1.h
+-- 
+2.54.0
+
