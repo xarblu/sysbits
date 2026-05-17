@@ -3,7 +3,7 @@ Description=Nextcloud PostgreSQL
 RequiresMountsFor=/var/lib/nextcloud-container
 
 [Container]
-Image=docker.io/library/postgres:18.3
+Image=docker.io/library/postgres:18.4
 
 Label='wud.tag.include=^18\\.\\d+$$'
 Label='wud.watch=true'
