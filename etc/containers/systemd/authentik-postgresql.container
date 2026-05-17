@@ -3,7 +3,7 @@ Description=Authentik PostgreSQL
 RequiresMountsFor=/var/lib/authentik
 
 [Container]
-Image=docker.io/library/postgres:17.9-alpine3.23
+Image=docker.io/library/postgres:17.10-alpine3.23
 Label='wud.tag.include=^17\\.\\d+-alpine\\d+\\.\\d+$$'
 Label='wud.watch=true'
 
