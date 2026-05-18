@@ -78,7 +78,7 @@ media-libs/libheif x265
 media-libs/libpng apng
 media-libs/libvpx postproc
 media-libs/mesa zink osmesa
-media-libs/opencv features2d
+media-libs/opencv features2d python
 media-libs/phonon minimal
 media-libs/vigra openexr
 media-plugins/gst-plugins-meta http taglib
