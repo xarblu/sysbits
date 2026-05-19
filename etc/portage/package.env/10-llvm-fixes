@@ -32,8 +32,6 @@ dev-debug/systemtap gcc
 #[END] Compile issues (general clang)
 
 #[START] Compile issues (latest clang)
-# needs to match LLVM_SLOT
-sys-kernel/scx clang-21
 # use of undeclared identifier '__builtin_ia32_vcvtph2ps256'
 dev-games/aseprite clang-21
 #[END] Compile issues (latest clang)
