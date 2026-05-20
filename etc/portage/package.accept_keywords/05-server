@@ -52,6 +52,7 @@ dev-java/openjdk-bin ~amd64
 dev-python/pipx ~amd64
 dev-python/python-linux-procfs ~amd64
 dev-python/userpath ~amd64
+net-proxy/traccar-owntracks-proxy ~amd64
 sys-apps/dool ~amd64
 sys-apps/kmscon ~amd64
 sys-apps/tuned ~amd64
