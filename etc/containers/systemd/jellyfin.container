@@ -3,7 +3,7 @@ Description=Jellyfin Media Server
 RequiresMountsFor=/var/lib/jellyfin /var/media /var/lib/tubearchivist
 
 [Container]
-Image=docker.io/jellyfin/jellyfin:10.11.8
+Image=docker.io/jellyfin/jellyfin:10.11.9
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+(-rc\\d+)?$$'
 Label='wud.link.template=https://github.com/jellyfin/jellyfin/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
