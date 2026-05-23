@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 55adf9f..dcf388b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -643,7 +643,6 @@ elseif (${PLATFORM} STREQUAL linux) # linux
+     if ("${CMAKE_BUILD_TYPE}" STREQUAL "release" OR
+         "${CMAKE_BUILD_TYPE}" STREQUAL "release-internal" OR
+         "${CMAKE_BUILD_TYPE}" STREQUAL "releaseinternal")
+-        add_definitions (-Werror)                 # treats warning as errors
+         add_definitions (-flto)                   # enables Link-Time Optimization (LTO)
+         add_definitions (-fvisibility=hidden)     # hide non-exported symbols
+         add_definitions (-Werror=format-security) # treats format string security warnings as errors
