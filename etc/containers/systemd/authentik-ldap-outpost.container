@@ -5,7 +5,7 @@ Requires=authentik-server.service
 RequiresMountsFor=/var/lib/authentik
 
 [Container]
-Image=ghcr.io/goauthentik/ldap:2026.5.0
+Image=ghcr.io/goauthentik/ldap:2026.2.3
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/goauthentik/authentik/releases/tag/version%%2F$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
