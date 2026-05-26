@@ -4,9 +4,10 @@ media-fonts/ibm-plex::gentoo
 # I don't like the mangohud from ::guru, has weird issues
 games-util/mangohud::guru
 
-# I want my version which includes cachyos-kernel
+# I want my versions which includes cachyos-kernel
 # as an alternative
 virtual/dist-kernel::gentoo
+virtual/linux-sources::gentoo
 
 # just in case ::gentoo catches up to my own version
 # (usually it lags behind quite a bit)
