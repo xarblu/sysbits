@@ -5,7 +5,7 @@ Requires=dawarich-database.service dawarich-redis.service
 RequiresMountsFor=/var/lib/dawarich
 
 [Container]
-Image=docker.io/freikin/dawarich:1.7.9
+Image=docker.io/freikin/dawarich:1.7.10
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/Freika/dawarich/releases/tag/$${major}.$${minor}.$${patch}'
