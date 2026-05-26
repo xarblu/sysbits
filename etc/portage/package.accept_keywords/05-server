@@ -42,6 +42,7 @@ sys-kernel/gentoo-kernel-bin ~amd64
 sys-kernel/linux-firmware ~amd64
 sys-kernel/linux-headers ~amd64
 virtual/dist-kernel ~amd64
+virtual/linux-sources ~amd64
 
 # other/unsorted
 app-misc/e6sync ~amd64
