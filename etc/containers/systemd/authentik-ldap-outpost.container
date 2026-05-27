@@ -14,7 +14,10 @@ Label='glance.name=LDAP Outpost'
 Label='glance.hide=false'
 Label='glance.parent=authentik'
 
-Pod=authentik.pod
+Network=authentik.network
+
+PublishPort=389:3389
+PublishPort=636:6636
 
 EnvironmentFile=/var/lib/authentik/ldap-outpost.env
 

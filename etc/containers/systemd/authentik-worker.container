@@ -14,7 +14,7 @@ Label='glance.name=Worker'
 Label='glance.hide=false'
 Label='glance.parent=authentik'
 
-Pod=authentik.pod
+Network=authentik.network
 
 EnvironmentFile=/var/lib/authentik/authentik.env
 EnvironmentFile=/var/lib/authentik/authentik-server+worker.env

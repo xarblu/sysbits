@@ -17,7 +17,8 @@ Label='glance.description=SSO and Identity Provider'
 Label='glance.hide=false'
 Label='glance.id=authentik'
 
-Pod=authentik.pod
+Network=authentik.network
+PublishPort=127.0.0.1:9016:9000
 
 EnvironmentFile=/var/lib/authentik/authentik.env
 EnvironmentFile=/var/lib/authentik/authentik-server+worker.env
