@@ -23,7 +23,6 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/authentik-server.container \
 		etc/containers/systemd/authentik-worker.container \
 		etc/containers/systemd/authentik.network \
-		etc/containers/systemd/authentik.pod \
 		etc/containers/systemd/crafty.container \
 		etc/containers/systemd/crafty.network \
 		etc/containers/systemd/dawarich-app.container \
