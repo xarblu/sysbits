@@ -3,7 +3,7 @@ Description=Scrutiny InfluxDB
 RequiresMountsFor=/var/lib/scrutiny
 
 [Container]
-Image=docker.io/influxdb:2.8.0-alpine
+Image=docker.io/influxdb:2.9.1-alpine
 Label='wud.tag.include=^2\\.\\d+\\.\\d+-alpine$$'
 Label='wud.watch=true'
 
