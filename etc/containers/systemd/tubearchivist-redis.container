@@ -4,7 +4,7 @@ After=tubearchivist-elasticsearch.service
 RequiresMountsFor=/var/lib/tubearchivist
 
 [Container]
-Image=docker.io/library/redis:8.6.3-alpine3.23
+Image=docker.io/library/redis:8.8.0-alpine3.23
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-alpine\\d+.\\d+$$'
 Label='wud.watch=true'
