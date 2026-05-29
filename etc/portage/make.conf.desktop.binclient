@@ -73,6 +73,7 @@ LC_MESSAGES="C"
 
 # Gentoo mirrors and fetchcommand
 NETRC_FILE="/etc/portage/.netrc"
-FETCHCOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --compressed --fail --retry 3 --location \${URI} -o \${DISTDIR}/\${FILE}"
-RESUMECOMMAND="curl --netrc-file ${NETRC_FILE} --http3 --compressed --fail --retry 3 --location --continue-at - \${URI} -o \${DISTDIR}/\${FILE}"
+USER_AGENT="Portage (Gentoo, https://www.gentoo.org) distfile-fetch"
+FETCHCOMMAND="curl --netrc-file ${NETRC_FILE} --user-agent \"${USER_AGENT}\" --http3 --compressed --fail --retry 3 --location \${URI} -o \${DISTDIR}/\${FILE}"
+RESUMECOMMAND="${FETCHCOMMAND} --continue-at -"
 source /usr/share/sysbits/portage/gentoo_mirrors.list
