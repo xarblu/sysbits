@@ -11,6 +11,7 @@ kde-plasma/plasma-login-manager
 kde-plasma/spectacle
 
 ## Apps
+app-admin/bitwarden-desktop-bin
 kde-apps/ark
 kde-apps/gwenview
 kde-apps/kate
