@@ -3,7 +3,7 @@ Description=Grafana Main App
 RequiresMountsFor=/var/lib/grafana
 
 [Container]
-Image=docker.io/grafana/grafana-oss:13.0.1
+Image=docker.io/grafana/grafana-oss:13.0.2
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/grafana/grafana/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
