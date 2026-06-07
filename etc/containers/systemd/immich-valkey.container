@@ -3,7 +3,7 @@ Description=Immich Valkey
 RequiresMountsFor=/var/lib/immich
 
 [Container]
-Image=docker.io/valkey/valkey:8.1.7-alpine3.23
+Image=docker.io/valkey/valkey:8.1.8-alpine3.23
 Label='wud.tag.include=^8\\.\\d+\\.\\d+-alpine\\d+.\\d+$$'
 Label='wud.link.template=https://github.com/valkey-io/valkey/releases/tag/$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
