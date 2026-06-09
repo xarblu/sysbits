@@ -54,6 +54,7 @@ sys-apps/ripgrep
 app-editors/neovim
 dev-libs/tree-sitter-meta
 dev-python/pynvim
+dev-util/tree-sitter-cli
 
 ## Network
 dev-vcs/git

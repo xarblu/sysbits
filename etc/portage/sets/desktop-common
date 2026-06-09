@@ -39,7 +39,6 @@ dev-python/python-lsp-server
 dev-util/bash-language-server
 dev-util/lua-language-server
 dev-util/shellcheck
-dev-util/tree-sitter-cli
 dev-util/yaml-language-server
 
 ## Dev
