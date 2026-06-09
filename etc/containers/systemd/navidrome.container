@@ -3,7 +3,7 @@ Description=Navidrome Music Server
 RequiresMountsFor=/var/lib/navidrome /var/media
 
 [Container]
-Image=ghcr.io/navidrome/navidrome:0.61.2
+Image=ghcr.io/navidrome/navidrome:0.62.0
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/navidrome/navidrome/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
