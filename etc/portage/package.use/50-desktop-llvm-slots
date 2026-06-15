@@ -4,7 +4,7 @@
 
 # held back by intel-graphics-compiler
 # but that's the only consumer so whatever
-dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 16
+dev-libs/intel-vc-intrinsics LLVM_SLOT: -* 17
 
 # unstable slots
 >=dev-cpp/eigen-3.4.1 LLVM_SLOT: -* 22
