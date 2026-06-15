@@ -33,6 +33,7 @@ Volume=/var/lib/immich/helmet.json:/usr/src/app/server/helmet.json:ro
 AddDevice=/dev/dri:/dev/dri
 
 HealthCmd=bash ./server/bin/immich-healthcheck
+Notify=healthy
 
 [Service]
 Restart=on-failure

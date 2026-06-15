@@ -22,6 +22,9 @@ EnvironmentFile=/var/lib/immich/immich.env
 # look at PGDATA env var for the actual dir used
 Volume=/var/lib/immich/database:/var/lib/postgresql:idmap
 
+HealthCmd=pg_isready -U $${DB_USERNAME} -d $${DB_DATABASE_NAME}
+Notify=healthy
+
 [Service]
 Restart=on-failure
 

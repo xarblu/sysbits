@@ -30,6 +30,7 @@ AddDevice=/dev/dri:/dev/dri
 PodmanArgs=--device-cgroup-rule='c 189:* rmw'
 
 HealthCmd=python3 healthcheck.py
+Notify=healthy
 
 [Service]
 Restart=on-failure

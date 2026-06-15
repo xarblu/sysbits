@@ -19,6 +19,7 @@ EnvironmentFile=/var/lib/immich/immich.env
 Volume=/var/lib/immich/valkey-data:/data:idmap
 
 HealthCmd=valkey-cli ping | grep PONG
+Notify=healthy
 
 [Service]
 Restart=on-failure
