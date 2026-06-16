@@ -1,0 +1,11 @@
+--- a/deps/LIEF/third-party/spdlog/include/spdlog/fmt/bundled/format.h	2026-06-01 04:22:32.000000000 -0300
++++ b/deps/LIEF/third-party/spdlog/include/spdlog/fmt/bundled/format.h	2026-06-14 15:57:23.848401475 -0300
+@@ -39,6 +39,8 @@
+ #endif
+
+ #include "base.h"
++#include <cstdlib>	// Needed for malloc support
++			// when using clang compiler
+
+ #ifndef FMT_MODULE
+ #  include <cmath>    // std::signbit
