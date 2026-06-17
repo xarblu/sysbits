@@ -3,7 +3,7 @@ Description=Minecraft Server Manager
 RequiresMountsFor=/var/lib/crafty
 
 [Container]
-Image=docker.io/arcadiatechnology/crafty-4:4.10.4
+Image=docker.io/arcadiatechnology/crafty-4:4.10.7
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://gitlab.com/crafty-controller/crafty-4/-/releases/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
