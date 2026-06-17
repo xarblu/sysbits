@@ -4,7 +4,7 @@ RequiresMountsFor=/var/lib/immich
 
 [Container]
 Image=ghcr.io/immich-app/immich-machine-learning:v3.0.0-rc.1-openvino
-Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+(-rc.\\d+)?-openvino$$'
+Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+(-rc\\.\\d+)?-openvino$$'
 Label='wud.link.template=https://github.com/immich-app/immich/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
 
