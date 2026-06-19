@@ -3,7 +3,7 @@ Description=Maptile Cache
 RequiresMountsFor=/var/lib/maptile-cache
 
 [Container]
-Image=docker.io/library/nginx:1.31.1
+Image=docker.io/library/nginx:1.31.2
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.watch=true'
 
