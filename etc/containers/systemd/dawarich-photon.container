@@ -3,7 +3,7 @@ Description=Dawarich Photon
 RequiresMountsFor=/var/lib/dawarich
 
 [Container]
-Image=docker.io/rtuszik/photon-docker:2.2.0
+Image=docker.io/rtuszik/photon-docker:2.3.0
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/rtuszik/photon-docker/releases/tag/$${major}.$${minor}.$${patch}'
