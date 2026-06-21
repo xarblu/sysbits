@@ -3,7 +3,7 @@ Description=Home Assistant
 RequiresMountsFor=/var/lib/home-assistant
 
 [Container]
-Image=ghcr.io/home-assistant/home-assistant:2026.6.3
+Image=ghcr.io/home-assistant/home-assistant:2026.6.4
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/home-assistant/core/releases/tag/$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
