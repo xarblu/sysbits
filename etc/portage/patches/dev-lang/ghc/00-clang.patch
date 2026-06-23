@@ -1,13 +1,13 @@
 diff --git a/configure b/configure
-index e1b0fcb..ebdc631 100755
+index 784d831..71d3624 100755
 --- a/configure
 +++ b/configure
-@@ -8347,7 +8347,7 @@ EOT
+@@ -7641,7 +7641,7 @@ EOT
    if test $? -eq 0 ; then
      # We trim \n due of difference between Emscripten CC and clang.
      # Clang version preserves whitespace lines, but emcc removes.
 -    if test "$(cat ./conftest.pp.js | tr -d '\n')" = "// 1" ; then
-+    if :; then
-       { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
- printf "%s\n" "yes" >&6; }
++    if : ; then
+       { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+ $as_echo "yes" >&6; }
      else
