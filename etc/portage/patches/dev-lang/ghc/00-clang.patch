@@ -1,6 +1,6 @@
-diff --git a/configure.orig b/configure
+diff --git a/configure b/configure
 index e1b0fcb..ebdc631 100755
---- a/configure.orig
+--- a/configure
 +++ b/configure
 @@ -8347,7 +8347,7 @@ EOT
    if test $? -eq 0 ; then
