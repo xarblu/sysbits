@@ -1,13 +1,13 @@
-diff --git a/configure b/configure
-index 784d831..71d3624 100755
---- a/configure
-+++ b/configure
-@@ -7641,7 +7641,7 @@ EOT
+diff --git a/m4/fp_js_cpp_cmd_with_args.m4 b/m4/fp_js_cpp_cmd_with_args.m4
+index 3c2e55b..40e026a 100644
+--- a/m4/fp_js_cpp_cmd_with_args.m4
++++ b/m4/fp_js_cpp_cmd_with_args.m4
+@@ -69,7 +69,7 @@ EOT
    if test $? -eq 0 ; then
      # We trim \n due of difference between Emscripten CC and clang.
      # Clang version preserves whitespace lines, but emcc removes.
 -    if test "$(cat ./conftest.pp.js | tr -d '\n')" = "// 1" ; then
 +    if : ; then
-       { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
- $as_echo "yes" >&6; }
+       AC_MSG_RESULT([yes])
      else
+       AC_MSG_RESULT([no])
