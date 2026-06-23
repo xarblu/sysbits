@@ -104,6 +104,7 @@ media-video/ffmpeg
 
 # System tools/services
 app-admin/ananicy-cpp
+app-admin/haskell-updater
 sys-apps/flatpak
 sys-apps/kmscon
 sys-auth/rtkit
