@@ -21,5 +21,8 @@ gnustep-base/gnustep-base libdispatch
 gnustep-base/gnustep-make native-exceptions libobjc2
 gnustep-base/libobjc2 libdispatch
 
+# Haskell
+dev-lang/ghc ghcbootstrap
+
 # Other
 dev-util/ccache -static-c++
