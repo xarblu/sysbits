@@ -223,7 +223,8 @@ ifeq ($(BETAS),yes)
 		etc/portage/package.unmask/06-kde-gear \
 		etc/portage/package.unmask/06-kde-plasma \
 		etc/portage/package.unmask/07-mangohud \
-		etc/portage/package.unmask/08-glib
+		etc/portage/package.unmask/08-glib \
+		etc/portage/package.unmask/09-haskell
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \
