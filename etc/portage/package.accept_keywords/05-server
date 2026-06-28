@@ -37,6 +37,7 @@ app-containers/crun ~amd64
 app-containers/netavark ~amd64
 app-containers/podman ~amd64
 app-metrics/prometheus-podman-exporter ~amd64
+net-misc/passt ~amd64
 
 # Kernel
 sys-fs/bcachefs-tools ~amd64
