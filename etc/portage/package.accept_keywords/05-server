@@ -26,13 +26,17 @@ net-dns/inadyn ~amd64
 net-proxy/haproxy ~amd64
 # can be stabelized again after 3.5.1+ for haproxy quic
 dev-libs/openssl ~amd64
+net-firewall/nftables ~amd64
 
 # Podman
 app-containers/aardvark-dns ~amd64
+app-containers/catatonit ~amd64
+app-containers/conmon ~amd64
+app-containers/container-libs ~amd64
+app-containers/crun ~amd64
 app-containers/netavark ~amd64
 app-containers/podman ~amd64
 app-metrics/prometheus-podman-exporter ~amd64
-net-firewall/nftables ~amd64
 
 # Kernel
 sys-fs/bcachefs-tools ~amd64
