@@ -3,7 +3,7 @@ Description=NTFY notification server
 RequiresMountsFor=/var/lib/ntfy
 
 [Container]
-Image=docker.io/binwiederhier/ntfy:v2.24.0
+Image=docker.io/binwiederhier/ntfy:v2.25.0
 Label='wud.tag.include=^v\\d+.\\d+.\\d+$$'
 Label='wud.link.template=https://github.com/binwiederhier/ntfy/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
