@@ -3,8 +3,8 @@
 */* L10N: -* en-GB de
 */* LLVM_TARGETS: -* BPF
 */* PHP_TARGETS: -* php8-3
-*/* PYTHON_TARGETS: -* python3_13
-*/* PYTHON_SINGLE_TARGET: -* python3_13
+*/* PYTHON_TARGETS: -* python3_13 python3_14
+*/* PYTHON_SINGLE_TARGET: -* python3_14
 
 # Toolchain
 */* -debug -debuginfod
