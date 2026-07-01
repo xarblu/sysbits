@@ -270,6 +270,9 @@ ifeq ($(DESKTOP),yes)
 		etc/portage/profile/package.use.mask/features
 endif
 ifeq ($(BETAS),yes)
+	install -Dm644 -T etc/portage/profile/use.mask~betas \
+		$(DESTDIR)/etc/portage/profile/use.mask
+
 	install -Dm644 -t $(DESTDIR)/etc/portage/profile/package.use.mask \
 		etc/portage/profile/package.use.mask/llvm-slots
 endif
