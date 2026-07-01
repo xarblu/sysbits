@@ -6,3 +6,7 @@ kde-misc/kwin-effects-better-blur-dx **
 
 # curl RCs
 =net-misc/curl-*_rc* **
+
+# python betas/RCs
+=dev-lang/python-*_beta* **
+=dev-lang/python-*_rc* **
