@@ -43,6 +43,7 @@ BINPKG_COMPRESS="zstd"
 BINPKG_COMPRESS_FLAGS="-T0 -9"
 # client defaults
 EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --getbinpkg=y --binpkg-changed-deps=y --binpkg-respect-use=y --rebuilt-binaries=y"
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --usepkg-exclude app-misc/sysbits"
 # keep basic debug info
 # by default without -g*
 #   - still provides better stack trace
