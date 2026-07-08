@@ -1,5 +1,8 @@
 # override default python targets
 
+# dev-python/pyudev dep not py3.15 yet
+app-misc/solaar PYTHON_TARGETS: -python3_15
+
 # older PYTHON_SINGLE_TARGET
 # usediff python_single_target_python3_{12..13} PYTHON_SINGLE_TARGET
 
