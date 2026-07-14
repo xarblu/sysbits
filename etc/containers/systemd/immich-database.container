@@ -15,6 +15,10 @@ Pod=immich.pod
 
 EnvironmentFile=/var/lib/immich/immich.env
 
+# neither entrypoint.sh nor the image's 'stat' command (Debian 12)
+# know bcachefs so we need to ignore the check for now
+Environment=IGNORE_DATABASE_FSTYPE=true
+
 # volumes
 # In 18+ this moved from /var/lib/postgresql/data -> /var/lib/postgresql/MAJOR/docker
 # https://github.com/docker-library/postgres/pull/1259
