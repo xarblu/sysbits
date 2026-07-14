@@ -18,6 +18,7 @@ Label='glance.id=jellyfin'
 UserNS=auto
 
 Network=jellyfin.network
+Network=authentik.network
 
 # HTTP
 PublishPort=127.0.0.1:8096:8096/tcp
