@@ -5,7 +5,7 @@ Requires=whatsupdocker-podman-socket-proxy.service
 RequiresMountsFor=/var/lib/wud
 
 [Container]
-Image=ghcr.io/getwud/wud:8.2.2
+Image=ghcr.io/getwud/wud:8.3.0
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/getwud/wud/releases/tag/$${major}.$${minor}.$${patch}'
