@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+# bcachefs subvolume snapshot wrapper
+# to automatically format snapshot name
+
+function log() {
+    local fmt="${1}"
+    shift
+
+    # shellcheck disable=SC2059
+    printf "${fmt}\n" "${@}" 1>&2
+}
+
+function die() {
+    log "${@}"
+    exit 1
+}
+
+function usage() {
+    local s
+
+    IFS='' read -rd '' s <<EOF
+Usage: ${BASH_SOURCE[0]##*/} SRC [DEST]
+
+SRC  - Source bcachefs subvolume
+DEST - Destination directory where to store snapshot (default to same directory as SRC)
+EOF
+
+    printf '%s' "${s}" 1>&2
+}
+
+function main() {
+    local arg src dest
+
+    for arg; do
+        case "${arg}" in
+            -h|--help)
+                usage
+                exit 0
+                ;;
+
+            -*)
+                die 'Unknown option: %s' "${arg}"
+                ;;
+
+            *)
+                [[ -z "${src}" ]] && src=${arg} && continue
+                [[ -z "${dest}" ]] && dest=${arg} && continue
+                die 'Unknown positional arg: %s' "${arg}"
+                ;;
+        esac
+    done
+
+    # check and sanitize paths
+    [[ -z "${src}" ]] && die 'SRC is required'
+    src=$(readlink -m "${src}")
+    [[ ! -d "${src}" ]] && die 'SRC does not exist or is not a directory: %s' "${src}"
+
+    [[ -z "${dest}" ]] && dest="${src%/*}"
+    dest=$(readlink -m "${dest}")
+    [[ -n "${dest}" && ! -d "${dest}" ]] && die 'DEST does not exist or is not a directory: %s' "${dest}"
+    
+    # target snapshot
+    printf -v dest '%s/%s-%(%Y-%m-%dT%H:%M:%S)T' "${dest}" "${src##*/}" "${EPOCHSECONDS}"
+
+    [[ -e "${dest}" ]] && die 'Snapshot target already exists: %s' "${dest}"
+
+    log 'Snapshot "%s" to "%s"? [Y/n]: ' "${src}" "${dest}"
+
+    local res
+    while :; do
+        IFS='' read -r res || die 'read failed'
+        case "${res,,}" in
+            ""|y) break ;;
+            n) die 'Aborting' ;;
+            *) log 'Bad response (%s) [Y/n]: ' "${res}"; continue ;;
+        esac
+    done
+
+    bcachefs subvolume snapshot "${src}" "${dest}" || die "snapshot failed"
+}
+
+main "${@}"

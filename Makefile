@@ -333,6 +333,7 @@ endif
 		etc/systemd/zram-generator.conf
 
 	install -Dm755 -t $(DESTDIR)/usr/bin \
+		usr/bin/bchsnap \
 		usr/bin/flang-compat-wrapper \
 		usr/bin/oldrebuild
 
