@@ -8,7 +8,11 @@ function log() {
     shift
 
     # shellcheck disable=SC2059
-    printf "${fmt}\n" "${@}" 1>&2
+    if [[ -n "${LOG_NO_NEWLINE}" ]]; then
+        printf "${fmt}" "${@}" 1>&2
+    else
+        printf "${fmt}\n" "${@}" 1>&2
+    fi
 }
 
 function die() {
@@ -65,7 +69,7 @@ function main() {
 
     [[ -e "${dest}" ]] && die 'Snapshot target already exists: %s' "${dest}"
 
-    log 'Snapshot "%s" to "%s"? [Y/n]: ' "${src}" "${dest}"
+    LOG_NO_NEWLINE=1 log 'Snapshot "%s" to "%s"? [Y/n]: ' "${src}" "${dest}"
 
     local res
     while :; do
@@ -73,7 +77,7 @@ function main() {
         case "${res,,}" in
             ""|y) break ;;
             n) die 'Aborting' ;;
-            *) log 'Bad response (%s) [Y/n]: ' "${res}"; continue ;;
+            *) LOG_NO_NEWLINE=1 log 'Bad response (%s) [Y/n]: ' "${res}"; continue ;;
         esac
     done
 
