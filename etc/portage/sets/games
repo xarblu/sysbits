@@ -1,0 +1,32 @@
+# Game related packages
+
+# Steam and Proton
+app-emulation/protontricks
+app-emulation/winetricks
+games-util/proton-cachyos-bin
+games-util/proton-ge-custom-bin
+games-util/steam-launcher
+
+# Minecraft
+dev-java/openjdk
+dev-java/openjdk:21
+games-action/prismlauncher
+
+# Emulators
+games-emulation/melonds
+games-emulation/mgba
+games-emulation/snes9x
+
+# Input
+games-util/antimicrox
+games-util/evdevhook2
+games-util/game-device-udev-rules
+games-util/joycond
+
+# Tools
+games-util/mangohud
+games-util/gamemode
+gui-wm/gamescope
+
+# Misc
+games-util/lumafly-bin
