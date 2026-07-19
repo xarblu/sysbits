@@ -1,2 +1,13 @@
 # packages/dependencies needed for random development stuff
+
+# ebuild maintenance
+app-doc/eclass-manpages
+app-portage/pycargoebuild
+dev-go/go-dep-tarball
+dev-util/pkgdev
+
+# build tools
+sys-devel/mold
+
+# loclogpp deps
 sci-geosciences/gpsd
