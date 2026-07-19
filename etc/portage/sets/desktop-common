@@ -9,6 +9,8 @@ kde-plasma/plasma-meta
 kde-misc/kdeconnect
 kde-plasma/plasma-login-manager
 kde-plasma/spectacle
+# needed for theming in flatpak'ed GTK apps
+sys-apps/xdg-desktop-portal-gtk
 
 ## Apps
 app-admin/bitwarden-desktop-bin
@@ -69,6 +71,9 @@ net-p2p/syncthingtray
 ## Messenger
 net-im/telegram-desktop
 net-im/vesktop-bin
+
+# Discord/Vesktop additions
+app-portage/portpresence
 
 ## Network
 net-dns/dnsproxy
