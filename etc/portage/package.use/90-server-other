@@ -1,6 +1,7 @@
 app-admin/cockpit -doc firewalld networkmanager pcp tuned udisks
 app-admin/sudo offensive
 app-admin/vaultwarden postgres web
+app-containers/container-libs extra
 app-containers/docker -cli
 app-eselect/eselect-php fpm
 app-misc/ca-certificates cacert
