@@ -1,0 +1,8 @@
+# python related unmasks
+
+# Extension ABI breakage requiring rebuild of
+# all python C extensions (bgo#979492)
+# Would have to do that anyways since it'll
+# be broken on anything after beta3.
+# find /usr/lib/python3.15/site-packages -name '*.cpython-315-*.so' | xargs -n1 qfile --quiet --nocolor | sort -u | sudo xargs emerge --oneshot --ask=n
+~dev-lang/python-3.15.0_beta4
