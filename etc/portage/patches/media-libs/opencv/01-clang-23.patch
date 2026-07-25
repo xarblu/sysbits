@@ -1,0 +1,12 @@
+diff --git a/modules/gapi/include/opencv2/gapi/infer/ie.hpp.orig b/modules/gapi/include/opencv2/gapi/infer/ie.hpp
+index 9f9518d..13fda9b 100644
+--- a/modules/gapi/include/opencv2/gapi/infer/ie.hpp.orig
++++ b/modules/gapi/include/opencv2/gapi/infer/ie.hpp
+@@ -13,6 +13,7 @@
+ #include <array>
+ #include <tuple> // tuple, tuple_size
+ #include <map>
++#include <iterator>
+ 
+ #include <opencv2/gapi/opencv_includes.hpp>
+ #include <opencv2/gapi/util/any.hpp>
