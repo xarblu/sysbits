@@ -8,7 +8,6 @@ llvm-core/llvm:21
 
 # LLVM 22
 llvm-core/clang:22
-llvm-core/flang:22
 llvm-core/lld:22
 llvm-core/llvm:22
 
