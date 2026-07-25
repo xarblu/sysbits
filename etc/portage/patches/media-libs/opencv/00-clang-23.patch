@@ -1,0 +1,13 @@
+diff --git a/modules/gapi/include/opencv2/gapi/gasync_context.hpp.orig b/modules/gapi/include/opencv2/gapi/gasync_context.hpp
+index f49b598..764d72d 100644
+--- a/modules/gapi/include/opencv2/gapi/gasync_context.hpp.orig
++++ b/modules/gapi/include/opencv2/gapi/gasync_context.hpp
+@@ -15,6 +15,8 @@
+ 
+ #include <opencv2/gapi/own/exports.hpp>
+ 
++#include <atomic>
++
+ namespace cv {
+ namespace gapi{
+ 
