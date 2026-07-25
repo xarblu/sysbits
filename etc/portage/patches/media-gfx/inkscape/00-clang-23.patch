@@ -1,12 +1,12 @@
-From 0ce21e1bd3ba3f50c994ab511160ad10e3a7557b Mon Sep 17 00:00:00 2001
+From 353229f980ae43cace38cf09d7d9bc20fb9660a2 Mon Sep 17 00:00:00 2001
 From: Xarblu <xarblu@protonmail.com>
-Date: Sun, 26 Jul 2026 01:01:37 +0200
-Subject: [PATCH] add missing include for std::nothrow
+Date: Sun, 26 Jul 2026 01:09:38 +0200
+Subject: [PATCH] add missing includes that became errors with clang-23
 
 Signed-off-by: Xarblu <xarblu@protonmail.com>
 ---
- src/io/stream/gzipstream.cpp | 1 +
- src/util/value-utils.h       | 1 +
+ src/io/stream/gzipstream.cpp     | 1 +
+ src/util/longest-common-suffix.h | 1 +
  2 files changed, 2 insertions(+)
 
 diff --git a/src/io/stream/gzipstream.cpp b/src/io/stream/gzipstream.cpp
@@ -21,6 +21,18 @@ index d1aa760961..952bebc8d7 100644
  
  namespace Inkscape
  {
+diff --git a/src/util/longest-common-suffix.h b/src/util/longest-common-suffix.h
+index 1f7b228aca..7b7ac1c42b 100644
+--- a/src/util/longest-common-suffix.h
++++ b/src/util/longest-common-suffix.h
+@@ -15,6 +15,7 @@
+ 
+ #include <iterator>
+ #include <functional>
++#include <vector>
+ 
+ namespace Inkscape {
+ 
 -- 
 2.55.0
 
