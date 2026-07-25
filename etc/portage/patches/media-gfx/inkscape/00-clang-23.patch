@@ -21,18 +21,6 @@ index d1aa760961..952bebc8d7 100644
  
  namespace Inkscape
  {
-diff --git a/src/util/value-utils.h b/src/util/value-utils.h
-index 2b93405c94..49fd787171 100644
---- a/src/util/value-utils.h
-+++ b/src/util/value-utils.h
-@@ -21,6 +21,7 @@
- #include <glibmm/utility.h>
- #include <glibmm/value.h>
- #include <gdkmm/contentprovider.h>
-+#include <new>
- 
- namespace Inkscape::Util::GlibValue {
- 
 -- 
 2.55.0
 
