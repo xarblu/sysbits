@@ -1,0 +1,38 @@
+From 0ce21e1bd3ba3f50c994ab511160ad10e3a7557b Mon Sep 17 00:00:00 2001
+From: Xarblu <xarblu@protonmail.com>
+Date: Sun, 26 Jul 2026 01:01:37 +0200
+Subject: [PATCH] add missing include for std::nothrow
+
+Signed-off-by: Xarblu <xarblu@protonmail.com>
+---
+ src/io/stream/gzipstream.cpp | 1 +
+ src/util/value-utils.h       | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/io/stream/gzipstream.cpp b/src/io/stream/gzipstream.cpp
+index d1aa760961..952bebc8d7 100644
+--- a/src/io/stream/gzipstream.cpp
++++ b/src/io/stream/gzipstream.cpp
+@@ -21,6 +21,7 @@
+ #include <cstdlib>
+ #include <cstring>
+ #include <string>
++#include <new>
+ 
+ namespace Inkscape
+ {
+diff --git a/src/util/value-utils.h b/src/util/value-utils.h
+index 2b93405c94..49fd787171 100644
+--- a/src/util/value-utils.h
++++ b/src/util/value-utils.h
+@@ -21,6 +21,7 @@
+ #include <glibmm/utility.h>
+ #include <glibmm/value.h>
+ #include <gdkmm/contentprovider.h>
++#include <new>
+ 
+ namespace Inkscape::Util::GlibValue {
+ 
+-- 
+2.55.0
+
