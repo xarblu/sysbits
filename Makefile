@@ -150,6 +150,8 @@ ifeq ($(BINPKG_CLIENT_LLVM),yes)
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/env \
+		etc/portage/env/autoconf-2_72 \
+		etc/portage/env/autoconf-2_73-std-17 \
 		etc/portage/env/clang-21 \
 		etc/portage/env/gcc \
 		etc/portage/env/gnu-objcopy \
@@ -161,6 +163,7 @@ endif
 		etc/portage/env/libcxx-experimental-library \
 		etc/portage/env/libcxx-typeinfo \
 		etc/portage/env/libstdcpp \
+		etc/portage/env/llvm-22 \
 		etc/portage/env/no-ccache \
 		etc/portage/env/no-icf \
 		etc/portage/env/no-lto \
@@ -173,9 +176,7 @@ endif
 		etc/portage/env/pypy-linker_so \
 		etc/portage/env/rust-bgo-953109 \
 		etc/portage/env/sccache \
-		etc/portage/env/telegram-desktop-job-limit \
-		etc/portage/env/autoconf-2_72 \
-		etc/portage/env/autoconf-2_73-std-17
+		etc/portage/env/telegram-desktop-job-limit
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/env/net-im \
 		etc/portage/env/net-im/telegram-desktop
