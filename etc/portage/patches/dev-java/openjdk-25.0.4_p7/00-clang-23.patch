@@ -1,5 +1,5 @@
 diff --git a/src/hotspot/os/aix/os_aix.cpp b/src/hotspot/os/aix/os_aix.cpp
-index f91e89f..5ba064e 100644
+index 5cf34a8..4138873 100644
 --- a/src/hotspot/os/aix/os_aix.cpp
 +++ b/src/hotspot/os/aix/os_aix.cpp
 @@ -24,6 +24,7 @@
@@ -35,7 +35,7 @@ index 3ef5897..cb23765 100644
  #include "compiler/compileBroker.hpp"
  #include "compiler/disassembler.hpp"
 diff --git a/src/hotspot/os/windows/os_windows.cpp b/src/hotspot/os/windows/os_windows.cpp
-index 45f02f3..93b3897 100644
+index 4969f0e..6e51df4 100644
 --- a/src/hotspot/os/windows/os_windows.cpp
 +++ b/src/hotspot/os/windows/os_windows.cpp
 @@ -25,6 +25,7 @@
@@ -95,7 +95,7 @@ index 9941fdb..48ea640 100644
  #include "memory/arena.hpp"
  #include "memory/metaspace.hpp"
 diff --git a/src/hotspot/share/memory/allocation.hpp b/src/hotspot/share/memory/allocation.hpp
-index a4356cf..e233de8 100644
+index 9e50013..e7a2b14 100644
 --- a/src/hotspot/share/memory/allocation.hpp
 +++ b/src/hotspot/share/memory/allocation.hpp
 @@ -26,6 +26,7 @@
@@ -215,7 +215,7 @@ index 962b572..8029373 100644
  #include "runtime/os.hpp"
  
 diff --git a/src/hotspot/share/utilities/elfFile.cpp b/src/hotspot/share/utilities/elfFile.cpp
-index 182403b..272750b 100644
+index f2ddbe1..5efdf48 100644
 --- a/src/hotspot/share/utilities/elfFile.cpp
 +++ b/src/hotspot/share/utilities/elfFile.cpp
 @@ -26,6 +26,7 @@
@@ -251,37 +251,37 @@ index f0802b7..14fe321 100644
  /*
   * The implementation of a generic linked list, which uses various
 diff --git a/src/java.security.jgss/windows/native/libsspi_bridge/sspi.cpp b/src/java.security.jgss/windows/native/libsspi_bridge/sspi.cpp
-index 570c24c..6e490eb 100644
+index dd84ab3..570c24c 100644
 --- a/src/java.security.jgss/windows/native/libsspi_bridge/sspi.cpp
 +++ b/src/java.security.jgss/windows/native/libsspi_bridge/sspi.cpp
-@@ -37,6 +37,7 @@
+@@ -36,6 +36,7 @@
+ #define _UNICODE
  
  #include <windows.h>
- #include <new>
 +#include <new>
  #include <stdlib.h>
  #include <stdio.h>
  #include <string.h>
 diff --git a/src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp b/src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp
-index 672ee95..6987347 100644
+index fab17b6..672ee95 100644
 --- a/src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp
 +++ b/src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp
-@@ -30,6 +30,7 @@
+@@ -29,6 +29,7 @@
+ //
  
  #include <jni.h>
- #include <new>
 +#include <new>
  #include "jni_util.h"
  #include <stdlib.h>
  #include <string.h>
 diff --git a/src/jdk.jpackage/linux/native/libapplauncher/LinuxLauncherLib.cpp b/src/jdk.jpackage/linux/native/libapplauncher/LinuxLauncherLib.cpp
-index b00e52b..e7b4239 100644
+index 7d7c8b7..b00e52b 100644
 --- a/src/jdk.jpackage/linux/native/libapplauncher/LinuxLauncherLib.cpp
 +++ b/src/jdk.jpackage/linux/native/libapplauncher/LinuxLauncherLib.cpp
-@@ -25,6 +25,7 @@
+@@ -24,6 +24,7 @@
+  */
  
  #include <memory>
- #include <new>
 +#include <new>
  #include "JvmLauncher.h"
  #include "AppLauncher.h"
@@ -311,25 +311,25 @@ index 5c9ca8e..933f693 100644
  #include "ErrorHandling.h"
  #include "FileUtils.h"
 diff --git a/src/jdk.jpackage/share/native/applauncher/AppLauncher.cpp b/src/jdk.jpackage/share/native/applauncher/AppLauncher.cpp
-index 3711fbd..b0d4a5d 100644
+index fd1d07e..3711fbd 100644
 --- a/src/jdk.jpackage/share/native/applauncher/AppLauncher.cpp
 +++ b/src/jdk.jpackage/share/native/applauncher/AppLauncher.cpp
-@@ -25,6 +25,7 @@
+@@ -24,6 +24,7 @@
+  */
  
  #include <algorithm>
- #include <new>
 +#include <new>
  #include "AppLauncher.h"
  #include "JvmLauncher.h"
  #include "CfgFile.h"
 diff --git a/src/jdk.jpackage/share/native/common/Dll.h b/src/jdk.jpackage/share/native/common/Dll.h
-index de8bcd1..c644261 100644
+index c842423..de8bcd1 100644
 --- a/src/jdk.jpackage/share/native/common/Dll.h
 +++ b/src/jdk.jpackage/share/native/common/Dll.h
-@@ -29,6 +29,7 @@
+@@ -28,6 +28,7 @@
+ 
  #ifdef _WIN32
  #include <windows.h>
- #include <new>
 +#include <new>
  #else
  typedef void* HMODULE;
@@ -347,13 +347,13 @@ index 28609d0..53f750c 100644
  
  //
 diff --git a/src/jdk.jpackage/share/native/common/app.cpp b/src/jdk.jpackage/share/native/common/app.cpp
-index bb4df21..999bf44 100644
+index d949278..bb4df21 100644
 --- a/src/jdk.jpackage/share/native/common/app.cpp
 +++ b/src/jdk.jpackage/share/native/common/app.cpp
-@@ -25,6 +25,7 @@
+@@ -24,6 +24,7 @@
+  */
  
  #include <memory>
- #include <new>
 +#include <new>
  #include "app.h"
  #include "Log.h"
@@ -371,25 +371,25 @@ index d3e5605..7a483c2 100644
  class LogAppender;
  
 diff --git a/src/jdk.jpackage/unix/native/common/UnixSysInfo.cpp b/src/jdk.jpackage/unix/native/common/UnixSysInfo.cpp
-index 7aed2c7..b27efbb 100644
+index a5015b3..7aed2c7 100644
 --- a/src/jdk.jpackage/unix/native/common/UnixSysInfo.cpp
 +++ b/src/jdk.jpackage/unix/native/common/UnixSysInfo.cpp
-@@ -25,6 +25,7 @@
+@@ -24,6 +24,7 @@
+  */
  
  #include <stdlib.h>
- #include <new>
 +#include <new>
  #include "SysInfo.h"
  #include "UnixSysInfo.h"
  #include "ErrorHandling.h"
 diff --git a/src/jdk.jpackage/windows/native/applauncher/WinLauncher.cpp b/src/jdk.jpackage/windows/native/applauncher/WinLauncher.cpp
-index 5b212b4..003910c 100644
+index 8b3c3bb..5b212b4 100644
 --- a/src/jdk.jpackage/windows/native/applauncher/WinLauncher.cpp
 +++ b/src/jdk.jpackage/windows/native/applauncher/WinLauncher.cpp
-@@ -25,6 +25,7 @@
+@@ -24,6 +24,7 @@
+  */
  
  #include <io.h>
- #include <new>
 +#include <new>
  #include <fcntl.h>
  #include <stdlib.h>
@@ -407,13 +407,13 @@ index 6b2f93b..54414a3 100644
  #include "WinFileUtils.h"
  #include "Log.h"
 diff --git a/src/jdk.jpackage/windows/native/common/MsiDb.h b/src/jdk.jpackage/windows/native/common/MsiDb.h
-index 97c2ddc..2e58ddf 100644
+index fadc7bc..97c2ddc 100644
 --- a/src/jdk.jpackage/windows/native/common/MsiDb.h
 +++ b/src/jdk.jpackage/windows/native/common/MsiDb.h
-@@ -28,6 +28,7 @@
+@@ -27,6 +27,7 @@
+ #define MsiDb_h
  
  #include <windows.h>
- #include <new>
 +#include <new>
  #include <msiquery.h>
  
@@ -431,19 +431,19 @@ index 2a76b6c..f4092d1 100644
  #include "Resources.h"
  #include "Dll.h"
 diff --git a/src/jdk.jpackage/windows/native/common/MsiUtils.h b/src/jdk.jpackage/windows/native/common/MsiUtils.h
-index a542957..00b61e5 100644
+index 26fa9f9..a542957 100644
 --- a/src/jdk.jpackage/windows/native/common/MsiUtils.h
 +++ b/src/jdk.jpackage/windows/native/common/MsiUtils.h
-@@ -28,6 +28,7 @@
+@@ -27,6 +27,7 @@
+ #define MsiUtils_h
  
  #include <windows.h>
- #include <new>
 +#include <new>
  #include <Msi.h>
  #include <iterator>
  #include <stdexcept>
 diff --git a/src/jdk.jpackage/windows/native/common/Resources.cpp b/src/jdk.jpackage/windows/native/common/Resources.cpp
-index 1d85279..f913b5e 100644
+index d44a684..7d7d029 100644
 --- a/src/jdk.jpackage/windows/native/common/Resources.cpp
 +++ b/src/jdk.jpackage/windows/native/common/Resources.cpp
 @@ -24,6 +24,7 @@
@@ -467,13 +467,13 @@ index 4d68e67..1088400 100644
  
  class StringResource;
 diff --git a/src/jdk.jpackage/windows/native/common/WinApp.cpp b/src/jdk.jpackage/windows/native/common/WinApp.cpp
-index 30e6ea2..fd33b48 100644
+index 1c2bcf5..30e6ea2 100644
 --- a/src/jdk.jpackage/windows/native/common/WinApp.cpp
 +++ b/src/jdk.jpackage/windows/native/common/WinApp.cpp
-@@ -25,6 +25,7 @@
+@@ -24,6 +24,7 @@
+  */
  
  #include <memory>
- #include <new>
 +#include <new>
  #include "WinApp.h"
  #include "Log.h"
@@ -503,49 +503,49 @@ index 2136ec2..e0a9d82 100644
  #include "SysInfo.h"
  #include "FileUtils.h"
 diff --git a/src/jdk.jpackage/windows/native/common/WinFileUtils.cpp b/src/jdk.jpackage/windows/native/common/WinFileUtils.cpp
-index f5a33ac..f92f753 100644
+index f801009..f5a33ac 100644
 --- a/src/jdk.jpackage/windows/native/common/WinFileUtils.cpp
 +++ b/src/jdk.jpackage/windows/native/common/WinFileUtils.cpp
-@@ -25,6 +25,7 @@
+@@ -24,6 +24,7 @@
+  */
  
  #include <memory>
- #include <new>
 +#include <new>
  #include <algorithm>
  #include <shlwapi.h>
  #include <stdlib.h>
 diff --git a/src/jdk.jpackage/windows/native/common/WinFileUtils.h b/src/jdk.jpackage/windows/native/common/WinFileUtils.h
-index bab013a..6637028 100644
+index ba07efe..bab013a 100644
 --- a/src/jdk.jpackage/windows/native/common/WinFileUtils.h
 +++ b/src/jdk.jpackage/windows/native/common/WinFileUtils.h
-@@ -29,6 +29,7 @@
+@@ -28,6 +28,7 @@
+ 
  
  #include <fstream>
- #include <new>
 +#include <new>
  #include "SysInfo.h"
  
  
 diff --git a/src/jdk.jpackage/windows/native/common/WinSysInfo.cpp b/src/jdk.jpackage/windows/native/common/WinSysInfo.cpp
-index 140b7de..8f69bc0 100644
+index b341c1c..140b7de 100644
 --- a/src/jdk.jpackage/windows/native/common/WinSysInfo.cpp
 +++ b/src/jdk.jpackage/windows/native/common/WinSysInfo.cpp
-@@ -25,6 +25,7 @@
+@@ -24,6 +24,7 @@
+  */
  
  #include <windows.h>
- #include <new>
 +#include <new>
  #include <shellapi.h>
  
  #include "WinSysInfo.h"
 diff --git a/src/jdk.jpackage/windows/native/msiwrapper/MsiWrapper.cpp b/src/jdk.jpackage/windows/native/msiwrapper/MsiWrapper.cpp
-index 18952c5..95e8c5e 100644
+index df09aae..18952c5 100644
 --- a/src/jdk.jpackage/windows/native/msiwrapper/MsiWrapper.cpp
 +++ b/src/jdk.jpackage/windows/native/msiwrapper/MsiWrapper.cpp
-@@ -25,6 +25,7 @@
+@@ -24,6 +24,7 @@
+  */
  
  #include <algorithm>
- #include <new>
 +#include <new>
  #include <windows.h>
  
