@@ -5,9 +5,22 @@
 
 ARGV=()
 
+VERSION="$(flang --version | sed -E -e '1s|flang version (\S+)|\1|' | head -1)"
+
+
 for arg; do
     case "${arg}" in
         -pipe) ;;
+        -lflang_rt.runtime)
+            # apparently flang can't find its runtime lib
+            # on it's own since 23
+            # for now only workaround on git snapshots
+            if [[ "${VERSION}" == 23.1.0git* ]]; then
+                ARGV+=("-L/usr/lib64/clang/23/lib/x86_64-pc-linux-gnu/"  "${arg}")
+            else
+                ARGV+=("${arg}")
+            fi
+            ;;
         --version)
             exec flang --version | \
                 sed -E -e "1s|(.*)|\1 (via ${BASH_SOURCE[0]##*/})|"
@@ -16,5 +29,6 @@ for arg; do
         *) ARGV+=("${arg}") ;;
     esac
 done
+
 
 exec flang "${ARGV[@]}"
