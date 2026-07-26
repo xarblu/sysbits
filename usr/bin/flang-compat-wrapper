@@ -19,7 +19,7 @@ done
 
 # inject some extra args to help flang find it's runtime libs
 case "$(flang --version | sed -E -e '1s|flang version (\S+)|\1|' | head -1)" in
-    23.1.0git*) ARGV+=("-L/usr/lib64/clang/23/lib/x86_64-pc-linux-gnu/");;
+    23.1.0git*) ARGV+=("-L/usr/lib64/clang/23/lib/x86_64-pc-linux-gnu" "-I/usr/lib64/clang/23/finclude/flang/x86_64-pc-linux-gnu");;
 esac
 
 exec flang "${ARGV[@]}"
