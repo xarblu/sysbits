@@ -26,7 +26,6 @@ games-util/joycond
 # Tools
 games-util/mangohud
 games-util/gamemode
-gui-wm/gamescope
 
 # Misc
 games-util/lumafly-bin
