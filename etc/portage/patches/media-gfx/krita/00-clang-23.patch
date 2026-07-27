@@ -1,0 +1,12 @@
+diff --git a/libs/flake/KoShapeBulkActionLock.h b/libs/flake/KoShapeBulkActionLock.h
+index 92fa188..978d44d 100644
+--- a/libs/flake/KoShapeBulkActionLock.h
++++ b/libs/flake/KoShapeBulkActionLock.h
+@@ -12,6 +12,7 @@
+ #include <KisAdaptedLock.h>
+ #include <QList>
+ #include <QRect>
++#include <vector>
+ 
+ class KoShape;
+ struct KoShapeBulkActionInterface;
