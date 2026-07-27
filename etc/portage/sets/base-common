@@ -17,6 +17,7 @@ app-portage/smart-live-rebuild
 app-shells/gentoo-zsh-completions
 dev-build/steve
 dev-util/debugedit
+dev-util/sccache
 sys-apps/fakeroot
 sys-devel/dwz
 
