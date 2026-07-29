@@ -163,6 +163,7 @@ endif
 		etc/portage/env/libcxx-experimental-library \
 		etc/portage/env/libcxx-typeinfo \
 		etc/portage/env/libstdcpp \
+		etc/portage/env/limit-jobs-halfnproc \
 		etc/portage/env/llvm-22 \
 		etc/portage/env/no-ccache \
 		etc/portage/env/no-icf \

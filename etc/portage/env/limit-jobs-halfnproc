@@ -1,0 +1,2 @@
+# special "half nproc" job limit
+MAX_MAKE_JOBS="halfnproc"

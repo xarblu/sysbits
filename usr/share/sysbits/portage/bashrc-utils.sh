@@ -501,6 +501,9 @@ function brc_build_env_setup() {
 
     # optionally limit
     if [[ -n "${MAX_MAKE_JOBS}" ]]; then
+        # special "half nproc" value
+        [[ "${MAX_MAKE_JOBS}" == "halfnproc" ]] && MAX_MAKE_JOBS="$(( $(nproc) / 2 ))"
+
         MAX_MAKE_JOBS="${MAX_MAKE_JOBS// /}"
         if (( make_jobs > MAX_MAKE_JOBS )); then
             MAKEOPTS="${MAKEOPTS//"-j${make_jobs}"/"-j${MAX_MAKE_JOBS}"}"

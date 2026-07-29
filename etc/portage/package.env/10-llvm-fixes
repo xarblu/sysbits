@@ -146,4 +146,6 @@ sys-devel/dwz no-prepend-llvm-path
 # currently failing with dev-build/autoconf-2.73's new defaults
 dev-lang/ghc autoconf-2_72
 dev-tcltk/tix autoconf-2_73-std-17
+# insanely RAM hungry (~3GiB per job)
+llvm-core/flang limit-jobs-halfnproc
 #[END] misc
