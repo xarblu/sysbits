@@ -1,0 +1,12 @@
+diff --git a/Controllers/RazerController/RazerHanboController/RazerHanboController.cpp.orig b/Controllers/RazerController/RazerHanboController/RazerHanboController.cpp
+index 1c51bcf..073e112 100644
+--- a/Controllers/RazerController/RazerHanboController/RazerHanboController.cpp.orig
++++ b/Controllers/RazerController/RazerHanboController/RazerHanboController.cpp
+@@ -10,6 +10,7 @@
+ \*---------------------------------------------------------*/
+ 
+ #include <string.h>
++#include <cstdlib>
+ #include "RazerHanboController.h"
+ #include "RazerDevices.h"
+ 
