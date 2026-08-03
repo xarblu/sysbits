@@ -1,0 +1,13 @@
+diff --git a/Controllers/XPGSummonerKeyboardController/RGBController_XPGSummoner.cpp.orig b/Controllers/XPGSummonerKeyboardController/RGBController_XPGSummoner.cpp
+index 4e465f0..9caac34 100644
+--- a/Controllers/XPGSummonerKeyboardController/RGBController_XPGSummoner.cpp.orig
++++ b/Controllers/XPGSummonerKeyboardController/RGBController_XPGSummoner.cpp
+@@ -12,6 +12,8 @@
+ #include "RGBControllerKeyNames.h"
+ #include "RGBController_XPGSummoner.h"
+ 
++#include <cstdlib>
++
+ #define NA 0xFFFFFFFF
+ #define LED_REAL_COUNT (6 * 21)
+ #define LED_COUNT (LED_REAL_COUNT - 22)
