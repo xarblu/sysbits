@@ -1,0 +1,12 @@
+diff --git a/kcms/cursortheme/xcursor/cursortheme.h b/kcms/cursortheme/xcursor/cursortheme.h
+index 68229c9..688550f 100644
+--- a/kcms/cursortheme/xcursor/cursortheme.h
++++ b/kcms/cursortheme/xcursor/cursortheme.h
+@@ -11,6 +11,7 @@
+ 
+ #include <chrono>
+ #include <optional>
++#include <vector>
+ 
+ /**
+  * This is the abstract base class for all cursor themes stored in a
