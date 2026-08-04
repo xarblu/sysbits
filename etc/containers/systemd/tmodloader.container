@@ -21,3 +21,6 @@ Volume=/var/lib/tmodloader/tModLoader:/tModLoader:idmap
 
 [Service]
 Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
