@@ -1,0 +1,16 @@
+FROM docker.io/library/alpine:3.24
+
+ENV TMLVERSION="v2026.06.3.4"
+
+RUN apk add dotnet8-runtime curl unzip bash
+
+RUN curl -LO https://github.com/tModLoader/tModLoader/releases/download/${TMLVERSION}/tModLoader.zip && \
+    mkdir /opt/tModLoader && \
+    unzip tModLoader.zip -d /opt/tModLoader && \
+    rm tModLoader.zip
+
+# apparently no clean way to force system dotnet
+# besides triggering the fallback for "failed install"
+RUN sed -i '/^run_script \.\/InstallDotNet\.sh/d' /opt/tModLoader/LaunchUtils/ScriptCaller.sh
+    
+CMD ["bash", "/opt/tModLoader/start-tModLoaderServer.sh", "-nosteam"]
