@@ -1,0 +1,36 @@
+diff --git a/Telegram/ThirdParty/rlottie/inc/rlottie.h b/Telegram/ThirdParty/rlottie/inc/rlottie.h
+index db81448..cb5256a 100644
+--- a/Telegram/ThirdParty/rlottie/inc/rlottie.h
++++ b/Telegram/ThirdParty/rlottie/inc/rlottie.h
+@@ -20,6 +20,7 @@
+ #define _RLOTTIE_H_
+ 
+ #include <future>
++#include <functional>
+ #include <vector>
+ #include <memory>
+ 
+diff --git a/Telegram/ThirdParty/rlottie/src/vector/vraster.h b/Telegram/ThirdParty/rlottie/src/vector/vraster.h
+index 4f7d2ed..5d8d495 100644
+--- a/Telegram/ThirdParty/rlottie/src/vector/vraster.h
++++ b/Telegram/ThirdParty/rlottie/src/vector/vraster.h
+@@ -18,6 +18,7 @@
+ 
+ #ifndef VRASTER_H
+ #define VRASTER_H
++#include <memory>
+ #include <future>
+ #include "vglobal.h"
+ #include "vrect.h"
+diff --git a/Telegram/ThirdParty/rlottie/src/vector/vrle.cpp b/Telegram/ThirdParty/rlottie/src/vector/vrle.cpp
+index a5deee1..61c1a8f 100644
+--- a/Telegram/ThirdParty/rlottie/src/vector/vrle.cpp
++++ b/Telegram/ThirdParty/rlottie/src/vector/vrle.cpp
+@@ -21,6 +21,7 @@
+ #include <algorithm>
+ #include <array>
+ #include <cstdlib>
++#include <iterator>
+ #include <vector>
+ #include "vdebug.h"
+ #include "vglobal.h"
