@@ -9,8 +9,12 @@ RUN curl -LO https://github.com/tModLoader/tModLoader/releases/download/${TMLVER
     unzip tModLoader.zip -d /opt/tModLoader && \
     rm tModLoader.zip
 
-# apparently no clean way to force system dotnet
-# besides triggering the fallback for "failed install"
-RUN sed -i '/^run_script \.\/InstallDotNet\.sh/d' /opt/tModLoader/LaunchUtils/ScriptCaller.sh
-    
-CMD ["bash", "/opt/tModLoader/start-tModLoaderServer.sh", "-nosteam"]
+RUN mv /opt/tModLoader/serverconfig.txt /opt/tModLoader/serverconfig.txt.example
+
+WORKDIR /opt/tModLoader
+
+COPY --chmod=755 --chown=0:0 ./entry-point.sh /entry-point.sh
+
+EXPOSE 7777/tcp
+
+ENTRYPOINT ["/entry-point.sh"]
