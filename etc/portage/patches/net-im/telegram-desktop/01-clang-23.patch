@@ -1,0 +1,24 @@
+diff --git a/Telegram/ThirdParty/tgcalls/tgcalls/group/GroupJoinPayloadInternal.cpp b/Telegram/ThirdParty/tgcalls/tgcalls/group/GroupJoinPayloadInternal.cpp
+index fce5c67..d08f5c7 100644
+--- a/Telegram/ThirdParty/tgcalls/tgcalls/group/GroupJoinPayloadInternal.cpp
++++ b/Telegram/ThirdParty/tgcalls/tgcalls/group/GroupJoinPayloadInternal.cpp
+@@ -1,6 +1,7 @@
+ #include "GroupJoinPayloadInternal.h"
+ 
+ #include "third-party/json11.hpp"
++#include <iterator>
+ #include <sstream>
+ 
+ namespace tgcalls {
+diff --git a/Telegram/lib_base/base/unique_function.h b/Telegram/lib_base/base/unique_function.h
+index c101679..6e9224f 100644
+--- a/Telegram/lib_base/base/unique_function.h
++++ b/Telegram/lib_base/base/unique_function.h
+@@ -6,6 +6,7 @@
+ //
+ #pragma once
+ 
++#include <cstdlib>
+ #include <functional>
+ 
+ #ifndef Unexpected
