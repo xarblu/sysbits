@@ -27,8 +27,9 @@ if [[ ! -f "${TMLCONFIG}" ]]; then
     echo "Copying from ${PWD}/serverconfig.txt.example"
     cp "${PWD}/serverconfig.txt.example" "${TMLCONFIG}" || die "Failed to copy TMLCONFIG"
 
-    echo "Adjusting examples to current environment..."
+    echo "Adjusting example config to current environment..."
     sed -i \
+        -e 's|\r$||' \
         -e "/^#world=/s|^.*$|#world=${TMLSAVEDIR}/Worlds/world1.wld|" \
         -e "/^#worldpath=/s|^.*$|#worldpath=${TMLSAVEDIR}/Worlds|" \
         -e "/^#banlist=/s|^.*$|#banlist=${TMLSAVEDIR}/banlist.txt|" \
