@@ -1,5 +1,3 @@
-# commented because it blocks firefox and ffmpeg
-# had that patched but now the ebuild
-# explicitly requests <ffmpeg-8
-# https://bugs.gentoo.org/962454
-#~media-video/ffmpeg-8.0 **
+# stable but still unkeyworded
+# ffmpeg releases
+~media-video/ffmpeg-9.0 **
