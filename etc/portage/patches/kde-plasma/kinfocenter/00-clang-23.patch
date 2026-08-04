@@ -1,0 +1,12 @@
+diff --git a/kcms/about-distro/src/GPUEntryFactory.h b/kcms/about-distro/src/GPUEntryFactory.h
+index c16cdbf..7d90d27 100644
+--- a/kcms/about-distro/src/GPUEntryFactory.h
++++ b/kcms/about-distro/src/GPUEntryFactory.h
+@@ -4,6 +4,7 @@
+ #pragma once
+ 
+ #include <QList>
++#include <vector>
+ 
+ class Entry;
+ 
