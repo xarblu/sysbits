@@ -1,0 +1,7 @@
+[Unit]
+Description=tModLoader Image Build
+
+[Build]
+ImageTag=localhost/tmodloader
+File=Containerfile
+SetWorkingDirectory=/var/lib/containerfiles/tmodloader

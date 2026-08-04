@@ -1,0 +1,22 @@
+[Unit]
+Description=tModLoader Server
+RequiresMountsFor=/var/lib/tmodloader
+
+[Container]
+Image=tmodloader.build
+
+UserNS=auto
+
+Network=tmodloader.network
+PublishPort=7777:7777/tcp
+
+Volume=/var/lib/tmodloader/tModLoader:/tModLoader:idmap
+
+# uncomment to allow attaching to the interactive console
+# usually not needed if serverconfig.txt is setup correctly
+# connect with podman attach systemd-tmodloader
+# disconnect with ctrl+p ctrl+q
+# PodmanArgs=--interactive --tty
+
+[Service]
+Restart=on-failure

@@ -76,6 +76,9 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/syncthing-server.container \
 		etc/containers/systemd/syncthing.network \
 		etc/containers/systemd/syncthing.pod \
+		etc/containers/systemd/tmodloader.build \
+		etc/containers/systemd/tmodloader.container \
+		etc/containers/systemd/tmodloader.network \
 		etc/containers/systemd/tubearchivist-app.container \
 		etc/containers/systemd/tubearchivist-elasticsearch.container \
 		etc/containers/systemd/tubearchivist-redis.container \
@@ -91,6 +94,10 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/whatsupdocker-podman-socket-proxy.container \
 		etc/containers/systemd/whatsupdocker.network \
 		etc/containers/systemd/whatsupdocker.pod
+
+	install -Dm644 -t $(DESTDIR)/var/lib/containerfiles/tmodloader \
+		var/lib/containerfiles/tmodloader/Containerfile \
+		var/lib/containerfiles/tmodloader/entry-point.sh
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \
