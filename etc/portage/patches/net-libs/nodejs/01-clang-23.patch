@@ -1,0 +1,12 @@
+diff --git a/deps/LIEF/third-party/frozen/include/frozen/map.h b/deps/LIEF/third-party/frozen/include/frozen/map.h
+index fd4f7f9..cfd051d 100644
+--- a/deps/LIEF/third-party/frozen/include/frozen/map.h
++++ b/deps/LIEF/third-party/frozen/include/frozen/map.h
+@@ -29,6 +29,7 @@
+ #include "frozen/bits/exceptions.h"
+ #include "frozen/bits/version.h"
+ 
++#include <functional>
+ #include <utility>
+ 
+ namespace frozen {
