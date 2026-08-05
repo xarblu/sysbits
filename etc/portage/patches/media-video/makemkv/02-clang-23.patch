@@ -1,0 +1,49 @@
+diff --git a/libebml/inc/ebml/EbmlBinary.h b/libebml/inc/ebml/EbmlBinary.h
+index d030a85..8550658 100644
+--- a/libebml/inc/ebml/EbmlBinary.h
++++ b/libebml/inc/ebml/EbmlBinary.h
+@@ -38,6 +38,7 @@
+ #define LIBEBML_BINARY_H
+ 
+ #include <lgpl/stl.h>
++#include <stdlib.h>
+ 
+ #include "EbmlTypes.h"
+ #include "EbmlElement.h"
+diff --git a/libebml/src/MemIOCallback.cpp b/libebml/src/MemIOCallback.cpp
+index 2a43267..21a22c3 100644
+--- a/libebml/src/MemIOCallback.cpp
++++ b/libebml/src/MemIOCallback.cpp
+@@ -32,6 +32,8 @@
+   \author Jory Stone <jcsston @ toughguy.net>
+ */
+ 
++#include <stdlib.h>
++
+ #include "ebml/Debug.h"
+ #include "ebml/MemIOCallback.h"
+ #include "ebml/EbmlConfig.h"
+diff --git a/libmatroska/inc/matroska/KaxBlock.h b/libmatroska/inc/matroska/KaxBlock.h
+index 19d9855..eeb0cf0 100644
+--- a/libmatroska/inc/matroska/KaxBlock.h
++++ b/libmatroska/inc/matroska/KaxBlock.h
+@@ -36,6 +36,7 @@
+ #define LIBMATROSKA_BLOCK_H
+ 
+ #include <lgpl/stl.h>
++#include <stdlib.h>
+ 
+ #include "matroska/KaxTypes.h"
+ #include "ebml/EbmlBinary.h"
+diff --git a/libmatroska/src/KaxBlock.cpp b/libmatroska/src/KaxBlock.cpp
+index 9febbbd..6c0538b 100644
+--- a/libmatroska/src/KaxBlock.cpp
++++ b/libmatroska/src/KaxBlock.cpp
+@@ -33,6 +33,7 @@
+   \author Moritz Bunkus <moritz@bunkus.org>
+ */
+ #include <lgpl/cassert>
++#include <stdlib.h>
+ 
+ //#include <streams.h>
+ 
