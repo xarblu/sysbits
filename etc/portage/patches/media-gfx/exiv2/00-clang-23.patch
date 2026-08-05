@@ -1,0 +1,15 @@
+diff --git a/src/value.cpp b/src/value.cpp
+index 7cf0892..d4125bc 100644
+--- a/src/value.cpp
++++ b/src/value.cpp
+@@ -9,7 +9,10 @@
+ #include "types.hpp"
+ 
+ // + standard includes
++#include <ctime>
++#include <limits>
+ #include <sstream>
++#include <string>
+ 
+ // *****************************************************************************
+ // class member definitions
