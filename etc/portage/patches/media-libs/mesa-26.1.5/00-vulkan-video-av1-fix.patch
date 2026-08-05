@@ -1,0 +1,220 @@
+From 71f8d76c7d6eb355edb77344ceed23889fe673a1 Mon Sep 17 00:00:00 2001
+From: David Rosca <david.rosca@amd.com>
+Date: Fri, 17 Jul 2026 10:20:51 +0200
+Subject: [PATCH 1/4] vulkan/video: Fix coding AV1 decoder/encoder_buffer_delay
+
+Cc: mesa-stable
+Reviewed-by: Benjamin Cheng <benjamin.cheng@amd.com>
+Part-of: <https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/43031>
+---
+ src/vulkan/runtime/vk_video.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/src/vulkan/runtime/vk_video.c b/src/vulkan/runtime/vk_video.c
+index ea40eb8f524e..95e8bf47eed5 100644
+--- a/src/vulkan/runtime/vk_video.c
++++ b/src/vulkan/runtime/vk_video.c
+@@ -3122,8 +3122,9 @@ vk_video_encode_av1_seq_hdr(const struct vk_video_session_parameters *params,
+          if (decoder_model_present_flag) {
+             vl_bitstream_put_bits(&enc, 1, op_point_info->flags.decoder_model_present_for_this_op);
+             if (op_point_info->flags.decoder_model_present_for_this_op) {
+-               vl_bitstream_put_uvlc(&enc, op_point_info->decoder_buffer_delay);
+-               vl_bitstream_put_uvlc(&enc, op_point_info->encoder_buffer_delay);
++               uint32_t length = decoder_model->buffer_delay_length_minus_1 + 1;
++               vl_bitstream_put_bits(&enc, length, op_point_info->decoder_buffer_delay);
++               vl_bitstream_put_bits(&enc, length, op_point_info->encoder_buffer_delay);
+                vl_bitstream_put_bits(&enc, 1, op_point_info->flags.low_delay_mode_flag);
+             }
+          }
+-- 
+GitLab
+
+
+From ff12737333ae32b11e784739cdcb569fe61c6db2 Mon Sep 17 00:00:00 2001
+From: David Rosca <david.rosca@amd.com>
+Date: Fri, 17 Jul 2026 09:39:39 +0200
+Subject: [PATCH 2/4] vulkan/video: Don't code AV1 decoder model info when not
+ present
+
+We always coded decoder model info, with all values being zero if we
+got NULL pStdDecoderModelInfo from app.
+
+Cc: mesa-stable
+Reviewed-by: Benjamin Cheng <benjamin.cheng@amd.com>
+Part-of: <https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/43031>
+---
+ src/vulkan/runtime/vk_video.c | 8 +++++++-
+ src/vulkan/runtime/vk_video.h | 1 +
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/src/vulkan/runtime/vk_video.c b/src/vulkan/runtime/vk_video.c
+index 95e8bf47eed5..45fa0cc2f98b 100644
+--- a/src/vulkan/runtime/vk_video.c
++++ b/src/vulkan/runtime/vk_video.c
+@@ -603,6 +603,12 @@ vk_video_session_parameters_create(struct vk_device *device,
+       if (av1_create) {
+          vk_video_deep_copy_av1_seq_hdr(&params->av1_enc.seq_hdr,
+                                         av1_create->pStdSequenceHeader);
++
++         if (av1_create->pStdDecoderModelInfo) {
++            memcpy(&params->av1_enc.decoder_model, av1_create->pStdDecoderModelInfo,
++                   sizeof(StdVideoEncodeAV1DecoderModelInfo));
++            params->av1_enc.pStdDecoderModelInfo = &params->av1_enc.decoder_model;
++         }
+       }
+       break;
+    }
+@@ -3044,7 +3050,7 @@ vk_video_encode_av1_seq_hdr(const struct vk_video_session_parameters *params,
+    const StdVideoAV1TimingInfo* timing_info = &params->av1_enc.seq_hdr.timing_info;
+    const StdVideoAV1SequenceHeader *seq_hdr = &params->av1_enc.seq_hdr.base;
+    uint8_t decoder_model_present_flag = 0;
+-   const StdVideoEncodeAV1DecoderModelInfo* decoder_model = &params->av1_enc.decoder_model;
++   const StdVideoEncodeAV1DecoderModelInfo *decoder_model = params->av1_enc.pStdDecoderModelInfo;
+    int num_op_points = MAX2(params->av1_enc.num_op_points, 1);
+    const StdVideoEncodeAV1OperatingPointInfo* op_points = params->av1_enc.num_op_points ?
+       params->av1_enc.op_points : &default_av1_operating_point;
+diff --git a/src/vulkan/runtime/vk_video.h b/src/vulkan/runtime/vk_video.h
+index c9bf90d78fbb..849211752a7c 100644
+--- a/src/vulkan/runtime/vk_video.h
++++ b/src/vulkan/runtime/vk_video.h
+@@ -186,6 +186,7 @@ struct vk_video_session_parameters {
+          StdVideoEncodeAV1DecoderModelInfo decoder_model;
+          uint32_t num_op_points;
+          const StdVideoEncodeAV1OperatingPointInfo* op_points;
++         const StdVideoEncodeAV1DecoderModelInfo *pStdDecoderModelInfo;
+       } av1_enc;
+    };
+ };
+-- 
+GitLab
+
+
+From 5e1cf2cb5da1f51782ea69b2083c5e61deb635d6 Mon Sep 17 00:00:00 2001
+From: David Rosca <david.rosca@amd.com>
+Date: Fri, 17 Jul 2026 09:43:41 +0200
+Subject: [PATCH 3/4] vulkan/video: Fix coding AV1 operating points
+
+We always coded the default operating point, because the app input
+wasn't copied.
+
+Cc: mesa-stable
+Reviewed-by: Benjamin Cheng <benjamin.cheng@amd.com>
+Part-of: <https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/43031>
+---
+ src/vulkan/runtime/vk_video.c | 32 +++++++++++++++-----------------
+ src/vulkan/runtime/vk_video.h |  2 +-
+ 2 files changed, 16 insertions(+), 18 deletions(-)
+
+diff --git a/src/vulkan/runtime/vk_video.c b/src/vulkan/runtime/vk_video.c
+index 45fa0cc2f98b..b9697ee5c12d 100644
+--- a/src/vulkan/runtime/vk_video.c
++++ b/src/vulkan/runtime/vk_video.c
+@@ -604,6 +604,19 @@ vk_video_session_parameters_create(struct vk_device *device,
+          vk_video_deep_copy_av1_seq_hdr(&params->av1_enc.seq_hdr,
+                                         av1_create->pStdSequenceHeader);
+ 
++         if (av1_create->stdOperatingPointCount && av1_create->pStdOperatingPoints) {
++            if (av1_create->stdOperatingPointCount > 32) {
++               vk_video_session_parameters_destroy(device, alloc, params);
++               return NULL;
++            }
++            memcpy(params->av1_enc.op_points, av1_create->pStdOperatingPoints,
++                   av1_create->stdOperatingPointCount * sizeof(StdVideoEncodeAV1OperatingPointInfo));
++            params->av1_enc.num_op_points = av1_create->stdOperatingPointCount;
++         } else {
++            params->av1_enc.op_points[0].seq_level_idx = STD_VIDEO_AV1_LEVEL_6_1;
++            params->av1_enc.num_op_points = 1;
++         }
++
+          if (av1_create->pStdDecoderModelInfo) {
+             memcpy(&params->av1_enc.decoder_model, av1_create->pStdDecoderModelInfo,
+                    sizeof(StdVideoEncodeAV1DecoderModelInfo));
+@@ -3017,20 +3030,6 @@ static void vk_video_encode_av1_code_leb128(uint8_t *buf, uint32_t num_bytes, ui
+    } while((leb128_byte & 0x80));
+ }
+ 
+-static StdVideoEncodeAV1OperatingPointInfo default_av1_operating_point = {
+-   .flags = {
+-      .decoder_model_present_for_this_op = 0,
+-      .low_delay_mode_flag = 0,
+-      .initial_display_delay_present_for_this_op = 0,
+-   },
+-   .operating_point_idc = 0,
+-   .seq_level_idx = STD_VIDEO_AV1_LEVEL_6_1,
+-   .seq_tier = 0,
+-   .decoder_buffer_delay = 0,
+-   .encoder_buffer_delay = 0,
+-   .initial_display_delay_minus_1 = 0,
+-};
+-
+ VkResult
+ vk_video_encode_av1_seq_hdr(const struct vk_video_session_parameters *params,
+                             size_t size_limit,
+@@ -3051,9 +3050,8 @@ vk_video_encode_av1_seq_hdr(const struct vk_video_session_parameters *params,
+    const StdVideoAV1SequenceHeader *seq_hdr = &params->av1_enc.seq_hdr.base;
+    uint8_t decoder_model_present_flag = 0;
+    const StdVideoEncodeAV1DecoderModelInfo *decoder_model = params->av1_enc.pStdDecoderModelInfo;
+-   int num_op_points = MAX2(params->av1_enc.num_op_points, 1);
+-   const StdVideoEncodeAV1OperatingPointInfo* op_points = params->av1_enc.num_op_points ?
+-      params->av1_enc.op_points : &default_av1_operating_point;
++   uint32_t num_op_points = params->av1_enc.num_op_points;
++   const StdVideoEncodeAV1OperatingPointInfo *op_points = params->av1_enc.op_points;
+ 
+    assert(params->op == VK_VIDEO_CODEC_OPERATION_ENCODE_AV1_BIT_KHR);
+ 
+diff --git a/src/vulkan/runtime/vk_video.h b/src/vulkan/runtime/vk_video.h
+index 849211752a7c..806a26f0227b 100644
+--- a/src/vulkan/runtime/vk_video.h
++++ b/src/vulkan/runtime/vk_video.h
+@@ -185,7 +185,7 @@ struct vk_video_session_parameters {
+          struct vk_video_av1_seq_hdr seq_hdr;
+          StdVideoEncodeAV1DecoderModelInfo decoder_model;
+          uint32_t num_op_points;
+-         const StdVideoEncodeAV1OperatingPointInfo* op_points;
++         StdVideoEncodeAV1OperatingPointInfo op_points[32];
+          const StdVideoEncodeAV1DecoderModelInfo *pStdDecoderModelInfo;
+       } av1_enc;
+    };
+-- 
+GitLab
+
+
+From 4752db0e88a2980fb44534952e439964583f40ad Mon Sep 17 00:00:00 2001
+From: David Rosca <david.rosca@amd.com>
+Date: Fri, 17 Jul 2026 09:43:49 +0200
+Subject: [PATCH 4/4] vulkan/video: Remove always true checks in
+ encode_av1_seq_hdr
+
+Reviewed-by: Benjamin Cheng <benjamin.cheng@amd.com>
+Part-of: <https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/43031>
+---
+ src/vulkan/runtime/vk_video.c | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/src/vulkan/runtime/vk_video.c b/src/vulkan/runtime/vk_video.c
+index b9697ee5c12d..9c275bcf067c 100644
+--- a/src/vulkan/runtime/vk_video.c
++++ b/src/vulkan/runtime/vk_video.c
+@@ -3059,9 +3059,6 @@ vk_video_encode_av1_seq_hdr(const struct vk_video_session_parameters *params,
+    /* AV1 does not need start code prevention */
+    enc.prevent_start_code = false;
+ 
+-   if (!color || (num_op_points > 0 && !op_points))
+-      return VK_ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR;
+-
+    emit_obu_av1_header(&enc, OBU_SEQUENCE_HEADER, obu_extension_flag, temporal_id, spatial_id);
+ 
+    /* obu_size, use two bytes for header, the size will be written in afterwards */
+@@ -3084,9 +3081,6 @@ vk_video_encode_av1_seq_hdr(const struct vk_video_session_parameters *params,
+       vl_bitstream_put_bits(&enc, 1, seq_hdr->flags.timing_info_present_flag);
+ 
+       if (seq_hdr->flags.timing_info_present_flag) {
+-         if (!timing_info)
+-            return VK_ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR;
+-
+          /*  num_units_in_display_tick  */
+          vl_bitstream_put_bits(&enc, 32, timing_info->num_units_in_display_tick);
+          /*  time_scale  */
+-- 
+GitLab
+
