@@ -1,0 +1,39 @@
+diff --git a/makemkvgui/src/clt_std.cpp b/makemkvgui/src/clt_std.cpp
+index 2973917..c10bde2 100644
+--- a/makemkvgui/src/clt_std.cpp
++++ b/makemkvgui/src/clt_std.cpp
+@@ -14,7 +14,7 @@
+ */
+ #include <lgpl/aproxy.h>
+ #include <lgpl/sstring.h>
+-
++#include <stdlib.h>
+ 
+ bool CStdPipeTransport::Init1(char* name)
+ {
+diff --git a/mmgpl/dvdnavsrv.cpp b/mmgpl/dvdnavsrv.cpp
+index fe1b680..5f5e6b4 100644
+--- a/mmgpl/dvdnavsrv.cpp
++++ b/mmgpl/dvdnavsrv.cpp
+@@ -22,7 +22,9 @@
+ #include <lgpl/aproxy.h>
+ #include <lgpl/stl.h>
+ #include <alloca.h>
++#include <stdlib.h>
+ #include <strings.h>
++#include <vector>
+ #include <dvdnav/dvdnav.h>
+ #include <dvdnav/navbase.h>
+ #include <lgpl/posixio.h>
+diff --git a/mmgpl/dvdread.cpp b/mmgpl/dvdread.cpp
+index 00e1db2..2b04fed 100644
+--- a/mmgpl/dvdread.cpp
++++ b/mmgpl/dvdread.cpp
+@@ -25,6 +25,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <strings.h>
++#include <stdio.h>
+ #include <dvdread_internal.h>
+ #include <dvdnav/navbase.h>
+ 
