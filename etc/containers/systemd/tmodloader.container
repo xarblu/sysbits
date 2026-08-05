@@ -13,11 +13,10 @@ PublishPort=127.0.0.1:9025:7777/tcp
 
 Volume=/var/lib/tmodloader/tModLoader:/tModLoader:idmap
 
-# uncomment to allow attaching to the interactive console
-# usually not needed if serverconfig.txt is setup correctly
+# allow attaching to the interactive console
 # connect with podman attach systemd-tmodloader
 # disconnect with ctrl+p ctrl+q
-# PodmanArgs=--interactive --tty
+PodmanArgs=--interactive --tty
 
 [Service]
 Restart=on-failure
