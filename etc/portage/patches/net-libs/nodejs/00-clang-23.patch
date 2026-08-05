@@ -1,0 +1,12 @@
+diff --git a/deps/ncrypto/ncrypto.cc b/deps/ncrypto/ncrypto.cc
+index bed4d48..f507972 100644
+--- a/deps/ncrypto/ncrypto.cc
++++ b/deps/ncrypto/ncrypto.cc
+@@ -17,6 +17,7 @@
+ #include <climits>
+ #include <cstring>
+ #include <string_view>
++#include <vector>
+ #if OPENSSL_VERSION_MAJOR >= 3
+ #include <openssl/core_names.h>
+ #include <openssl/params.h>
