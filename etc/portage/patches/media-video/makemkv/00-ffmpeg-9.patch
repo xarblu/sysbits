@@ -1,0 +1,67 @@
+diff --git a/libffabi/src/ffabi.c b/libffabi/src/ffabi.c
+index 5329065..8329e33 100644
+--- a/libffabi/src/ffabi.c
++++ b/libffabi/src/ffabi.c
+@@ -539,8 +539,11 @@ static int set_codec_info_extended(FFM_CodecInfo* info, const AVCodec* codec)
+     len = strlen(codec->name);
+     if (len >= FFM_CODEC_INFO_NAME_MAX_LENGTH) return -1;
+ 
+-    if (NULL != codec->ch_layouts) {
+-        while (0 != codec->ch_layouts[count_ch_layouts_in].nb_channels)
++    const AVChannelLayout *ch_layouts = NULL;
++    avcodec_get_supported_config(NULL, codec, AV_CODEC_CONFIG_CHANNEL_LAYOUT, 0, &ch_layouts, NULL);
++
++    if (NULL != ch_layouts) {
++        while (0 != ch_layouts[count_ch_layouts_in].nb_channels)
+         {
+             count_ch_layouts_in++;
+         }
+@@ -558,8 +561,8 @@ static int set_codec_info_extended(FFM_CodecInfo* info, const AVCodec* codec)
+ 
+     for (i = 0; i < count_ch_layouts_in; i++)
+     {
+-        if (AV_CHANNEL_ORDER_NATIVE != codec->ch_layouts[i].order) continue;
+-        channel_layouts[count_ch_layouts_out++] = codec->ch_layouts[i].u.mask;
++        if (AV_CHANNEL_ORDER_NATIVE != ch_layouts[i].order) continue;
++        channel_layouts[count_ch_layouts_out++] = ch_layouts[i].u.mask;
+     }
+     channel_layouts[count_ch_layouts_out] = 0;
+ 
+@@ -584,13 +587,20 @@ int __cdecl ffm_audio_get_codec_information(FFM_CodecInfo* info, const char* nam
+         return ffmerr(1, encode);
+     }
+ 
++    const int *supported_samplerates;
++    const enum AVSampleFormat *sample_fmts;
++    const AVChannelLayout *ch_layouts;
++    avcodec_get_supported_config(NULL, codec, AV_CODEC_CONFIG_CHANNEL_LAYOUT, 0, &ch_layouts, NULL);
++    avcodec_get_supported_config(NULL, codec, AV_CODEC_CONFIG_SAMPLE_FORMAT, 0, &sample_fmts, NULL);
++    avcodec_get_supported_config(NULL, codec, AV_CODEC_CONFIG_SAMPLE_RATE, 0, &supported_samplerates, NULL);
++
+     info->name = codec->name;
+     info->long_name = codec->long_name;
+-    info->sample_rates = codec->supported_samplerates;
++    info->sample_rates = supported_samplerates;
+ #ifdef FFABI_HAVE_OLD_CHANNEL_LAYOUT
+     info->channel_layouts = codec->channel_layouts;
+ #else
+-    if (NULL == codec->ch_layouts) {
++    if (NULL == ch_layouts) {
+         info->channel_layouts = NULL;
+     } else {
+         if (set_codec_info_extended(info, codec)) {
+@@ -609,11 +619,11 @@ int __cdecl ffm_audio_get_codec_information(FFM_CodecInfo* info, const char* nam
+             info->profiles_count = i+1;
+         }
+     }
+-    if (codec->sample_fmts) {
++    if (sample_fmts) {
+         for (i=0;i<16;i++) {
+-            if (codec->sample_fmts[i]==AV_SAMPLE_FMT_NONE)
++            if (sample_fmts[i]==AV_SAMPLE_FMT_NONE)
+                 break;
+-            info->sample_formats[i]=(uint8_t)back_translate_sample_fmt(codec->sample_fmts[i]);
++            info->sample_formats[i]=(uint8_t)back_translate_sample_fmt(sample_fmts[i]);
+             info->sample_formats_count = i+1;
+         }
+     }
