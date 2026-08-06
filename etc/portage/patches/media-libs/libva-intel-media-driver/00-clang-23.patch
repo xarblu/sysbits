@@ -1,0 +1,13 @@
+diff --git a/cmrtlib/agnostic/share/cm_printf_host.cpp b/cmrtlib/agnostic/share/cm_printf_host.cpp
+index 71f4f30..7ce283c 100644
+--- a/cmrtlib/agnostic/share/cm_printf_host.cpp
++++ b/cmrtlib/agnostic/share/cm_printf_host.cpp
+@@ -25,6 +25,8 @@
+ #include "cm_debug.h"
+ #include "cm_mem.h"
+ 
++#include <cstdlib>
++
+ void PFParser::getToken(void)
+ {
+     m_prevToken = m_currToken;
