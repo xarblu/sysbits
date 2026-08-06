@@ -3,7 +3,7 @@ Description=Prometheus Monitoring System
 RequiresMountsFor=/var/lib/grafana
 
 [Container]
-Image=docker.io/prom/prometheus:v3.13.1
+Image=docker.io/prom/prometheus:v3.13.2
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/prometheus/prometheus/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
