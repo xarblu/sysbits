@@ -1,0 +1,12 @@
+diff --git a/media_softlet/linux/common/os/i915/include/mos_bufmgr_api.h b/media_softlet/linux/common/os/i915/include/mos_bufmgr_api.h
+index 4e67df8..7dcab82 100644
+--- a/media_softlet/linux/common/os/i915/include/mos_bufmgr_api.h
++++ b/media_softlet/linux/common/os/i915/include/mos_bufmgr_api.h
+@@ -28,6 +28,7 @@
+ #ifndef MOS_BUFMGR_API_H
+ #define MOS_BUFMGR_API_H
+ 
++#include <errno.h>
+ #include <stdio.h>
+ #include "drm.h"
+ #include "libdrm_macros.h"
