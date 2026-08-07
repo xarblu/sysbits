@@ -8,11 +8,3 @@ IGNORE_TC_LD_FORCE_BFD=true
 # and probably better to keep it simple
 # anyway
 ENABLE_ICF=false
-
-# make.defaults sets
-# "-m32 -mfpmath=sse"
-# for 32bit on amd64
-# but the glibc build system sometimes
-# passes -mgeneral-regs-only
-# which disallows use of sse
-CFLAGS_x86="-m32 -mfpmath=sse -msse2"
