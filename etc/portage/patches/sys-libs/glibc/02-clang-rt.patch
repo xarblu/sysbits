@@ -1,4 +1,4 @@
-From b9da03ac92ec6b10b0cad4ca1ced70ce913bda0d Mon Sep 17 00:00:00 2001
+From 12203701d4be047ca61ee62dc85cdd1170e2e449 Mon Sep 17 00:00:00 2001
 From: Xarblu <xarblu@protonmail.com>
 Date: Fri, 7 Aug 2026 17:34:52 +0200
 Subject: [PATCH] use full clang_rt.builtins-{x86_64,i386}
@@ -10,7 +10,7 @@ Signed-off-by: Xarblu <xarblu@protonmail.com>
  2 files changed, 6 insertions(+), 4 deletions(-)
 
 diff --git a/configure b/configure
-index 604279533a..5f49e737ea 100755
+index 604279533a..5526318708 100755
 --- a/configure
 +++ b/configure
 @@ -9326,7 +9326,8 @@ then :
@@ -28,12 +28,12 @@ index 604279533a..5f49e737ea 100755
        ;;
      libclang_rt*)
 -      libc_cv_libgcc=-lclang_rt.builtins
-+      libc_cv_libgcc=-L${libgcc%/*} -l`echo $libgcc_name | sed -E 's:lib(.*)\.a:\1:'`
++      libc_cv_libgcc=-L${libgcc_path%/*} -l`echo $libgcc_name | sed -E 's:lib(.*)\.a:\1:'`
        libc_cv_libgcc_eh=
        libc_cv_runtime_library=compiler-rt
        ;;
 diff --git a/configure.ac b/configure.ac
-index 2fe7980fc9..a8ab616ee1 100644
+index 2fe7980fc9..3fbea6247e 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -2103,7 +2103,8 @@ LIBC_CONFIG_VAR([have-libgcc_s], [$libc_cv_have_libgcc_s])
@@ -51,7 +51,7 @@ index 2fe7980fc9..a8ab616ee1 100644
        ;;
      libclang_rt*)
 -      libc_cv_libgcc=-lclang_rt.builtins
-+      libc_cv_libgcc=-L${libgcc%/*} -l`echo $libgcc_name | sed -E 's:lib(.*)\.a:\1:'`
++      libc_cv_libgcc=-L${libgcc_path%/*} -l`echo $libgcc_name | sed -E 's:lib(.*)\.a:\1:'`
        libc_cv_libgcc_eh=
        libc_cv_runtime_library=compiler-rt
        ;;
