@@ -8,3 +8,6 @@ IGNORE_TC_LD_FORCE_BFD=true
 # and probably better to keep it simple
 # anyway
 ENABLE_ICF=false
+# the configure script is a bit flaky
+# and doesn't detect that clang has libunwind
+EXTRA_ECONF="${EXTRA_ECONF} libc_cv_cc_with_libunwind=y"
