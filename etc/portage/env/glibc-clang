@@ -1,0 +1,18 @@
+# special env for building sys-libs/glibc with clang
+
+# ebuild forces bfd, even with USE=clang/custom-cflags
+# bgo#968719
+IGNORE_TC_LD_FORCE_BFD=true
+
+# "-r and --icf can't be used together"
+# and probably better to keep it simple
+# anyway
+ENABLE_ICF=false
+
+# make.defaults sets
+# "-m32 -mfpmath=sse"
+# for 32bit on amd64
+# but the glibc build system sometimes
+# passes -mgeneral-regs-only
+# which disallows use of sse
+CFLAGS_x86="-m32 -mfpmath=sse -msse2"

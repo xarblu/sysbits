@@ -161,6 +161,7 @@ endif
 		etc/portage/env/autoconf-2_73-std-17 \
 		etc/portage/env/clang-21 \
 		etc/portage/env/gcc \
+		etc/portage/env/glibc-clang \
 		etc/portage/env/gnu-objcopy \
 		etc/portage/env/ignore_tc-ld-force-bfd \
 		etc/portage/env/ld-allow-shlib-undefined \
