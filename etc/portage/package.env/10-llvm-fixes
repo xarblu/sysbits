@@ -12,8 +12,8 @@ sys-devel/binutils gcc
 sys-libs/binutils-libs gcc
 # clang is very much experimental
 # and doesn't support multilib yet
-#sys-libs/glibc gcc
-sys-libs/glibc glibc-clang
+sys-libs/glibc gcc
+#sys-libs/glibc glibc-clang
 # -flto-partitions even without lto
 sys-apps/apparmor gcc
 # is gcc compiled bin. fails without gcc
