@@ -1,0 +1,40 @@
+From e79d677db8f5721784eeabbbd1130eeea3d31c71 Mon Sep 17 00:00:00 2001
+From: Xarblu <xarblu@protonmail.com>
+Date: Fri, 7 Aug 2026 17:34:52 +0200
+Subject: [PATCH] use full clang_rt.builtins-{x86_64,i386}
+
+Signed-off-by: Xarblu <xarblu@protonmail.com>
+---
+ configure    | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configure b/configure
+index 604279533a..2195420475 100755
+--- a/configure
++++ b/configure
+@@ -9334,7 +9334,7 @@ else case e in #(
+       libc_cv_runtime_library=libgcc
+       ;;
+     libclang_rt*)
+-      libc_cv_libgcc=-lclang_rt.builtins
++      libc_cv_libgcc=-l`echo $libgcc_name | sed -E 's:lib(.*)\.a:\1:'`
+       libc_cv_libgcc_eh=
+       libc_cv_runtime_library=compiler-rt
+       ;;
+diff --git a/configure.ac b/configure.ac
+index 2fe7980fc9..d5009096e6 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -2111,7 +2111,7 @@ AC_CACHE_CHECK([for the usable compiler runtime library], [libc_cv_runtime_libra
+       libc_cv_runtime_library=libgcc
+       ;;
+     libclang_rt*)
+-      libc_cv_libgcc=-lclang_rt.builtins
++      libc_cv_libgcc=-l`echo $libgcc_name | sed -E 's:lib(.*)\.a:\1:'`
+       libc_cv_libgcc_eh=
+       libc_cv_runtime_library=compiler-rt
+       ;;
+-- 
+2.55.0
+
