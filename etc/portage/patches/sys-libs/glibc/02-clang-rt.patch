@@ -1,37 +1,57 @@
-From e79d677db8f5721784eeabbbd1130eeea3d31c71 Mon Sep 17 00:00:00 2001
+From b9da03ac92ec6b10b0cad4ca1ced70ce913bda0d Mon Sep 17 00:00:00 2001
 From: Xarblu <xarblu@protonmail.com>
 Date: Fri, 7 Aug 2026 17:34:52 +0200
 Subject: [PATCH] use full clang_rt.builtins-{x86_64,i386}
 
 Signed-off-by: Xarblu <xarblu@protonmail.com>
 ---
- configure    | 2 +-
- configure.ac | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ configure    | 5 +++--
+ configure.ac | 5 +++--
+ 2 files changed, 6 insertions(+), 4 deletions(-)
 
 diff --git a/configure b/configure
-index 604279533a..2195420475 100755
+index 604279533a..5f49e737ea 100755
 --- a/configure
 +++ b/configure
-@@ -9334,7 +9334,7 @@ else case e in #(
+@@ -9326,7 +9326,8 @@ then :
+   printf %s "(cached) " >&6
+ else case e in #(
+   e)   libc_cv_libgcc_usable=no
+-  libgcc_name=`${CC-cc} $CFLAGS $CPPFLAGS -print-libgcc-file-name | sed 's:.*/::'`
++  libgcc_path=`${CC-cc} $CFLAGS $CPPFLAGS -print-libgcc-file-name`
++  libgcc_name=`echo $libgcc_path | sed 's:.*/::'`
+   case "$libgcc_name" in
+     libgcc*)
+       libc_cv_libgcc=-lgcc
+@@ -9334,7 +9335,7 @@ else case e in #(
        libc_cv_runtime_library=libgcc
        ;;
      libclang_rt*)
 -      libc_cv_libgcc=-lclang_rt.builtins
-+      libc_cv_libgcc=-l`echo $libgcc_name | sed -E 's:lib(.*)\.a:\1:'`
++      libc_cv_libgcc=-L${libgcc%/*} -l`echo $libgcc_name | sed -E 's:lib(.*)\.a:\1:'`
        libc_cv_libgcc_eh=
        libc_cv_runtime_library=compiler-rt
        ;;
 diff --git a/configure.ac b/configure.ac
-index 2fe7980fc9..d5009096e6 100644
+index 2fe7980fc9..a8ab616ee1 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -2111,7 +2111,7 @@ AC_CACHE_CHECK([for the usable compiler runtime library], [libc_cv_runtime_libra
+@@ -2103,7 +2103,8 @@ LIBC_CONFIG_VAR([have-libgcc_s], [$libc_cv_have_libgcc_s])
+ # Check which runtime library compiler uses
+ AC_CACHE_CHECK([for the usable compiler runtime library], [libc_cv_runtime_library], [dnl
+   libc_cv_libgcc_usable=no
+-  libgcc_name=`${CC-cc} $CFLAGS $CPPFLAGS -print-libgcc-file-name | sed 's:.*/::'`
++  libgcc_path=`${CC-cc} $CFLAGS $CPPFLAGS -print-libgcc-file-name`
++  libgcc_name=`echo $libgcc_path | sed 's:.*/::'`
+   case "$libgcc_name" in
+     libgcc*)
+       libc_cv_libgcc=-lgcc
+@@ -2111,7 +2112,7 @@ AC_CACHE_CHECK([for the usable compiler runtime library], [libc_cv_runtime_libra
        libc_cv_runtime_library=libgcc
        ;;
      libclang_rt*)
 -      libc_cv_libgcc=-lclang_rt.builtins
-+      libc_cv_libgcc=-l`echo $libgcc_name | sed -E 's:lib(.*)\.a:\1:'`
++      libc_cv_libgcc=-L${libgcc%/*} -l`echo $libgcc_name | sed -E 's:lib(.*)\.a:\1:'`
        libc_cv_libgcc_eh=
        libc_cv_runtime_library=compiler-rt
        ;;
