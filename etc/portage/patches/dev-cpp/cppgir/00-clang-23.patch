@@ -1,0 +1,13 @@
+diff --git a/tools/genutils.hpp b/tools/genutils.hpp
+index b6a8e27..81326f0 100644
+--- a/tools/genutils.hpp
++++ b/tools/genutils.hpp
+@@ -4,6 +4,8 @@
+ #include "common.hpp"
+ 
+ #include <fstream>
++#include <functional>
++#include <iterator>
+ #include <regex>
+ #include <set>
+ #include <sstream>
