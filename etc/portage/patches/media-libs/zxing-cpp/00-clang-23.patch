@@ -1,0 +1,21 @@
+diff --git a/core/src/librscpp/poly.h b/core/src/librscpp/poly.h
+index 4beb5ff..bdc9ba3 100644
+--- a/core/src/librscpp/poly.h
++++ b/core/src/librscpp/poly.h
+@@ -6,6 +6,7 @@
+ 
+ #include <algorithm>
+ #include <cassert>
++#include <cmath>
+ #include <cstddef>
+ #include <numeric>
+ #include <span>
+@@ -15,7 +16,7 @@ namespace librscpp {
+ 
+ /**
+  * @brief Represents a polynomial whose coefficients are elements of Field.
+- * 
++ *
+  * The coefficients are stored in a vector, arranged from most significant (highest-power term) to least significant.
+  */
+ template <typename Field>
