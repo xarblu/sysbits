@@ -1,0 +1,13 @@
+diff --git a/3rd/EmmyLuaCodeStyle/CodeFormatCore/src/Diagnostic/Spell/CodeSpellChecker.cpp b/3rd/EmmyLuaCodeStyle/CodeFormatCore/src/Diagnostic/Spell/CodeSpellChecker.cpp
+index 584d621..6d17e78 100644
+--- a/3rd/EmmyLuaCodeStyle/CodeFormatCore/src/Diagnostic/Spell/CodeSpellChecker.cpp
++++ b/3rd/EmmyLuaCodeStyle/CodeFormatCore/src/Diagnostic/Spell/CodeSpellChecker.cpp
+@@ -6,6 +6,8 @@
+ #include "LuaParser/Lexer/LuaTokenTypeDetail.h"
+ #include "Util/format.h"
+ 
++#include <algorithm>
++
+ CodeSpellChecker::CodeSpellChecker()
+     : _symSpell(std::make_shared<SymSpell>(SymSpell::Strategy::LazyLoaded)) {
+ }
