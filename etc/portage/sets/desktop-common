@@ -88,7 +88,7 @@ x11-apps/mesa-progs
 x11-apps/xdpyinfo
 
 ## Games
-games-util/ProtonPlus
+games-util/protonplus
 # until pyside catches up
 #games-util/ProtonUp-Qt
 games-util/gamemode
