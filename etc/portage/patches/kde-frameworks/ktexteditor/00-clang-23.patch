@@ -1,0 +1,13 @@
+diff --git a/src/buffer/katetextblock.h b/src/buffer/katetextblock.h
+index 6150af8..b53ce98 100644
+--- a/src/buffer/katetextblock.h
++++ b/src/buffer/katetextblock.h
+@@ -11,6 +11,8 @@
+ 
+ #include <QList>
+ 
++#include <vector>
++
+ #include <ktexteditor/cursor.h>
+ #include <ktexteditor_export.h>
+ 
