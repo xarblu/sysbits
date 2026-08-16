@@ -1,0 +1,12 @@
+diff --git a/src/lib/pubkey/xmss/xmss_address.h b/src/lib/pubkey/xmss/xmss_address.h
+index 58660ab..30ad92e 100644
+--- a/src/lib/pubkey/xmss/xmss_address.h
++++ b/src/lib/pubkey/xmss/xmss_address.h
+@@ -11,6 +11,7 @@
+ 
+ #include <botan/assert.h>
+ #include <botan/types.h>
++#include <algorithm>
+ #include <array>
+ #include <span>
+ 
