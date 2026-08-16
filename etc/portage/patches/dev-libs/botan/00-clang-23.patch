@@ -1,0 +1,12 @@
+diff --git a/src/lib/utils/buffer_stuffer.h b/src/lib/utils/buffer_stuffer.h
+index d73fce7..160f0c9 100644
+--- a/src/lib/utils/buffer_stuffer.h
++++ b/src/lib/utils/buffer_stuffer.h
+@@ -10,6 +10,7 @@
+ #include <botan/assert.h>
+ #include <botan/strong_type.h>
+ #include <botan/types.h>
++#include <algorithm>
+ #include <span>
+ 
+ namespace Botan {
