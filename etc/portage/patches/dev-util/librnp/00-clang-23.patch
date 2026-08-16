@@ -1,0 +1,12 @@
+diff --git a/src/common/file-utils.cpp b/src/common/file-utils.cpp
+index e0610f2..84daf47 100644
+--- a/src/common/file-utils.cpp
++++ b/src/common/file-utils.cpp
+@@ -56,6 +56,7 @@
+ #include <fcntl.h>
+ #endif
+ #include <stdarg.h>
++#include <stdlib.h>
+ 
+ int
+ rnp_unlink(const char *filename)
