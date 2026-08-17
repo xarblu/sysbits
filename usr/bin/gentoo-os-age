@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+# Simple script to output the OS age
+# of a Gentoo system in "accurate enough"
+# human readable form
+
+# the emerge log file to read from
+: "${EMERGE_LOG:=/var/log/emerge.log}"
+
+if ! EMERGE_LOG_START="$( (head -1 "${EMERGE_LOG}" | cut -d : -f 1) 2>/dev/null)"; then
+    exit 1
+fi
+
+# shellcheck disable=SC2034 # used via nameref below
+((
+    AGE_RAW_SECONDS = EPOCHSECONDS - EMERGE_LOG_START,
+
+    AGE_YEARS = AGE_RAW_SECONDS / 60 / 60 / 24 / 365,
+    AGE_RAW_SECONDS = AGE_RAW_SECONDS % (60 * 60 * 24 * 365),
+
+    AGE_MONTHS = AGE_RAW_SECONDS / 60 / 60 / 24 / 30,
+    AGE_RAW_SECONDS = AGE_RAW_SECONDS % (60 * 60 * 24 * 30),
+
+    AGE_WEEKS = AGE_RAW_SECONDS / 60 / 60 / 24 / 7,
+    AGE_RAW_SECONDS = AGE_RAW_SECONDS % (60 * 60 * 24 * 7),
+
+    AGE_DAYS = AGE_RAW_SECONDS / 60 / 60 / 24,
+    AGE_RAW_SECONDS = AGE_RAW_SECONDS % (60 * 60 * 24),
+
+    AGE_HOURS = AGE_RAW_SECONDS / 60 / 60,
+    AGE_RAW_SECONDS = AGE_RAW_SECONDS % (60 * 60),
+
+    AGE_MINUTES = AGE_RAW_SECONDS / 60,
+    AGE_RAW_SECONDS = AGE_RAW_SECONDS % 60,
+
+    AGE_SECONDS = AGE_RAW_SECONDS,
+    AGE_RAW_SECONDS = AGE_RAW_SECONDS
+))
+
+for denom in year month week day hour minute second; do
+    declare -n val="AGE_${denom^^}S"
+    case "${val}" in
+        0) ;;
+        1) printf '%d %s ' "${val}" "${denom}" ;;
+        *) printf '%d %ss ' "${val}" "${denom}" ;;
+    esac
+done
+
+printf '\n'
+
+exit 0
