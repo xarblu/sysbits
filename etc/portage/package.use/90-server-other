@@ -1,3 +1,4 @@
+acct-user/git git
 app-admin/cockpit -doc firewalld networkmanager pcp tuned udisks
 app-admin/sudo offensive
 app-admin/vaultwarden postgres web
