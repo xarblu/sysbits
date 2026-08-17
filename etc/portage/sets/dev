@@ -10,4 +10,4 @@ dev-util/pkgdev
 sys-devel/mold
 
 # loclogpp deps
-sci-geosciences/gpsd
+#sci-geosciences/gpsd
