@@ -1,11 +1,8 @@
 # Auto-generated Gentoo mirror list
 # Run update-mirrorlist.sh to update
 
-# Last Update: 2025-11-13
+# Last Update: 2026-08-18
 
-GENTOO_MIRRORS="ftp://ftp-stud.hs-esslingen.de/pub/Mirrors/gentoo/ \
-    ftp://194.8.197.22/gentoo/ \
-    ftp://137.226.34.46/gentoo/ \
-    ftp://ftp.halifax.rwth-aachen.de/gentoo/ \
-    ftp://131.188.12.211/gentoo \
-    ftp://oberon.de.ext.planetunix.net/pub/gentoo/"
+GENTOO_MIRRORS="http://gentoo.mirror.web4u.cz/ \
+    http://ftp.agdsn.de/gentoo \
+    http://110.172.148.100/gentoo/"

@@ -4,10 +4,10 @@ DEST="${BASH_SOURCE[0]%/*}/gentoo_mirrors.list"
 
 function do_mirrorselect() {
     mirrorselect \
-        --country Germany \
+        --region Europe \
+        --servers 3 \
         --blocksize 10 \
-        --servers 10 \
-        --ftp \
+        --http \
         --output
 }
 
