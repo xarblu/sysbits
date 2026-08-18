@@ -8,6 +8,7 @@ function do_mirrorselect() {
         --servers 3 \
         --blocksize 10 \
         --http \
+        --deep \
         --output
 }
 

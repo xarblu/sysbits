@@ -3,6 +3,6 @@
 
 # Last Update: 2026-08-18
 
-GENTOO_MIRRORS="http://gentoo.mirror.web4u.cz/ \
-    http://ftp.agdsn.de/gentoo \
-    http://110.172.148.100/gentoo/"
+GENTOO_MIRRORS="http://mirror.leaseweb.com/gentoo/ \
+    http://mirror.leaseweb.com/gentoo/ \
+    http://gentoo.mirrors.ovh.net/gentoo-distfiles/"
