@@ -1,0 +1,13 @@
+diff --git a/Quotient/function_traits.cpp b/Quotient/function_traits.cpp
+index e3d2712..ccd1bb7 100644
+--- a/Quotient/function_traits.cpp
++++ b/Quotient/function_traits.cpp
+@@ -3,6 +3,8 @@
+ 
+ #include "function_traits.h"
+ 
++#include <vector>
++
+ // Tests for function_traits<>
+ 
+ using namespace Quotient;
