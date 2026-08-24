@@ -1,0 +1,12 @@
+diff --git a/src/worker.cpp b/src/worker.cpp
+index 7ae52f9..40a3d8b 100644
+--- a/src/worker.cpp
++++ b/src/worker.cpp
+@@ -4,6 +4,7 @@
+ #include <atomic>
+ #include <chrono>
+ #include <optional>
++#include <thread>
+ 
+ #include <QDBusConnection>
+ #include <QDBusMessage>
