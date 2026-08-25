@@ -1,0 +1,19 @@
+diff --git a/src/Savestate.cpp b/src/Savestate.cpp
+index 61261e6..1b974b7 100644
+--- a/src/Savestate.cpp
++++ b/src/Savestate.cpp
+@@ -18,6 +18,7 @@
+ 
+ #include <stdio.h>
+ #include <cassert>
++#include <cstdlib>
+ #include <cstring>
+ #include "Savestate.h"
+ #include "Platform.h"
+@@ -382,4 +383,4 @@ u32 Savestate::FindSection(const char* magic) const
+     return NO_SECTION;
+ }
+ 
+-}
+\ No newline at end of file
++}
