@@ -1,0 +1,37 @@
+diff --git a/src/ARMJIT_RegisterCache.h b/src/ARMJIT_RegisterCache.h
+index 27f485f..99cc8c8 100644
+--- a/src/ARMJIT_RegisterCache.h
++++ b/src/ARMJIT_RegisterCache.h
+@@ -26,6 +26,7 @@
+ #include "dolphin/BitSet.h"
+ 
+ #include <assert.h>
++#include <cstdlib>
+ 
+ namespace melonDS
+ {
+diff --git a/src/ARMJIT_x64/ARMJIT_ALU.cpp b/src/ARMJIT_x64/ARMJIT_ALU.cpp
+index 24c429e..191be98 100644
+--- a/src/ARMJIT_x64/ARMJIT_ALU.cpp
++++ b/src/ARMJIT_x64/ARMJIT_ALU.cpp
+@@ -19,6 +19,8 @@
+ #include "ARMJIT_Compiler.h"
+ #include "../ARM.h"
+ 
++#include <cstdlib>
++
+ using namespace Gen;
+ 
+ namespace melonDS
+diff --git a/src/dolphin/x64Emitter.cpp b/src/dolphin/x64Emitter.cpp
+index a4543af..f63fddc 100644
+--- a/src/dolphin/x64Emitter.cpp
++++ b/src/dolphin/x64Emitter.cpp
+@@ -3,6 +3,7 @@
+ // Refer to the license_dolphin.txt file included.
+ 
+ #include <cinttypes>
++#include <cstdlib>
+ #include <cstring>
+ 
+ #include "CPUDetect.h"
