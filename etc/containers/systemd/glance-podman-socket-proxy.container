@@ -23,6 +23,7 @@ Environment=TASKS=1
 Environment=POST=0
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

@@ -27,6 +27,7 @@ Environment=SCRUTINY_WEB_INFLUXDB_HOST=[::1]
 HealthCmd=curl -f http://[::1]:8080/api/health
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

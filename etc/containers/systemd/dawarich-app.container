@@ -34,6 +34,7 @@ HealthCmd=wget -qO - http://127.0.0.1:3000/api/v1/health | grep -q '"status"\s*:
 Notify=healthy
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

@@ -22,6 +22,7 @@ Volume=/var/lib/tubearchivist/elasticsearch-data:/usr/share/elasticsearch/data:i
 Ulimit=memlock=-1:-1
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

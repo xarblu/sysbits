@@ -20,6 +20,7 @@ Volume=/var/lib/grafana/prometheus/data:/prometheus:idmap
 Exec=--config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/prometheus --storage.tsdb.retention.time=180d
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

@@ -25,6 +25,7 @@ EnvironmentFile=/var/lib/unifi-container/unifi-app.env
 Volume=/var/lib/unifi-container/app-data:/config:idmap
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

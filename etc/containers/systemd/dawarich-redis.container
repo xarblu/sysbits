@@ -25,6 +25,7 @@ HealthCmd=redis-cli --raw incr ping
 Notify=healthy
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

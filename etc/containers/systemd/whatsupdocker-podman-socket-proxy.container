@@ -22,6 +22,7 @@ Environment=IMAGES=1
 Volume=/var/run/podman/podman.sock:/var/run/docker.sock:ro,idmap
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

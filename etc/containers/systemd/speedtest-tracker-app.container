@@ -32,6 +32,7 @@ Volume=/var/lib/speedtest-tracker/data:/config:idmap
 HealthCmd=curl -fSs $APP_URL/api/healthcheck | jq -re 'if (.message == "Speedtest Tracker is running!") then .message else null end'
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

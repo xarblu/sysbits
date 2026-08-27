@@ -28,6 +28,7 @@ Volume=/var/lib/nextcloud-container/server-userdata:/var/lib/nextcloud/data:idma
 Volume=/etc/localtime:/etc/localtime:ro
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

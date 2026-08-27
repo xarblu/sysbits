@@ -27,6 +27,7 @@ Volume=/etc/localtime:/etc/localtime:ro
 Volume=/run/dbus:/run/dbus:ro
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

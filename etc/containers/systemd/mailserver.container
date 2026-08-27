@@ -49,6 +49,7 @@ AddCapability=NET_ADMIN
 HealthCmd=ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

@@ -20,6 +20,7 @@ Volume=/var/lib/nextcloud-container/valkey-data:/data:idmap
 HealthCmd=valkey-cli ping | grep PONG
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

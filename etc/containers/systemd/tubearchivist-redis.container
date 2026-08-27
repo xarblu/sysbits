@@ -20,6 +20,7 @@ Volume=/var/lib/tubearchivist/redis-data:/data:idmap
 HealthCmd=redis-cli ping | grep PONG
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

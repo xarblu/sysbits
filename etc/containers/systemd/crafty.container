@@ -38,6 +38,7 @@ Environment=TZ=Etc/UTC
 #HealthCmd=curl http://127.0.0.1:3001/api/server-info/ping | grep -F '{"res":"pong"}'
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

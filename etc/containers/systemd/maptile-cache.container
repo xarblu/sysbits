@@ -18,6 +18,7 @@ Volume=/var/lib/maptile-cache/tiles:/var/cache/nginx/tiles:idmap
 Volume=/var/lib/maptile-cache/nginx.conf:/etc/nginx/nginx.conf:ro
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

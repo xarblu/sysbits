@@ -22,6 +22,7 @@ HealthCmd=valkey-cli ping | grep PONG
 Notify=healthy
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

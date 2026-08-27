@@ -30,6 +30,7 @@ Volume=/etc/localtime:/etc/localtime:ro
 HealthCmd=./healthcheck.sh
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

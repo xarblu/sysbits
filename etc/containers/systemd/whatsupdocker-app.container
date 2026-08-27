@@ -27,6 +27,7 @@ Volume=/etc/localtime:/etc/localtime:ro
 HealthCmd=curl -f http://[::1]:3000/health
 
 [Service]
+TimeoutStartSec=10min
 # on-failure is not enough - this thing keeps dying with exit code 0
 Restart=always
 

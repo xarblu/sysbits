@@ -33,6 +33,7 @@ Volume=/var/lib/tubearchivist/app-media:/tubearchivist:ro
 AddDevice=/dev/dri/:/dev/dri/
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

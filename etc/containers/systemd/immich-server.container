@@ -36,6 +36,7 @@ HealthCmd=bash ./server/bin/immich-healthcheck
 Notify=healthy
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

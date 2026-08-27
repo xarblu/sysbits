@@ -29,6 +29,7 @@ Volume=/var/lib/navidrome/data:/data:idmap
 Volume=/var/media/music:/music:ro
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

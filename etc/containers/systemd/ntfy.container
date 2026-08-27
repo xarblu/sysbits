@@ -32,6 +32,7 @@ Exec=serve
 HealthCmd=wget -q --tries=1 http://localhost:80/v1/health -O - | grep -Eo '"healthy"\s*:\s*true' || exit 1
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

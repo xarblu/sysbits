@@ -22,6 +22,7 @@ HealthCmd=pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}
 Notify=healthy
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

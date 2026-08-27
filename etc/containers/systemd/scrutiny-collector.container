@@ -45,6 +45,7 @@ Environment=COLLECTOR_HOST_ID=scrutiny-collector
 Environment=COLLECTOR_RUN_STARTUP=true
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

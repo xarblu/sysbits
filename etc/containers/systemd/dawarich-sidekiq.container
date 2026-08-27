@@ -30,6 +30,7 @@ HealthCmd=pgrep -f sidekiq
 Notify=healthy
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

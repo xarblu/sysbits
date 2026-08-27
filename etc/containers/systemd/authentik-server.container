@@ -29,6 +29,7 @@ Volume=/var/lib/authentik/custom-templates:/templates:idmap
 Exec=server
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

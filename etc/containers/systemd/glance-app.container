@@ -32,6 +32,7 @@ Volume=/etc/gentoo-release:/etc/gentoo-release:ro
 Volume=/etc/lsb-release:/etc/lsb-release:ro
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

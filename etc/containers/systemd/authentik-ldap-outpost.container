@@ -22,6 +22,7 @@ PublishPort=636:6636
 EnvironmentFile=/var/lib/authentik/ldap-outpost.env
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

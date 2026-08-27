@@ -33,6 +33,7 @@ HealthCmd=python3 healthcheck.py
 Notify=healthy
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

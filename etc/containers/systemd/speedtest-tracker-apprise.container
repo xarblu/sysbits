@@ -21,6 +21,7 @@ Volume=/var/lib/speedtest-tracker/apprise-config:/config:idmap
 Volume=/var/lib/speedtest-tracker/apprise-plugin:/plugin:idmap
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

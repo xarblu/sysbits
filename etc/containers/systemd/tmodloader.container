@@ -19,6 +19,7 @@ Volume=/var/lib/tmodloader/tModLoader:/tModLoader:idmap
 PodmanArgs=--interactive --tty
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

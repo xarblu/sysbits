@@ -22,6 +22,7 @@ EnvironmentFile=/var/lib/grafana/grafana-app.env
 Volume=/var/lib/grafana/data:/var/lib/grafana:idmap
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]

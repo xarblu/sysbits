@@ -30,6 +30,7 @@ HealthCmd=pg_isready -U $${DB_USERNAME} -d $${DB_DATABASE_NAME}
 Notify=healthy
 
 [Service]
+TimeoutStartSec=10min
 Restart=on-failure
 
 [Install]
