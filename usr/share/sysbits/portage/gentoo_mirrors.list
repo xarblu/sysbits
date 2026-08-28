@@ -1,8 +1,8 @@
 # Auto-generated Gentoo mirror list
 # Run update-mirrorlist.sh to update
 
-# Last Update: 2026-08-18
+# Last Update: 2026-08-28
 
-GENTOO_MIRRORS="http://mirror.leaseweb.com/gentoo/ \
-    http://mirror.leaseweb.com/gentoo/ \
-    http://gentoo.mirrors.ovh.net/gentoo-distfiles/"
+GENTOO_MIRRORS="http://mirror.netcologne.de/gentoo/ \
+    http://mirror.netzwerge.de/gentoo/ \
+    http://ftp-stud.hs-esslingen.de/pub/Mirrors/gentoo/"

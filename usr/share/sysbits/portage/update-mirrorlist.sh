@@ -9,6 +9,7 @@ function do_mirrorselect() {
         --blocksize 10 \
         --http \
         --deep \
+        --ipv6 \
         --output
 }
 
