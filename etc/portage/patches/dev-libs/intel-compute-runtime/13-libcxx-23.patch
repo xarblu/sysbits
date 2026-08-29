@@ -1,0 +1,21 @@
+diff --git a/opencl/source/sharings/gl/linux/gl_sharing_linux.cpp b/opencl/source/sharings/gl/linux/gl_sharing_linux.cpp
+index b66702a..f210c9f 100644
+--- a/opencl/source/sharings/gl/linux/gl_sharing_linux.cpp
++++ b/opencl/source/sharings/gl/linux/gl_sharing_linux.cpp
+@@ -58,14 +58,14 @@ bool GLSharingFunctionsLinux::isOpenGlSharingSupported() {
+     if (isOpenGLES == true) {
+         const char8_t versionES1[] = u8"OpenGL ES 1.";
+         if (version.find(versionES1) != std::string::npos) {
+-            const char8_t supportGLOES[] = u8"GL_OES_framebuffer_object";
++            const unsigned char supportGLOES[] = "GL_OES_framebuffer_object";
+             if (isOpenGlExtensionSupported(supportGLOES) == false) {
+                 return false;
+             }
+         }
+     } else {
+         if (version[0] < '3') {
+-            const char8_t supportGLEXT[] = u8"GL_EXT_framebuffer_object";
++            const unsigned char supportGLEXT[] = "GL_EXT_framebuffer_object";
+             if (isOpenGlExtensionSupported(supportGLEXT) == false) {
+                 return false;
+             }
