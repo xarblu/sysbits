@@ -1,0 +1,12 @@
+diff --git a/shared/source/os_interface/linux/os_time_linux.h b/shared/source/os_interface/linux/os_time_linux.h
+index 79540ab..b6a251b 100644
+--- a/shared/source/os_interface/linux/os_time_linux.h
++++ b/shared/source/os_interface/linux/os_time_linux.h
+@@ -8,6 +8,7 @@
+ #pragma once
+ #include "shared/source/os_interface/os_time.h"
+ 
++#include <ctime>
+ #include <memory>
+ #include <sys/ioctl.h>
+ 
