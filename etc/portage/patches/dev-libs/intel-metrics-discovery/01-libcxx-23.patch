@@ -1,0 +1,13 @@
+diff --git a/instrumentation/metrics_discovery/common/internal/md_adapter.cpp b/instrumentation/metrics_discovery/common/internal/md_adapter.cpp
+index 73f8ac9..8b710f6 100644
+--- a/instrumentation/metrics_discovery/common/internal/md_adapter.cpp
++++ b/instrumentation/metrics_discovery/common/internal/md_adapter.cpp
+@@ -18,6 +18,8 @@ SPDX-License-Identifier: MIT
+ #include "md_types.h"
+ #include "md_utils.h"
+ 
++#include <cstdlib>
++
+ namespace MetricsDiscoveryInternal
+ {
+     //////////////////////////////////////////////////////////////////////////////
