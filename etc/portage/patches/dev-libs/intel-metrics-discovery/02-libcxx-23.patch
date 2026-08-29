@@ -1,0 +1,12 @@
+diff --git a/instrumentation/metrics_discovery/common/internal/md_equation.cpp b/instrumentation/metrics_discovery/common/internal/md_equation.cpp
+index 2a81d40..e284ed0 100644
+--- a/instrumentation/metrics_discovery/common/internal/md_equation.cpp
++++ b/instrumentation/metrics_discovery/common/internal/md_equation.cpp
+@@ -17,6 +17,7 @@ SPDX-License-Identifier: MIT
+ #include "md_utils.h"
+ 
+ #include <cstring>
++#include <cstdlib>
+ #include <array>
+ #include <limits>
+ 
