@@ -1,0 +1,12 @@
+diff --git a/shared/source/os_interface/linux/ipc_socket_server.h b/shared/source/os_interface/linux/ipc_socket_server.h
+index aa0636f..1584320 100644
+--- a/shared/source/os_interface/linux/ipc_socket_server.h
++++ b/shared/source/os_interface/linux/ipc_socket_server.h
+@@ -13,6 +13,7 @@
+ #include <map>
+ #include <memory>
+ #include <mutex>
++#include <string>
+ #include <sys/socket.h>
+ #include <sys/un.h>
+ 
