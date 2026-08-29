@@ -1,0 +1,12 @@
+diff --git a/shared/source/os_interface/linux/os_library_linux.cpp b/shared/source/os_interface/linux/os_library_linux.cpp
+index edf791f..49530b0 100644
+--- a/shared/source/os_interface/linux/os_library_linux.cpp
++++ b/shared/source/os_interface/linux/os_library_linux.cpp
+@@ -11,6 +11,7 @@
+ #include "shared/source/os_interface/linux/sys_calls.h"
+ 
+ #include <cstring>
++#include <new>
+ #include <dlfcn.h>
+ #include <link.h>
+ 

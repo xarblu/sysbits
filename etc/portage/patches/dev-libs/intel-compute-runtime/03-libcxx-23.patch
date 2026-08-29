@@ -1,0 +1,12 @@
+diff --git a/shared/source/compiler_interface/os_compiler_cache_helper.h b/shared/source/compiler_interface/os_compiler_cache_helper.h
+index 7fe1521..24b91c2 100644
+--- a/shared/source/compiler_interface/os_compiler_cache_helper.h
++++ b/shared/source/compiler_interface/os_compiler_cache_helper.h
+@@ -6,6 +6,7 @@
+  */
+ 
+ #pragma once
++#include <ctime>
+ #include <string>
+ 
+ namespace NEO {
