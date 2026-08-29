@@ -35,6 +35,8 @@ dev-debug/systemtap gcc
 #[START] Compile issues (latest clang)
 # use of undeclared identifier '__builtin_ia32_vcvtph2ps256'
 dev-games/aseprite clang-21
+# error: 'GetKernelMetricSet' following the 'template' keyword does not refer to a template
+dev-libs/intel-metrics-library llvm-22
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)
