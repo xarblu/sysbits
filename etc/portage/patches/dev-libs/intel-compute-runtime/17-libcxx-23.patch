@@ -1,16 +1,3 @@
-diff --git a/level_zero/tools/source/sysman/fabric_port/linux/os_fabric_port_imp.h b/level_zero/tools/source/sysman/fabric_port/linux/os_fabric_port_imp.h
-index 35608a4..f16744d 100644
---- a/level_zero/tools/source/sysman/fabric_port/linux/os_fabric_port_imp.h
-+++ b/level_zero/tools/source/sysman/fabric_port/linux/os_fabric_port_imp.h
-@@ -11,6 +11,8 @@
- #include "level_zero/tools/source/sysman/fabric_port/fabric_port_imp.h"
- #include "level_zero/tools/source/sysman/fabric_port/os_fabric_port.h"
- 
-+#include <string>
-+
- namespace L0 {
- 
- class LinuxFabricDeviceImp : public OsFabricDevice, NEO::NonCopyableAndNonMovableClass {
 diff --git a/level_zero/tools/source/sysman/linux/udev/udev_lib.h b/level_zero/tools/source/sysman/linux/udev/udev_lib.h
 index bc031ff..f78de38 100644
 --- a/level_zero/tools/source/sysman/linux/udev/udev_lib.h
@@ -19,7 +6,7 @@ index bc031ff..f78de38 100644
  
  #pragma once
  
-+#include <cstdlib>
++#include <sys/types.h>
  #include <string>
  #include <vector>
  
