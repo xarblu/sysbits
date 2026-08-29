@@ -1,0 +1,12 @@
+diff --git a/shared/source/helpers/basic_math.h b/shared/source/helpers/basic_math.h
+index 77d87ae..5381e9f 100644
+--- a/shared/source/helpers/basic_math.h
++++ b/shared/source/helpers/basic_math.h
+@@ -10,6 +10,7 @@
+ 
+ #include <algorithm>
+ #include <cstdint>
++#include <cstdlib>
+ #include <limits>
+ 
+ namespace Math {

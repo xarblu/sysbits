@@ -1,0 +1,12 @@
+diff --git a/shared/source/helpers/string.h b/shared/source/helpers/string.h
+index 429274a..4322627 100644
+--- a/shared/source/helpers/string.h
++++ b/shared/source/helpers/string.h
+@@ -13,6 +13,7 @@
+ #if defined(__linux__)
+ 
+ #include <cstring>
++#include <cerrno>
+ #include <string>
+ 
+ inline int strcpy_s(char *dst, size_t dstSize, const char *src) { // NOLINT(readability-identifier-naming)
