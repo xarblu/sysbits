@@ -1,0 +1,13 @@
+diff --git a/level_zero/tools/source/sysman/scheduler/linux/os_scheduler_imp.cpp b/level_zero/tools/source/sysman/scheduler/linux/os_scheduler_imp.cpp
+index a7d6c08..cfcf078 100644
+--- a/level_zero/tools/source/sysman/scheduler/linux/os_scheduler_imp.cpp
++++ b/level_zero/tools/source/sysman/scheduler/linux/os_scheduler_imp.cpp
+@@ -12,6 +12,8 @@
+ #include "level_zero/tools/source/sysman/linux/fs_access.h"
+ #include "level_zero/tools/source/sysman/linux/os_sysman_imp.h"
+ 
++#include <algorithm>
++
+ namespace L0 {
+ 
+ const std::string LinuxSchedulerImp::preemptTimeoutMilliSecs("preempt_timeout_ms");
