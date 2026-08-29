@@ -1,0 +1,12 @@
+diff --git a/instrumentation/metrics_discovery/common/inc/internal/concurrent_groups/md_concurrent_group.h b/instrumentation/metrics_discovery/common/inc/internal/concurrent_groups/md_concurrent_group.h
+index 644140d..35462e0 100644
+--- a/instrumentation/metrics_discovery/common/inc/internal/concurrent_groups/md_concurrent_group.h
++++ b/instrumentation/metrics_discovery/common/inc/internal/concurrent_groups/md_concurrent_group.h
+@@ -19,6 +19,7 @@ SPDX-License-Identifier: MIT
+ #include <vector>
+ #include <list>
+ #include <string>
++#include <new>
+ 
+ //////////////////////////////////////////////////////////////////////////////
+ // Helper macro to get CustomMetricSetParams
