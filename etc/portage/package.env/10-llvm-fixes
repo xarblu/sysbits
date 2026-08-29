@@ -30,13 +30,15 @@ net-analyzer/nmap gcc
 # libc++: using namespace __gnu_cxx
 # easier to just build with gcc
 dev-debug/systemtap gcc
+# does some funky template stuff which clang doesn't like
+# let's hope this doesn't cause issues
+# https://github.com/intel/metrics-library/commit/c65edd9083d0fe723f40b0104e6d626fd71017c1
+dev-libs/intel-metrics-library gcc-libcxx
 #[END] Compile issues (general clang)
 
 #[START] Compile issues (latest clang)
 # use of undeclared identifier '__builtin_ia32_vcvtph2ps256'
 dev-games/aseprite clang-21
-# error: 'GetKernelMetricSet' following the 'template' keyword does not refer to a template
-dev-libs/intel-metrics-library llvm-22
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)

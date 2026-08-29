@@ -1,0 +1,5 @@
+# For the rare cases where clang++ fails
+# but LLVM libc++ works.
+# Should be preferred over plain gcc (with libstdc++)
+# on LLVM systems.
+EXTRA_CXXFLAGS="${EXTRA_CXXFLAGS} -stdlib=libc++"
