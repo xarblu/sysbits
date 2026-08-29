@@ -20,4 +20,4 @@ net-im/vesktop-bin::guru
 =dev-ml/cryptokit-1.21.1
 
 # incompatible with dev-libs/intel-compute-runtime-26.27.39122.12
->dev-libs/level-zero-1.32
+>=dev-libs/level-zero-1.33
