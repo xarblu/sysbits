@@ -1,0 +1,12 @@
+diff --git a/third_party/xla/graphcycles.cc b/third_party/xla/graphcycles.cc
+index db18051..b2dc954 100755
+--- a/third_party/xla/graphcycles.cc
++++ b/third_party/xla/graphcycles.cc
+@@ -39,6 +39,7 @@ limitations under the License.
+ 
+ #include <algorithm>
+ #include <cstddef>
++#include <iterator>
+ #include <utility>
+ #include <vector>
+ 
