@@ -1,0 +1,16 @@
+diff --git a/level_zero/core/source/kernel/kernel_shared_state.h b/level_zero/core/source/kernel/kernel_shared_state.h
+index c2ecee7..57adf5c 100644
+--- a/level_zero/core/source/kernel/kernel_shared_state.h
++++ b/level_zero/core/source/kernel/kernel_shared_state.h
+@@ -8,10 +8,7 @@
+ #pragma once
+ 
+ #include <cstdint>
+-
+-namespace std {
+-class mutex;
+-}
++#include <mutex>
+ 
+ namespace NEO {
+ class GraphicsAllocation;
