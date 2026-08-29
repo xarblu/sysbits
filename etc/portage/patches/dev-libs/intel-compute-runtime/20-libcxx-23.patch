@@ -1,0 +1,13 @@
+diff --git a/level_zero/sysman/source/api/temperature/linux/sysman_os_temperature_imp.h b/level_zero/sysman/source/api/temperature/linux/sysman_os_temperature_imp.h
+index 0b83e45..98dec3f 100644
+--- a/level_zero/sysman/source/api/temperature/linux/sysman_os_temperature_imp.h
++++ b/level_zero/sysman/source/api/temperature/linux/sysman_os_temperature_imp.h
+@@ -10,6 +10,8 @@
+ 
+ #include "level_zero/sysman/source/api/temperature/sysman_os_temperature.h"
+ 
++#include <string>
++
+ namespace L0 {
+ namespace Sysman {
+ 
