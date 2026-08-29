@@ -1,0 +1,12 @@
+diff --git a/shared/source/device_binary_format/yaml/yaml_parser.h b/shared/source/device_binary_format/yaml/yaml_parser.h
+index 14aff31..1730fb3 100644
+--- a/shared/source/device_binary_format/yaml/yaml_parser.h
++++ b/shared/source/device_binary_format/yaml/yaml_parser.h
+@@ -12,6 +12,7 @@
+ #include "shared/source/utilities/stackvec.h"
+ 
+ #include <array>
++#include <cstdlib>
+ #include <iterator>
+ #include <string>
+ 
