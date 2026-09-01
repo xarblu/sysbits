@@ -1,18 +1,29 @@
-From d668d4374e5b2991554d1783955d5e57b5016ba3 Mon Sep 17 00:00:00 2001
+From c0933d9d509b288afe7814bbd64970f7c5c025cb Mon Sep 17 00:00:00 2001
 From: Xarblu <xarblu@protonmail.com>
 Date: Fri, 7 Aug 2026 17:00:00 +0200
 Subject: [PATCH] clang asm compat
 
 Signed-off-by: Xarblu <xarblu@protonmail.com>
 ---
- sysdeps/x86/fpu/math-barriers.h | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ sysdeps/x86/fpu/math-barriers.h | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
 diff --git a/sysdeps/x86/fpu/math-barriers.h b/sysdeps/x86/fpu/math-barriers.h
-index dfe8ab97e9..640c0aadce 100644
+index dfe8ab97e9..b5dcaea349 100644
 --- a/sysdeps/x86/fpu/math-barriers.h
 +++ b/sysdeps/x86/fpu/math-barriers.h
-@@ -30,9 +30,10 @@
+@@ -22,17 +22,19 @@
+ #ifdef __SSE2_MATH__
+ # define math_opt_barrier(x)						\
+   ({ __typeof(x) __x;							\
+-     if (sizeof (x) <= sizeof (double)					\
+-	|| __builtin_types_compatible_p (__typeof (x), _Float128))	\
++     if (sizeof (x) <= sizeof (double))					\
+        __asm ("" : "=x" (__x) : "0" (x));				\
++     else if (__builtin_types_compatible_p (__typeof (x), _Float128))	\
++       __asm ("" : "+m" (__x));				\
+      else								\
+        __asm ("" : "=t" (__x) : "0" (x));				\
       __x; })
  # define math_force_eval(x)						\
    do {									\
@@ -21,7 +32,7 @@ index dfe8ab97e9..640c0aadce 100644
 +    if (sizeof (x) <= sizeof (double))					\
        __asm __volatile ("" : : "x" (x));				\
 +    else if (__builtin_types_compatible_p (__typeof (x), _Float128))	\
-+      __asm __volatile ("" : : "m" (x));				\
++      {__typeof (x) __x = (x); __asm __volatile ("" : : "m" (__x));}				\
      else								\
        __asm __volatile ("" : : "f" (x));				\
    } while (0)

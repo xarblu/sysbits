@@ -1,5 +1,12 @@
 # special env for building sys-libs/glibc with clang
 
+# additional requirements:
+# - some patches for configure and float128 shenanigans
+# - remove/comment '-include "/usr/include/gentoo/fortify.h"'
+#   from '/etc/clang/gentoo-hardened.cfg'
+#   (glibc wants to handle fortification itself and fails to
+#   link if clang's config does it)
+
 # ebuild forces bfd, even with USE=clang/custom-cflags
 # bgo#968719
 IGNORE_TC_LD_FORCE_BFD=true
@@ -11,3 +18,18 @@ ENABLE_ICF=false
 # the configure script is a bit flaky
 # and doesn't detect that clang has libunwind
 EXTRA_ECONF="${EXTRA_ECONF} libc_cv_cc_with_libunwind=y"
+
+# disable C++ link test, doesn't affect the generated glibc
+EXTRA_ECONF="${EXTRA_ECONF} libc_cv_cxx_link_ok=no CXX="
+
+# keep it simple for now
+OVERRIDE_COMMON_FLAGS="-O2 -pipe"
+OVERRIDE_LDFLAGS="-Wl,-O2,--as-needed -Wl,--build-id"
+
+# compiler-rt has no float128 tf symbols :c
+OVERRIDE_COMMON_FLAGS="${OVERRIDE_COMMON_FLAGS} --rtlib=libgcc --unwindlib=libgcc"
+
+# 32bit x86 is a special snowflake and throws this (fatal) warning
+# probably not entirely safe to just ignore but I don't really care
+# if it just messes with 32bit
+CFLAGS_x86="${CFLAGS_x86} -Wno-invalid-gnu-asm-cast"
