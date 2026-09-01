@@ -29,7 +29,6 @@ media-libs/libopenmpt gcc
 # easier to just build with gcc
 dev-debug/systemtap gcc
 # does some funky template stuff which clang doesn't like
-# let's hope this doesn't cause issues
 # https://github.com/intel/metrics-library/commit/c65edd9083d0fe723f40b0104e6d626fd71017c1
 dev-libs/intel-metrics-library gcc-libcxx
 #[END] Compile issues (general clang)
@@ -43,8 +42,6 @@ dev-games/aseprite clang-21
 # _Atomic cannot be applied to type 'std::shared_ptr
 # https://github.com/ValveSoftware/gamescope/issues/1509
 gui-wm/gamescope libstdcpp
-# implicit instantiation of undefined template 'std::char_traits<unsigned char>'
-#dev-libs/intel-compute-runtime libstdcpp
 #[END] Compile issues (libc++)
 
 #[START] Linker issues
