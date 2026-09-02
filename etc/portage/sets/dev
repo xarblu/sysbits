@@ -11,3 +11,7 @@ sys-devel/mold
 
 # loclogpp deps
 #sci-geosciences/gpsd
+
+# traccar-owntracks-proxy deps
+dev-cpp/cpp-httplib
+dev-cpp/nlohmann_json
