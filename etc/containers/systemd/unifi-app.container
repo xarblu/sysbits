@@ -5,10 +5,10 @@ Requires=unifi-database.service
 RequiresMountsFor=/var/lib/unifi-container
 
 [Container]
-Image=quay.io/linuxserver.io/unifi-network-application:10.5.67-ls141
+Image=quay.io/linuxserver.io/unifi-network-application:10.5.67
 Pull=newer
 
-Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-ls\\d+$$'
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://community.ui.com/releases/r/network/$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
 

@@ -3,9 +3,10 @@ Description=Speedtest Tracker App
 RequiresMountsFor=/var/lib/speedtest-tracker
 
 [Container]
-Image=ghcr.io/linuxserver/speedtest-tracker:v1.15.0-ls169
+Image=ghcr.io/linuxserver/speedtest-tracker:v1.15.0
 Pull=newer
-Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+-ls\\d+$$'
+
+Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/alexjustesen/speedtest-tracker/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
 
