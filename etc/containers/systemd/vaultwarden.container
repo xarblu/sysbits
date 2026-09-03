@@ -4,6 +4,7 @@ RequiresMountsFor=/var/lib/vaultwarden
 
 [Container]
 Image=docker.io/vaultwarden/server:1.37.2-alpine
+Pull=newer
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-alpine$$'
 Label='wud.link.template=https://github.com/dani-garcia/vaultwarden/releases/tag/$${major}.$${minor}.$${patch}'

@@ -6,6 +6,7 @@ RequiresMountsFor=/var/lib/glance
 
 [Container]
 Image=docker.io/glanceapp/glance:v0.8.5
+Pull=newer
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/glanceapp/glance/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'

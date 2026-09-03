@@ -4,6 +4,7 @@ RequiresMountsFor=/var/lib/immich
 
 [Container]
 Image=docker.io/valkey/valkey:8.1.10-alpine3.24
+Pull=newer
 Label='wud.tag.include=^8\\.\\d+\\.\\d+-alpine\\d+.\\d+$$'
 Label='wud.link.template=https://github.com/valkey-io/valkey/releases/tag/$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'

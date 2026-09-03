@@ -7,6 +7,7 @@ RequiresMountsFor=/var/lib/tubearchivist
 [Container]
 # go unstable if yt-dlp can't beat new yt challenges
 Image=docker.io/bbilly1/tubearchivist:unstable
+Pull=newer
 #Image=docker.io/bbilly1/tubearchivist:v0.5.10
 
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'

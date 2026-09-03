@@ -4,6 +4,7 @@ RequiresMountsFor=/var/lib/grafana
 
 [Container]
 Image=docker.io/prom/prometheus:v3.14.0
+Pull=newer
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/prometheus/prometheus/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'

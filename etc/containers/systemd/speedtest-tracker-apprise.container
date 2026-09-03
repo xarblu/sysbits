@@ -4,6 +4,7 @@ RequiresMountsFor=/var/lib/speedtest-tracker
 
 [Container]
 Image=ghcr.io/caronc/apprise:v1.5.3
+Pull=newer
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/caronc/apprise-api/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'

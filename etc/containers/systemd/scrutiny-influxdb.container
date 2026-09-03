@@ -4,6 +4,7 @@ RequiresMountsFor=/var/lib/scrutiny
 
 [Container]
 Image=docker.io/influxdb:2.9.1-alpine
+Pull=newer
 Label='wud.tag.include=^2\\.\\d+\\.\\d+-alpine$$'
 Label='wud.watch=true'
 

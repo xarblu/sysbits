@@ -4,6 +4,7 @@ RequiresMountsFor=/var/lib/mailserver
 
 [Container]
 Image=docker.io/mailserver/docker-mailserver:15.1.0
+Pull=newer
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/docker-mailserver/docker-mailserver/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'

@@ -5,6 +5,7 @@ RequiresMountsFor=/var/lib/tubearchivist
 
 [Container]
 Image=docker.io/library/redis:8.8.1-alpine3.23
+Pull=newer
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-alpine\\d+.\\d+$$'
 Label='wud.watch=true'

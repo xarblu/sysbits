@@ -5,6 +5,7 @@ Wants=scrutiny-web.service
 
 [Container]
 Image=ghcr.io/analogj/scrutiny:v0.9.3-collector
+Pull=newer
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+-collector$$'
 Label='wud.link.template=https://github.com/AnalogJ/scrutiny/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'

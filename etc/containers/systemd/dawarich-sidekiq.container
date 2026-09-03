@@ -6,6 +6,7 @@ RequiresMountsFor=/var/lib/dawarich
 
 [Container]
 Image=docker.io/freikin/dawarich:1.14.2
+Pull=newer
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/Freika/dawarich/releases/tag/$${major}.$${minor}.$${patch}'

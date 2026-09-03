@@ -6,6 +6,7 @@ RequiresMountsFor=/var/lib/scrutiny
 
 [Container]
 Image=ghcr.io/analogj/scrutiny:v0.9.3-web
+Pull=newer
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+-web$$'
 Label='wud.link.template=https://github.com/AnalogJ/scrutiny/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'

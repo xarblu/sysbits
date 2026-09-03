@@ -4,6 +4,7 @@ RequiresMountsFor=/var/lib/dawarich
 
 [Container]
 Image=docker.io/postgis/postgis:17-3.5
+Pull=newer
 
 #Label='wud.tag.include=^\\d+-\\d+.\\d+$$'
 Label='wud.tag.include=^17-3.5$$'

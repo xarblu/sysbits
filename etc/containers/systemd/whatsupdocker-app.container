@@ -6,6 +6,7 @@ RequiresMountsFor=/var/lib/wud
 
 [Container]
 Image=ghcr.io/getwud/wud:8.3.1
+Pull=newer
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/getwud/wud/releases/tag/$${major}.$${minor}.$${patch}'

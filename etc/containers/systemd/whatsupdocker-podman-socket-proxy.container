@@ -5,6 +5,7 @@ Requires=podman.socket
 
 [Container]
 Image=ghcr.io/tecnativa/docker-socket-proxy:0.3.0
+Pull=newer
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/Tecnativa/docker-socket-proxy/releases/tag/v$${major}.$${minor}.$${patch}'
