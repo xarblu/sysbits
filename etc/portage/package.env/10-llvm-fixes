@@ -38,7 +38,7 @@ dev-libs/intel-metrics-library gcc-libcxx
 dev-games/aseprite clang-21
 # classic LLVM mismatch
 dev-lang/rust llvm-22
-sys-kernel/scx
+sys-kernel/scx llvm-22
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)
