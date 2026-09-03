@@ -36,6 +36,8 @@ dev-libs/intel-metrics-library gcc-libcxx
 #[START] Compile issues (latest clang)
 # use of undeclared identifier '__builtin_ia32_vcvtph2ps256'
 dev-games/aseprite clang-21
+# classic LLVM mismatch
+dev-lang/rust llvm-22
 #[END] Compile issues (latest clang)
 
 #[START] Compile issues (libc++)
