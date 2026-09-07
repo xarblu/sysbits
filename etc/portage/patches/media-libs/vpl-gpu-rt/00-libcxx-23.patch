@@ -1,0 +1,24 @@
+diff --git a/_studio/mfx_lib/vpp/src/mfx_perc_enc_vpp_avx2.cpp b/_studio/mfx_lib/vpp/src/mfx_perc_enc_vpp_avx2.cpp
+index 8af8880..5287735 100644
+--- a/_studio/mfx_lib/vpp/src/mfx_perc_enc_vpp_avx2.cpp
++++ b/_studio/mfx_lib/vpp/src/mfx_perc_enc_vpp_avx2.cpp
+@@ -23,6 +23,7 @@
+ #include "mfx_perc_enc_vpp_avx2.h"
+ 
+ #include <immintrin.h>
++#include <algorithm>
+ #include <cmath>
+ #include <array>
+ #include <memory>
+diff --git a/_studio/shared/mfx_trace/src/mfx_trace_textlog.cpp b/_studio/shared/mfx_trace/src/mfx_trace_textlog.cpp
+index cc67e1a..4d7f7e3 100644
+--- a/_studio/shared/mfx_trace/src/mfx_trace_textlog.cpp
++++ b/_studio/shared/mfx_trace/src/mfx_trace_textlog.cpp
+@@ -27,6 +27,7 @@ extern "C"
+ #define MFT_TRACE_PATH_TO_TEMP_LIBLOG MFX_TRACE_STRING("/tmp/mfxlib.log")
+ 
+ #include <stdio.h>
++#include <pthread.h>
+ #include "mfx_trace_utils.h"
+ #include "mfx_trace_textlog.h"
+ #include "unistd.h"
