@@ -14,7 +14,7 @@ Label='wud.watch=true'
 
 Label='glance.name=What\'s Up Docker'
 Label='glance.icon=/assets/services/whats-up-docker.svg'
-Label='glance.url=https://whatsupdocker.gaydragon.zone/'
+Label='glance.url=https://whatsupdocker.sillylizard.dev/'
 Label='glance.description=Container Update Monitor'
 Label='glance.hide=false'
 Label='glance.id=whatsupdocker'

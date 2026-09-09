@@ -11,7 +11,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Navidrome'
 Label='glance.icon=/assets/services/navidrome.svg'
-Label='glance.url=https://navidrome.gaydragon.zone/'
+Label='glance.url=https://navidrome.sillylizard.dev/'
 Label='glance.description=Navidrome Music Server'
 Label='glance.hide=false'
 Label='glance.id=navidrome'

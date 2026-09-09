@@ -11,7 +11,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Crafty Controller'
 Label='glance.icon=/assets/services/crafty-controller.svg'
-Label='glance.url=https://crafty.gaydragon.zone/'
+Label='glance.url=https://crafty.sillylizard.dev/'
 Label='glance.description=Minecraft Server Manager'
 Label='glance.hide=false'
 Label='glance.id=crafty'

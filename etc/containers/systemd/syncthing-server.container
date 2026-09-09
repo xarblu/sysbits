@@ -12,7 +12,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Syncthing'
 Label='glance.icon=/assets/services/syncthing.svg'
-Label='glance.url=https://syncthing.gaydragon.zone/'
+Label='glance.url=https://syncthing.sillylizard.dev/'
 Label='glance.description=Open Source Continuous File Synchronization'
 Label='glance.hide=false'
 Label='glance.id=syncthing'

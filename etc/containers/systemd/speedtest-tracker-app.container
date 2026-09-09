@@ -12,7 +12,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Speedtest Tracker'
 Label='glance.icon=/assets/services/speedtest-tracker.png'
-Label='glance.url=https://speedtest-tracker.gaydragon.zone/'
+Label='glance.url=https://speedtest-tracker.sillylizard.dev/'
 Label='glance.description=Speedtest Trends'
 Label='glance.hide=false'
 Label='glance.id=speedtest-tracker'

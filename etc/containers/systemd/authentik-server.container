@@ -13,7 +13,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Authentik'
 Label='glance.icon=/assets/services/authentik.svg'
-Label='glance.url=https://authentik.gaydragon.zone/'
+Label='glance.url=https://authentik.sillylizard.dev/'
 Label='glance.description=SSO and Identity Provider'
 Label='glance.hide=false'
 Label='glance.id=authentik'

@@ -14,7 +14,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Dawarich'
 Label='glance.icon=/assets/services/dawarich.svg'
-Label='glance.url=https://dawarich.gaydragon.zone/'
+Label='glance.url=https://dawarich.sillylizard.dev/'
 Label='glance.description=Your favorite self-hostable alternative to Google Timeline'
 Label='glance.hide=false'
 Label='glance.id=dawarich'

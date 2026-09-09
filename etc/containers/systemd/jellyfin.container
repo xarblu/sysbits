@@ -11,7 +11,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Jellyfin'
 Label='glance.icon=/assets/services/jellyfin.svg'
-Label='glance.url=https://jellyfin.gaydragon.zone/'
+Label='glance.url=https://jellyfin.sillylizard.dev/'
 Label='glance.description=The Free Software Media System'
 Label='glance.hide=false'
 Label='glance.id=jellyfin'
@@ -24,7 +24,7 @@ Network=authentik.network
 # HTTP
 PublishPort=127.0.0.1:8096:8096/tcp
 
-Environment=JELLYFIN_PublishedServerUrl=https://jellyfin.gaydragon.zone
+Environment=JELLYFIN_PublishedServerUrl=https://jellyfin.sillylizard.dev
 
 Volume=/var/lib/jellyfin/config:/config:idmap
 Volume=/var/lib/jellyfin/cache:/cache:idmap

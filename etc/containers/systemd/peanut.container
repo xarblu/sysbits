@@ -12,7 +12,7 @@ Label='wud.watch=true'
 
 Label='glance.name=PeaNUT'
 Label='glance.icon=/assets/services/peanut.svg'
-Label='glance.url=https://peanut.gaydragon.zone/'
+Label='glance.url=https://peanut.sillylizard.dev/'
 Label='glance.description=Tiny Dashboard for Network UPS Tools'
 Label='glance.hide=false'
 Label='glance.id=peanut'

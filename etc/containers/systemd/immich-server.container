@@ -14,7 +14,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Immich'
 Label='glance.icon=/assets/services/immich.svg'
-Label='glance.url=https://immich.gaydragon.zone/'
+Label='glance.url=https://immich.sillylizard.dev/'
 Label='glance.description=High performance self-hosted photo and video management solution'
 Label='glance.hide=false'
 Label='glance.id=immich'

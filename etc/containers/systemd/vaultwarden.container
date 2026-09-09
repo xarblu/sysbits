@@ -12,7 +12,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Vaultwarden'
 Label='glance.icon=/assets/services/vaultwarden.svg'
-Label='glance.url=https://vaultwarden.gaydragon.zone/'
+Label='glance.url=https://vaultwarden.sillylizard.dev/'
 Label='glance.description=Password Manager'
 Label='glance.hide=false'
 Label='glance.id=vaultwarden'

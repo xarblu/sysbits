@@ -14,7 +14,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Nextcloud'
 Label='glance.icon=/assets/services/nextcloud.svg'
-Label='glance.url=https://nextcloud.gaydragon.zone/'
+Label='glance.url=https://nextcloud.sillylizard.dev/'
 Label='glance.description=Personal cloud'
 Label='glance.hide=false'
 Label='glance.id=nextcloud'

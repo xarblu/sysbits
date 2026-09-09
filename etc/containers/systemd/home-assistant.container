@@ -11,7 +11,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Home Assistant'
 Label='glance.icon=/assets/services/home-assistant.svg'
-Label='glance.url=https://home-assistant.gaydragon.zone/'
+Label='glance.url=https://home-assistant.sillylizard.dev/'
 Label='glance.description=Open source home automation'
 Label='glance.hide=false'
 Label='glance.id=home-assistant'

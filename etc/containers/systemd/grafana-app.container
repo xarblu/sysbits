@@ -11,7 +11,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Grafana'
 Label='glance.icon=/assets/services/grafana.svg'
-Label='glance.url=https://grafana.gaydragon.zone/'
+Label='glance.url=https://grafana.sillylizard.dev/'
 Label='glance.description=Open source analytics & monitoring solution for every database'
 Label='glance.hide=false'
 Label='glance.id=grafana'

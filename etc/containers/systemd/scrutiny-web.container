@@ -13,7 +13,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Scrutiny'
 Label='glance.icon=/assets/services/scrutiny.svg'
-Label='glance.url=https://scrutiny.gaydragon.zone/'
+Label='glance.url=https://scrutiny.sillylizard.dev/'
 Label='glance.same-tab=true'
 Label='glance.description=Drive health at a glance'
 Label='glance.hide=false'

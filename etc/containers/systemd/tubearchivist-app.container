@@ -16,7 +16,7 @@ Label='wud.watch=true'
 
 Label='glance.name=Tube Archivist'
 Label='glance.icon=/assets/services/tube-archivist.png'
-Label='glance.url=https://tubearchivist.gaydragon.zone/'
+Label='glance.url=https://tubearchivist.sillylizard.dev/'
 Label='glance.description=YouTube media server'
 Label='glance.hide=false'
 Label='glance.id=tubearchivist'
