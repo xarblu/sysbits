@@ -2,3 +2,6 @@
 
 # for git repo hosting
 acct-user/git
+
+# DDNS
+net-dns/ddclient
