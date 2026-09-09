@@ -1,0 +1,2 @@
+# allow systemd RCs
+=sys-apps/systemd-*rc* **
