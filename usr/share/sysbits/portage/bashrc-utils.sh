@@ -85,6 +85,8 @@ function brc_build_info() {
     einfo "MAKEOPTS: ${MAKEOPTS}"
     einfo "MAKEFLAGS: ${MAKEFLAGS}"
     brc_cond_steve_info
+    einfo "=== Misc Info ==="
+    einfo "LD_PRELOAD: ${LD_PRELOAD}"
 }
 
 # mangle *FLAGS
@@ -474,7 +476,7 @@ function brc_build_env_setup() {
 
     # turn some eclass commands into no-ops
     if brc_truthy IGNORE_TC_LD_FORCE_BFD; then
-        # shellcheck disable=SC2317
+        # shellcheck disable=SC2317,SC2329
         function tc-ld-force-bfd() {
             einfo 'tc-ld-force-bfd call ignored'
         }
