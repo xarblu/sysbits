@@ -1,5 +1,8 @@
 [Unit]
 Description=Periodically dump all configured HAProxy crt-stores
+After=haproxy.service
+Requisite=haproxy.service
+
 ConditionPathExists=/etc/haproxy/haproxy.cfg
 ConditionPathIsSocket=/run/haproxy-admin.sock
 
