@@ -1,0 +1,36 @@
+From 91b30ab1a81d2b4323874d4b2fbd4a6250629c7a Mon Sep 17 00:00:00 2001
+From: Xaver Hugl <xaver.hugl@kde.org>
+Date: Fri, 11 Sep 2026 14:15:08 +0200
+Subject: [PATCH] Fix compile with clang and KPIPEWIRE_DEPRECATED
+
+Fixes:
+```
+error: 'deprecated' attribute cannot be applied to types
+```
+
+
+(cherry picked from commit e802295b53d4230e65df9265a0d3eae2921d02fd)
+
+Co-authored-by: Allen Winter <winter@kde.org>
+---
+ src/pipewiresourceitem.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/pipewiresourceitem.h b/src/pipewiresourceitem.h
+index e6d9957..a0b5a90 100644
+--- a/src/pipewiresourceitem.h
++++ b/src/pipewiresourceitem.h
+@@ -85,8 +85,8 @@ public:
+     QSGNode *updatePaintNode(QSGNode *node, UpdatePaintNodeData *data) override;
+     Q_SCRIPTABLE QString error() const;
+ 
+-    void KPIPEWIRE_DEPRECATED setNodeId(uint nodeId);
+-    uint KPIPEWIRE_DEPRECATED nodeId() const;
++    KPIPEWIRE_DEPRECATED void setNodeId(uint nodeId);
++    KPIPEWIRE_DEPRECATED uint nodeId() const;
+ 
+     void setObjectSerial(quint64 objectSerial);
+     quint64 objectSerial() const;
+-- 
+GitLab
+
