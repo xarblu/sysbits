@@ -55,6 +55,7 @@ kde-plasma/kdeplasma-addons led
 kde-plasma/kwin xwayland
 kde-plasma/plasma-desktop webengine
 kde-plasma/plasma-firewall firewalld -ufw
+kde-plasma/plasma-integration union
 kde-plasma/plasma-meta -crypt oxygen-theme sdk
 kde-plasma/plasma-workspace telemetry
 kde-plasma/powerdevil brightness-control
