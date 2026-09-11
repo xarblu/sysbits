@@ -18,6 +18,7 @@ dev-util/perf -gtk
 games-emulation/snes9x -xv
 kde-misc/kde-rounded-corners -X
 kde-plasma/plasma-meta -X
+kde-plasma/spectacle -X
 mail-client/thunderbird -X
 media-libs/libwebp -opengl
 media-libs/tg_owt -X
