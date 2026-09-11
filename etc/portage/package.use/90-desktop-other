@@ -31,7 +31,7 @@ dev-python/python-lsp-server all-plugins
 dev-python/qtpy printsupport
 dev-qt/qtbase mysql journald
 dev-qt/qtpositioning geoclue
-dev-qt/qttools qdbus
+dev-qt/qttools qdbus qdoc
 dev-qt/qtwebengine pdfium
 dev-util/bpftool llvm
 dev-util/intel-graphics-compiler vc
