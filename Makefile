@@ -363,7 +363,9 @@ endif
 		usr/lib/systemd/system/bcachefs-scrub@.service \
 		usr/lib/systemd/system/bcachefs-scrub@.timer \
 		usr/lib/systemd/system/btrfs-scrub@.service \
-		usr/lib/systemd/system/btrfs-scrub@.timer
+		usr/lib/systemd/system/btrfs-scrub@.timer \
+		usr/lib/systemd/system/haproxy-crt-store-dumper.service \
+		usr/lib/systemd/system/haproxy-crt-store-dumper.timer
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/user \
 		usr/lib/systemd/user/google-drive-ocamlfuse@.service

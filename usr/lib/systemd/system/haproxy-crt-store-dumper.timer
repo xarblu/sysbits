@@ -1,0 +1,11 @@
+[Unit]
+Description=Periodically dump all configured HAProxy crt-stores
+After=haproxy.service
+PartOf=haproxy.service
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target

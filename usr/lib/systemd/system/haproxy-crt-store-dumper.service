@@ -1,0 +1,8 @@
+[Unit]
+Description=Periodically dump all configured HAProxy crt-stores
+ConditionPathExists=/etc/haproxy/haproxy.cfg
+ConditionPathIsSocket=/run/haproxy-admin.sock
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/haproxy-crt-store-dumper
