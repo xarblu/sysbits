@@ -12,3 +12,4 @@ ExecStart=/usr/bin/haproxy-crt-store-dumper
 
 ProtectSystem=strict
 ReadWritePaths=/etc/haproxy/ssl
+ReadWritePaths=/run/haproxy-admin.sock
