@@ -103,6 +103,10 @@ function dump-cert() {
     local crt_name="${3}"
     local crt
 
+    [[ -n "${crt_store}" ]] || die "crt_store empty"
+    [[ -n "${crt_base}" ]] || die "crt_base empty"
+    [[ -n "${crt_name}" ]] || die "crt_name empty"
+
     # crt_name may include an alias after ":"
     local crt_src="@${crt_store}/${crt_name#*:}"
     local crt_dest="${crt_base}/${crt_name%:*}"
@@ -137,7 +141,7 @@ function main() {
 
     local spec crt_store crt_base crt_name
     for spec in "${REPLY[@]}"; do
-        read -d';' -r crt_store crt_base crt_name <<< "${spec}"
+        IFS=';' read -r crt_store crt_base crt_name <<< "${spec}"
         dump-cert "${crt_store}" "${crt_base}" "${crt_name}"
     done
 
