@@ -1,0 +1,147 @@
+#!/usr/bin/env bash
+
+# Dump a crt-store from haproxy to the configure
+# crt-base because apparently haproxy doesn't do
+# this internally for ACME-fetched certs.
+
+# Dependencies:
+# - socat
+
+: "${DRY_RUN:=0}"
+
+function log() {
+    printf "%b\n" "${1}" 1>&2
+}
+
+function die() {
+    log "${1}"
+    exit 1
+}
+
+# consume a crt-store section
+# appends lines like the following to the REPLY array
+# <crt-store name>;<crt-base dir>;<crt name>
+function consume-crt-store() {
+    local crt_store="${1}"
+    local crt_base="${2}"
+    shift 2 # the rest are cert names
+    local crt_name
+
+    # should be validated outside
+    [[ -n "${crt_store}" ]] || die "crt-store is empty"
+
+    # fine I guess, but we can't to anything here
+    if [[ -z "${crt_base}" ]]; then
+        log "Ignoring crt-store ${crt_store@Q} with empty/unset crt-base"
+        return
+    fi
+
+    for crt_name in "${@}"; do
+        REPLY+=( "${crt_store};${crt_base};${crt_name}" )
+    done
+}
+
+# parse haproxy.cfg for crt-store sections
+# returns array of the following in REPLY:
+# <crt-store name>;<crt-base dir>;<crt name[:alias]>
+function parse-haproxy-cfg() {
+    local haproxy_cfg="${1}"
+    local -a lines
+    local line
+
+    mapfile -t lines < "${haproxy_cfg}" || die "Failed to read ${haproxy_cfg@Q}"
+
+    REPLY=()
+
+    # these are fairly strict but whatever
+    local re_skip="^#|^[[:space:]]*$"
+    local re_crt_store="^crt-store[[:space:]]+([^[:space:]]+)$"
+    local re_crt_base="^[[:space:]]+crt-base[[:space:]]+([^[:space:]]+)$"
+    local re_crt_name="^[[:space:]]+load[[:space:]]+crt[[:space:]]+[\"']([^[:space:]]+)[\"'].+[[:space:]]alias[[:space:]][\"']([^[:space:]]+)[\"']"
+    local re_other_section="^[^[:space:]]"
+
+    local crt_store
+    local crt_base
+    local -a crt_names
+
+    for line in "${lines[@]}"; do
+        if [[ "${line}" =~ ${re_skip} ]]; then
+            continue
+
+        elif [[ "${line}" =~ ${re_crt_store} ]]; then
+            # previous crt-store section ended
+            if [[ -n "${crt_store}" ]]; then
+                consume-crt-store "${crt_store}" "${crt_base}" "${crt_names[@]}"
+                crt_store=""
+                crt_base=""
+                crt_names=()
+            fi
+            crt_store="${BASH_REMATCH[1]}"
+
+        elif [[ "${line}" =~ ${re_other_section} ]]; then
+            # previous crt-store section ended
+            if [[ -n "${crt_store}" ]]; then
+                consume-crt-store "${crt_store}" "${crt_base}" "${crt_names[@]}"
+                crt_store=""
+                crt_base=""
+                crt_names=()
+            fi
+
+        elif [[ "${line}" =~ ${re_crt_base} ]]; then
+            crt_base="${BASH_REMATCH[1]}"
+
+        elif [[ "${line}" =~ ${re_crt_name} ]]; then
+            crt_names+=( "${BASH_REMATCH[1]}${BASH_REMATCH[2]:+:}${BASH_REMATCH[2]}" )
+        fi
+    done
+}
+
+# dump a cert to the given destination file
+function dump-cert() {
+    local crt_store="${1}"
+    local crt_base="${2}"
+    local crt_name="${3}"
+    local crt
+
+    # crt_name may include an alias after ":"
+    local crt_src="@${crt_store}/${crt_name#*:}"
+    local crt_dest="${crt_base}/${crt_name%:*}"
+
+    if crt="$(echo "dump ssl cert ${crt_src}" | socat stdio unix:/run/haproxy-admin.sock)"; then
+        (( DRY_RUN )) || cat <<<"${crt}" > "${crt_dest}" || die "Writing ${crt_dest} failed"
+        log "Dumped ${crt_src@Q} to ${crt_dest@Q}"
+    else
+        die "Could not dump ${crt_src@Q} to ${crt_dest@Q}"
+    fi
+}
+
+function main() {
+    local haproxy_cfg
+    local haproxy_admin_sock="/run/haproxy-admin.sock"
+    local i
+
+    for (( i=1; i <= ${#}; i++ )); do
+        case "${!i}" in
+            --haproxy-cfg) ((i++)); haproxy_cfg="${!i}"  ;;
+            --haproxy-admin-sock) ((i++)); haproxy_admin_sock="${!i}"  ;;
+        esac
+    done
+
+    if [[ -z "${IGNORE_CHECKS}" ]]; then
+        (( EUID == 0 )) || die "Expected to be root"
+        [[ -r "${haproxy_cfg}" ]] || die "${haproxy_cfg@Q} not readable"
+        [[ -S "${haproxy_admin_sock}" ]] || die "${haproxy_admin_sock@Q} is not a socket"
+    fi
+
+    parse-haproxy-cfg "${haproxy_cfg}"
+
+    local spec crt_store crt_base crt_name
+    for spec in "${REPLY[@]}"; do
+        read -d';' -r crt_store crt_base crt_name <<< "${spec}"
+        dump-cert "${crt_store}" "${crt_base}" "${crt_name}"
+    done
+
+    log "Done"
+}
+
+main "${@}"
