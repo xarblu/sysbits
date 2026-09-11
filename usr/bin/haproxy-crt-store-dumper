@@ -98,9 +98,10 @@ function parse-haproxy-cfg() {
 
 # dump a cert to the given destination file
 function dump-cert() {
-    local crt_store="${1}"
-    local crt_base="${2}"
-    local crt_name="${3}"
+    local haproxy_admin_sock="${1}"
+    local crt_store="${2}"
+    local crt_base="${3}"
+    local crt_name="${4}"
     local crt
 
     [[ -n "${crt_store}" ]] || die "crt_store empty"
@@ -111,7 +112,14 @@ function dump-cert() {
     local crt_src="@${crt_store}/${crt_name#*:}"
     local crt_dest="${crt_base}/${crt_name%:*}"
 
-    if crt="$(echo "dump ssl cert ${crt_src}" | socat stdio unix:/run/haproxy-admin.sock)"; then
+    log "Dumping ${crt_store@Q} to ${crt_dest@Q}..."
+
+    if crt="$(echo "dump ssl cert ${crt_src}" | socat stdio "unix:${haproxy_admin_sock}")"; then
+        if [[ "${crt}" != *"-----BEGIN CERTIFICATE-----"* ]]; then
+            log "Socket reply does not contain '-----BEGIN CERTIFICATE-----':"
+            die "${crt}"
+        fi
+
         (( DRY_RUN )) || cat <<<"${crt}" > "${crt_dest}" || die "Writing ${crt_dest} failed"
         log "Dumped ${crt_src@Q} to ${crt_dest@Q}"
     else
@@ -142,7 +150,7 @@ function main() {
     local spec crt_store crt_base crt_name
     for spec in "${REPLY[@]}"; do
         IFS=';' read -r crt_store crt_base crt_name <<< "${spec}"
-        dump-cert "${crt_store}" "${crt_base}" "${crt_name}"
+        dump-cert "${haproxy_admin_sock}" "${crt_store}" "${crt_base}" "${crt_name}"
     done
 
     log "Done"
