@@ -113,7 +113,7 @@ function dump-cert() {
     local crt_src="@${crt_store}/${crt_name#*:}"
     local crt_dest="${crt_base}/${crt_name%:*}"
 
-    log "Dumping ${crt_store@Q} to ${crt_dest@Q}..."
+    log "Dumping ${crt_src@Q} to ${crt_dest@Q}..."
 
     if crt="$(echo "dump ssl cert ${crt_src}" | socat stdio "unix:${haproxy_admin_sock}")"; then
         if [[ "${crt}" != *"-----BEGIN CERTIFICATE-----"* ]]; then
