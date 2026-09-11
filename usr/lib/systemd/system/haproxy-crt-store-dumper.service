@@ -9,3 +9,6 @@ ConditionPathIsSocket=/run/haproxy-admin.sock
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/haproxy-crt-store-dumper
+
+ProtectSystem=strict
+ReadWritePaths=/etc/haproxy/ssl
