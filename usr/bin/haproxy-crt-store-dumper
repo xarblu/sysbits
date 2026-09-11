@@ -116,7 +116,7 @@ function dump-cert() {
 }
 
 function main() {
-    local haproxy_cfg
+    local haproxy_cfg="/etc/haproxy/haproxy.cfg"
     local haproxy_admin_sock="/run/haproxy-admin.sock"
     local i
 
