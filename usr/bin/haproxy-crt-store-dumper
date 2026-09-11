@@ -159,7 +159,7 @@ function main() {
         dump-cert "${haproxy_admin_sock}" "${crt_store}" "${crt_base}" "${crt_name}" || (( failed++ ))
     done
 
-    log "Dumped $(( all - failed ))/${all}"
+    log "Dumped $(( all - failed ))/${all} certs"
 
     (( failed == 0 )) || die "Some certs failed to dump"
     return 0
