@@ -126,7 +126,7 @@ function dump-cert() {
 
         if [[ -f "${crt_dest}" ]]; then
             log "Comparing new cert to ${crt_dest@Q}..."
-            IFS='' read -r -d '' crt_old < "${crt_dest}"
+            crt_old="$(< "${crt_dest}")"
             if [[ "${crt_new}" != "${crt_old}" ]]; then
                 log "${crt_src@Q} and ${crt_dest@Q} are different (${#crt_new} vs ${#crt_old} bytes)"
                 crt_diff=1
@@ -137,7 +137,7 @@ function dump-cert() {
         fi
 
         if (( crt_diff )); then
-            (( DRY_RUN )) || cat <<<"${crt_new}" > "${crt_dest}" || die "Writing ${crt_dest} failed"
+            (( DRY_RUN )) || printf "%s\n" "${crt_new}" > "${crt_dest}" || die "Writing ${crt_dest} failed"
             log "${crt_dest@Q} updated"
         else
             log "${crt_dest@Q} is already up-to-date"
