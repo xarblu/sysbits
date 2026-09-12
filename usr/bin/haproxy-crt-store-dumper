@@ -128,7 +128,7 @@ function dump-cert() {
             log "Comparing new cert to ${crt_dest@Q}..."
             IFS='' read -r -d '' crt_old < "${crt_dest}"
             if [[ "${crt_new}" != "${crt_old}" ]]; then
-                log "${crt_src@Q} and ${crt_dest@Q} are different"
+                log "${crt_src@Q} and ${crt_dest@Q} are different (${#crt_new} vs ${#crt_old} bytes)"
                 crt_diff=1
             fi
         else
