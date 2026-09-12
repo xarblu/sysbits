@@ -103,7 +103,9 @@ function dump-cert() {
     local crt_store="${2}"
     local crt_base="${3}"
     local crt_name="${4}"
-    local crt
+    local crt_new
+    local crt_old
+    local crt_diff=0
 
     [[ -n "${crt_store}" ]] || die "crt_store empty"
     [[ -n "${crt_base}" ]] || die "crt_base empty"
@@ -115,15 +117,28 @@ function dump-cert() {
 
     log "Dumping ${crt_src@Q} to ${crt_dest@Q}..."
 
-    if crt="$(echo "dump ssl cert ${crt_src}" | socat stdio "unix:${haproxy_admin_sock}")"; then
-        if [[ "${crt}" != *"-----BEGIN CERTIFICATE-----"* ]]; then
+    if crt_new="$(echo "dump ssl cert ${crt_src}" | socat stdio "unix:${haproxy_admin_sock}")"; then
+        if [[ "${crt_new}" != *"-----BEGIN CERTIFICATE-----"* ]]; then
             log "Socket reply does not contain '-----BEGIN CERTIFICATE-----':"
-            log "${crt}"
+            log "${crt_new}"
             return 1
         fi
 
-        (( DRY_RUN )) || cat <<<"${crt}" > "${crt_dest}" || die "Writing ${crt_dest} failed"
-        log "Dumped ${crt_src@Q} to ${crt_dest@Q}"
+        if [[ -f "${crt_dest}" ]]; then
+            IFS='' read -r -d '' crt_old < "${crt_dest}"
+            if [[ "${crt_new}" != "${crt_old}" ]]; then
+                crt_diff=1
+            fi
+        else
+            crt_diff=1
+        fi
+
+        if (( crt_diff )); then
+            (( DRY_RUN )) || cat <<<"${crt_new}" > "${crt_dest}" || die "Writing ${crt_dest} failed"
+            log "${crt_dest@Q} updated"
+        else
+            log "${crt_dest@Q} is already up-to-date"
+        fi
     else
         die "socat invocation failed"
     fi
