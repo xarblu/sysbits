@@ -5,3 +5,6 @@ acct-user/git
 
 # DDNS
 net-dns/ddclient
+
+# haproxy-crt-store-dumper
+socat
