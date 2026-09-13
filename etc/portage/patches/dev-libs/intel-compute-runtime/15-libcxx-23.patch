@@ -1,7 +1,7 @@
-diff --git a/level_zero/api/opencl/source/sharings/gl/linux/gl_sharing_linux.cpp b/level_zero/api/opencl/source/sharings/gl/linux/gl_sharing_linux.cpp
+diff --git a/level_zero/api/opencl/source/sharings/gl/linux/leo_gl_sharing_linux.cpp b/level_zero/api/opencl/source/sharings/gl/linux/leo_gl_sharing_linux.cpp
 index 2ed363a..8060941 100644
---- a/level_zero/api/opencl/source/sharings/gl/linux/gl_sharing_linux.cpp
-+++ b/level_zero/api/opencl/source/sharings/gl/linux/gl_sharing_linux.cpp
+--- a/level_zero/api/opencl/source/sharings/gl/linux/leo_gl_sharing_linux.cpp
++++ b/level_zero/api/opencl/source/sharings/gl/linux/leo_gl_sharing_linux.cpp
 @@ -31,7 +31,7 @@ bool GLSharingFunctionsLinux::isOpenGlExtensionSupported(const unsigned char *pE
      glGetIntegerv(GL_NUM_EXTENSIONS, &numberOfExtensions);
      for (cl_int i = 0; i < numberOfExtensions; i++) {
