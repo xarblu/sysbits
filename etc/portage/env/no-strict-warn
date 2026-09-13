@@ -13,6 +13,9 @@ NOWARN="${NOWARN} -Wno-incompatible-pointer-types-discards-qualifiers"
 # I don't really care about
 NOWARN="${NOWARN} -Wno-incompatible-pointer-types"
 
+# new clang 23 default I think
+NOWARN="${NOWARN} -Wno-unused-but-set-global"
+
 # apply
 EXTRA_CFLAGS="${NOWARN}"
 EXTRA_CXXFLAGS="${NOWARN}"

@@ -134,6 +134,7 @@ media-libs/virglrenderer no-strict-warn
 media-video/pipewire no-strict-warn
 net-libs/webkit-gtk no-strict-warn
 sys-apps/flatpak no-strict-warn
+x11-libs/pango no-strict-warn
 #[END] Strict warnings
 
 #[START] misc
