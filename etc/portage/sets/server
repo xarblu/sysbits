@@ -7,4 +7,4 @@ acct-user/git
 net-dns/ddclient
 
 # haproxy-crt-store-dumper
-socat
+net-misc/socat
