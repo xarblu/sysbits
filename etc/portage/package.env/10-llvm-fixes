@@ -63,6 +63,7 @@ app-emulation/wine-vanilla ld-bfd
 dev-java/openjdk:21 ld-allow-undefined-version
 dev-libs/opencl-clang:16 ld-allow-undefined-version
 dev-libs/opencl-clang:17 ld-allow-undefined-version
+dev-libs/opencl-clang:22 ld-allow-undefined-version
 net-firewall/ipset ld-allow-undefined-version
 sys-libs/libfaketime ld-allow-undefined-version
 # ld.lld: error: undefined reference: *
