@@ -5,7 +5,7 @@ Requires=nextcloud-valkey.service nextcloud-database.service
 RequiresMountsFor=/var/lib/nextcloud-container
 
 [Container]
-Image=docker.io/library/nextcloud:34.0.3-apache
+Image=docker.io/library/nextcloud:34.0.4-apache
 Pull=newer
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-apache$$'
