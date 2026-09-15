@@ -6,9 +6,11 @@ Wants=immich-machine-learning.service
 RequiresMountsFor=/var/lib/immich
 
 [Container]
-Image=ghcr.io/immich-app/immich-server:v3.2.1
+Image=ghcr.io/immich-app/immich-server:v3.2.2
 Pull=newer
+
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+(-rc\\.\\d+)?$$'
+Label='wud.tag.transform=^v(\\d+\\.\\d+\\.\\d+)(-rc\\.\\d+)?$$ => $$1$$2'
 Label='wud.link.template=https://github.com/immich-app/immich/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
 

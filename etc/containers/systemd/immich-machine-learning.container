@@ -3,9 +3,11 @@ Description=Immich Machine Learning
 RequiresMountsFor=/var/lib/immich
 
 [Container]
-Image=ghcr.io/immich-app/immich-machine-learning:v3.2.1-openvino
+Image=ghcr.io/immich-app/immich-machine-learning:v3.2.2-openvino
 Pull=newer
+
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+(-rc\\.\\d+)?-openvino$$'
+Label='wud.tag.transform=^v(\\d+\\.\\d+\\.\\d+)(-rc\\.\\d+)?-openvino$$ => $$1$$2'
 Label='wud.link.template=https://github.com/immich-app/immich/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
 
