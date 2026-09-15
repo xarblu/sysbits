@@ -6,7 +6,7 @@ RequiresMountsFor=/var/lib/speedtest-tracker
 Image=ghcr.io/linuxserver/speedtest-tracker:1.15.0
 Pull=newer
 
-Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/alexjustesen/speedtest-tracker/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
 
