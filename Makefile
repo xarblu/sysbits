@@ -69,6 +69,10 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/scrutiny-web.container \
 		etc/containers/systemd/scrutiny.network \
 		etc/containers/systemd/scrutiny.pod \
+		etc/containers/systemd/searxng-core.container \
+		etc/containers/systemd/searxng-valkey.container \
+		etc/containers/systemd/searxng.network \
+		etc/containers/systemd/searxng.pod \
 		etc/containers/systemd/speedtest-tracker-app.container \
 		etc/containers/systemd/speedtest-tracker-apprise.container \
 		etc/containers/systemd/speedtest-tracker.network \
