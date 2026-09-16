@@ -20,6 +20,9 @@ Pod=searxng.pod
 Environment=BIND=:8923
 Environment=COOKIE_DOMAIN=sillylizard.dev
 Environment=TARGET=http://127.0.0.1:8080
+Environment=POLICY_FNAME=/etc/anubis-policies.yaml
+
+Volume=/var/lib/searxng/anubis-policies.yaml:/etc/anubis-policies.yaml:ro
 
 #HealthCmd=
 #Notify=healthy
