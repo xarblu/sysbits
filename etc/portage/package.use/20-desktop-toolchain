@@ -22,7 +22,8 @@ gnustep-base/gnustep-make native-exceptions libobjc2
 gnustep-base/libobjc2 libdispatch
 
 # Haskell
-dev-lang/ghc ghcbootstrap
+# https://github.com/gentoo-haskell/gentoo-haskell/issues/1792
+dev-lang/ghc -ghcbootstrap
 
 # Other
 dev-util/ccache -static-c++
