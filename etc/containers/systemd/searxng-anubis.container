@@ -1,0 +1,32 @@
+[Unit]
+Description=SearXNG Anubis
+RequiresMountsFor=/var/lib/searxng
+
+[Container]
+Image=ghcr.io/techarohq/anubis:v1.27.0
+Pull=newer
+
+Label='wud.tag.include=^v\\d\\.\\.\\d+\\.\\d+$$'
+Label='wud.tag.transform=^v(\\d\\.\\.\\d+\\.\\d+)$$ => $$1'
+Label='wud.link.template=https://github.com/TecharoHQ/anubis/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Anubis'
+Label='glance.hide=false'
+Label='glance.parent=searxng'
+
+Pod=searxng.pod
+
+Environment=BIND=:8923
+Environment=COOKIE_DOMAIN=sillylizard.dev
+Environment=TARGET=http://127.0.0.1:8080
+
+#HealthCmd=
+#Notify=healthy
+
+[Service]
+TimeoutStartSec=10min
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
