@@ -28,7 +28,9 @@ EnvironmentFile=/var/lib/searxng/core.env
 Volume=/var/lib/searxng/core-config:/etc/searxng:idmap
 Volume=/var/lib/searxng/core-data:/var/cache/searxng:idmap
 
-HealthCmd=["wget", "--quiet", "--spider", "http://127.0.0.1:8080/healthz"]
+# spoofed X-Real-IP header to silence "X-Forwarded-For nor X-Real-IP header is set!"
+# error when accessing directly from localhost
+HealthCmd=["wget", "--quiet", "--spider", "--header=X-Real-IP: 127.0.0.1", "http://127.0.0.1:8080/healthz"]
 Notify=healthy
 
 [Service]
