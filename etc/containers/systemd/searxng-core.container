@@ -1,0 +1,36 @@
+[Unit]
+Description=SearXNG Core
+RequiresMountsFor=/var/lib/searxng
+
+[Container]
+Image=docker.io/searxng/searxng:2026.9.1-248e37991
+Pull=newer
+
+Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-.*$$'
+Label='wud.tag.transform=^(\\d+\\.\\d+\\.\\d+)-.*$$ => $$1'
+Label='wud.link.template=https://github.com/searxng/searxng/commits/master/'
+Label='wud.watch=true'
+
+Label='glance.name=SearXNG'
+Label='glance.icon=/assets/services/searxng.svg'
+Label='glance.url=https://searxng.sillylizard.dev/'
+Label='glance.description=Internet metasearch engine'
+Label='glance.hide=false'
+Label='glance.id=searxng'
+
+Pod=searxng.pod
+
+EnvironmentFile=/var/lib/searxng/core.env
+
+Volume=/var/lib/searxng/core-config:/etc/searxng:idmap
+Volume=/var/lib/searxng/core-data:/var/cache/searxng:idmap
+
+#HealthCmd=bash ./server/bin/immich-healthcheck
+#Notify=healthy
+
+[Service]
+TimeoutStartSec=10min
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

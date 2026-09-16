@@ -1,0 +1,30 @@
+[Unit]
+Description=SearXNG Valkey
+RequiresMountsFor=/var/lib/searxng
+
+[Container]
+Image=docker.io/valkey/valkey:9.1.2-alpine3.24
+Pull=newer
+
+Label='wud.tag.include=^9\\.\\d+\\.\\d+-alpine\\d+.\\d+$$'
+Label='wud.tag.transform=^(9\\.\\d+\\.\\d+)(-alpine)(\\d+.\\d+)$$ => $$1$$2.$$3'
+Label='wud.link.template=https://github.com/valkey-io/valkey/releases/tag/$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Valkey'
+Label='glance.hide=false'
+Label='glance.parent=searxng'
+
+Pod=searxng.pod
+
+Volume=/var/lib/searxng/valkey-data:/data:idmap
+
+HealthCmd=valkey-cli ping | grep PONG
+Notify=healthy
+
+[Service]
+TimeoutStartSec=10min
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
