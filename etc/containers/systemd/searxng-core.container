@@ -28,8 +28,8 @@ EnvironmentFile=/var/lib/searxng/core.env
 Volume=/var/lib/searxng/core-config:/etc/searxng:idmap
 Volume=/var/lib/searxng/core-data:/var/cache/searxng:idmap
 
-#HealthCmd=bash ./server/bin/immich-healthcheck
-#Notify=healthy
+HealthCmd=["wget", "-q", "http://127.0.0.1:8080/healthz"]
+Notify=healthy
 
 [Service]
 TimeoutStartSec=10min
