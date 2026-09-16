@@ -1,17 +1,13 @@
 [Unit]
-Description=Immich Pod
+Description=SearXNG Pod
 
 [Pod]
-Network=immich.network
+Network=searxng.network
 
 UserNS=auto
 
 # SearXNG HTTP
-PublishPort=127.0.0.1:9008:2283
-
-# normally just on the DB but implicitly shared
-# IPC in pods disallows setting it there
-ShmSize=128m
+PublishPort=127.0.0.1:9025:8080
 
 [Service]
 Restart=on-failure
