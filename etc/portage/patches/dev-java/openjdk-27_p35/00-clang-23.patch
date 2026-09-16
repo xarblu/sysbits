@@ -1,5 +1,5 @@
 diff --git a/src/hotspot/os/aix/os_aix.cpp b/src/hotspot/os/aix/os_aix.cpp
-index 5cf34a8..4138873 100644
+index 32d845b..0e44ca5 100644
 --- a/src/hotspot/os/aix/os_aix.cpp
 +++ b/src/hotspot/os/aix/os_aix.cpp
 @@ -24,6 +24,7 @@
@@ -11,7 +11,7 @@ index 5cf34a8..4138873 100644
  #include "compiler/compileBroker.hpp"
  #include "interpreter/interpreter.hpp"
 diff --git a/src/hotspot/os/bsd/os_bsd.cpp b/src/hotspot/os/bsd/os_bsd.cpp
-index e58e1e0..6941242 100644
+index 2d1540e..395b6f6 100644
 --- a/src/hotspot/os/bsd/os_bsd.cpp
 +++ b/src/hotspot/os/bsd/os_bsd.cpp
 @@ -23,6 +23,7 @@
@@ -23,7 +23,7 @@ index e58e1e0..6941242 100644
  #include "compiler/compileBroker.hpp"
  #include "compiler/disassembler.hpp"
 diff --git a/src/hotspot/os/linux/os_linux.cpp b/src/hotspot/os/linux/os_linux.cpp
-index 3ef5897..cb23765 100644
+index ba48f2b..ce54ea1 100644
 --- a/src/hotspot/os/linux/os_linux.cpp
 +++ b/src/hotspot/os/linux/os_linux.cpp
 @@ -24,6 +24,7 @@
@@ -35,7 +35,7 @@ index 3ef5897..cb23765 100644
  #include "compiler/compileBroker.hpp"
  #include "compiler/disassembler.hpp"
 diff --git a/src/hotspot/os/windows/os_windows.cpp b/src/hotspot/os/windows/os_windows.cpp
-index 4969f0e..6e51df4 100644
+index 7567dff..8298c2a 100644
 --- a/src/hotspot/os/windows/os_windows.cpp
 +++ b/src/hotspot/os/windows/os_windows.cpp
 @@ -25,6 +25,7 @@
@@ -46,8 +46,20 @@ index 4969f0e..6e51df4 100644
  #include "code/codeCache.hpp"
  #include "code/nativeInst.hpp"
  #include "code/vtableStubs.hpp"
+diff --git a/src/hotspot/share/cppstdlib/new.hpp b/src/hotspot/share/cppstdlib/new.hpp
+index ea9d6c8..31def2b 100644
+--- a/src/hotspot/share/cppstdlib/new.hpp
++++ b/src/hotspot/share/cppstdlib/new.hpp
+@@ -26,6 +26,7 @@
+ #define SHARE_CPPSTDLIB_NEW_HPP
+ 
+ #include "utilities/compilerWarnings.hpp"
++#include <new>
+ 
+ // HotSpot usage:
+ // Only the following may be used:
 diff --git a/src/hotspot/share/gc/g1/g1ConcurrentRefineThread.cpp b/src/hotspot/share/gc/g1/g1ConcurrentRefineThread.cpp
-index da1f85e..dc761cc 100644
+index 2c2f8a1..74ffd3d 100644
 --- a/src/hotspot/share/gc/g1/g1ConcurrentRefineThread.cpp
 +++ b/src/hotspot/share/gc/g1/g1ConcurrentRefineThread.cpp
 @@ -23,6 +23,7 @@
@@ -55,11 +67,11 @@ index da1f85e..dc761cc 100644
  
  #include "gc/g1/g1BarrierSet.hpp"
 +#include <new>
+ #include "gc/g1/g1CardTableClaimTable.inline.hpp"
+ #include "gc/g1/g1CollectedHeap.inline.hpp"
  #include "gc/g1/g1ConcurrentRefine.hpp"
- #include "gc/g1/g1ConcurrentRefineStats.hpp"
- #include "gc/g1/g1ConcurrentRefineThread.hpp"
 diff --git a/src/hotspot/share/jfr/utilities/jfrAllocation.cpp b/src/hotspot/share/jfr/utilities/jfrAllocation.cpp
-index faf0baf..af51e98 100644
+index a1418f1..e8198bf 100644
 --- a/src/hotspot/share/jfr/utilities/jfrAllocation.cpp
 +++ b/src/hotspot/share/jfr/utilities/jfrAllocation.cpp
 @@ -23,6 +23,7 @@
@@ -83,31 +95,31 @@ index d16880a..161ce71 100644
  
  /*
 diff --git a/src/hotspot/share/memory/allocation.cpp b/src/hotspot/share/memory/allocation.cpp
-index 9941fdb..48ea640 100644
+index f5e4e1f..459f7a2 100644
 --- a/src/hotspot/share/memory/allocation.cpp
 +++ b/src/hotspot/share/memory/allocation.cpp
 @@ -23,6 +23,7 @@
   */
  
- #include "memory/allocation.hpp"
+ #include "cds/aotMetaspace.hpp"
 +#include <new>
  #include "memory/allocation.inline.hpp"
  #include "memory/arena.hpp"
  #include "memory/metaspace.hpp"
 diff --git a/src/hotspot/share/memory/allocation.hpp b/src/hotspot/share/memory/allocation.hpp
-index 9e50013..e7a2b14 100644
+index a49f9ce..be0b56d 100644
 --- a/src/hotspot/share/memory/allocation.hpp
 +++ b/src/hotspot/share/memory/allocation.hpp
 @@ -26,6 +26,7 @@
  #define SHARE_MEMORY_ALLOCATION_HPP
  
- #include "memory/allStatic.hpp"
+ #include "cppstdlib/new.hpp"
 +#include <new>
+ #include "memory/allStatic.hpp"
  #include "nmt/memTag.hpp"
  #include "utilities/debug.hpp"
- #include "utilities/globalDefinitions.hpp"
 diff --git a/src/hotspot/share/memory/heapInspection.cpp b/src/hotspot/share/memory/heapInspection.cpp
-index 867ccc6..7fc9294 100644
+index 5abb7e4..62eca80 100644
 --- a/src/hotspot/share/memory/heapInspection.cpp
 +++ b/src/hotspot/share/memory/heapInspection.cpp
 @@ -23,6 +23,7 @@
@@ -118,44 +130,32 @@ index 867ccc6..7fc9294 100644
  #include "classfile/classLoaderDataGraph.hpp"
  #include "classfile/moduleEntry.hpp"
  #include "classfile/vmClasses.hpp"
-diff --git a/src/hotspot/share/nmt/virtualMemoryTracker.cpp b/src/hotspot/share/nmt/virtualMemoryTracker.cpp
-index 04a7207..0351be8 100644
---- a/src/hotspot/share/nmt/virtualMemoryTracker.cpp
-+++ b/src/hotspot/share/nmt/virtualMemoryTracker.cpp
-@@ -22,6 +22,7 @@
-  *
-  */
- #include "logging/log.hpp"
-+#include <new>
- #include "memory/metaspaceStats.hpp"
- #include "memory/metaspaceUtils.hpp"
- #include "nmt/memTracker.hpp"
-diff --git a/src/hotspot/share/oops/methodData.cpp b/src/hotspot/share/oops/methodData.cpp
-index 4c027e0..ddf6890 100644
---- a/src/hotspot/share/oops/methodData.cpp
-+++ b/src/hotspot/share/oops/methodData.cpp
+diff --git a/src/hotspot/share/nmt/memBaseline.cpp b/src/hotspot/share/nmt/memBaseline.cpp
+index 65168fd..85e501c 100644
+--- a/src/hotspot/share/nmt/memBaseline.cpp
++++ b/src/hotspot/share/nmt/memBaseline.cpp
 @@ -23,6 +23,7 @@
   */
  
- #include "cds/cdsConfig.hpp"
+ #include "classfile/classLoaderDataGraph.inline.hpp"
 +#include <new>
- #include "ci/ciMethodData.hpp"
- #include "classfile/systemDictionaryShared.hpp"
- #include "classfile/vmSymbols.hpp"
+ #include "memory/allocation.hpp"
+ #include "memory/metaspaceUtils.hpp"
+ #include "nmt/memBaseline.hpp"
 diff --git a/src/hotspot/share/prims/jvmtiEnv.cpp b/src/hotspot/share/prims/jvmtiEnv.cpp
-index ed575cf..d21bd1e 100644
+index 9c5abdf..3ece8e7 100644
 --- a/src/hotspot/share/prims/jvmtiEnv.cpp
 +++ b/src/hotspot/share/prims/jvmtiEnv.cpp
 @@ -23,6 +23,7 @@
   */
  
- #include "classfile/classLoaderExt.hpp"
-+#include <new>
  #include "classfile/javaClasses.inline.hpp"
- #include "classfile/stringTable.hpp"
++#include <new>
  #include "classfile/modules.hpp"
+ #include "classfile/stringTable.hpp"
+ #include "classfile/systemDictionary.hpp"
 diff --git a/src/hotspot/share/runtime/jniHandles.cpp b/src/hotspot/share/runtime/jniHandles.cpp
-index e756446..e87892d 100644
+index 807661a..66d881d 100644
 --- a/src/hotspot/share/runtime/jniHandles.cpp
 +++ b/src/hotspot/share/runtime/jniHandles.cpp
 @@ -23,6 +23,7 @@
@@ -166,20 +166,8 @@ index e756446..e87892d 100644
  #include "gc/shared/oopStorage.inline.hpp"
  #include "gc/shared/oopStorageSet.hpp"
  #include "logging/log.hpp"
-diff --git a/src/hotspot/share/runtime/trimNativeHeap.cpp b/src/hotspot/share/runtime/trimNativeHeap.cpp
-index 875bcb8..700f8dc 100644
---- a/src/hotspot/share/runtime/trimNativeHeap.cpp
-+++ b/src/hotspot/share/runtime/trimNativeHeap.cpp
-@@ -25,6 +25,7 @@
-  */
- 
- #include "logging/log.hpp"
-+#include <new>
- #include "runtime/globals.hpp"
- #include "runtime/globals_extension.hpp"
- #include "runtime/mutex.hpp"
 diff --git a/src/hotspot/share/services/heapDumper.cpp b/src/hotspot/share/services/heapDumper.cpp
-index c9ac860..bb9481a 100644
+index c850a3a..32c369d 100644
 --- a/src/hotspot/share/services/heapDumper.cpp
 +++ b/src/hotspot/share/services/heapDumper.cpp
 @@ -24,6 +24,7 @@
@@ -203,7 +191,7 @@ index 02f2e31..df9ba2b 100644
  #include "utilities/decoder.hpp"
  #include "utilities/vmError.hpp"
 diff --git a/src/hotspot/share/utilities/decoder_elf.cpp b/src/hotspot/share/utilities/decoder_elf.cpp
-index 962b572..8029373 100644
+index 127748b..ce438c2 100644
 --- a/src/hotspot/share/utilities/decoder_elf.cpp
 +++ b/src/hotspot/share/utilities/decoder_elf.cpp
 @@ -25,6 +25,7 @@
@@ -215,19 +203,19 @@ index 962b572..8029373 100644
  #include "runtime/os.hpp"
  
 diff --git a/src/hotspot/share/utilities/elfFile.cpp b/src/hotspot/share/utilities/elfFile.cpp
-index f2ddbe1..5efdf48 100644
+index e81f912..136b559 100644
 --- a/src/hotspot/share/utilities/elfFile.cpp
 +++ b/src/hotspot/share/utilities/elfFile.cpp
 @@ -26,6 +26,7 @@
  #if !defined(_WINDOWS) && !defined(__APPLE__)
  
- #include "jvm_io.h"
+ #include "cppstdlib/new.hpp"
 +#include <new>
+ #include "jvm_io.h"
  #include "logging/log.hpp"
  #include "memory/allocation.inline.hpp"
- #include "utilities/checkedCast.hpp"
 diff --git a/src/hotspot/share/utilities/growableArray.hpp b/src/hotspot/share/utilities/growableArray.hpp
-index 759b945..bd027b2 100644
+index 14b54cf..28adcde 100644
 --- a/src/hotspot/share/utilities/growableArray.hpp
 +++ b/src/hotspot/share/utilities/growableArray.hpp
 @@ -26,6 +26,7 @@
@@ -263,7 +251,7 @@ index dd84ab3..570c24c 100644
  #include <stdio.h>
  #include <string.h>
 diff --git a/src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp b/src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp
-index fab17b6..672ee95 100644
+index 5c84b92..f6a788d 100644
 --- a/src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp
 +++ b/src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp
 @@ -29,6 +29,7 @@
@@ -275,7 +263,7 @@ index fab17b6..672ee95 100644
  #include <stdlib.h>
  #include <string.h>
 diff --git a/src/jdk.jpackage/linux/native/libapplauncher/LinuxLauncherLib.cpp b/src/jdk.jpackage/linux/native/libapplauncher/LinuxLauncherLib.cpp
-index 7d7c8b7..b00e52b 100644
+index 561e2a9..d3d1cd6 100644
 --- a/src/jdk.jpackage/linux/native/libapplauncher/LinuxLauncherLib.cpp
 +++ b/src/jdk.jpackage/linux/native/libapplauncher/LinuxLauncherLib.cpp
 @@ -24,6 +24,7 @@
@@ -323,7 +311,7 @@ index fd1d07e..3711fbd 100644
  #include "JvmLauncher.h"
  #include "CfgFile.h"
 diff --git a/src/jdk.jpackage/share/native/common/Dll.h b/src/jdk.jpackage/share/native/common/Dll.h
-index c842423..de8bcd1 100644
+index bfe9e25..8abc43d 100644
 --- a/src/jdk.jpackage/share/native/common/Dll.h
 +++ b/src/jdk.jpackage/share/native/common/Dll.h
 @@ -28,6 +28,7 @@
@@ -347,7 +335,7 @@ index 28609d0..53f750c 100644
  
  //
 diff --git a/src/jdk.jpackage/share/native/common/app.cpp b/src/jdk.jpackage/share/native/common/app.cpp
-index d949278..bb4df21 100644
+index a64e84b..6adecdd 100644
 --- a/src/jdk.jpackage/share/native/common/app.cpp
 +++ b/src/jdk.jpackage/share/native/common/app.cpp
 @@ -24,6 +24,7 @@
@@ -431,7 +419,7 @@ index 2a76b6c..f4092d1 100644
  #include "Resources.h"
  #include "Dll.h"
 diff --git a/src/jdk.jpackage/windows/native/common/MsiUtils.h b/src/jdk.jpackage/windows/native/common/MsiUtils.h
-index 26fa9f9..a542957 100644
+index d501174..a0b2227 100644
 --- a/src/jdk.jpackage/windows/native/common/MsiUtils.h
 +++ b/src/jdk.jpackage/windows/native/common/MsiUtils.h
 @@ -27,6 +27,7 @@
@@ -551,7 +539,7 @@ index df09aae..18952c5 100644
  
  #include "WinApp.h"
 diff --git a/test/hotspot/gtest/utilities/test_growableArray.cpp b/test/hotspot/gtest/utilities/test_growableArray.cpp
-index 45fc949..ff42343 100644
+index 6958da1..55d2462 100644
 --- a/test/hotspot/gtest/utilities/test_growableArray.cpp
 +++ b/test/hotspot/gtest/utilities/test_growableArray.cpp
 @@ -22,6 +22,7 @@
