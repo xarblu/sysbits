@@ -2,6 +2,9 @@
 Description=SearXNG Core
 RequiresMountsFor=/var/lib/searxng
 
+After=searxng-valkey.service
+Requires=searxng-valkey.service
+
 [Container]
 Image=docker.io/searxng/searxng:2026.9.16-f725cc793
 Pull=newer
