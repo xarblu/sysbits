@@ -7,9 +7,9 @@ Network=searxng.network
 UserNS=auto
 
 # SearXNG HTTP (direct)
-PublishPort=127.0.0.1:9025:8080/tcp
+PublishPort=127.0.0.1:9026:8080/tcp
 # Anubis HTTP
-PublishPort=127.0.0.1:9026:8923/tcp
+PublishPort=127.0.0.1:9027:8923/tcp
 
 [Service]
 Restart=on-failure
