@@ -20,6 +20,9 @@ Label='glance.id=searxng'
 
 Pod=searxng.pod
 
+# ID 977:977 in the container
+User=searxng:searxng
+
 EnvironmentFile=/var/lib/searxng/core.env
 
 Volume=/var/lib/searxng/core-config:/etc/searxng:idmap
