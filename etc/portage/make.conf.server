@@ -23,7 +23,7 @@ ACCEPT_LICENSE="* -@EULA"
 ACCEPT_KEYWORDS="amd64"
 
 # Portage Options
-EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --tree --unordered-display --with-bdeps=y"
+EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --with-bdeps=y"
 PORTAGE_SCHEDULING_POLICY="idle"
 # doc compression
 PORTAGE_COMPRESS=""
