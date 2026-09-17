@@ -4,10 +4,11 @@ After=tubearchivist-elasticsearch.service
 RequiresMountsFor=/var/lib/tubearchivist
 
 [Container]
-Image=docker.io/library/redis:8.8.1-alpine3.23
+Image=docker.io/library/redis:8.10.1-alpine3.23
 Pull=newer
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-alpine\\d+.\\d+$$'
+Label='wud.tag.transform=^(\\d+\\.\\d+\\.\\d+)(-alpine)(\\d+.\\d+)$$ => $$1$$2.$$3'
 Label='wud.watch=true'
 
 Label='glance.name=Redis'
