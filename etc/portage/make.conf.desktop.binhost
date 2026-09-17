@@ -60,6 +60,9 @@ FEATURES="${FEATURES} parallel-fetch parallel-install fail-clean fakeroot"
 MAKEFLAGS="--jobserver-auth=fifo:/dev/steve"
 FEATURES="${FEATURES} jobserver-token"
 
+# cgroups and observability (emerge --status)
+FEATURES="${FEATURES} cgroup observability"
+
 # Portage directories
 PORTDIR="/var/db/repos/gentoo"
 DISTDIR="/var/cache/distfiles"
