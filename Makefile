@@ -369,11 +369,14 @@ endif
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system/plasmalogin.service.d \
 		usr/lib/systemd/system/plasmalogin.service.d/10-kmscon.conf
 
-	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/zram-generator.conf.d/ \
-		usr/lib/systemd/zram-generator.conf.d/10-tmpdirs.conf
+	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system.conf.d \
+		usr/lib/systemd/system.conf.d/10-accounting.conf
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/user \
 		usr/lib/systemd/user/google-drive-ocamlfuse@.service
+
+	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/zram-generator.conf.d \
+		usr/lib/systemd/zram-generator.conf.d/10-tmpdirs.conf
 
 	# must have higher priority than 60-ioschedulers.rules from cachyos-settings
 	install -Dm644 -t $(DESTDIR)/usr/lib/udev/rules.d \
