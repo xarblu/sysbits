@@ -344,12 +344,6 @@ endif
 		etc/sysctl.d/55-fq_pie.conf \
 		etc/sysctl.d/60-route_cache.conf
 
-	install -Dm644 -t $(DESTDIR)/etc/systemd/system/plasmalogin.service.d \
-		etc/systemd/system/plasmalogin.service.d/10-kmscon.conf
-
-	install -Dm644 -t $(DESTDIR)/etc/systemd \
-		etc/systemd/zram-generator.conf
-
 	install -Dm755 -t $(DESTDIR)/usr/bin \
 		usr/bin/bchsnap \
 		usr/bin/flang-compat-wrapper \
@@ -371,6 +365,12 @@ endif
 		usr/lib/systemd/system/btrfs-scrub@.timer \
 		usr/lib/systemd/system/haproxy-crt-store-dumper.service \
 		usr/lib/systemd/system/haproxy-crt-store-dumper.timer
+
+	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system/plasmalogin.service.d \
+		usr/lib/systemd/system/plasmalogin.service.d/10-kmscon.conf
+
+	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/zram-generator.conf.d/ \
+		usr/lib/systemd/zram-generator.conf.d/10-tmpdirs.conf
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/user \
 		usr/lib/systemd/user/google-drive-ocamlfuse@.service
