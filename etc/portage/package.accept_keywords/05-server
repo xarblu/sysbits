@@ -49,6 +49,7 @@ virtual/dist-kernel ~amd64
 virtual/linux-sources ~amd64
 
 # other/unsorted
+app-admin/sudo-rs ~amd64
 app-misc/e6sync ~amd64
 app-misc/fclones ~amd64
 app-portage/portcache ~amd64
