@@ -3,7 +3,7 @@ Description=Home Assistant
 RequiresMountsFor=/var/lib/home-assistant
 
 [Container]
-Image=ghcr.io/home-assistant/home-assistant:2026.9.2
+Image=ghcr.io/home-assistant/home-assistant:2026.9.3
 Pull=newer
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
