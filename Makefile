@@ -242,7 +242,8 @@ ifeq ($(BETAS),yes)
 		etc/portage/package.unmask/07-mangohud \
 		etc/portage/package.unmask/08-glib \
 		etc/portage/package.unmask/09-haskell \
-		etc/portage/package.unmask/10-python
+		etc/portage/package.unmask/10-python \
+		etc/portage/package.unmask/11-openssl
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \

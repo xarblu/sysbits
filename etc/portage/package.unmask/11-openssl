@@ -1,0 +1,4 @@
+# OpenSSL 4
+
+=dev-libs/openssl-4*
+=dev-libs/openssl-compat-3*
