@@ -1,19 +1,9 @@
-## Utils
+# Utils
 app-misc/topgrade ~amd64
 app-shells/starship ~amd64
 app-shells/zoxide ~amd64
-net-analyzer/speedtest++ ~amd64
 
-## Nextcloud
-www-apps/nextcloud ~amd64
-www-apps/nextcloud-notify_push ~amd64
-
-# GPU
-dev-util/clinfo ~amd64
-media-libs/vpl-gpu-rt ~amd64
-x11-apps/igt-gpu-tools ~amd64
-
-## Cockpit
+# Cockpit
 app-admin/cockpit ~amd64
 app-admin/cockpit-machines ~amd64
 app-admin/cockpit-podman ~amd64
@@ -21,10 +11,10 @@ app-admin/cockpit-sensors ~amd64
 app-crypt/sscg ~amd64
 app-metrics/pcp ~amd64
 
-## Network
+# Network
 net-dns/inadyn ~amd64
 net-proxy/haproxy ~amd64
-# can be stabelized again after 3.5.1+ for haproxy quic
+# can be stabilized again after 3.5.1+ for haproxy quic
 <=dev-libs/openssl-3.6.4 ~amd64
 
 # Podman
@@ -52,16 +42,8 @@ virtual/linux-sources ~amd64
 app-admin/sudo-rs ~amd64
 app-misc/e6sync ~amd64
 app-misc/fclones ~amd64
-app-portage/portcache ~amd64
-dev-db/mongodb ~amd64
-dev-java/openjdk-bin ~amd64
-dev-python/pipx ~amd64
-dev-python/python-linux-procfs ~amd64
-dev-python/userpath ~amd64
 net-proxy/traccar-owntracks-proxy ~amd64
 sys-apps/dool ~amd64
 sys-apps/kmscon ~amd64
-sys-apps/tuned ~amd64
-sys-auth/google-authenticator ~amd64
 sys-fs/nasty-top ~amd64
 x11-themes/catppuccin-btop ~amd64
