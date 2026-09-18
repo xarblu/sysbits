@@ -1,6 +1,7 @@
 acct-user/git git
 app-admin/cockpit -doc firewalld networkmanager pcp tuned udisks
 app-admin/sudo offensive
+app-admin/sudo-rs system-names
 app-admin/vaultwarden postgres web
 app-containers/container-libs extra
 app-containers/docker -cli

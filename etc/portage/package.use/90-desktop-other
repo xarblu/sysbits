@@ -3,6 +3,7 @@
 
 app-admin/ananicy-cpp cachyos-rules bpf
 app-admin/sudo offensive -sendmail
+app-admin/sudo-rs system-names
 app-arch/7zip rar uasm
 app-containers/container-libs extra
 app-crypt/pinentry keyring
