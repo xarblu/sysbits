@@ -1,0 +1,3 @@
+# allow boost versions early
+
+=dev-libs/boost-1.92*

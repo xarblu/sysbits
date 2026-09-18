@@ -203,6 +203,7 @@ ifeq ($(BETAS),yes)
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.accept_keywords \
 		etc/portage/package.accept_keywords/10-openjdk \
 		etc/portage/package.accept_keywords/20-llvm \
+		etc/portage/package.accept_keywords/21-boost \
 		etc/portage/package.accept_keywords/25-systemd \
 		etc/portage/package.accept_keywords/30-glibc \
 		etc/portage/package.accept_keywords/40-ffmpeg \
