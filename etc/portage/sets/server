@@ -8,3 +8,6 @@ net-dns/ddclient
 
 # haproxy-crt-store-dumper
 net-misc/socat
+
+# TOTP 2FA
+sys-auth/google-authenticator
