@@ -1,4 +1,3 @@
 # stable but still unkeyworded
 # ffmpeg releases
-~media-video/ffmpeg-9.0 **
-~media-video/ffmpeg-9.0.1 **
+<media-video/ffmpeg-10 **
