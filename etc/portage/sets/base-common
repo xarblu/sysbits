@@ -67,6 +67,7 @@ net-dns/bind
 net-firewall/firewalld
 net-misc/curl
 net-misc/iperf
+net-misc/socat
 
 ## System Info
 media-video/libva-utils
