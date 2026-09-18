@@ -1,0 +1,41 @@
+From 780222ec09991171ef2e989d81d518c9260f5bd3 Mon Sep 17 00:00:00 2001
+From: Xarblu <xarblu@protonmail.com>
+Date: Fri, 18 Sep 2026 12:19:32 +0200
+Subject: [PATCH] Fixed build with OpenSSL 4
+
+ASN1_STRING became an opaque type in OpenSSL 4
+so use the accessor functions that were available
+since OpenSSL 1.1.1. instead
+
+Link: https://docs.openssl.org/4.0/man7/ossl-guide-migration/#the-asn1_string-type-is-now-opaque
+Signed-off-by: Xarblu <xarblu@protonmail.com>
+---
+ xio-openssl.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/xio-openssl.c b/xio-openssl.c
+index 344709b..78d0055 100644
+--- a/xio-openssl.c
++++ b/xio-openssl.c
+@@ -6,6 +6,7 @@
+ 
+ #include "xiosysincludes.h"
+ #if WITH_OPENSSL	/* make this address configure dependent */
++#include <openssl/asn1.h>
+ #include <openssl/conf.h>
+ #include <openssl/x509v3.h>
+ 
+@@ -1898,8 +1899,8 @@ static int openssl_handle_peer_certificate(struct single *sfd,
+ 		  case GEN_IPADD:
+ 		     {
+ 			/* binary address format */
+-			const unsigned char *data = pName->d.iPAddress->data;
+-			size_t len = pName->d.iPAddress->length;
++			const unsigned char *data = ASN1_STRING_get0_data(pName->d.iPAddress);
++			size_t len = ASN1_STRING_length(pName->d.iPAddress);
+ 			char aBuffer[INET6_ADDRSTRLEN]; 	/* canonical peername */
+ 			struct in6_addr ip6bin;
+ 
+-- 
+2.55.0
+
