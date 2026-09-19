@@ -1,0 +1,7 @@
+# Mesa git
+#
+# Mostly for unreleased vulkan video improvements in ANV.
+# (Might drop again after the 26.3 release if it ends up too unstable)
+
+dev-util/mesa_clc **
+media-libs/mesa **

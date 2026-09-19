@@ -206,6 +206,7 @@ ifeq ($(BETAS),yes)
 		etc/portage/package.accept_keywords/21-boost \
 		etc/portage/package.accept_keywords/25-systemd \
 		etc/portage/package.accept_keywords/30-glibc \
+		etc/portage/package.accept_keywords/35-mesa \
 		etc/portage/package.accept_keywords/40-ffmpeg \
 		etc/portage/package.accept_keywords/50-qt \
 		etc/portage/package.accept_keywords/60-kernel-rcs \
