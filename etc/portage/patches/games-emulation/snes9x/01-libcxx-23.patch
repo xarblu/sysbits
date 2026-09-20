@@ -1,0 +1,12 @@
+diff --git a/common/audio/s9x_sound_driver_alsa.cpp b/common/audio/s9x_sound_driver_alsa.cpp
+index 809b3c4..d0efa11 100644
+--- a/common/audio/s9x_sound_driver_alsa.cpp
++++ b/common/audio/s9x_sound_driver_alsa.cpp
+@@ -9,6 +9,7 @@
+ #include <fcntl.h>
+ #include <sys/ioctl.h>
+ #include <sys/time.h>
++#include <utility>
+ 
+ S9xAlsaSoundDriver::S9xAlsaSoundDriver()
+ {
