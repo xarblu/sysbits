@@ -1,0 +1,13 @@
+diff --git a/backend/genesys/device.cpp b/backend/genesys/device.cpp
+index 5411d7b..bf18bee 100644
+--- a/backend/genesys/device.cpp
++++ b/backend/genesys/device.cpp
+@@ -25,6 +25,8 @@
+ #include "low.h"
+ #include "utilities.h"
+ 
++#include <iterator>
++
+ namespace genesys {
+ 
+ std::vector<unsigned> MethodResolutions::get_resolutions() const
