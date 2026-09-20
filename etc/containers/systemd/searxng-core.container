@@ -6,7 +6,7 @@ After=searxng-valkey.service
 Requires=searxng-valkey.service
 
 [Container]
-Image=docker.io/searxng/searxng:2026.9.19-367fb6537
+Image=docker.io/searxng/searxng:2026.9.20-2e624bed4
 Pull=newer
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-.*$$'
