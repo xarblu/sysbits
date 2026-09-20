@@ -6,8 +6,8 @@ RequiresMountsFor=/var/lib/searxng
 Image=ghcr.io/techarohq/anubis:v1.27.0
 Pull=newer
 
-Label='wud.tag.include=^v\\d\\.\\.\\d+\\.\\d+$$'
-Label='wud.tag.transform=^v(\\d\\.\\.\\d+\\.\\d+)$$ => $$1'
+Label='wud.tag.include=^v\\d\\.\\d+\\.\\d+$$'
+Label='wud.tag.transform=^v(\\d\\.\\d+\\.\\d+)$$ => $$1'
 Label='wud.link.template=https://github.com/TecharoHQ/anubis/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
 
