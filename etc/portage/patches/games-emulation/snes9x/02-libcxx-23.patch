@@ -1,0 +1,75 @@
+diff --git a/common/audio/s9x_sound_driver_cubeb.cpp b/common/audio/s9x_sound_driver_cubeb.cpp
+index 810530a..ade3f66 100644
+--- a/common/audio/s9x_sound_driver_cubeb.cpp
++++ b/common/audio/s9x_sound_driver_cubeb.cpp
+@@ -6,6 +6,7 @@
+ 
+ #include "s9x_sound_driver_cubeb.hpp"
+ #include <cstdio>
++#include <utility>
+ 
+ bool S9xCubebSoundDriver::write_samples(int16_t *data, int samples)
+ {
+@@ -135,4 +136,4 @@ int S9xCubebSoundDriver::space_free()
+ std::pair<int, int> S9xCubebSoundDriver::buffer_level()
+ {
+     return { buffer.space_empty(), buffer.buffer_size };
+-}
+\ No newline at end of file
++}
+diff --git a/common/audio/s9x_sound_driver_oss.cpp b/common/audio/s9x_sound_driver_oss.cpp
+index 279a698..acea9d1 100644
+--- a/common/audio/s9x_sound_driver_oss.cpp
++++ b/common/audio/s9x_sound_driver_oss.cpp
+@@ -12,6 +12,7 @@
+ #include <sys/time.h>
+ #include <unistd.h>
+ #include <cstdio>
++#include <utility>
+ 
+ static inline int log2(int num)
+ {
+diff --git a/common/audio/s9x_sound_driver_portaudio.cpp b/common/audio/s9x_sound_driver_portaudio.cpp
+index 70293d5..1582051 100644
+--- a/common/audio/s9x_sound_driver_portaudio.cpp
++++ b/common/audio/s9x_sound_driver_portaudio.cpp
+@@ -10,6 +10,7 @@
+ #include <cstdint>
+ #include <vector>
+ #include <string>
++#include <utility>
+ 
+ S9xPortAudioSoundDriver::S9xPortAudioSoundDriver()
+ {
+diff --git a/common/audio/s9x_sound_driver_pulse.cpp b/common/audio/s9x_sound_driver_pulse.cpp
+index 56c42c9..1f2658b 100644
+--- a/common/audio/s9x_sound_driver_pulse.cpp
++++ b/common/audio/s9x_sound_driver_pulse.cpp
+@@ -11,6 +11,7 @@
+ #include <fcntl.h>
+ #include <sys/ioctl.h>
+ #include <sys/time.h>
++#include <utility>
+ #include "fmt/format.h"
+ #include "messages.h"
+ #include "snes9x.h"
+diff --git a/common/audio/s9x_sound_driver_sdl.cpp b/common/audio/s9x_sound_driver_sdl.cpp
+index ec980b2..0631dc8 100644
+--- a/common/audio/s9x_sound_driver_sdl.cpp
++++ b/common/audio/s9x_sound_driver_sdl.cpp
+@@ -7,6 +7,8 @@
+ #include "s9x_sound_driver_sdl.hpp"
+ #include "SDL_audio.h"
+ 
++#include <utility>
++
+ bool S9xSDLSoundDriver::write_samples(int16_t *data, int samples)
+ {
+     bool retval = true;
+@@ -107,4 +109,4 @@ std::pair<int, int> S9xSDLSoundDriver::buffer_level()
+ {
+     std::pair<int, int> level = { buffer.space_empty(), buffer.buffer_size };
+     return level;
+-}
+\ No newline at end of file
++}
