@@ -17,6 +17,7 @@ dev-python/matplotlib -wxwidgets
 dev-util/perf -gtk
 games-emulation/snes9x -xv
 kde-misc/kde-rounded-corners -X
+kde-misc/kwin-effects-better-blur-dx -X
 kde-plasma/plasma-meta -X
 kde-plasma/spectacle -X
 mail-client/thunderbird -X
@@ -32,6 +33,3 @@ sci-visualization/gnuplot -wxwidgets -X
 sys-process/psmisc -X
 www-client/firefox -X
 x11-misc/sddm -X
-
-# 6.5.90 ebuild breaks with -X
-#kde-plasma/plasma-login-sessions -X
