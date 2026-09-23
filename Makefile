@@ -208,6 +208,7 @@ ifeq ($(BETAS),yes)
 		etc/portage/package.accept_keywords/30-glibc \
 		etc/portage/package.accept_keywords/35-mesa \
 		etc/portage/package.accept_keywords/40-ffmpeg \
+		etc/portage/package.accept_keywords/45-scx \
 		etc/portage/package.accept_keywords/50-qt \
 		etc/portage/package.accept_keywords/60-kernel-rcs \
 		etc/portage/package.accept_keywords/95-misc-betas
