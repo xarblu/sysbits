@@ -59,6 +59,7 @@ function main() {
 
     merge-ebuild-vars "${tempdir}" CRATES
     printf "\n"
+    printf "# Dependent crate licenses\n"
     merge-ebuild-vars "${tempdir}" LICENSE
 }
 
