@@ -352,6 +352,7 @@ endif
 		usr/bin/flang-compat-wrapper \
 		usr/bin/gentoo-os-age \
 		usr/bin/haproxy-crt-store-dumper \
+		usr/bin/multi-pycargoebuild \
 		usr/bin/oldrebuild
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/dracut/modules.d/90bcachefs \

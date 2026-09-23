@@ -1,0 +1,64 @@
+#!/usr/bin/bash
+
+# pycargoebuild but applied to all subdirectories
+# containing a Cargo.toml file
+
+set -o pipefail
+
+function log() {
+    printf "%s\n" "${*}" 1>&2
+}
+
+function die() {
+    log "${@}"
+    exit 1
+}
+
+function merge-ebuild-vars() {
+    local dir="${1}"
+    local var="${2}"
+
+    local -a merged
+
+    read -r -d '' -a merged < <(perl -0777 -n -e 'while ($_ =~ /'"${var}"'\+?="(.*?)"/gms) { print "$1" }' "${dir}"/*.ebuild)
+    read -r -d '' -a merged < <(printf "%s\n" "${merged[@]}" | sort -u)
+
+    printf "%s=\"\n" "${var}"
+    printf "\t%s\n" "${merged[@]}"
+    printf "\"\n"
+}
+
+function main() {
+    local cargo_toml
+    local dir
+    local tempdir
+
+    tempdir="$(mktemp -d)" || die "mktemp failed"
+
+    while IFS='' read -r -d '' cargo_toml; do
+        log "Processing ${cargo_toml@Q}..."
+
+        if grep -qF '[workspace]' "${cargo_toml}"; then
+            log "${cargo_toml@Q} looks like a workspace, skipping..."
+            continue
+        fi        
+
+        dir="${cargo_toml%/Cargo.toml}"
+        dir="${dir#./}"
+        [[ -n "${dir}" ]] || dir="."
+
+        pycargoebuild \
+            --force \
+            --fill-crates \
+            --output "${tempdir}/${dir//\//-}.ebuild" \
+            "${dir}" \
+            || die "pycargoebuild failed"
+
+    done < <(find . -type f -name Cargo.toml -print0)
+
+    merge-ebuild-vars "${tempdir}" CRATES
+    printf "\n"
+    merge-ebuild-vars "${tempdir}" LICENSE
+}
+
+main "${@}"
