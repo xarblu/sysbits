@@ -52,6 +52,7 @@ function main() {
             --fill-crates \
             --output "${tempdir}/${dir//\//-}.ebuild" \
             "${dir}" \
+            1>&2 \
             || die "pycargoebuild failed"
 
     done < <(find . -type f -name Cargo.toml -print0)
