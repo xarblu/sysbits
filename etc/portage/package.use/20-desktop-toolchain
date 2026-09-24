@@ -25,10 +25,5 @@ gnustep-base/libobjc2 libdispatch
 # https://github.com/gentoo-haskell/gentoo-haskell/issues/1792
 dev-lang/ghc -ghcbootstrap
 
-# Zig
-# usually depends on old LLVM
-# and should work fine without
-dev-lang/zig -llvm
-
 # Other
 dev-util/ccache -static-c++
