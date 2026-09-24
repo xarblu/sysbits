@@ -363,6 +363,11 @@ endif
 		usr/lib/dracut/modules.d/90bcachefs/parse-bcachefs.sh \
 		usr/lib/dracut/modules.d/90bcachefs/unlock-bcachefs.sh
 
+ifeq ($(DESKTOP),yes)
+	install -Dm755 -t $(DESTDIR)/usr/lib/NetworkManager/conf.d \
+		usr/lib/NetworkManager/conf.d/ip6-privacy.conf
+endif
+
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system \
 		usr/lib/systemd/system/bcachefs-scrub@.service \
 		usr/lib/systemd/system/bcachefs-scrub@.timer \
