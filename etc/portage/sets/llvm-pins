@@ -1,11 +1,6 @@
 # Pin some older LLVM toolchain versions
 # e.g. for package.env
 
-# LLVM 21
-llvm-core/clang:21
-llvm-core/lld:21
-llvm-core/llvm:21
-
 # LLVM 22
 llvm-core/clang:22
 llvm-core/lld:22
