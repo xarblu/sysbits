@@ -1,0 +1,12 @@
+diff --git a/lib/orc/record_section_tracker.h b/lib/orc/record_section_tracker.h
+index 1ac729a..39d70ec 100644
+--- a/lib/orc/record_section_tracker.h
++++ b/lib/orc/record_section_tracker.h
+@@ -17,6 +17,7 @@
+ #include "error.h"
+ #include "executor_address.h"
+ #include <algorithm>
++#include <iterator>
+ #include <vector>
+ 
+ namespace orc_rt {
