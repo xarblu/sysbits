@@ -4,6 +4,7 @@
 # containing a Cargo.toml file
 
 set -o pipefail
+shopt -s dotglob
 
 function log() {
     printf "%s\n" "${*}" 1>&2
