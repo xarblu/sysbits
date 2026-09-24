@@ -365,7 +365,8 @@ endif
 
 ifeq ($(DESKTOP),yes)
 	install -Dm755 -t $(DESTDIR)/usr/lib/NetworkManager/conf.d \
-		usr/lib/NetworkManager/conf.d/ip6-privacy.conf
+		usr/lib/NetworkManager/conf.d/10-ip6-privacy.conf \
+		usr/lib/NetworkManager/conf.d/30-iwd-autoconnect.conf
 endif
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system \
