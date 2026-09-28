@@ -1,0 +1,12 @@
+diff --git a/libvmaf/src/svm.cpp b/libvmaf/src/svm.cpp
+index 94d3379..f9f5714 100644
+--- a/libvmaf/src/svm.cpp
++++ b/libvmaf/src/svm.cpp
+@@ -11,6 +11,7 @@
+ #include <fstream>
+ #include <sstream>
+ #include <vector>
++#include <utility>
+ #include "svm.h"
+ int libsvm_version = LIBSVM_VERSION;
+ typedef float Qfloat;
