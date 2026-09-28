@@ -6,7 +6,9 @@ acct-user/git
 # DDNS
 net-dns/ddclient
 
-# haproxy-crt-store-dumper
+# proxy
+net-proxy/haproxy
+# for haproxy-crt-store-dumper
 net-misc/socat
 
 # TOTP 2FA
