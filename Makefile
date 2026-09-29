@@ -387,6 +387,7 @@ endif
 		usr/lib/systemd/user/google-drive-ocamlfuse@.service
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/zram-generator.conf.d \
+		usr/lib/systemd/zram-generator.conf.d/00-swap.conf \
 		usr/lib/systemd/zram-generator.conf.d/10-tmpdirs.conf
 
 	# must have higher priority than 60-ioschedulers.rules from cachyos-settings
