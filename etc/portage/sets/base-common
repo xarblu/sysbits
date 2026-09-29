@@ -97,6 +97,7 @@ sys-kernel/scx-loader
 sys-apps/dbus-broker
 sys-apps/fwupd
 sys-apps/tuned
+sys-apps/zram-generator
 
 ## Other
 app-admin/yadm
