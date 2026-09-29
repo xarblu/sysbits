@@ -1,0 +1,12 @@
+diff --git a/src/PDFParser.cpp b/src/PDFParser.cpp
+index 7d604a4..73024cd 100644
+--- a/src/PDFParser.cpp
++++ b/src/PDFParser.cpp
+@@ -20,6 +20,7 @@
+ 
+ #include <cctype>
+ #include <istream>
++#include <iterator>
+ #include <ostream>
+ #include <sstream>
+ #include <stdexcept>
