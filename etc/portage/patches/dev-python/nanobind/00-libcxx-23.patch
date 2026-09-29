@@ -1,0 +1,26 @@
+diff --git a/include/nanobind/nb_backend.h b/include/nanobind/nb_backend.h
+index 5732df5..fd6a605 100644
+--- a/include/nanobind/nb_backend.h
++++ b/include/nanobind/nb_backend.h
+@@ -38,6 +38,8 @@
+     BSD-style license that can be found in the LICENSE file.
+ */
+ 
++#include <cstdio>
++
+ /// Major version of the backend ABI. Advances after ABI-breaking backend
+ /// changes. Such changes are to be avoided at all costs.
+ #define NB_BACKEND_ABI_MAJOR 1
+diff --git a/include/nanobind/nb_types.h b/include/nanobind/nb_types.h
+index 598b408..4d03a23 100644
+--- a/include/nanobind/nb_types.h
++++ b/include/nanobind/nb_types.h
+@@ -7,6 +7,8 @@
+     BSD-style license that can be found in the LICENSE file.
+ */
+ 
++#include <cstdio>
++
+ NAMESPACE_BEGIN(NB_NAMESPACE)
+ 
+ inline namespace NB_BACKEND_ABI_NS { class NB_EXPORT python_error; }
