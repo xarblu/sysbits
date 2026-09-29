@@ -1,0 +1,12 @@
+diff --git a/src/data.cpp b/src/data.cpp
+index 5e54d05..656dc81 100644
+--- a/src/data.cpp
++++ b/src/data.cpp
+@@ -23,6 +23,7 @@
+ 
+ #include <string>
+ #include <iomanip>
++#include <iostream>
+ #include <memory>
+ #if HAS_LIBCPUID
+ # include <libcpuid/libcpuid.h>
