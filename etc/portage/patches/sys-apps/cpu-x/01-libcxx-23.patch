@@ -1,0 +1,12 @@
+diff --git a/src/core/bandwidth/libbandwidth.cpp b/src/core/bandwidth/libbandwidth.cpp
+index dcbf557..44320bd 100644
+--- a/src/core/bandwidth/libbandwidth.cpp
++++ b/src/core/bandwidth/libbandwidth.cpp
+@@ -22,6 +22,7 @@
+ */
+ 
+ #include <cstdint>
++#include <cstdlib>
+ #include "libbandwidth.h"
+ #include "util.hpp"
+ #include "options.hpp"
