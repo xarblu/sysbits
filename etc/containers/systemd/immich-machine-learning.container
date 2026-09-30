@@ -26,11 +26,9 @@ Memory=32g
 EnvironmentFile=/var/lib/immich/immich.env
 
 Volume=/var/lib/immich/model-cache:/cache:idmap
-# required for openvino
-Volume=/dev/bus/usb:/dev/bus/usb
 
+# required for openvino hwaccel
 AddDevice=/dev/dri:/dev/dri
-PodmanArgs=--device-cgroup-rule='c 189:* rmw'
 
 HealthCmd=python3 healthcheck.py
 Notify=healthy
