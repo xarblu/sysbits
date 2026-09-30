@@ -5,9 +5,11 @@ Requires=scrutiny-influxdb.service
 RequiresMountsFor=/var/lib/scrutiny
 
 [Container]
-Image=ghcr.io/analogj/scrutiny:v0.9.4-web
+Image=ghcr.io/analogj/scrutiny:v0.9.5-web
 Pull=newer
+
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+-web$$'
+Label='wud.tag.transform=^v(\\d+\\.\\d+\\.\\d+)-web$$ => $$1'
 Label='wud.link.template=https://github.com/AnalogJ/scrutiny/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
 

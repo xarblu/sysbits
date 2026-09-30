@@ -4,9 +4,11 @@ After=scrutiny-web.service
 Wants=scrutiny-web.service
 
 [Container]
-Image=ghcr.io/analogj/scrutiny:v0.9.4-collector
+Image=ghcr.io/analogj/scrutiny:v0.9.5-collector
 Pull=newer
+
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+-collector$$'
+Label='wud.tag.transform=^v(\\d+\\.\\d+\\.\\d+)-collector$$ => $$1'
 Label='wud.link.template=https://github.com/AnalogJ/scrutiny/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
 
