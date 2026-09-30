@@ -65,11 +65,7 @@ FEATURES="${FEATURES} jobserver-token"
 FEATURES="${FEATURES} cgroup observability"
 
 # Portage directories
-PORTDIR="/var/db/repos/gentoo"
-DISTDIR="/var/cache/distfiles"
-PKGDIR="/var/cache/binpkgs"
-# so users and members of the 'portage' group can access
-PORTAGE_WORKDIR_MODE="0775"
+source /usr/share/sysbits/portage/make.conf.d/directories.conf
 
 # This sets the language of build output to English.
 # Please keep this setting intact when reporting bugs.
