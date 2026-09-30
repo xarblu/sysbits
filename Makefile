@@ -399,6 +399,10 @@ endif
 		usr/share/sysbits/portage/gentoo_mirrors.list \
 		usr/share/sysbits/portage/ninja_prettifier.pl
 
+	install -Dm644 -t $(DESTDIR)/usr/share/sysbits/portage/make.conf.d \
+		usr/share/sysbits/portage/make.conf.d/directories.conf \
+		usr/share/sysbits/portage/make.conf.d/fetchcommand.conf
+
 # extra targets for "recursive" installs
 PATCHES := $(patsubst %.patch,$(DESTDIR)/%.patch,$(wildcard etc/portage/patches/*/*/*.patch))
 install-patches: $(PATCHES)
