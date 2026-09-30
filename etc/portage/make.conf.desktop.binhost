@@ -57,8 +57,7 @@ FEATURES="${FEATURES} -nostrip splitdebug -dedupdebug compressdebug"
 FEATURES="${FEATURES} parallel-fetch parallel-install fail-clean fakeroot"
 
 # Jobserver
-MAKEFLAGS="--jobserver-auth=fifo:/dev/steve"
-FEATURES="${FEATURES} jobserver-token"
+source /usr/share/sysbits/portage/make.conf.d/jobserver.conf
 
 # cgroups and observability (emerge --status)
 FEATURES="${FEATURES} cgroup observability"

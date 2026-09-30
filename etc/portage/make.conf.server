@@ -39,8 +39,7 @@ BINPKG_COMPRESS_FLAGS="-T0 -9"
 FEATURES="${FEATURES} parallel-fetch parallel-install fail-clean fakeroot"
 
 # Jobserver
-MAKEFLAGS="--jobserver-auth=fifo:/dev/steve"
-FEATURES="${FEATURES} jobserver-token"
+source /usr/share/sysbits/portage/make.conf.d/jobserver.conf
 
 # cgroups and observability (emerge --status)
 # TODO: enable once portage 3.0.82 is stable
