@@ -1,6 +1,6 @@
 FROM docker.io/library/alpine:3.24
 
-ENV TMLVERSION="v2026.06.3.4"
+ENV TMLVERSION="v2026.07.3.0"
 
 RUN apk add dotnet8-runtime curl unzip bash
 
