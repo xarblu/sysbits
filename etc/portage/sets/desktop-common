@@ -22,7 +22,8 @@ kde-apps/kcolorchooser
 kde-apps/kwalletmanager
 kde-apps/okular
 mail-client/thunderbird
-media-gfx/krita
+# until pyqt6-6.12.0
+#media-gfx/krita
 net-irc/konversation
 sci-calculators/qalculate-gtk
 www-client/firefox
