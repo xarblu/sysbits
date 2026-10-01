@@ -9,6 +9,7 @@ kde-plasma/plasma-meta
 kde-misc/kdeconnect
 kde-plasma/plasma-login-manager
 kde-plasma/spectacle
+media-gfx/qrca
 # needed for theming in flatpak'ed GTK apps
 sys-apps/xdg-desktop-portal-gtk
 

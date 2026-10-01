@@ -71,6 +71,7 @@ media-gfx/blender hip
 media-gfx/darktable opencl
 media-gfx/imagemagick heif
 media-gfx/krita fftw qtmedia -xsimd
+media-gfx/qrca networkmanager
 media-libs/babl introspection
 media-libs/chromaprint tools
 media-libs/freetype brotli harfbuzz utils
