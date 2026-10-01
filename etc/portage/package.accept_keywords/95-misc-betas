@@ -1,12 +1,12 @@
 # maintained by me, for testing use main
 kde-misc/kwin-effects-better-blur-dx **
 
-# required by KDE Gear 26.04
-~dev-libs/ktextaddons-2.0.1 **
-
 # curl RCs
 =net-misc/curl-*_rc* **
 
 # python betas/RCs
 =dev-lang/python-*_beta* **
 =dev-lang/python-*_rc* **
+
+# until qtwebengine 6.140.0 is properly released...
+=dev-qt/qtwebengine-6.140.9999
