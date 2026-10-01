@@ -1,5 +1,5 @@
 # USE flags for everything else
 # laptop specific
 
-net-misc/networkmanager iwd
+net-misc/networkmanager -iwd
 dev-python/matplotlib -wxwidgets
