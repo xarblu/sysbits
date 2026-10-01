@@ -9,4 +9,4 @@ kde-misc/kwin-effects-better-blur-dx **
 =dev-lang/python-*_rc* **
 
 # until qtwebengine 6.140.0 is properly released...
-=dev-qt/qtwebengine-6.140.9999
+=dev-qt/qtwebengine-6.140.9999 **
