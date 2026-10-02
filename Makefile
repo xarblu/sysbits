@@ -232,7 +232,8 @@ endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.mask \
 		etc/portage/package.mask/00-versions \
-		etc/portage/package.mask/01-repos
+		etc/portage/package.mask/01-repos \
+		etc/portage/package.mask/10-openjdk-bin
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.unmask \
 		etc/portage/package.unmask/01-repos

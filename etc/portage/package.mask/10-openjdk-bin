@@ -1,0 +1,9 @@
+# Force installation of source-based openjdk
+#
+# Note that we still need to bootstrap each SLOT
+# once using the respective openjdk-bin.
+# After the source version of a SLOT is available
+# it can be added here.
+dev-java/openjdk-bin:21
+dev-java/openjdk-bin:25
+dev-java/openjdk-bin:27
