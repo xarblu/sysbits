@@ -1,0 +1,28 @@
+diff --git a/src/FileFinder.cpp b/src/FileFinder.cpp
+index 40427b3..188ab6f 100644
+--- a/src/FileFinder.cpp
++++ b/src/FileFinder.cpp
+@@ -19,6 +19,12 @@
+ *************************************************************************/
+ 
+ #include <config.h>
++
++#include <cstdlib>
++#include <fstream>
++#include <map>
++#include <set>
++
+ #ifdef MIKTEX
+ 	#include "MiKTeXCom.hpp"
+ #else
+@@ -31,10 +37,6 @@
+ 	#endif
+ #endif
+ 
+-#include <cstdlib>
+-#include <fstream>
+-#include <map>
+-#include <set>
+ #include "algorithm.hpp"
+ #include "FileFinder.hpp"
+ #include "FilePath.hpp"
