@@ -356,13 +356,6 @@ endif
 		usr/bin/multi-pycargoebuild \
 		usr/bin/oldrebuild
 
-	install -Dm644 -t $(DESTDIR)/usr/lib/dracut/modules.d/90bcachefs \
-		usr/lib/dracut/modules.d/90bcachefs/module-setup.sh
-
-	install -Dm755 -t $(DESTDIR)/usr/lib/dracut/modules.d/90bcachefs \
-		usr/lib/dracut/modules.d/90bcachefs/parse-bcachefs.sh \
-		usr/lib/dracut/modules.d/90bcachefs/unlock-bcachefs.sh
-
 ifeq ($(DESKTOP),yes)
 	install -Dm755 -t $(DESTDIR)/usr/lib/NetworkManager/conf.d \
 		usr/lib/NetworkManager/conf.d/10-ip6-privacy.conf \
