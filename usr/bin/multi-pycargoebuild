@@ -20,13 +20,23 @@ function merge-ebuild-vars() {
     local var="${2}"
 
     local -a merged
+    local var_decl=""
+    local var_open_delim='"'
+    local var_close_delim='"'
 
-    read -r -d '' -a merged < <(perl -0777 -n -e 'while ($_ =~ /'"${var}"'\+?="(.*?)"/gms) { print "$1" }' "${dir}"/*.ebuild)
-    read -r -d '' -a merged < <(printf "%s\n" "${merged[@]}" | sort -u)
+    # parse var metadata
+    IFS=';' read -r var_decl var_open_delim var_close_delim < <(perl -0777 -n -e 'while ($_ =~ /(declare -.+? )?'"${var}"'\+?=(["\(]).*?(["\)])/gms) { print "$1;$2;$3\n"; last }' "${dir}"/*.ebuild)
 
-    printf "%s=\"\n" "${var}"
+    # parse var values
+    read -r -d '' -a merged < <(perl -0777 -n -e 'while ($_ =~ /'"${var}"'\+?='"${var_open_delim/\(/\\\(}"'(.*?)'"${var_close_delim/\)/\\\)}"'/gms) { print "$1\n" }' "${dir}"/*.ebuild)
+
+    # dedupe and strip metachars
+    # (TODO: currently converts "|| (...)" licenses to "and")
+    read -r -d '' -a merged < <(printf "%s\n" "${merged[@]}" | sort -u | grep -F -v $'||\n(\n)')
+
+    printf "%s%s=%s\n" "${var_decl}" "${var}" "${var_open_delim}"
     printf "\t%s\n" "${merged[@]}"
-    printf "\"\n"
+    printf "%s\n" "${var_close_delim}"
 }
 
 function main() {
@@ -59,6 +69,8 @@ function main() {
     done < <(find . -type f -name Cargo.toml -print0)
 
     merge-ebuild-vars "${tempdir}" CRATES
+    printf "\n"
+    merge-ebuild-vars "${tempdir}" GIT_CRATES
     printf "\n"
     printf "# Dependent crate licenses\n"
     merge-ebuild-vars "${tempdir}" LICENSE
