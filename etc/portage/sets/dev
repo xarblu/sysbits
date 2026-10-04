@@ -4,6 +4,7 @@
 app-doc/eclass-manpages
 app-portage/pycargoebuild
 dev-go/go-dep-tarball
+dev-python/pytest
 dev-util/pkgdev
 
 # build tools
