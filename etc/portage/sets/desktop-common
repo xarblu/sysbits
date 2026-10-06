@@ -13,7 +13,7 @@ media-gfx/qrca
 # needed for theming in flatpak'ed GTK apps
 sys-apps/xdg-desktop-portal-gtk
 
-## Apps
+## Misc Apps
 app-admin/bitwarden-desktop-bin
 kde-apps/ark
 kde-apps/gwenview
@@ -23,6 +23,7 @@ kde-apps/kwalletmanager
 kde-apps/okular
 mail-client/thunderbird
 media-gfx/krita
+media-video/jellyfin-mpv-shim
 net-irc/konversation
 sci-calculators/qalculate-gtk
 www-client/firefox
