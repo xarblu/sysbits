@@ -3,7 +3,7 @@ Description=Syncthing Server
 RequiresMountsFor=/var/lib/syncthing
 
 [Container]
-Image=ghcr.io/syncthing/syncthing:2.1.5
+Image=ghcr.io/syncthing/syncthing:2.1.6
 Pull=newer
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
