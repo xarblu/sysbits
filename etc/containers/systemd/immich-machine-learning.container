@@ -23,7 +23,7 @@ Pod=immich.pod
 # this at least confines the issue
 Memory=32g
 
-EnvironmentFile=/var/lib/immich/immich.env
+EnvironmentFile=/var/lib/immich/immich-machine-learning.env
 
 Volume=/var/lib/immich/model-cache:/cache:idmap
 

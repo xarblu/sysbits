@@ -15,7 +15,7 @@ Label='glance.parent=immich'
 
 Pod=immich.pod
 
-EnvironmentFile=/var/lib/immich/immich.env
+EnvironmentFile=/var/lib/immich/immich-database.env
 
 # neither entrypoint.sh nor the image's 'stat' command (Debian 12)
 # know bcachefs so we need to ignore the check for now
