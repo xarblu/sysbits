@@ -3,7 +3,7 @@ Description=Immich Machine Learning
 RequiresMountsFor=/var/lib/immich
 
 [Container]
-Image=ghcr.io/immich-app/immich-machine-learning:v3.3.0-rc.2-openvino
+Image=ghcr.io/immich-app/immich-machine-learning:v3.3.0-openvino
 Pull=newer
 
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+(-rc\\.\\d+)?-openvino$$'
