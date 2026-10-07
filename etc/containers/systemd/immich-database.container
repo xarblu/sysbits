@@ -28,7 +28,7 @@ Environment=IGNORE_DATABASE_FSTYPE=true
 # look at PGDATA env var for the actual dir used
 Volume=/var/lib/immich/database:/var/lib/postgresql:idmap
 
-HealthCmd=pg_isready -U $${DB_USERNAME} -d $${DB_DATABASE_NAME}
+HealthCmd=pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}
 Notify=healthy
 
 [Service]
