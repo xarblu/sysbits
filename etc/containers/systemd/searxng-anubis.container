@@ -3,7 +3,7 @@ Description=SearXNG Anubis
 RequiresMountsFor=/var/lib/searxng
 
 [Container]
-Image=ghcr.io/techarohq/anubis:v1.27.0
+Image=ghcr.io/techarohq/anubis:v1.28.1
 Pull=newer
 
 Label='wud.tag.include=^v\\d\\.\\d+\\.\\d+$$'
