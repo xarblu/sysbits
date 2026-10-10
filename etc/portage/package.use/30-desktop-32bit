@@ -45,6 +45,7 @@ gui-libs/libdecor ABI_X86: 32
 llvm-core/clang ABI_X86: 32
 llvm-core/llvm ABI_X86: 32
 media-gfx/graphite2 ABI_X86: 32
+media-libs/dav1d ABI_X86: 32
 media-libs/flac ABI_X86: 32
 media-libs/fontconfig ABI_X86: 32
 media-libs/freetype ABI_X86: 32
