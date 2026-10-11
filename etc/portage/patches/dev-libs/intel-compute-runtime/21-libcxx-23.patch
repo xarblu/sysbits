@@ -1,0 +1,12 @@
+diff --git a/level_zero/core/source/mutable_cmdlist/variable_dispatch.h b/level_zero/core/source/mutable_cmdlist/variable_dispatch.h
+index 9762e10..979a716 100644
+--- a/level_zero/core/source/mutable_cmdlist/variable_dispatch.h
++++ b/level_zero/core/source/mutable_cmdlist/variable_dispatch.h
+@@ -14,6 +14,7 @@
+ 
+ #include <functional>
+ #include <memory>
++#include <vector>
+ 
+ namespace NEO {
+ class Device;
