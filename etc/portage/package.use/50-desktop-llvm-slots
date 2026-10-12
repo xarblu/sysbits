@@ -7,3 +7,4 @@
 >=dev-lang/rust-1.99.0 LLVM_SLOT: -* 23
 >=dev-util/bpftool-7.7.0-r1 LLVM_SLOT: -* 23
 >=sys-kernel/cachyos-kernel-7.3_rc6_p1 LLVM_SLOT: -* 23
+>=sys-kernel/scx-1.1.4_pre20261012 LLVM_SLOT: -* 23
