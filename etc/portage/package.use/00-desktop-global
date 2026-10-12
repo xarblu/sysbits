@@ -8,7 +8,7 @@
 #LLVM_SLOT
 
 # Python
-# old targets should be kept once *all* PYTHON_SINGLE_TARGETs migrated to
+# old targets should be kept until *all* PYTHON_SINGLE_TARGETs migrated to
 # the new targets to avoid annoying package.use shenanigans
 */* PYTHON_TARGETS: -* python3_14 python3_15
 */* PYTHON_SINGLE_TARGET: -* python3_14
