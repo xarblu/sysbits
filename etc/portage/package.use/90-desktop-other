@@ -123,7 +123,7 @@ sys-apps/kmscon doc
 sys-apps/memtest86+ -* boot uefi64
 sys-apps/systemd elfutils tpm boot cryptsetup ukify curl http qrcode xkb
 sys-apps/zram-generator -man
-sys-fs/bcachefs-tools -dist-kernel initramfs -modules -modules-compress -strip -modules-sign
+sys-fs/bcachefs-tools -dist-kernel -initramfs -modules -modules-compress -strip -modules-sign
 sys-kernel/cachyos-kernel bcachefs rust scx -lto -cfi
 sys-kernel/cachyos-settings zram
 sys-kernel/installkernel dracut module-rebuild systemd-boot uki ukify
