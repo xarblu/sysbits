@@ -1,13 +1,24 @@
 # override default python targets
 
-# dev-python/pyudev dep not py3.15 yet
-app-misc/solaar PYTHON_TARGETS: -python3_15
-
 # older PYTHON_SINGLE_TARGET
 # usediff python_single_target_python3_{12..13} PYTHON_SINGLE_TARGET
 
 llvm-core/clang:17 PYTHON_SINGLE_TARGET: -* python3_12
 
 # newer PYTHON_SINGLE_TARGET
-# quse --repo --quiet --verbose --installed --exact python_single_target_python3_14 | perl -n -e 'print ">=$1 PYTHON_SINGLE_TARGET: -* python3_14\n" if /(.*\/.*)::\S*/'
+# quse --repo --quiet --verbose --installed --exact python_single_target_python3_15 | perl -n -e 'print ">=$1 PYTHON_SINGLE_TARGET: -* python3_15\n" if /(.*\/.*)::\S*/'
 
+>=app-emulation/virt-manager-5.1.0-r1 PYTHON_SINGLE_TARGET: -* python3_15
+>=app-misc/pax-utils-1.3.11 PYTHON_SINGLE_TARGET: -* python3_15
+>=app-text/asciidoc-10.2.1 PYTHON_SINGLE_TARGET: -* python3_15
+>=dev-util/blueprint-compiler-0.22.2 PYTHON_SINGLE_TARGET: -* python3_15
+>=dev-util/gdbus-codegen-2.88.3 PYTHON_SINGLE_TARGET: -* python3_15
+>=dev-util/glib-utils-2.88.3 PYTHON_SINGLE_TARGET: -* python3_15
+>=dev-util/pahole-1.32 PYTHON_SINGLE_TARGET: -* python3_15
+>=kde-frameworks/ki18n-6.31.0 PYTHON_SINGLE_TARGET: -* python3_15
+>=kde-plasma/drkonqi-6.7.91 PYTHON_SINGLE_TARGET: -* python3_15
+>=kde-plasma/plasma-firewall-6.7.91 PYTHON_SINGLE_TARGET: -* python3_15
+>=media-gfx/graphviz-15.1.0 PYTHON_SINGLE_TARGET: -* python3_15
+>=media-libs/alsa-lib-1.2.16.1 PYTHON_SINGLE_TARGET: -* python3_15
+>=net-dns/avahi-0.9_rc5 PYTHON_SINGLE_TARGET: -* python3_15
+>=net-misc/rsync-3.5.1 PYTHON_SINGLE_TARGET: -* python3_15
