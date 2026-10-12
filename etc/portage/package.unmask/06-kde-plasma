@@ -1,4 +1,3 @@
-~app-backup/kup-6.7.91
 ~kde-plasma/aurorae-6.7.91
 ~kde-plasma/bluedevil-6.7.91
 ~kde-plasma/breeze-6.7.91
@@ -26,6 +25,7 @@
 ~kde-plasma/kscreenlocker-6.7.91
 ~kde-plasma/ksshaskpass-6.7.91
 ~kde-plasma/ksystemstats-6.7.91
+~kde-plasma/kup-6.7.91
 ~kde-plasma/kwallet-pam-6.7.91
 ~kde-plasma/kwayland-6.7.91
 ~kde-plasma/kwin-6.7.91
