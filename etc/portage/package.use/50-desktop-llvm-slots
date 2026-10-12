@@ -3,3 +3,7 @@
 # quse --exact --installed --quiet --verbose llvm_slot_23 | perl -pe 's/^(.*)$/>=\1 LLVM_SLOT: -* 23/'
 
 # unstable slots
+>=dev-cpp/eigen-3.4.1-r1 LLVM_SLOT: -* 23
+>=dev-lang/rust-1.99.0 LLVM_SLOT: -* 23
+>=dev-util/bpftool-7.7.0-r1 LLVM_SLOT: -* 23
+>=sys-kernel/cachyos-kernel-7.3_rc6_p1 LLVM_SLOT: -* 23
