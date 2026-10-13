@@ -9,3 +9,4 @@
 >=sys-kernel/cachyos-kernel-7.3_rc6_p1 LLVM_SLOT: -* 23
 >=sys-kernel/scx-1.1.4_pre20261012 LLVM_SLOT: -* 23
 sys-fs/bcachefs-tools LLVM_SLOT: -* 23
+www-client/firefox LLVM_SLOT: -* 23
