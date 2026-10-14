@@ -90,11 +90,10 @@ x11-apps/mesa-progs
 x11-apps/xdpyinfo
 
 ## Games
-games-util/protonplus
-# until pyside catches up
-#games-util/ProtonUp-Qt
 games-util/gamemode
 games-util/mangohud
+games-util/proton-cachyos-bin
+games-util/protonplus
 games-util/steam-launcher
 
 ## zlib
