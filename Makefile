@@ -331,6 +331,11 @@ ifeq ($(SERVER),yes)
 		$(DESTDIR)/etc/portage/make.conf
 endif
 
+ifeq ($(DESKTOP),yes)
+	install -Dm644 -t $(DESTDIR)/etc/proton/proton-cachyos-portage \
+		etc/proton/proton-cachyos-portage/user_settings.py
+endif
+
 	install -Dm644 -t $(DESTDIR)/etc/eixrc \
 		etc/eixrc/02-theming \
 		etc/eixrc/10-cache-methods
