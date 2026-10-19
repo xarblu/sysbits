@@ -390,10 +390,6 @@ endif
 		usr/lib/systemd/zram-generator.conf.d/00-swap.conf \
 		usr/lib/systemd/zram-generator.conf.d/10-tmpdirs.conf
 
-	# must have higher priority than 60-ioschedulers.rules from cachyos-settings
-	install -Dm644 -t $(DESTDIR)/usr/lib/udev/rules.d \
-		usr/lib/udev/rules.d/61-ioschedulers-adios.rules
-
 	install -Dm644 -t $(DESTDIR)/usr/share/sysbits/portage \
 		usr/share/sysbits/portage/bashrc-utils.sh \
 		usr/share/sysbits/portage/gentoo_mirrors.list \
