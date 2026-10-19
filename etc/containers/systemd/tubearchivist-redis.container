@@ -1,6 +1,5 @@
 [Unit]
 Description=Tube Archivist Redis
-After=tubearchivist-elasticsearch.service
 RequiresMountsFor=/var/lib/tubearchivist
 
 [Container]

@@ -1,7 +1,8 @@
 [Unit]
 Description=Tube Archivist Server
-After=tubearchivist-redis.service tubearchivist-elasticsearch.service
+After=tubearchivist-redis.service tubearchivist-elasticsearch.service tubearchivist-pot-provider.service
 Requires=tubearchivist-redis.service tubearchivist-elasticsearch.service
+Wants=tubearchivist-pot-provider.service
 RequiresMountsFor=/var/lib/tubearchivist
 
 [Container]
