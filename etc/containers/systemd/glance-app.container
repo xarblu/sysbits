@@ -5,9 +5,11 @@ Wants=glance-podman-socket-proxy.service
 RequiresMountsFor=/var/lib/glance
 
 [Container]
-Image=docker.io/glanceapp/glance:v0.8.6
+Image=docker.io/glanceapp/glance:v0.8.7
 Pull=newer
+
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
+Label='wud.tag.transform=^v(\\d+\\.\\d+\\.\\d+)$$ => $$1'
 Label='wud.link.template=https://github.com/glanceapp/glance/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
 
