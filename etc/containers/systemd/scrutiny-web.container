@@ -28,6 +28,7 @@ Volume=/var/lib/scrutiny/config:/opt/scrutiny/config:idmap
 Environment=SCRUTINY_WEB_INFLUXDB_HOST=[::1]
 
 HealthCmd=curl -f http://[::1]:8080/api/health
+Notify=healthy
 
 [Service]
 TimeoutStartSec=10min
