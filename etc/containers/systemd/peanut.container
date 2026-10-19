@@ -4,8 +4,9 @@ After=nut.target
 RequiresMountsFor=/var/lib/peanut
 
 [Container]
-Image=docker.io/brandawg93/peanut:6.0.0
+Image=docker.io/brandawg93/peanut:6.1.1
 Pull=newer
+
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/Brandawg93/PeaNUT/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
