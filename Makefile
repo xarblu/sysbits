@@ -86,6 +86,7 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/tmodloader.network \
 		etc/containers/systemd/tubearchivist-app.container \
 		etc/containers/systemd/tubearchivist-elasticsearch.container \
+		etc/containers/systemd/tubearchivist-pot-provider.container \
 		etc/containers/systemd/tubearchivist-redis.container \
 		etc/containers/systemd/tubearchivist.network \
 		etc/containers/systemd/tubearchivist.pod \
