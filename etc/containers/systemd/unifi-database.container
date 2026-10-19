@@ -3,7 +3,7 @@ Description=UniFi Network MongoDB
 RequiresMountsFor=/var/lib/unifi-container
 
 [Container]
-Image=docker.io/library/mongo:8.3.11
+Image=docker.io/library/mongo:8.3.13
 Pull=newer
 
 Label='wud.tag.include=^8\\.\\d+\\.\\d+$$'
