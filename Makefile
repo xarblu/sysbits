@@ -390,6 +390,12 @@ endif
 		usr/lib/systemd/zram-generator.conf.d/00-swap.conf \
 		usr/lib/systemd/zram-generator.conf.d/10-tmpdirs.conf
 
+ifeq ($(SERVER),yes)
+	# DESKTOP profiles pull this from cachyos-settings
+	install -Dm644 -t $(DESTDIR)/usr/lib/udev/rules.d \
+		usr/lib/udev/rules.d/60-ioschedulers.rules
+endif
+
 	install -Dm644 -t $(DESTDIR)/usr/share/sysbits/portage \
 		usr/share/sysbits/portage/bashrc-utils.sh \
 		usr/share/sysbits/portage/gentoo_mirrors.list \
