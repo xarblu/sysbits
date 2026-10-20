@@ -6,3 +6,6 @@ What=tmpfs
 Where=/var/tmp/portage
 Type=tmpfs
 Options=size=50%%,mode=775,uid=portage,gid=portage,nosuid,nodev,noatime
+
+[Install]
+WantedBy=local-fs.target
