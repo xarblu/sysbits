@@ -13,6 +13,9 @@ BINPKG_CLIENT_LLVM ?= no
 BINPKG_BUILD_HOST ?= no
 
 install: $(PATCHES)
+	install -Dm644 -t $(DESTDIR)/etc/conf.d \
+		etc/conf.d/scx
+
 ifeq ($(SERVER),yes)
 	install -Dm644 -t $(DESTDIR)/etc/containers \
 		etc/containers/containers.conf
@@ -148,9 +151,6 @@ ifeq ($(DESKTOP),yes)
 		etc/profile.d/plasma-preload.sh \
 		etc/profile.d/vulkan-video.sh
 endif
-
-	install -Dm644 -t $(DESTDIR)/etc/scx_loader \
-		etc/scx_loader/config.toml
 
 	install -Dm644 -t $(DESTDIR)/etc/polkit-1/rules.d \
 		etc/polkit-1/rules.d/10-admin.rules
