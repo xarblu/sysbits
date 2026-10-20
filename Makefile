@@ -375,7 +375,8 @@ endif
 		usr/lib/systemd/system/btrfs-scrub@.service \
 		usr/lib/systemd/system/btrfs-scrub@.timer \
 		usr/lib/systemd/system/haproxy-crt-store-dumper.service \
-		usr/lib/systemd/system/haproxy-crt-store-dumper.timer
+		usr/lib/systemd/system/haproxy-crt-store-dumper.timer \
+		usr/lib/systemd/system/var-tmp-portage.mount
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system/plasmalogin.service.d \
 		usr/lib/systemd/system/plasmalogin.service.d/10-kmscon.conf
@@ -387,8 +388,7 @@ endif
 		usr/lib/systemd/user/google-drive-ocamlfuse@.service
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/zram-generator.conf.d \
-		usr/lib/systemd/zram-generator.conf.d/00-swap.conf \
-		usr/lib/systemd/zram-generator.conf.d/10-tmpdirs.conf
+		usr/lib/systemd/zram-generator.conf.d/00-swap.conf
 
 ifeq ($(SERVER),yes)
 	# DESKTOP profiles pull this from cachyos-settings
