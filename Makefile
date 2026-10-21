@@ -378,8 +378,9 @@ endif
 		usr/lib/systemd/system/haproxy-crt-store-dumper.timer \
 		usr/lib/systemd/system/var-tmp-portage.mount
 
-	# install (enable) units
-	ln -s ../var-tmp-portage.mount $(DESTDIR)/usr/lib/systemd/system/local-fs.target.wants
+	install -d $(DESTDIR)/usr/lib/systemd/system/local-fs.target.wants
+	ln -sf -t $(DESTDIR)/usr/lib/systemd/system/local-fs.target.wants \
+		../var-tmp-portage.mount
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system/plasmalogin.service.d \
 		usr/lib/systemd/system/plasmalogin.service.d/10-kmscon.conf
