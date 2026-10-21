@@ -16,6 +16,7 @@ dev-libs/libdbusmenu -gtk
 dev-python/matplotlib -wxwidgets
 dev-util/perf -gtk
 games-emulation/snes9x -xv
+gui-apps/sddm -X
 kde-misc/kde-rounded-corners -X
 kde-misc/kwin-effects-better-blur-dx -X
 kde-plasma/plasma-meta -X
@@ -32,4 +33,3 @@ net-print/gutenprint -gtk
 sci-visualization/gnuplot -wxwidgets -X
 sys-process/psmisc -X
 www-client/firefox -X
-x11-misc/sddm -X
