@@ -3,7 +3,7 @@ Description=Prometheus Monitoring System
 RequiresMountsFor=/var/lib/grafana
 
 [Container]
-Image=docker.io/prom/prometheus:v3.15.0
+Image=docker.io/prom/prometheus:v3.15.1
 Pull=newer
 
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
