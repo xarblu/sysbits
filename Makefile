@@ -382,8 +382,15 @@ endif
 	ln -sf -t $(DESTDIR)/usr/lib/systemd/system/local-fs.target.wants \
 		../var-tmp-portage.mount
 
+ifeq ($(DESKTOP),yes)
+	# plasma-login-manager default
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system/plasmalogin.service.d \
 		usr/lib/systemd/system/plasmalogin.service.d/10-kmscon.conf
+
+	install -d $(DESTDIR)/etc/systemd/system
+	ln -sf /usr/lib/systemd/system/plasmalogin.service \
+		$(DESTDIR)/etc/systemd/system/display-manager.service
+endif
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system.conf.d \
 		usr/lib/systemd/system.conf.d/10-accounting.conf
