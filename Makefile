@@ -392,6 +392,14 @@ ifeq ($(DESKTOP),yes)
 		$(DESTDIR)/etc/systemd/system/display-manager.service
 endif
 
+ifeq ($(SERVER),yes)
+	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system/podman-auto-update.timer.d \
+		usr/lib/systemd/system/podman-auto-update.timer.d/20-schedule.conf
+
+	ln -sf -t $(DESTDIR)/etc/systemd/system/timers.target.wants \
+		/usr/lib/systemd/system/podman-auto-update.timer
+endif
+
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system.conf.d \
 		usr/lib/systemd/system.conf.d/10-accounting.conf
 
