@@ -6,7 +6,7 @@ RequiresMountsFor=/var/lib/unifi-container
 
 [Container]
 Image=quay.io/linuxserver.io/unifi-network-application:10.6.106
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://community.ui.com/releases/r/network/$${major}.$${minor}.$${patch}'

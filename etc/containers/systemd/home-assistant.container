@@ -4,7 +4,7 @@ RequiresMountsFor=/var/lib/home-assistant
 
 [Container]
 Image=ghcr.io/home-assistant/home-assistant:2026.10.2
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/home-assistant/core/releases/tag/$${major}.$${minor}.$${patch}'

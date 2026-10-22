@@ -4,7 +4,7 @@ RequiresMountsFor=/var/lib/syncthing
 
 [Container]
 Image=ghcr.io/syncthing/syncthing:2.1.7
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/syncthing/syncthing/releases/tag/v$${major}.$${minor}.$${patch}'

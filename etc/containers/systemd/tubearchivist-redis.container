@@ -4,7 +4,7 @@ RequiresMountsFor=/var/lib/tubearchivist
 
 [Container]
 Image=docker.io/library/redis:8.10.2-alpine3.23
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-alpine\\d+.\\d+$$'
 Label='wud.tag.transform=^(\\d+\\.\\d+\\.\\d+)(-alpine)(\\d+.\\d+)$$ => $$1$$2.$$3'

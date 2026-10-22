@@ -4,7 +4,7 @@ RequiresMountsFor=/var/lib/crafty
 
 [Container]
 Image=docker.io/arcadiatechnology/crafty-4:4.11.0
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://gitlab.com/crafty-controller/crafty-4/-/releases/v$${major}.$${minor}.$${patch}'

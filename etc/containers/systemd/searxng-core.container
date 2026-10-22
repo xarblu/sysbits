@@ -7,7 +7,7 @@ Requires=searxng-valkey.service
 
 [Container]
 Image=docker.io/searxng/searxng:2026.10.19-d47cb96bf
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-.*$$'
 Label='wud.tag.transform=^(\\d+\\.\\d+\\.\\d+)-.*$$ => $$1'

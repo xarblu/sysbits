@@ -4,7 +4,7 @@ RequiresMountsFor=/var/lib/unifi-container
 
 [Container]
 Image=docker.io/library/mongo:8.3.13
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^8\\.\\d+\\.\\d+$$'
 #Label='wud.link.template='

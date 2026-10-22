@@ -6,7 +6,7 @@ RequiresMountsFor=/var/lib/nextcloud-container
 
 [Container]
 Image=docker.io/library/nextcloud:35.0.2-apache
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-apache$$'
 Label='wud.link.template=https://nextcloud.com/changelog/#$${major}-$${minor}-$${patch}'

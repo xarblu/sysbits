@@ -5,7 +5,7 @@ RequiresMountsFor=/var/lib/peanut
 
 [Container]
 Image=docker.io/brandawg93/peanut:6.1.2
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/Brandawg93/PeaNUT/releases/tag/v$${major}.$${minor}.$${patch}'

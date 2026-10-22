@@ -7,7 +7,7 @@ RequiresMountsFor=/var/lib/immich
 
 [Container]
 Image=ghcr.io/immich-app/immich-server:v3.3.5
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+(-rc\\.\\d+)?$$'
 Label='wud.tag.transform=^v(\\d+\\.\\d+\\.\\d+)(-rc\\.\\d+)?$$ => $$1$$2'

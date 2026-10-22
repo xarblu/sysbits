@@ -4,7 +4,7 @@ RequiresMountsFor=/var/lib/immich
 
 [Container]
 Image=ghcr.io/immich-app/immich-machine-learning:v3.3.5-openvino
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+(-rc\\.\\d+)?-openvino$$'
 Label='wud.tag.transform=^v(\\d+\\.\\d+\\.\\d+)(-rc\\.\\d+)?-openvino$$ => $$1$$2'

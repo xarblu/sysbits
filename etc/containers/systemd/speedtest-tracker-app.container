@@ -4,7 +4,7 @@ RequiresMountsFor=/var/lib/speedtest-tracker
 
 [Container]
 Image=ghcr.io/linuxserver/speedtest-tracker:1.15.1
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/alexjustesen/speedtest-tracker/releases/tag/v$${major}.$${minor}.$${patch}'

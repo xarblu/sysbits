@@ -6,7 +6,7 @@ RequiresMountsFor=/var/lib/authentik
 
 [Container]
 Image=ghcr.io/goauthentik/server:2026.8.5
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/goauthentik/authentik/releases/tag/version%%2F$${major}.$${minor}.$${patch}'

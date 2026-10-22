@@ -4,7 +4,7 @@ RequiresMountsFor=/var/lib/grafana
 
 [Container]
 Image=docker.io/prom/prometheus:v3.15.1
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
 Label='wud.tag.transform=^v(\\d+\\.\\d+\\.\\d+)$$ => $$1'

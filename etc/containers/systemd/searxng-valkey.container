@@ -4,7 +4,7 @@ RequiresMountsFor=/var/lib/searxng
 
 [Container]
 Image=docker.io/valkey/valkey:9.1.2-alpine3.24
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^9\\.\\d+\\.\\d+-alpine\\d+.\\d+$$'
 Label='wud.tag.transform=^(9\\.\\d+\\.\\d+)(-alpine)(\\d+.\\d+)$$ => $$1$$2.$$3'

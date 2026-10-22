@@ -4,7 +4,7 @@ RequiresMountsFor=/var/lib/maptile-cache
 
 [Container]
 Image=docker.io/library/nginx:1.31.8
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.watch=true'

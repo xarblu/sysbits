@@ -6,7 +6,7 @@ RequiresMountsFor=/var/lib/glance
 
 [Container]
 Image=docker.io/glanceapp/glance:v0.8.7
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
 Label='wud.tag.transform=^v(\\d+\\.\\d+\\.\\d+)$$ => $$1'

@@ -6,7 +6,7 @@ RequiresMountsFor=/var/lib/wud
 
 [Container]
 Image=ghcr.io/getwud/wud:9.5.0
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
 Label='wud.link.template=https://github.com/getwud/wud/releases/tag/$${major}.$${minor}.$${patch}'

@@ -6,7 +6,7 @@ RequiresMountsFor=/var/lib/scrutiny
 
 [Container]
 Image=ghcr.io/analogj/scrutiny:v0.9.5-web
-Pull=newer
+AutoUpdate=registry
 
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+-web$$'
 Label='wud.tag.transform=^v(\\d+\\.\\d+\\.\\d+)-web$$ => $$1'
