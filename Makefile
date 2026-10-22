@@ -396,6 +396,7 @@ ifeq ($(SERVER),yes)
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system/podman-auto-update.timer.d \
 		usr/lib/systemd/system/podman-auto-update.timer.d/20-schedule.conf
 
+	install -d $(DESTDIR)/etc/systemd/system/timers.target.wants
 	ln -sf -t $(DESTDIR)/etc/systemd/system/timers.target.wants \
 		/usr/lib/systemd/system/podman-auto-update.timer
 endif
