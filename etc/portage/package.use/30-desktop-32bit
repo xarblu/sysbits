@@ -21,6 +21,8 @@ x11-libs/libXau ABI_X86: 32
 x11-libs/libXdmcp ABI_X86: 32
 x11-libs/libXext ABI_X86: 32
 x11-libs/libXfixes ABI_X86: 32
+x11-libs/libXrandr ABI_X86: 32
+x11-libs/libXrender ABI_X86: 32
 x11-libs/libXxf86vm ABI_X86: 32
 x11-libs/libdrm ABI_X86: 32
 x11-libs/libpciaccess ABI_X86: 32
