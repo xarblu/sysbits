@@ -394,6 +394,9 @@ ifeq ($(DESKTOP),yes)
 endif
 
 ifeq ($(SERVER),yes)
+	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system/podman-auto-update.service.d \
+		usr/lib/systemd/system/podman-auto-update.service.d/10-image-prune.conf
+
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system/podman-auto-update.timer.d \
 		usr/lib/systemd/system/podman-auto-update.timer.d/20-schedule.conf
 
