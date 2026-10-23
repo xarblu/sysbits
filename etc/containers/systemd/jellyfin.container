@@ -3,12 +3,12 @@ Description=Jellyfin Media Server
 RequiresMountsFor=/var/lib/jellyfin /var/media /var/lib/tubearchivist
 
 [Container]
-Image=docker.io/jellyfin/jellyfin:12.2
+Image=docker.io/jellyfin/jellyfin:12.3
 AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+(-rc\\d+)?$$'
 Label='wud.tag.transform=^(\\d+\\.\\d+)((-rc)(\\d+))?$$ => $$1$$3$$4'
-Label='wud.link.template=https://github.com/jellyfin/jellyfin/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.link.template=https://github.com/jellyfin/jellyfin/releases/tag/v$${major}.$${minor}'
 Label='wud.watch=true'
 
 Label='glance.name=Jellyfin'
