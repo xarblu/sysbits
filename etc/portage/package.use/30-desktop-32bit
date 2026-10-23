@@ -29,3 +29,7 @@ x11-libs/libpciaccess ABI_X86: 32
 x11-libs/libxcb ABI_X86: 32
 x11-libs/libxshmfence ABI_X86: 32
 x11-libs/xcb-util-keysyms ABI_X86: 32
+
+# extra stuff for system wine (even with wow64)
+app-emulation/wine-gecko ABI_X86: 32
+dev-util/mingw64-toolchain ABI_X86: 32
