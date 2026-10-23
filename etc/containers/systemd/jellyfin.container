@@ -35,6 +35,9 @@ Volume=/var/lib/tubearchivist/app-media:/tubearchivist:ro
 
 AddDevice=/dev/dri/:/dev/dri/
 
+HealthCmd=curl --fail-with-body http://127.0.0.1:8096/System/Ping
+Notify=healthy
+
 [Service]
 TimeoutStartSec=10min
 Restart=on-failure
