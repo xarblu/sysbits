@@ -23,6 +23,10 @@ PublishPort=636:6636
 
 EnvironmentFile=/var/lib/authentik/ldap-outpost.env
 
+# https://docs.goauthentik.io/sys-mgmt/ops/monitoring/
+HealthCmd=curl --fail-with-body --silent --show-error http://127.0.0.1:9300/outpost.goauthentik.io/ping
+Notify=healthy
+
 [Service]
 TimeoutStartSec=10min
 Restart=on-failure

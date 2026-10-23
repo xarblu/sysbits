@@ -30,6 +30,10 @@ Volume=/var/lib/authentik/custom-templates:/templates:idmap
 
 Exec=server
 
+# https://docs.goauthentik.io/sys-mgmt/ops/monitoring/
+HealthCmd=python3 -c 'import urllib.request; print(urllib.request.urlopen("http://127.0.0.1:9000/-/health/live/", timeout=5).read().decode())'
+Notify=healthy
+
 [Service]
 TimeoutStartSec=10min
 Restart=on-failure

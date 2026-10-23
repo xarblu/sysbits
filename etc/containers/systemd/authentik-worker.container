@@ -27,6 +27,10 @@ Volume=/var/lib/authentik/custom-templates:/templates:idmap
 
 Exec=worker
 
+# https://docs.goauthentik.io/sys-mgmt/ops/monitoring/
+HealthCmd=ak healthcheck
+Notify=healthy
+
 [Service]
 TimeoutStartSec=10min
 Restart=on-failure
