@@ -32,7 +32,6 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/dawarich-database.container \
 		etc/containers/systemd/dawarich-photon.container \
 		etc/containers/systemd/dawarich-redis.container \
-		etc/containers/systemd/dawarich-sidekiq.container \
 		etc/containers/systemd/dawarich.network \
 		etc/containers/systemd/dawarich.pod \
 		etc/containers/systemd/glance-app.container \
