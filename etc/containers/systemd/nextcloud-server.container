@@ -28,6 +28,9 @@ Volume=/var/lib/nextcloud-container/server-data:/var/www/html:idmap
 Volume=/var/lib/nextcloud-container/server-userdata:/var/lib/nextcloud/data:idmap
 Volume=/etc/localtime:/etc/localtime:ro
 
+HealthCmd=curl --fail-with-body --silent --show-error http://localhost/status.php | grep '"installed":true' | grep '"maintenance":false' | grep '"needsDbUpgrade":false' || exit 1
+Notify=healthy
+
 [Service]
 TimeoutStartSec=10min
 Restart=on-failure
