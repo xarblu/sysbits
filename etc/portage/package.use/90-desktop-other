@@ -129,6 +129,7 @@ sys-kernel/cachyos-settings zram
 sys-kernel/installkernel dracut module-rebuild systemd-boot uki ukify
 sys-kernel/kernelscripts eclean-kernel
 sys-kernel/linux-firmware compress-zstd deduplicate
+sys-libs/libcap static-libs
 sys-libs/minizip-ng compat
 sys-libs/zlib -minizip
 sys-libs/zlib-ng compat
