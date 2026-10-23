@@ -30,7 +30,10 @@ Volume=/var/lib/tubearchivist/app-media:/youtube:idmap
 Volume=/var/lib/tubearchivist/app-cache:/cache:idmap
 Volume=/etc/localtime:/etc/localtime:ro
 
-HealthCmd=curl -f http://localhost:8000/api/health/
+# TA has a fairly strict trusted hosts list (afaik only "${TA_HOST}" and "localhost")
+# so we'll explicitly say we're localhost
+HealthCmd=curl --fail-with-body --silent --show-error --header "Host: localhost" http://127.0.0.1:8000/api/health/
+Notify=healthy
 
 [Service]
 TimeoutStartSec=10min

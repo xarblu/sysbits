@@ -26,7 +26,8 @@ EnvironmentFile=/var/lib/wud/wud.env
 Volume=/etc/localtime:/etc/localtime:ro
 Volume=/var/lib/wud/store:/store:idmap
 
-HealthCmd=curl -f http://[::1]:3000/health
+HealthCmd=curl --fail-with-body --silent --show-error http://127.0.0.1:3000/health
+Notify=healthy
 
 [Service]
 TimeoutStartSec=10min

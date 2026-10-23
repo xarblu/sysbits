@@ -31,7 +31,8 @@ EnvironmentFile=/var/lib/speedtest-tracker/speedtest-tracker.env
 
 Volume=/var/lib/speedtest-tracker/data:/config:idmap
 
-HealthCmd=curl -fSs $APP_URL/api/healthcheck | jq -re 'if (.message == "Speedtest Tracker is running!") then .message else null end'
+HealthCmd=curl --fail-with-body --silent --show-error http://127.0.0.1/api/healthcheck
+Notify=healthy
 
 [Service]
 TimeoutStartSec=10min
