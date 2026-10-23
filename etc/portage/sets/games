@@ -2,7 +2,6 @@
 
 # Steam and Proton
 app-emulation/protontricks
-app-emulation/winetricks
 games-util/proton-cachyos-bin
 games-util/proton-ge-custom-bin
 games-util/steam-launcher
