@@ -3,7 +3,7 @@ Description=NTFY notification server
 RequiresMountsFor=/var/lib/ntfy
 
 [Container]
-Image=docker.io/binwiederhier/ntfy:v2.32.0
+Image=docker.io/binwiederhier/ntfy:v2.32.1
 AutoUpdate=registry
 
 Label='wud.tag.include=^v\\d+.\\d+.\\d+$$'
