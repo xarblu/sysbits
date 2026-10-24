@@ -3,7 +3,7 @@ Description=Dawarich Photon
 RequiresMountsFor=/var/lib/dawarich
 
 [Container]
-Image=docker.io/rtuszik/photon-docker:2.4.0
+Image=docker.io/rtuszik/photon-docker:2.5.0
 AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+$$'
