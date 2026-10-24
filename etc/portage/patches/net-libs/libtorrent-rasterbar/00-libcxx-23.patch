@@ -1,0 +1,12 @@
+diff --git a/src/escape_string.cpp b/src/escape_string.cpp
+index b4d1c90..150e820 100644
+--- a/src/escape_string.cpp
++++ b/src/escape_string.cpp
+@@ -17,6 +17,7 @@ see LICENSE file.
+ #include <mutex>
+ #include <cstring>
+ #include <vector>
++#include <iterator>
+ 
+ #ifdef TORRENT_WINDOWS
+ #include "libtorrent/aux_/windows.hpp"
