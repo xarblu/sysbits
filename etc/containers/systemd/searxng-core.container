@@ -6,7 +6,7 @@ After=searxng-valkey.service
 Requires=searxng-valkey.service
 
 [Container]
-Image=docker.io/searxng/searxng:2026.10.23-629368e40
+Image=docker.io/searxng/searxng:2026.10.25-54ca1d9cf
 AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-.*$$'
