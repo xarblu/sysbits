@@ -3,15 +3,15 @@ Description=Dawarich Redis
 RequiresMountsFor=/var/lib/dawarich
 
 [Container]
-Image=docker.io/valkey/valkey:8.1.10-alpine3.24
+Image=docker.io/library/redis:8.8.4-alpine
 AutoUpdate=registry
 
-Label='wud.tag.include=^8\\.\\d+\\.\\d+-alpine\\d+.\\d+$$'
-Label='wud.tag.transform=^(\\d+\\.\\d+\\.\\d+)(-alpine)(\\d+.\\d+)$$ => $$1$$2.$$3'
-Label='wud.link.template=https://github.com/valkey-io/valkey/releases/tag/$${major}.$${minor}.$${patch}'
+Label='wud.tag.include=^8\\.\\d+\\.\\d+-alpine$$'
+Label='wud.tag.transform=^(\\d+\\.\\d+\\.\\d+)-alpine$$ => $$1'
+Label='wud.link.template=https://github.com/redis/redis/releases/tag/$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
 
-Label='glance.name=Valkey'
+Label='glance.name=Redis'
 Label='glance.hide=false'
 Label='glance.parent=dawarich'
 
