@@ -3,7 +3,7 @@ Description=Dawarich Redis
 RequiresMountsFor=/var/lib/dawarich
 
 [Container]
-Image=docker.io/library/redis:8.8.4-alpine
+Image=docker.io/library/redis:8.10.3-alpine
 AutoUpdate=registry
 
 Label='wud.tag.include=^8\\.\\d+\\.\\d+-alpine$$'
