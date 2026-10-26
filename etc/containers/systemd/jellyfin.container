@@ -3,7 +3,7 @@ Description=Jellyfin Media Server
 RequiresMountsFor=/var/lib/jellyfin /var/media /var/lib/tubearchivist
 
 [Container]
-Image=docker.io/jellyfin/jellyfin:12.3
+Image=docker.io/jellyfin/jellyfin:12.4
 AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+(-rc\\d+)?$$'
