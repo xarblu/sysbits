@@ -17,8 +17,11 @@ Label='glance.parent=nextcloud'
 
 Pod=nextcloud.pod
 
+# direct in-pod connection
+Environment=NEXTCLOUD_URL=http://127.0.0.1/
+
 # notify_push gets its details from Nextcloud's config.php
-Volume=/var/lib/nextcloud-container/server-data/config:/config:ro
+Volume=/var/lib/nextcloud-container/server-data/config:/config:ro,idmap
 Exec=/notify_push /config/config.php
 
 #HealthCmd=
