@@ -1,0 +1,11 @@
+[Unit]
+Description=Nextcloud background job trigger
+After=nextcloud-server.service
+PartOf=nextcloud-server.service
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=5min
+
+[Install]
+WantedBy=timers.target

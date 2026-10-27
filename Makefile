@@ -376,6 +376,8 @@ endif
 		usr/lib/systemd/system/btrfs-scrub@.timer \
 		usr/lib/systemd/system/haproxy-crt-store-dumper.service \
 		usr/lib/systemd/system/haproxy-crt-store-dumper.timer \
+		usr/lib/systemd/system/nextcloud-background.service \
+		usr/lib/systemd/system/nextcloud-background.timer \
 		usr/lib/systemd/system/var-tmp-portage.mount
 
 	install -d $(DESTDIR)/usr/lib/systemd/system/local-fs.target.wants

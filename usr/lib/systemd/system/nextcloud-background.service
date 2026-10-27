@@ -1,0 +1,5 @@
+[Unit]
+Description=Nextcloud background job trigger
+
+[Service]
+ExecStart=/usr/bin/podman exec --user www-data systemd-nextcloud-server php -f /var/www/html/cron.php
