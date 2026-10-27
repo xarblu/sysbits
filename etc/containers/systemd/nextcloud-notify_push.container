@@ -1,0 +1,31 @@
+[Unit]
+Description=Nextcloud push daemon
+After=nextcloud-server.service nextcloud-valkey.service nextcloud-database.service
+Requires=nextcloud-server.service nextcloud-valkey.service nextcloud-database.service
+
+[Container]
+Image=ghcr.io/nextcloud/notify_push:v1.4.2
+AutoUpdate=registry
+
+Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
+Label='wud.link.template=https://github.com/nextcloud/notify_push/releases/tag/v$${major}.$${minor}.$${patch}'
+Label='wud.watch=true'
+
+Label='glance.name=Notify Push'
+Label='glance.hide=false'
+Label='glance.parent=nextcloud'
+
+Pod=nextcloud.pod
+
+# notify_push gets its details from Nextcloud's config.php
+Volume=/var/lib/nextcloud-container/server-data/config:/config:ro
+Exec=/notify_push /config/config.php
+
+#HealthCmd=
+
+[Service]
+TimeoutStartSec=10min
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

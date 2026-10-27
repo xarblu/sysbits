@@ -58,6 +58,7 @@ ifeq ($(SERVER),yes)
 		etc/containers/systemd/navidrome.container \
 		etc/containers/systemd/navidrome.network \
 		etc/containers/systemd/nextcloud-database.container \
+		etc/containers/systemd/nextcloud-notify_push.container \
 		etc/containers/systemd/nextcloud-server.container \
 		etc/containers/systemd/nextcloud-valkey.container \
 		etc/containers/systemd/nextcloud.network \
