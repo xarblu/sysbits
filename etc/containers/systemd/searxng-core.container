@@ -6,11 +6,12 @@ After=searxng-valkey.service
 Requires=searxng-valkey.service
 
 [Container]
-Image=docker.io/searxng/searxng:2026.10.25-54ca1d9cf
+# "latest" is the recommended tag for SearXNG
+# as there are no tagged releases
+Image=docker.io/searxng/searxng:latest
 AutoUpdate=registry
 
-Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-.*$$'
-Label='wud.tag.transform=^(\\d+\\.\\d+\\.\\d+)-.*$$ => $$1'
+Label='wud.watch.digest=true'
 Label='wud.link.template=https://github.com/searxng/searxng/commits/master/'
 Label='wud.watch=true'
 
