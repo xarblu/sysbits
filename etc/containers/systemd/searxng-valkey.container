@@ -3,7 +3,7 @@ Description=SearXNG Valkey
 RequiresMountsFor=/var/lib/searxng
 
 [Container]
-Image=docker.io/valkey/valkey:9.1.2-alpine3.24
+Image=docker.io/valkey/valkey:9.1.3-alpine3.24
 AutoUpdate=registry
 
 Label='wud.tag.include=^9\\.\\d+\\.\\d+-alpine\\d+.\\d+$$'
