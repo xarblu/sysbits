@@ -19,6 +19,8 @@ Pod=searxng.pod
 
 Volume=/var/lib/searxng/valkey-data:/data:idmap
 
+Exec=valkey-server --save 300 1 --save 60 1000 --loglevel warning
+
 HealthCmd=valkey-cli ping | grep PONG
 Notify=healthy
 
