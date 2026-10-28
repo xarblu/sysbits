@@ -3,7 +3,7 @@ Description=Tube Archivist Redis
 RequiresMountsFor=/var/lib/tubearchivist
 
 [Container]
-Image=docker.io/library/redis:8.10.2-alpine3.23
+Image=docker.io/library/redis:8.10.3-alpine3.23
 AutoUpdate=registry
 
 Label='wud.tag.include=^\\d+\\.\\d+\\.\\d+-alpine\\d+.\\d+$$'
