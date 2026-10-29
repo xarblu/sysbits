@@ -30,7 +30,6 @@ ACCEPT_KEYWORDS="~amd64"
 
 # Portage Options
 EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --with-bdeps=y"
-PORTAGE_SCHEDULING_POLICY="idle"
 # doc compression
 PORTAGE_COMPRESS=""
 # Logging
@@ -58,6 +57,9 @@ FEATURES="${FEATURES} parallel-fetch parallel-install fail-clean fakeroot"
 
 # Jobserver
 source /usr/share/sysbits/portage/make.conf.d/jobserver.conf
+
+# Scheduling priority
+source /usr/share/sysbits/portage/make.conf.d/scheduling-priority.conf
 
 # cgroups and observability (emerge --status)
 FEATURES="${FEATURES} cgroup observability"
