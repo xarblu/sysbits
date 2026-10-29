@@ -13,9 +13,6 @@ BINPKG_CLIENT_LLVM ?= no
 BINPKG_BUILD_HOST ?= no
 
 install: $(PATCHES)
-	install -Dm644 -t $(DESTDIR)/etc/conf.d \
-		etc/conf.d/scx
-
 ifeq ($(SERVER),yes)
 	install -Dm644 -t $(DESTDIR)/etc/containers \
 		etc/containers/containers.conf
@@ -108,6 +105,9 @@ ifeq ($(SERVER),yes)
 		var/lib/containerfiles/tmodloader/Containerfile \
 		var/lib/containerfiles/tmodloader/entry-point.sh
 endif
+
+	install -Dm644 -t $(DESTDIR)/etc/default \
+		etc/default/scx
 
 	install -Dm644 -t $(DESTDIR)/etc/dracut.conf.d \
 		etc/dracut.conf.d/00-defaults.conf \
