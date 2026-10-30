@@ -58,7 +58,7 @@ kde-plasma/kwin xwayland
 kde-plasma/plasma-desktop webengine
 kde-plasma/plasma-firewall firewalld -ufw
 kde-plasma/plasma-integration union
-kde-plasma/plasma-meta -crypt oxygen-theme sdk -display-manager -sddm
+kde-plasma/plasma-meta -crypt oxygen-theme sdk -display-manager -sddm virtualkeyboard
 kde-plasma/plasma-workspace telemetry
 kde-plasma/powerdevil brightness-control
 mail-client/thunderbird hwaccel system-png openh264 system-pipewire -wifi
