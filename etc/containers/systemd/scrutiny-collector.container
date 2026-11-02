@@ -4,7 +4,7 @@ After=scrutiny-web.service
 Wants=scrutiny-web.service
 
 [Container]
-Image=ghcr.io/analogj/scrutiny:v0.9.5-collector
+Image=ghcr.io/analogj/scrutiny:v0.10.0-collector
 AutoUpdate=registry
 
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+-collector$$'
