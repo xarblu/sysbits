@@ -10,7 +10,7 @@ Image=ghcr.io/immich-app/immich-server:v3.3.5
 AutoUpdate=registry
 
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+(-rc\\.\\d+)?$$'
-Label='wud.tag.transform=^v(\\d+\\.\\d+\\.\\d+)(-rc\\.\\d+)?$$ => $$1$$2'
+Label='wud.tag.transform=^v(\\d+\\.\\d+\\.\\d+)((-rc\\.\\d+)?)$$ => $$1$$2'
 Label='wud.link.template=https://github.com/immich-app/immich/releases/tag/v$${major}.$${minor}.$${patch}'
 Label='wud.watch=true'
 
