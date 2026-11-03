@@ -386,6 +386,14 @@ endif
 	ln -sf -t $(DESTDIR)/usr/lib/systemd/system/local-fs.target.wants \
 		../var-tmp-portage.mount
 
+	install -d $(DESTDIR)/etc/systemd/system
+	ln -sf /usr/lib/systemd/system/dbus-broker.service \
+		$(DESTDIR)/etc/systemd/system/dbus.service
+
+	install -d $(DESTDIR)/etc/systemd/user
+	ln -sf /usr/lib/systemd/user/dbus-broker.service \
+		$(DESTDIR)/etc/systemd/user/dbus.service
+
 ifeq ($(DESKTOP),yes)
 	# plasma-login-manager default
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system/plasmalogin.service.d \
