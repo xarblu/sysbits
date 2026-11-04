@@ -352,11 +352,6 @@ endif
 	install -Dm644 -t $(DESTDIR)/etc/sudoers.d \
 		etc/sudoers.d/00-defaults
 
-	install -Dm644 -t $(DESTDIR)/etc/sysctl.d \
-		etc/sysctl.d/55-bbr.conf \
-		etc/sysctl.d/55-fq_pie.conf \
-		etc/sysctl.d/60-route_cache.conf
-
 	install -Dm755 -t $(DESTDIR)/usr/bin \
 		usr/bin/bchsnap \
 		usr/bin/flang-compat-wrapper \
@@ -370,6 +365,10 @@ ifeq ($(DESKTOP),yes)
 		usr/lib/NetworkManager/conf.d/10-ip6-privacy.conf \
 		usr/lib/NetworkManager/conf.d/30-iwd-autoconnect.conf
 endif
+
+	install -Dm644 -t $(DESTDIR)/usr/lib/sysctl.d \
+		usr/lib/sysctl.d/55-bbr3.conf \
+		usr/lib/sysctl.d/60-route_cache.conf
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system \
 		usr/lib/systemd/system/bcachefs-scrub@.service \
