@@ -367,8 +367,7 @@ ifeq ($(DESKTOP),yes)
 endif
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/sysctl.d \
-		usr/lib/sysctl.d/55-bbr3.conf \
-		usr/lib/sysctl.d/60-route_cache.conf
+		usr/lib/sysctl.d/55-bbr3.conf
 
 	install -Dm644 -t $(DESTDIR)/usr/lib/systemd/system \
 		usr/lib/systemd/system/bcachefs-scrub@.service \
