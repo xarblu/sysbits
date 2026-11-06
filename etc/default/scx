@@ -12,4 +12,4 @@ SCX_SCHEDULER=/usr/bin/scx_lavd
 #
 # Example:
 # SCX_FLAGS='-s 700 -S'
-SCX_FLAGS=""
+SCX_FLAGS="--per-cpu-dsq"
