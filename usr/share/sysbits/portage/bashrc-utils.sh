@@ -468,6 +468,13 @@ function brc_build_env_setup() {
             : "${SCCACHE_DIRECT:="true"}"
 
             export SCCACHE_IDLE_TIMEOUT SCCACHE_MAX_FRAME_LENGTH SCCACHE_DIR SCCACHE_CACHE_SIZE SCCACHE_DIRECT
+
+            einfo "sccache enabled with the following parameters:"
+            einfo "SCCACHE_IDLE_TIMEOUT: ${SCCACHE_IDLE_TIMEOUT}"
+            einfo "SCCACHE_MAX_FRAME_LENGTH: ${SCCACHE_MAX_FRAME_LENGTH}"
+            einfo "SCCACHE_DIR: ${SCCACHE_DIR}"
+            einfo "SCCACHE_CACHE_SIZE: ${SCCACHE_CACHE_SIZE}"
+            einfo "SCCACHE_DIRECT: ${SCCACHE_DIRECT}"
         else
             ewarn "Could not find sccache binary in PATH"
         fi
