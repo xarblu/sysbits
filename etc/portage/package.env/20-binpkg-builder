@@ -1,3 +1,11 @@
 # binpkg build host might benefit from
 # e.g. sccache on some packages
 # that need multiple USE --buildpkgonly rebuilds
+
+# Until 6.140.X proper is released we're
+# stuck on the live package as it's the only
+# one currently compatible with Qt 6.12.
+# Might as well cache the build then
+# so we don't build ~30k objects every time
+# for any 2 line change.
+=dev-qt/qtwebengine-6.140.9999 sccache
