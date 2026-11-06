@@ -24,35 +24,11 @@ ENABLE_SCCACHE="false"
 #FEATURES="${FEATURES} ccache"
 #CCACHE_DIR="/var/cache/ccache"
 
-# Accepted Licenses & Keywords
-ACCEPT_LICENSE="* -@EULA"
-ACCEPT_KEYWORDS="~amd64"
+# defaults
+source /usr/share/sysbits/portage/make.conf.d/defaults.conf
 
-# Portage Options
-EMERGE_DEFAULT_OPTS="--ask --verbose --keep-going --with-bdeps=y"
-# doc compression
-PORTAGE_COMPRESS=""
-# Logging
-FEATURES="${FEATURES} split-log clean-logs compress-build-logs"
-# binpkgs
-FEATURES="${FEATURES} buildpkg binpkg-multi-instance"
-BINPKG_FORMAT="gpkg"
-BINPKG_COMPRESS="zstd"
-BINPKG_COMPRESS_FLAGS="-T0 -9"
-# host defaults
-PORTAGE_BINHOST_TTL="300"
-# keep basic debug info
-# by default without -g*
-#   - still provides better stack trace
-#   - if deduped and compressed takes little extra storage
-#   - if split doesn't affect binaries or build
-# nostrip - disable stripping of binaries
-# splitdebug - keep debug symbols seperate
-# dedupdebug - deduplicate debug symbols with sys-devel/dwz
-# compressdebug - compress debug symbols (patched to use zstd)
-FEATURES="${FEATURES} -nostrip splitdebug -dedupdebug compressdebug"
-# Other Portage Features
-FEATURES="${FEATURES} parallel-fetch parallel-install fail-clean fakeroot"
+# binpkg host options
+FEATURES="${FEATURES} buildpkg"
 
 # Jobserver
 source /usr/share/sysbits/portage/make.conf.d/jobserver.conf
@@ -60,15 +36,8 @@ source /usr/share/sysbits/portage/make.conf.d/jobserver.conf
 # Scheduling priority
 source /usr/share/sysbits/portage/make.conf.d/scheduling-priority.conf
 
-# cgroups and observability (emerge --status)
-FEATURES="${FEATURES} cgroup observability"
-
 # Portage directories
 source /usr/share/sysbits/portage/make.conf.d/directories.conf
-
-# This sets the language of build output to English.
-# Please keep this setting intact when reporting bugs.
-LC_MESSAGES="C"
 
 # Gentoo mirrors and fetchcommand
 source /usr/share/sysbits/portage/make.conf.d/fetchcommand.conf
