@@ -33,3 +33,11 @@ x11-libs/xcb-util-keysyms ABI_X86: 32
 # extra stuff for system wine (even with wow64)
 app-emulation/wine-gecko ABI_X86: 32
 dev-util/mingw64-toolchain ABI_X86: 32
+
+# mangohud and its 32 bit deps
+dev-libs/libfmt ABI_X86: 32
+dev-libs/spdlog ABI_X86: 32
+dev-util/glslang ABI_X86: 32
+games-util/mangohud ABI_X86: 32
+sys-apps/dbus ABI_X86: 32
+x11-libs/libxkbcommon ABI_X86: 32
