@@ -7,7 +7,7 @@
 
 # === bashrc flag manager ===
 # base *FLAGS to expand with bashrc flag manager
-TARGET_CPU="native"
+TARGET_CPU="x86-64-v3"
 COMMON_FLAGS="-march=${TARGET_CPU} -O2 -pipe"
 RUSTFLAGS="-C target-cpu=${TARGET_CPU} -C opt-level=2"
 LDFLAGS="-Wl,-O2,--as-needed"
