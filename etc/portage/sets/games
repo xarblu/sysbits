@@ -5,6 +5,8 @@ app-emulation/protontricks
 games-util/proton-cachyos-bin
 games-util/proton-ge-custom-bin
 games-util/steam-launcher
+# steam optfeatures
+gnome-extra/zenity
 
 # Minecraft
 dev-java/openjdk
