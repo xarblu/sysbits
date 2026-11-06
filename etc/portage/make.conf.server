@@ -21,6 +21,9 @@ CCACHE_DIR="/var/cache/ccache"
 # defaults
 source /usr/share/sysbits/portage/make.conf.d/defaults.conf
 
+# keywords
+ACCEPT_KEYWORDS="amd64"
+
 # not a binhost but still useful
 # for quick version rollback
 FEATURES="${FEATURES} buildpkg"

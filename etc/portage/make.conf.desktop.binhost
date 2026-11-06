@@ -27,6 +27,9 @@ ENABLE_SCCACHE="false"
 # defaults
 source /usr/share/sysbits/portage/make.conf.d/defaults.conf
 
+# keywords
+ACCEPT_KEYWORDS="~amd64"
+
 # binpkg host options
 FEATURES="${FEATURES} buildpkg"
 

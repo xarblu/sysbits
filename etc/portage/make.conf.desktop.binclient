@@ -27,6 +27,9 @@ ENABLE_SCCACHE="false"
 # defaults
 source /usr/share/sysbits/portage/make.conf.d/defaults.conf
 
+# keywords
+ACCEPT_KEYWORDS="~amd64"
+
 # binpkg client options
 EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --getbinpkg=y --binpkg-changed-deps=y --binpkg-respect-use=y --rebuilt-binaries=y"
 EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --usepkg-exclude app-misc/sysbits"
