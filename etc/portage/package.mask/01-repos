@@ -11,3 +11,5 @@
 */*::gentoo-zh
 */*::src_prepare-overlay
 */*::vapoursynth
+
+dev-lang/python::inode64-overlay
