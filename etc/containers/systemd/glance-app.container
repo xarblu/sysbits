@@ -5,7 +5,7 @@ Wants=glance-podman-socket-proxy.service
 RequiresMountsFor=/var/lib/glance
 
 [Container]
-Image=docker.io/glanceapp/glance:v0.8.7
+Image=docker.io/glanceapp/glance:v0.8.8
 AutoUpdate=registry
 
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+$$'
