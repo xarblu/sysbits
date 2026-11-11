@@ -6,7 +6,7 @@ Wants=immich-machine-learning.service
 RequiresMountsFor=/var/lib/immich
 
 [Container]
-Image=ghcr.io/immich-app/immich-server:v3.4.0-rc.3
+Image=ghcr.io/immich-app/immich-server:v3.4.0
 AutoUpdate=registry
 
 Label='wud.tag.include=^v\\d+\\.\\d+\\.\\d+(-rc\\.\\d+)?$$'
