@@ -16,3 +16,6 @@ sys-devel/mold
 # traccar-owntracks-proxy deps
 dev-cpp/cpp-httplib
 dev-cpp/nlohmann_json
+
+# misc
+dev-util/cloc
