@@ -7,6 +7,3 @@ kde-misc/kwin-effects-better-blur-dx **
 # python betas/RCs
 =dev-lang/python-*_beta* **
 =dev-lang/python-*_rc* **
-
-# until qtwebengine 6.140.0 is properly released...
-=dev-qt/qtwebengine-6.140.9999 **
