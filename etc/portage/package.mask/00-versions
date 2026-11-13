@@ -18,3 +18,6 @@ net-im/vesktop-bin::guru
 
 # incompatible with dev-ml/gapi-ocaml-0.4.7
 =dev-ml/cryptokit-1.21.1
+
+# requires old <=20 LLVM so force the -bin version
+<dev-lang/zig-0.16.0
