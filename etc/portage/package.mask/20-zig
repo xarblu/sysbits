@@ -1,0 +1,7 @@
+# portage prefers zig-bin when resolving deps
+# but we want the source version
+>=dev-lang/zig-bin-0.16.0
+
+# older zig versions require old LLVM though
+# so we want zig-bin there
+<dev-lang/zig-0.16.0
