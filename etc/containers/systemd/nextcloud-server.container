@@ -4,6 +4,8 @@ After=nextcloud-valkey.service nextcloud-database.service
 Requires=nextcloud-valkey.service nextcloud-database.service
 RequiresMountsFor=/var/lib/nextcloud-container
 
+Wants=nextcloud-background.timer
+
 [Container]
 Image=docker.io/library/nextcloud:35.0.3-apache
 AutoUpdate=registry
