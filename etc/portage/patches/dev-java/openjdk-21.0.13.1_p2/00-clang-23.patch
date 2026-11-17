@@ -1,0 +1,588 @@
+diff --git a/src/hotspot/os/aix/os_aix.cpp b/src/hotspot/os/aix/os_aix.cpp
+index 726ff10..38ed556 100644
+--- a/src/hotspot/os/aix/os_aix.cpp
++++ b/src/hotspot/os/aix/os_aix.cpp
+@@ -29,6 +29,7 @@
+ 
+ // no precompiled headers
+ #include "classfile/vmSymbols.hpp"
++#include <new>
+ #include "code/icBuffer.hpp"
+ #include "code/vtableStubs.hpp"
+ #include "compiler/compileBroker.hpp"
+diff --git a/src/hotspot/os/bsd/os_bsd.cpp b/src/hotspot/os/bsd/os_bsd.cpp
+index daf212f..9d3db6c 100644
+--- a/src/hotspot/os/bsd/os_bsd.cpp
++++ b/src/hotspot/os/bsd/os_bsd.cpp
+@@ -24,6 +24,7 @@
+ 
+ // no precompiled headers
+ #include "classfile/vmSymbols.hpp"
++#include <new>
+ #include "code/icBuffer.hpp"
+ #include "code/vtableStubs.hpp"
+ #include "compiler/compileBroker.hpp"
+diff --git a/src/hotspot/os/linux/os_linux.cpp b/src/hotspot/os/linux/os_linux.cpp
+index a163b86..642128a 100644
+--- a/src/hotspot/os/linux/os_linux.cpp
++++ b/src/hotspot/os/linux/os_linux.cpp
+@@ -25,6 +25,7 @@
+ 
+ // no precompiled headers
+ #include "classfile/vmSymbols.hpp"
++#include <new>
+ #include "code/icBuffer.hpp"
+ #include "code/vtableStubs.hpp"
+ #include "compiler/compileBroker.hpp"
+diff --git a/src/hotspot/os/windows/os_windows.cpp b/src/hotspot/os/windows/os_windows.cpp
+index 72a365f..39af608 100644
+--- a/src/hotspot/os/windows/os_windows.cpp
++++ b/src/hotspot/os/windows/os_windows.cpp
+@@ -26,6 +26,7 @@
+ 
+ // no precompiled headers
+ #include "classfile/vmSymbols.hpp"
++#include <new>
+ #include "code/codeCache.hpp"
+ #include "code/icBuffer.hpp"
+ #include "code/nativeInst.hpp"
+diff --git a/src/hotspot/share/gc/g1/g1ConcurrentRefineThread.cpp b/src/hotspot/share/gc/g1/g1ConcurrentRefineThread.cpp
+index 5278fc2..18b6638 100644
+--- a/src/hotspot/share/gc/g1/g1ConcurrentRefineThread.cpp
++++ b/src/hotspot/share/gc/g1/g1ConcurrentRefineThread.cpp
+@@ -23,6 +23,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ #include "gc/g1/g1BarrierSet.hpp"
+ #include "gc/g1/g1ConcurrentRefine.hpp"
+ #include "gc/g1/g1ConcurrentRefineStats.hpp"
+diff --git a/src/hotspot/share/jfr/utilities/jfrAllocation.cpp b/src/hotspot/share/jfr/utilities/jfrAllocation.cpp
+index a9d164c..ed8a3e3 100644
+--- a/src/hotspot/share/jfr/utilities/jfrAllocation.cpp
++++ b/src/hotspot/share/jfr/utilities/jfrAllocation.cpp
+@@ -23,6 +23,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ #include "jfr/recorder/jfrRecorder.hpp"
+ #include "jfr/utilities/jfrAllocation.hpp"
+ #include "logging/log.hpp"
+diff --git a/src/hotspot/share/jfr/utilities/jfrAllocation.hpp b/src/hotspot/share/jfr/utilities/jfrAllocation.hpp
+index d16880a..161ce71 100644
+--- a/src/hotspot/share/jfr/utilities/jfrAllocation.hpp
++++ b/src/hotspot/share/jfr/utilities/jfrAllocation.hpp
+@@ -26,6 +26,7 @@
+ #define SHARE_JFR_UTILITIES_JFRALLOCATION_HPP
+ 
+ #include "memory/allocation.hpp"
++#include <new>
+ #include "utilities/exceptions.hpp"
+ 
+ /*
+diff --git a/src/hotspot/share/memory/allocation.cpp b/src/hotspot/share/memory/allocation.cpp
+index 120d0df..44c60c8 100644
+--- a/src/hotspot/share/memory/allocation.cpp
++++ b/src/hotspot/share/memory/allocation.cpp
+@@ -23,6 +23,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ #include "memory/allocation.hpp"
+ #include "memory/allocation.inline.hpp"
+ #include "memory/arena.hpp"
+diff --git a/src/hotspot/share/memory/allocation.hpp b/src/hotspot/share/memory/allocation.hpp
+index 0bb1840..b282acb 100644
+--- a/src/hotspot/share/memory/allocation.hpp
++++ b/src/hotspot/share/memory/allocation.hpp
+@@ -26,6 +26,7 @@
+ #define SHARE_MEMORY_ALLOCATION_HPP
+ 
+ #include "memory/allStatic.hpp"
++#include <new>
+ #include "utilities/debug.hpp"
+ #include "utilities/globalDefinitions.hpp"
+ #include "utilities/macros.hpp"
+diff --git a/src/hotspot/share/memory/heapInspection.cpp b/src/hotspot/share/memory/heapInspection.cpp
+index 820814f..f2e6678 100644
+--- a/src/hotspot/share/memory/heapInspection.cpp
++++ b/src/hotspot/share/memory/heapInspection.cpp
+@@ -23,6 +23,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ #include "classfile/classLoaderData.inline.hpp"
+ #include "classfile/classLoaderDataGraph.hpp"
+ #include "classfile/moduleEntry.hpp"
+diff --git a/src/hotspot/share/oops/methodData.cpp b/src/hotspot/share/oops/methodData.cpp
+index 80d1cf1..7dcf0e7 100644
+--- a/src/hotspot/share/oops/methodData.cpp
++++ b/src/hotspot/share/oops/methodData.cpp
+@@ -23,6 +23,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ #include "ci/ciMethodData.hpp"
+ #include "classfile/vmSymbols.hpp"
+ #include "compiler/compilationPolicy.hpp"
+diff --git a/src/hotspot/share/prims/jvmtiEnv.cpp b/src/hotspot/share/prims/jvmtiEnv.cpp
+index ed3eeeb..0eeff0e 100644
+--- a/src/hotspot/share/prims/jvmtiEnv.cpp
++++ b/src/hotspot/share/prims/jvmtiEnv.cpp
+@@ -23,6 +23,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ #include "classfile/classLoaderExt.hpp"
+ #include "classfile/javaClasses.inline.hpp"
+ #include "classfile/stringTable.hpp"
+diff --git a/src/hotspot/share/runtime/jniHandles.cpp b/src/hotspot/share/runtime/jniHandles.cpp
+index a74b560..69d12e1 100644
+--- a/src/hotspot/share/runtime/jniHandles.cpp
++++ b/src/hotspot/share/runtime/jniHandles.cpp
+@@ -23,6 +23,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ #include "gc/shared/collectedHeap.hpp"
+ #include "gc/shared/oopStorage.inline.hpp"
+ #include "gc/shared/oopStorageSet.hpp"
+diff --git a/src/hotspot/share/runtime/trimNativeHeap.cpp b/src/hotspot/share/runtime/trimNativeHeap.cpp
+index 7700c8e..b96d955 100644
+--- a/src/hotspot/share/runtime/trimNativeHeap.cpp
++++ b/src/hotspot/share/runtime/trimNativeHeap.cpp
+@@ -25,6 +25,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ #include "logging/log.hpp"
+ #include "runtime/globals.hpp"
+ #include "runtime/globals_extension.hpp"
+diff --git a/src/hotspot/share/services/heapDumper.cpp b/src/hotspot/share/services/heapDumper.cpp
+index 2368973..80ac9a3 100644
+--- a/src/hotspot/share/services/heapDumper.cpp
++++ b/src/hotspot/share/services/heapDumper.cpp
+@@ -23,6 +23,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ #include "classfile/classLoaderData.inline.hpp"
+ #include "classfile/classLoaderDataGraph.hpp"
+ #include "classfile/javaClasses.inline.hpp"
+diff --git a/src/hotspot/share/services/heapDumperCompression.cpp b/src/hotspot/share/services/heapDumperCompression.cpp
+index 7afa769..f199c57 100644
+--- a/src/hotspot/share/services/heapDumperCompression.cpp
++++ b/src/hotspot/share/services/heapDumperCompression.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ #include "jvm.h"
+ #include "runtime/arguments.hpp"
+ #include "runtime/javaThread.hpp"
+diff --git a/src/hotspot/share/services/threadStackTracker.cpp b/src/hotspot/share/services/threadStackTracker.cpp
+index a6b14ef..f8b94ba 100644
+--- a/src/hotspot/share/services/threadStackTracker.cpp
++++ b/src/hotspot/share/services/threadStackTracker.cpp
+@@ -23,6 +23,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ 
+ #include "runtime/threadCritical.hpp"
+ #include "services/mallocTracker.hpp"
+diff --git a/src/hotspot/share/services/virtualMemoryTracker.cpp b/src/hotspot/share/services/virtualMemoryTracker.cpp
+index 5c0ab5e..2e4cc5b 100644
+--- a/src/hotspot/share/services/virtualMemoryTracker.cpp
++++ b/src/hotspot/share/services/virtualMemoryTracker.cpp
+@@ -22,6 +22,7 @@
+  *
+  */
+ #include "precompiled.hpp"
++#include <new>
+ #include "logging/log.hpp"
+ #include "memory/metaspaceUtils.hpp"
+ #include "memory/metaspaceStats.hpp"
+diff --git a/src/hotspot/share/utilities/decoder.cpp b/src/hotspot/share/utilities/decoder.cpp
+index 8e4641a..48c0814 100644
+--- a/src/hotspot/share/utilities/decoder.cpp
++++ b/src/hotspot/share/utilities/decoder.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ #include "jvm.h"
+ #include "memory/allocation.inline.hpp"
+ #include "utilities/decoder.hpp"
+diff --git a/src/hotspot/share/utilities/decoder_elf.cpp b/src/hotspot/share/utilities/decoder_elf.cpp
+index d983673..f803e0c 100644
+--- a/src/hotspot/share/utilities/decoder_elf.cpp
++++ b/src/hotspot/share/utilities/decoder_elf.cpp
+@@ -23,6 +23,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ 
+ #if !defined(_WINDOWS) && !defined(__APPLE__)
+ #include "decoder_elf.hpp"
+diff --git a/src/hotspot/share/utilities/elfFile.cpp b/src/hotspot/share/utilities/elfFile.cpp
+index 2e26fee..dd451b2 100644
+--- a/src/hotspot/share/utilities/elfFile.cpp
++++ b/src/hotspot/share/utilities/elfFile.cpp
+@@ -23,6 +23,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ 
+ #if !defined(_WINDOWS) && !defined(__APPLE__)
+ 
+diff --git a/src/hotspot/share/utilities/growableArray.hpp b/src/hotspot/share/utilities/growableArray.hpp
+index 63dbf66..4668776 100644
+--- a/src/hotspot/share/utilities/growableArray.hpp
++++ b/src/hotspot/share/utilities/growableArray.hpp
+@@ -26,6 +26,7 @@
+ #define SHARE_UTILITIES_GROWABLEARRAY_HPP
+ 
+ #include "memory/allocation.hpp"
++#include <new>
+ #include "memory/iterator.hpp"
+ #include "utilities/debug.hpp"
+ #include "utilities/globalDefinitions.hpp"
+diff --git a/src/hotspot/share/utilities/linkedlist.hpp b/src/hotspot/share/utilities/linkedlist.hpp
+index eec7ea1..a19f9ae 100644
+--- a/src/hotspot/share/utilities/linkedlist.hpp
++++ b/src/hotspot/share/utilities/linkedlist.hpp
+@@ -26,6 +26,7 @@
+ #define SHARE_UTILITIES_LINKEDLIST_HPP
+ 
+ #include "memory/allocation.hpp"
++#include <new>
+ 
+ /*
+  * The implementation of a generic linked list, which uses various
+diff --git a/src/java.security.jgss/windows/native/libsspi_bridge/sspi.cpp b/src/java.security.jgss/windows/native/libsspi_bridge/sspi.cpp
+index b4cbe9e..e0efac7 100644
+--- a/src/java.security.jgss/windows/native/libsspi_bridge/sspi.cpp
++++ b/src/java.security.jgss/windows/native/libsspi_bridge/sspi.cpp
+@@ -36,6 +36,7 @@
+ #define _UNICODE
+ 
+ #include <windows.h>
++#include <new>
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <string.h>
+diff --git a/src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp b/src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp
+index f4af444..2401488 100644
+--- a/src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp
++++ b/src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp
+@@ -29,6 +29,7 @@
+ //
+ 
+ #include <jni.h>
++#include <new>
+ #include "jni_util.h"
+ #include <stdlib.h>
+ #include <string.h>
+diff --git a/src/jdk.jpackage/linux/native/libapplauncher/LinuxLauncherLib.cpp b/src/jdk.jpackage/linux/native/libapplauncher/LinuxLauncherLib.cpp
+index 52d3f28..a37cc03 100644
+--- a/src/jdk.jpackage/linux/native/libapplauncher/LinuxLauncherLib.cpp
++++ b/src/jdk.jpackage/linux/native/libapplauncher/LinuxLauncherLib.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include "kludge_c++11.h"
++#include <new>
+ 
+ #include <memory>
+ #include "JvmLauncher.h"
+diff --git a/src/jdk.jpackage/linux/native/libapplauncher/Package.cpp b/src/jdk.jpackage/linux/native/libapplauncher/Package.cpp
+index 3665d7e..d17bd62 100644
+--- a/src/jdk.jpackage/linux/native/libapplauncher/Package.cpp
++++ b/src/jdk.jpackage/linux/native/libapplauncher/Package.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include "Package.h"
++#include <new>
+ #include "Executor.h"
+ #include "AppLauncher.h"
+ #include "ErrorHandling.h"
+diff --git a/src/jdk.jpackage/macosx/native/applauncher/MacLauncher.cpp b/src/jdk.jpackage/macosx/native/applauncher/MacLauncher.cpp
+index 5c9ca8e..933f693 100644
+--- a/src/jdk.jpackage/macosx/native/applauncher/MacLauncher.cpp
++++ b/src/jdk.jpackage/macosx/native/applauncher/MacLauncher.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include "app.h"
++#include <new>
+ #include "AppLauncher.h"
+ #include "ErrorHandling.h"
+ #include "FileUtils.h"
+diff --git a/src/jdk.jpackage/share/native/applauncher/AppLauncher.cpp b/src/jdk.jpackage/share/native/applauncher/AppLauncher.cpp
+index e1628cd..016d11d 100644
+--- a/src/jdk.jpackage/share/native/applauncher/AppLauncher.cpp
++++ b/src/jdk.jpackage/share/native/applauncher/AppLauncher.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include <algorithm>
++#include <new>
+ #include "AppLauncher.h"
+ #include "JvmLauncher.h"
+ #include "CfgFile.h"
+diff --git a/src/jdk.jpackage/share/native/common/Dll.h b/src/jdk.jpackage/share/native/common/Dll.h
+index 491f086..02afa28 100644
+--- a/src/jdk.jpackage/share/native/common/Dll.h
++++ b/src/jdk.jpackage/share/native/common/Dll.h
+@@ -28,6 +28,7 @@
+ 
+ #ifdef _WIN32
+ #include <windows.h>
++#include <new>
+ #else
+ typedef void* HMODULE;
+ #endif
+diff --git a/src/jdk.jpackage/share/native/common/SysInfo.h b/src/jdk.jpackage/share/native/common/SysInfo.h
+index 28609d0..53f750c 100644
+--- a/src/jdk.jpackage/share/native/common/SysInfo.h
++++ b/src/jdk.jpackage/share/native/common/SysInfo.h
+@@ -28,6 +28,7 @@
+ #define SYSINFO_H
+ 
+ #include "tstrings.h"
++#include <new>
+ 
+ 
+ //
+diff --git a/src/jdk.jpackage/share/native/common/app.cpp b/src/jdk.jpackage/share/native/common/app.cpp
+index 4ee7b90..bb02d51 100644
+--- a/src/jdk.jpackage/share/native/common/app.cpp
++++ b/src/jdk.jpackage/share/native/common/app.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include "kludge_c++11.h"
++#include <new>
+ 
+ #include <memory>
+ #include "app.h"
+diff --git a/src/jdk.jpackage/share/native/common/app.h b/src/jdk.jpackage/share/native/common/app.h
+index d3e5605..7a483c2 100644
+--- a/src/jdk.jpackage/share/native/common/app.h
++++ b/src/jdk.jpackage/share/native/common/app.h
+@@ -28,6 +28,7 @@
+ #define app_h
+ 
+ #include "tstrings.h"
++#include <new>
+ 
+ class LogAppender;
+ 
+diff --git a/src/jdk.jpackage/unix/native/common/UnixSysInfo.cpp b/src/jdk.jpackage/unix/native/common/UnixSysInfo.cpp
+index a5015b3..7aed2c7 100644
+--- a/src/jdk.jpackage/unix/native/common/UnixSysInfo.cpp
++++ b/src/jdk.jpackage/unix/native/common/UnixSysInfo.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include <stdlib.h>
++#include <new>
+ #include "SysInfo.h"
+ #include "UnixSysInfo.h"
+ #include "ErrorHandling.h"
+diff --git a/src/jdk.jpackage/windows/native/applauncher/WinLauncher.cpp b/src/jdk.jpackage/windows/native/applauncher/WinLauncher.cpp
+index a6354dc..82327ee 100644
+--- a/src/jdk.jpackage/windows/native/applauncher/WinLauncher.cpp
++++ b/src/jdk.jpackage/windows/native/applauncher/WinLauncher.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include <io.h>
++#include <new>
+ #include <fcntl.h>
+ #include <stdlib.h>
+ #include <windows.h>
+diff --git a/src/jdk.jpackage/windows/native/common/MsiDb.cpp b/src/jdk.jpackage/windows/native/common/MsiDb.cpp
+index 6b2f93b..54414a3 100644
+--- a/src/jdk.jpackage/windows/native/common/MsiDb.cpp
++++ b/src/jdk.jpackage/windows/native/common/MsiDb.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include "MsiDb.h"
++#include <new>
+ #include "FileUtils.h"
+ #include "WinFileUtils.h"
+ #include "Log.h"
+diff --git a/src/jdk.jpackage/windows/native/common/MsiDb.h b/src/jdk.jpackage/windows/native/common/MsiDb.h
+index fadc7bc..97c2ddc 100644
+--- a/src/jdk.jpackage/windows/native/common/MsiDb.h
++++ b/src/jdk.jpackage/windows/native/common/MsiDb.h
+@@ -27,6 +27,7 @@
+ #define MsiDb_h
+ 
+ #include <windows.h>
++#include <new>
+ #include <msiquery.h>
+ 
+ #include "MsiUtils.h"
+diff --git a/src/jdk.jpackage/windows/native/common/MsiUtils.cpp b/src/jdk.jpackage/windows/native/common/MsiUtils.cpp
+index 2a76b6c..f4092d1 100644
+--- a/src/jdk.jpackage/windows/native/common/MsiUtils.cpp
++++ b/src/jdk.jpackage/windows/native/common/MsiUtils.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include "MsiUtils.h"
++#include <new>
+ #include "MsiDb.h"
+ #include "Resources.h"
+ #include "Dll.h"
+diff --git a/src/jdk.jpackage/windows/native/common/MsiUtils.h b/src/jdk.jpackage/windows/native/common/MsiUtils.h
+index ad75d75..018271c 100644
+--- a/src/jdk.jpackage/windows/native/common/MsiUtils.h
++++ b/src/jdk.jpackage/windows/native/common/MsiUtils.h
+@@ -27,6 +27,7 @@
+ #define MsiUtils_h
+ 
+ #include <windows.h>
++#include <new>
+ #include <Msi.h>
+ #include <iterator>
+ #include <stdexcept>
+diff --git a/src/jdk.jpackage/windows/native/common/Resources.cpp b/src/jdk.jpackage/windows/native/common/Resources.cpp
+index d44a684..7d7d029 100644
+--- a/src/jdk.jpackage/windows/native/common/Resources.cpp
++++ b/src/jdk.jpackage/windows/native/common/Resources.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include "Resources.h"
++#include <new>
+ #include "FileUtils.h"
+ #include "WinFileUtils.h"
+ #include "WinErrorHandling.h"
+diff --git a/src/jdk.jpackage/windows/native/common/Resources.h b/src/jdk.jpackage/windows/native/common/Resources.h
+index 4d68e67..1088400 100644
+--- a/src/jdk.jpackage/windows/native/common/Resources.h
++++ b/src/jdk.jpackage/windows/native/common/Resources.h
+@@ -27,6 +27,7 @@
+ #define RESOURCES_H
+ 
+ #include "WinSysInfo.h"
++#include <new>
+ 
+ 
+ class StringResource;
+diff --git a/src/jdk.jpackage/windows/native/common/WinApp.cpp b/src/jdk.jpackage/windows/native/common/WinApp.cpp
+index 1c2bcf5..30e6ea2 100644
+--- a/src/jdk.jpackage/windows/native/common/WinApp.cpp
++++ b/src/jdk.jpackage/windows/native/common/WinApp.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include <memory>
++#include <new>
+ #include "WinApp.h"
+ #include "Log.h"
+ #include "SysInfo.h"
+diff --git a/src/jdk.jpackage/windows/native/common/WinApp.h b/src/jdk.jpackage/windows/native/common/WinApp.h
+index ab3429d..aa9d307 100644
+--- a/src/jdk.jpackage/windows/native/common/WinApp.h
++++ b/src/jdk.jpackage/windows/native/common/WinApp.h
+@@ -28,6 +28,7 @@
+ #define WinApp_h
+ 
+ #include "app.h"
++#include <new>
+ 
+ namespace app {
+ 
+diff --git a/src/jdk.jpackage/windows/native/common/WinErrorHandling.cpp b/src/jdk.jpackage/windows/native/common/WinErrorHandling.cpp
+index 2136ec2..e0a9d82 100644
+--- a/src/jdk.jpackage/windows/native/common/WinErrorHandling.cpp
++++ b/src/jdk.jpackage/windows/native/common/WinErrorHandling.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include "WinErrorHandling.h"
++#include <new>
+ #include "Log.h"
+ #include "SysInfo.h"
+ #include "FileUtils.h"
+diff --git a/src/jdk.jpackage/windows/native/common/WinFileUtils.cpp b/src/jdk.jpackage/windows/native/common/WinFileUtils.cpp
+index 993aed8..11d8b2e 100644
+--- a/src/jdk.jpackage/windows/native/common/WinFileUtils.cpp
++++ b/src/jdk.jpackage/windows/native/common/WinFileUtils.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include <memory>
++#include <new>
+ #include <algorithm>
+ #include <shlwapi.h>
+ #include <stdlib.h>
+diff --git a/src/jdk.jpackage/windows/native/common/WinFileUtils.h b/src/jdk.jpackage/windows/native/common/WinFileUtils.h
+index 2dfb32f..f5887c5 100644
+--- a/src/jdk.jpackage/windows/native/common/WinFileUtils.h
++++ b/src/jdk.jpackage/windows/native/common/WinFileUtils.h
+@@ -28,6 +28,7 @@
+ 
+ 
+ #include <fstream>
++#include <new>
+ #include "SysInfo.h"
+ 
+ 
+diff --git a/src/jdk.jpackage/windows/native/common/WinSysInfo.cpp b/src/jdk.jpackage/windows/native/common/WinSysInfo.cpp
+index b341c1c..140b7de 100644
+--- a/src/jdk.jpackage/windows/native/common/WinSysInfo.cpp
++++ b/src/jdk.jpackage/windows/native/common/WinSysInfo.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include <windows.h>
++#include <new>
+ #include <shellapi.h>
+ 
+ #include "WinSysInfo.h"
+diff --git a/src/jdk.jpackage/windows/native/msiwrapper/MsiWrapper.cpp b/src/jdk.jpackage/windows/native/msiwrapper/MsiWrapper.cpp
+index 405a4cb..dc69389 100644
+--- a/src/jdk.jpackage/windows/native/msiwrapper/MsiWrapper.cpp
++++ b/src/jdk.jpackage/windows/native/msiwrapper/MsiWrapper.cpp
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include <algorithm>
++#include <new>
+ #include <windows.h>
+ 
+ #include "WinApp.h"
+diff --git a/test/hotspot/gtest/utilities/test_growableArray.cpp b/test/hotspot/gtest/utilities/test_growableArray.cpp
+index cb70dfb..c19ff2c 100644
+--- a/test/hotspot/gtest/utilities/test_growableArray.cpp
++++ b/test/hotspot/gtest/utilities/test_growableArray.cpp
+@@ -22,6 +22,7 @@
+  */
+ 
+ #include "precompiled.hpp"
++#include <new>
+ #include "memory/resourceArea.hpp"
+ #include "utilities/growableArray.hpp"
+ #include "unittest.hpp"
