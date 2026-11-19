@@ -129,6 +129,7 @@ sys-kernel/cachyos-settings zram
 sys-kernel/installkernel dracut module-rebuild systemd-boot uki ukify
 sys-kernel/kernelscripts eclean-kernel
 sys-kernel/linux-firmware compress-zstd deduplicate
+sys-kernel/scx -scx-beerland -scx-bpfland -scx-cake -scx-cosmos -scx-eevdf -scx-flash -scx-layered -scx-mitosis -scx-p2dq -scx-pandemonium -scx-rusty
 sys-libs/libcap static-libs
 sys-libs/minizip-ng compat
 sys-libs/zlib -minizip
