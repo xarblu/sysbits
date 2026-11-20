@@ -251,7 +251,8 @@ ifeq ($(BETAS),yes)
 		etc/portage/package.unmask/10-python \
 		etc/portage/package.unmask/11-openssl \
 		etc/portage/package.unmask/12-steam \
-		etc/portage/package.unmask/13-makemkv
+		etc/portage/package.unmask/13-makemkv \
+		etc/portage/package.unmask/14-rust
 endif
 
 	install -Dm644 -t $(DESTDIR)/etc/portage/package.use \

@@ -1,0 +1,2 @@
+# unmask Rust versions early
+~dev-lang/rust-1.100.0
