@@ -15,12 +15,6 @@ sys-apps/xdg-desktop-portal-gtk
 
 ## Misc Apps
 app-admin/bitwarden-desktop-bin
-kde-apps/ark
-kde-apps/gwenview
-kde-apps/kate
-kde-apps/kcolorchooser
-kde-apps/kwalletmanager
-kde-apps/okular
 mail-client/thunderbird
 media-gfx/krita
 media-video/jellyfin-mpv-shim
