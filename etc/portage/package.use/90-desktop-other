@@ -44,9 +44,11 @@ gui-libs/greetd man
 gui-libs/wlroots tinywl
 gui-wm/gamescope libei
 kde-apps/kate-addons lspclient
-kde-apps/kde-apps-meta -accessibility admin -education -games -graphics -multimedia -network -pim -sdk -utils
+kde-apps/kde-apps-meta -accessibility admin -education -games graphics -multimedia network -pim -sdk utils
 kde-apps/kdeadmin-meta -cron
 kde-apps/kdecore-meta -webengine
+kde-apps/kdenetwork-meta -bittorrent
+kde-apps/kdeutils-meta -webengine
 kde-apps/kio-extras mtp nfs samba taglib
 kde-apps/krdc -rdp
 kde-apps/ksystemlog kdesu
