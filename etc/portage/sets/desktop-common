@@ -6,19 +6,13 @@
 kde-apps/kde-apps-meta
 kde-plasma/plasma-meta
 # not part of *-meta
-kde-misc/kdeconnect
 kde-plasma/plasma-login-manager
-kde-plasma/spectacle
-media-gfx/qrca
-# needed for theming in flatpak'ed GTK apps
-sys-apps/xdg-desktop-portal-gtk
 
 ## Misc Apps
 app-admin/bitwarden-desktop-bin
 mail-client/thunderbird
 media-gfx/krita
 media-video/jellyfin-mpv-shim
-net-irc/konversation
 sci-calculators/qalculate-gtk
 www-client/firefox
 
