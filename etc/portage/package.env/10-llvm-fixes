@@ -31,6 +31,8 @@ dev-debug/systemtap gcc
 # does some funky template stuff which clang doesn't like
 # https://github.com/intel/metrics-library/commit/c65edd9083d0fe723f40b0104e6d626fd71017c1
 dev-libs/intel-metrics-library gcc-libcxx
+# bgo#986910
+=x11-libs/libfontenc-1.1.10 gcc-libcxx
 #[END] Compile issues (general clang)
 
 #[START] Compile issues (latest clang)
