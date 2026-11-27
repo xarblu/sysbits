@@ -63,6 +63,7 @@ dev-util/tree-sitter-cli
 ## Network
 dev-vcs/git
 dev-vcs/git-lfs
+net-analyzer/vnstat
 net-dns/bind
 net-firewall/firewalld
 net-misc/curl
