@@ -38,7 +38,7 @@ dev-qt/qtwebengine pdfium
 dev-util/bpftool llvm
 dev-util/intel-graphics-compiler vc
 games-emulation/mgba discord ffmpeg
-games-util/mangohud mangoapp
+games-util/mangohud mangoapp mangohud-next
 gui-apps/sddm-gentoo-config kwin
 gui-libs/greetd man
 gui-libs/wlroots tinywl

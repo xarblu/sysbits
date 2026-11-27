@@ -35,9 +35,13 @@ app-emulation/wine-gecko ABI_X86: 32
 dev-util/mingw64-toolchain ABI_X86: 32
 
 # mangohud and its 32 bit deps
-dev-libs/libfmt ABI_X86: 32
-dev-libs/spdlog ABI_X86: 32
 dev-util/glslang ABI_X86: 32
 games-util/mangohud ABI_X86: 32
 sys-apps/dbus ABI_X86: 32
+sys-apps/systemd ABI_X86: 32
+sys-libs/gdbm ABI_X86: 32
+sys-libs/ncurses ABI_X86: 32
+sys-libs/pam ABI_X86: 32
+sys-libs/readline ABI_X86: 32
+virtual/libintl ABI_X86: 32
 x11-libs/libxkbcommon ABI_X86: 32
