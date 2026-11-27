@@ -40,6 +40,7 @@ games-util/mangohud ABI_X86: 32
 sys-apps/dbus ABI_X86: 32
 sys-apps/systemd ABI_X86: 32
 sys-libs/gdbm ABI_X86: 32
+sys-libs/gpm ABI_X86: 32
 sys-libs/ncurses ABI_X86: 32
 sys-libs/pam ABI_X86: 32
 sys-libs/readline ABI_X86: 32
